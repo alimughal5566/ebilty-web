@@ -1,0 +1,214 @@
+.=====================================================================.
+                                                                       
+  .d8888b.   .o8888b.  db  .d8888b.  d8888b. d88888b d8888b.  .d888b.  
+ .8P    Y8. d8P    Y8  88 .8P    Y8. 88  `8D 88'     88  `8D .8P , Y8. 
+ 88      88 8P     .ooo88 88      88 88oooY' 88oooo  88oobY' 88  |  88 
+ 88      88 8b     `~~~88 88      88 88~~~b. 88~~~~  88`8b   88  |/ 88 
+ `8b    d8' Y8b    d8  88 `8b    d8' 88   8D 88.     88 `88. `8b | d8' 
+  `Y8888P'   `Y8888P'  YP  `Y8888P'  Y8888P' Y88888P 88   YD  `Y888P'  
+                                                                       
+`========================== INSTALLATION LOG ========================='
+
+[2021/03/04 07:21:07] Host: Windows NT HASHIM-HPENVYM6 10.0 build 19042 (Windows 10) AMD64
+[2021/03/04 07:21:07] PHP version: 7.4.3
+[2021/03/04 07:21:07] Server software: Apache/2.4.41 (Win64) OpenSSL/1.1.1c PHP/7.4.3
+[2021/03/04 07:21:07] Operating system: WINNT
+[2021/03/04 07:21:07] Memory limit: 1024M
+[2021/03/04 07:21:07] Max execution time: 3600
+.============================ POST REQUEST ==========================.
+[2021/03/04 07:21:08] Postback payload: Array
+(
+    [code] => phpVersion
+    [handler] => onCheckRequirement
+)
+
+[2021/03/04 07:21:08] System check: phpVersion
+[2021/03/04 07:21:08] Requirement phpVersion +OK
+[2021/03/04 07:21:08] Execute handler (onCheckRequirement): Array
+(
+    [result] => 1
+)
+
+.============================ POST REQUEST ==========================.
+[2021/03/04 07:21:09] Postback payload: Array
+(
+    [code] => curlLibrary
+    [handler] => onCheckRequirement
+)
+
+[2021/03/04 07:21:09] System check: curlLibrary
+[2021/03/04 07:21:09] Requirement curlLibrary +OK
+[2021/03/04 07:21:09] Execute handler (onCheckRequirement): Array
+(
+    [result] => 1
+)
+
+.============================ POST REQUEST ==========================.
+[2021/03/04 07:21:09] Postback payload: Array
+(
+    [code] => liveConnection
+    [handler] => onCheckRequirement
+)
+
+[2021/03/04 07:21:09] System check: liveConnection
+[2021/03/04 07:21:10] Server request: ping
+[2021/03/04 07:21:10] Request information: Array
+(
+    [url] => http://gateway.octobercms.com/api/ping
+    [content_type] => application/json
+    [http_code] => 200
+    [header_size] => 688
+    [request_size] => 175
+    [filetime] => -1
+    [ssl_verify_result] => 0
+    [redirect_count] => 0
+    [total_time] => 0.796715
+    [namelookup_time] => 0.155266
+    [connect_time] => 0.449392
+    [pretransfer_time] => 0.449568
+    [size_upload] => 36
+    [size_download] => 12
+    [speed_download] => 15
+    [speed_upload] => 45
+    [download_content_length] => -1
+    [upload_content_length] => 36
+    [starttransfer_time] => 0.794222
+    [redirect_time] => 0
+    [redirect_url] => 
+    [primary_ip] => 52.24.36.22
+    [certinfo] => Array
+        (
+        )
+
+    [primary_port] => 80
+    [local_ip] => 192.168.18.123
+    [local_port] => 53524
+    [http_version] => 2
+    [protocol] => 1
+    [ssl_verifyresult] => 0
+    [scheme] => HTTP
+    [appconnect_time_us] => 0
+    [connect_time_us] => 449392
+    [namelookup_time_us] => 155266
+    [pretransfer_time_us] => 449568
+    [redirect_time_us] => 0
+    [starttransfer_time_us] => 794222
+    [total_time_us] => 796715
+)
+
+[2021/03/04 07:21:10] Requirement liveConnection +OK
+[2021/03/04 07:21:10] Execute handler (onCheckRequirement): Array
+(
+    [result] => 1
+)
+
+.============================ POST REQUEST ==========================.
+[2021/03/04 07:21:10] Postback payload: Array
+(
+    [code] => writePermission
+    [handler] => onCheckRequirement
+)
+
+[2021/03/04 07:21:10] System check: writePermission
+[2021/03/04 07:21:10] Requirement writePermission +OK
+[2021/03/04 07:21:10] Execute handler (onCheckRequirement): Array
+(
+    [result] => 1
+)
+
+.============================ POST REQUEST ==========================.
+[2021/03/04 07:21:11] Postback payload: Array
+(
+    [code] => pdoLibrary
+    [handler] => onCheckRequirement
+)
+
+[2021/03/04 07:21:11] System check: pdoLibrary
+[2021/03/04 07:21:11] Requirement pdoLibrary +OK
+[2021/03/04 07:21:11] Execute handler (onCheckRequirement): Array
+(
+    [result] => 1
+)
+
+.============================ POST REQUEST ==========================.
+[2021/03/04 07:21:12] Postback payload: Array
+(
+    [code] => mbstringLibrary
+    [handler] => onCheckRequirement
+)
+
+[2021/03/04 07:21:12] System check: mbstringLibrary
+[2021/03/04 07:21:12] Requirement mbstringLibrary +OK
+[2021/03/04 07:21:12] Execute handler (onCheckRequirement): Array
+(
+    [result] => 1
+)
+
+.============================ POST REQUEST ==========================.
+[2021/03/04 07:21:13] Postback payload: Array
+(
+    [code] => fileinfoLibrary
+    [handler] => onCheckRequirement
+)
+
+[2021/03/04 07:21:13] System check: fileinfoLibrary
+[2021/03/04 07:21:13] Requirement fileinfoLibrary +OK
+[2021/03/04 07:21:13] Execute handler (onCheckRequirement): Array
+(
+    [result] => 1
+)
+
+.============================ POST REQUEST ==========================.
+[2021/03/04 07:21:14] Postback payload: Array
+(
+    [code] => sslLibrary
+    [handler] => onCheckRequirement
+)
+
+[2021/03/04 07:21:14] System check: sslLibrary
+[2021/03/04 07:21:14] Requirement sslLibrary +OK
+[2021/03/04 07:21:14] Execute handler (onCheckRequirement): Array
+(
+    [result] => 1
+)
+
+.============================ POST REQUEST ==========================.
+[2021/03/04 07:21:15] Postback payload: Array
+(
+    [code] => zipLibrary
+    [handler] => onCheckRequirement
+)
+
+[2021/03/04 07:21:15] System check: zipLibrary
+[2021/03/04 07:21:15] Requirement zipLibrary +OK
+[2021/03/04 07:21:15] Execute handler (onCheckRequirement): Array
+(
+    [result] => 1
+)
+
+.============================ POST REQUEST ==========================.
+[2021/03/04 07:21:16] Postback payload: Array
+(
+    [code] => gdLibrary
+    [handler] => onCheckRequirement
+)
+
+[2021/03/04 07:21:16] System check: gdLibrary
+[2021/03/04 07:21:16] Requirement gdLibrary +OK
+[2021/03/04 07:21:16] Execute handler (onCheckRequirement): Array
+(
+    [result] => 1
+)
+
+.============================ POST REQUEST ==========================.
+[2021/03/04 07:21:35] Postback payload: Array
+(
+    [db_type] => mysql
+    [db_host] => localhost
+    [db_port] => 
+    [db_name] => admin_ebilty
+    [db_user] => root
+    [db_pass] => *******
+    [handler] => onValidateDatabase
+)
+
