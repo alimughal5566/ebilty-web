@@ -420,7 +420,7 @@ class CombineAssets
         $filesSalt = null;
         foreach ($assets as $asset) {
             $filters = $this->getFilters(File::extension($asset)) ?: [];
-            $path = file_exists($asset) ? $asset : File::symbolizePath($asset, null) ?: $this->localPath . $asset;
+            $path = (file_exists($asset) ? $asset : File::symbolizePath($asset, null)) ?: $this->localPath . $asset;
             $files[] = new FileAsset($path, $filters, public_path());
             $filesSalt .= $this->localPath . $asset;
         }
@@ -474,7 +474,7 @@ class CombineAssets
         $key = '';
 
         $assetFiles = array_map(function ($file) {
-            return file_exists($file) ? $file : File::symbolizePath($file, null) ?: $this->localPath . $file;
+            return (file_exists($file) ? $file : File::symbolizePath($file, null)) ?: $this->localPath . $file;
         }, $assets);
 
         foreach ($assetFiles as $file) {
