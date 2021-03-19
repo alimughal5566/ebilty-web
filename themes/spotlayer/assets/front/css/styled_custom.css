@@ -1,0 +1,35 @@
+/* ==========================================================================
+*
+* Our Custom CSS Stylesheet. This is where you should add your own styles!
+*
+** ========================================================================== */
+
+.iosslider-slideshow .iosSlider .kl-iosslide-caption, .iosslider-slideshow .iosSlider .slide-item-bg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    margin-top: 0;
+}
+
+.iosslider-slideshow .iosSlider .kl-iosslide-caption {
+    position: unset;
+    top: unset;
+    right: unset;
+    bottom: unset;
+    left: unset;
+    transform: unset;
+}
+
+.iosslider-slideshow .iosSlider .kl-iosslide-caption .main_title::before {
+    transform: unset;
+    background-color: unset;
+}
+
+.elm-social-icons .elm-sc-icon.bg-icon {
+    background: transparent;
+}
+
+.logo-container.hasInfoCard::before {
+    content: '';
+}
