@@ -73,28 +73,31 @@ function onStart(){
 					<!-- Captions animateme wrapper -->
 					<div class="animateme" data-when="span" data-from="0" data-to="0.75" data-opacity="0.1" data-easing="linear">
 						<!-- Main Big Title -->
-						<h2 class="main_title has_titlebig">
+						<h2 class="main_title has_titlebig text-center">
 							<!-- <span><strong>{{'FAST'|__}}</strong>, {{'SAFE & ACCURATE'|__}}</span> -->
-							<span>
+							<span class="text-center">
 								{{slider.titleslider}}
 							</span>
 						</h2>
 						<!--/ Main Big Title -->
 
 						<!-- Big Title -->
-						<h3 class="title_big">
+						<p class="title_big text-center">
 							<!-- {{'ANYWHERE'|__}}<strong> {{'IN THIS WORLD'|__}}</strong> -->
 							{{slider.subtitle}}
-						</h3>
+						</p>
 						<!--/ Big Title -->
 
 						<!-- Link more button -->
-						<a href="{{slider.link}}" target="_self" class="more">  <!-- {{'about'|page}} -->
-							{{'SEE MORE'|__}}
-						</a>
-						<a href="{{slider.link}}" target="_self" class="more">  <!-- {{'about'|page}} -->
-							{{'SEE MORE'|__}}
-						</a>
+						<div class="button_more text-center">
+							<a href="{{slider.link}}" target="_self" class="more">  <!-- {{'about'|page}} -->
+								{{'TRANSPORTER'|__}}
+							</a>
+							<a href="{{slider.link}}" target="_self" class="more">  <!-- {{'about'|page}} -->
+								{{'CUSTOMER'|__}}
+							</a>
+
+						</div>
 						<!--/ Link more button -->
 					</div>
 					<!--/ Captions animateme wrapper -->

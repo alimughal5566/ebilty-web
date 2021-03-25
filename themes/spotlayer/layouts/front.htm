@@ -171,148 +171,148 @@ function onMyRegister()
     	<!-- Page Wrapper -->
     	<div id="page_wrapper">
     		<!-- Header style 1 -->
-    		<header id="header" class="site-header cta_button" data-header-style="1">
+    		<header id="header" class="site-header cta_button bg-white" data-header-style="1">
     			<!-- Header background -->
-    			<div class="kl-header-bg"></div>
+<!--    			<div class="kl-header-bg"></div>-->
     			<!--/ Header background -->
 
     			<!-- Header wrapper -->
     			<div class="site-header-wrapper">
     				<!-- Header Top wrapper -->
-    				<div class="site-header-top-wrapper">
-    					<!-- Header Top container -->
-    					<div class="siteheader-container container">
-    						<!-- Header Top -->
-    						<div class="site-header-row site-header-top d-flex flex-row">
-    							<!-- Header Top Left Side -->
-    							<div class="site-header-top-left w-md-60 w-50 d-flex justify-content-start">
-    								<!-- Header Top Social links -->
-    								<ul class="topnav social-icons sc--clean align-self-center">
-                                        {% if settings.company.facebook %}
-    									<li>
-    										<a href="{{ settings.company.facebook }}" target="_self" title="{{'Facebook'|__}}">
-    											<i class="fab fa-facebook-f"></i>
-    										</a>
-    									</li>
-                                        {% endif %}
-                                        {% if settings.company.twitter %}
-    									<li>
-    										<a href="{{ settings.company.twitter }}" target="_self" title="{{'Twitter'|__}}">
-    											<i class="fab fa-twitter"></i>
-    										</a>
-    									</li>
-                                        {% endif %}
-                                        {% if settings.company.instagram %}
-    									<li>
-    										<a href="{{ settings.company.instagram }}" target="_self" title="{{'Instagram'|__}}">
-    											<i class="fab fa-instagram"></i>
-    										</a>
-    									</li>
-                                        {% endif %}
-    								</ul>
-    								<!--/ Header Top Social links -->
+<!--    				<div class="site-header-top-wrapper">-->
+<!--    					&lt;!&ndash; Header Top container &ndash;&gt;-->
+<!--    					<div class="siteheader-container container">-->
+<!--    						&lt;!&ndash; Header Top &ndash;&gt;-->
+<!--    						<div class="site-header-row site-header-top d-flex flex-row">-->
+<!--    							&lt;!&ndash; Header Top Left Side &ndash;&gt;-->
+<!--    							<div class="site-header-top-left w-md-60 w-50 d-flex justify-content-start">-->
+<!--    								&lt;!&ndash; Header Top Social links &ndash;&gt;-->
+<!--    								<ul class="topnav social-icons sc&#45;&#45;clean align-self-center">-->
+<!--                                        {% if settings.company.facebook %}-->
+<!--    									<li>-->
+<!--    										<a href="{{ settings.company.facebook }}" target="_self" title="{{'Facebook'|__}}">-->
+<!--    											<i class="fab fa-facebook-f"></i>-->
+<!--    										</a>-->
+<!--    									</li>-->
+<!--                                        {% endif %}-->
+<!--                                        {% if settings.company.twitter %}-->
+<!--    									<li>-->
+<!--    										<a href="{{ settings.company.twitter }}" target="_self" title="{{'Twitter'|__}}">-->
+<!--    											<i class="fab fa-twitter"></i>-->
+<!--    										</a>-->
+<!--    									</li>-->
+<!--                                        {% endif %}-->
+<!--                                        {% if settings.company.instagram %}-->
+<!--    									<li>-->
+<!--    										<a href="{{ settings.company.instagram }}" target="_self" title="{{'Instagram'|__}}">-->
+<!--    											<i class="fab fa-instagram"></i>-->
+<!--    										</a>-->
+<!--    									</li>-->
+<!--                                        {% endif %}-->
+<!--    								</ul>-->
+<!--    								&lt;!&ndash;/ Header Top Social links &ndash;&gt;-->
 
-    								<div class="clearfix visible-xxs">
-    								</div>
+<!--    								<div class="clearfix visible-xxs">-->
+<!--    								</div>-->
 
-    								<!-- Top Header contact text -->
-    								<div class="kl-header-toptext align-self-center">
-    									<span class="topnav-item--text">{{'QUESTIONS? CALL'|__}}: </span>
-    									<i class="phone-header fas fa-phone ml-5 visible-xs visible-sm visible-md"></i>
-    									<a href="tel:{{ settings.company.company_phone }}" class="fw-bold">{{ settings.company.company_phone }}</a>
-    								</div>
-    								<!--/ Top Header contact text -->
-    							</div>
-    							<!--/ .site-header-top-left -->
+<!--    								&lt;!&ndash; Top Header contact text &ndash;&gt;-->
+<!--    								<div class="kl-header-toptext align-self-center">-->
+<!--    									<span class="topnav-item&#45;&#45;text">{{'QUESTIONS? CALL'|__}}: </span>-->
+<!--    									<i class="phone-header fas fa-phone ml-5 visible-xs visible-sm visible-md"></i>-->
+<!--    									<a href="tel:{{ settings.company.company_phone }}" class="fw-bold">{{ settings.company.company_phone }}</a>-->
+<!--    								</div>-->
+<!--    								&lt;!&ndash;/ Top Header contact text &ndash;&gt;-->
+<!--    							</div>-->
+<!--    							&lt;!&ndash;/ .site-header-top-left &ndash;&gt;-->
 
-    							<!-- Header Top Right Side -->
-    							<div class="site-header-top-right w-md-40 w-50 d-flex justify-content-end">
-                                    {% if locales %}
-        								<!-- Languages -->
-        								<div class="topnav topnav--lang align-self-center">
-        									<div class="languages drop">
-        										<a href="javascript:;" class="topnav-item">
-        											<span class="fas fa-globe xs-icon"></span>
-        											<span class="topnav-item--text">{{'LANGUAGES'|__}}</span>
-        										</a>
-        										<div class="pPanel">
-        											<ul class="inner">
-                                                        {% for code, name in locales %}
-            												<li class="toplang-item {% if activeLocale == code %}active{% endif %}">
-            													<a href="javascript:;" class="locale" rel="{{code}}">
-            														<img src="./front/images/{{code}}.svg" alt="{{name}}" class="toplang-flag"> {{name|capitalize}}
-            													</a>
-            												</li>
-                                                        {% endfor %}
-        											</ul>
-        										</div>
-        									</div>
-        								</div>
-        								<!--/ Languages -->
-                                    {% endif %}
+<!--    							&lt;!&ndash; Header Top Right Side &ndash;&gt;-->
+<!--    							<div class="site-header-top-right w-md-40 w-50 d-flex justify-content-end">-->
+<!--                                    {% if locales %}-->
+<!--        								&lt;!&ndash; Languages &ndash;&gt;-->
+<!--        								<div class="topnav topnav&#45;&#45;lang align-self-center">-->
+<!--        									<div class="languages drop">-->
+<!--        										<a href="javascript:;" class="topnav-item">-->
+<!--        											<span class="fas fa-globe xs-icon"></span>-->
+<!--        											<span class="topnav-item&#45;&#45;text">{{'LANGUAGES'|__}}</span>-->
+<!--        										</a>-->
+<!--        										<div class="pPanel">-->
+<!--        											<ul class="inner">-->
+<!--                                                        {% for code, name in locales %}-->
+<!--            												<li class="toplang-item {% if activeLocale == code %}active{% endif %}">-->
+<!--            													<a href="javascript:;" class="locale" rel="{{code}}">-->
+<!--            														<img src="./front/images/{{code}}.svg" alt="{{name}}" class="toplang-flag"> {{name|capitalize}}-->
+<!--            													</a>-->
+<!--            												</li>-->
+<!--                                                        {% endfor %}-->
+<!--        											</ul>-->
+<!--        										</div>-->
+<!--        									</div>-->
+<!--        								</div>-->
+<!--        								&lt;!&ndash;/ Languages &ndash;&gt;-->
+<!--                                    {% endif %}-->
 
-    								<div class="topnav support--panel align-self-center">
-    									<!-- Support panel trigger -->
-    									<label for="support_p" class="topnav-item spanel-label">
-    										<i class="fas fa-info-circle support-info"></i>
-    										<span class="topnav-item--text">{{'SUPPORT'|__}}</span>
-    									</label>
-    									<!--/ Support panel trigger -->
-    								</div>
+<!--    								<div class="topnav support&#45;&#45;panel align-self-center">-->
+<!--    									&lt;!&ndash; Support panel trigger &ndash;&gt;-->
+<!--    									<label for="support_p" class="topnav-item spanel-label">-->
+<!--    										<i class="fas fa-info-circle support-info"></i>-->
+<!--    										<span class="topnav-item&#45;&#45;text">{{'SUPPORT'|__}}</span>-->
+<!--    									</label>-->
+<!--    									&lt;!&ndash;/ Support panel trigger &ndash;&gt;-->
+<!--    								</div>-->
 
-                                    {% if user %}
-                                    <div class="topnav topnav--lang align-self-center">
-                                        <div class="languages drop">
-                                            <a href="javascript:;" class="topnav-item">
-                                                <span class="fas far fa-user-circle xs-icon"></span>
-                                                <span class="topnav-item--text">{{'ACCOUNT'|__}}</span>
-                                            </a>
-                                            <div class="pPanel">
-                                                <ul class="inner">
-                                                    <li class="toplang-item">
-                                                        <a href="{{'dashboard/dashboard'|page}}">
-                                                            <img src="./front/images/set-03-01.svg" alt="{{'Dashboard'|__}}" class="toplang-flag"> {{'Dashboard'|__}}
-                                                        </a>
-                                                    </li>
-                                                    <li class="toplang-item">
-                                                        <a href="{{'dashboard/profile'|page}}">
-                                                            <img src="./front/images/set-03-04.svg" alt="{{'Profile'|__}}" class="toplang-flag"> {{'Profile'|__}}
-                                                        </a>
-                                                    </li>
-                                                    <li class="toplang-item">
-                                                        <a href="javascript:;" data-request="onLogout" data-request-data="redirect: '/'">
-                                                            <img src="./front/images/set-03-03.svg" alt="{{'Logout'|__}}" class="toplang-flag"> {{'Logout'|__}}
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    {% else %}
-    								<!-- Login trigger -->
-    								<div class="topnav login--panel align-self-center">
-    									<a class="topnav-item popup-with-form" href="#login_panel">
-    										<i class="login-icon fas fa-sign-in-alt visible-xs xs-icon"></i>
-    										<span class="topnav-item--text">{{'LOGIN'|__}}</span>
-    									</a>
-    								</div>
-    								<!--/ Login trigger -->
-                                    {% endif %}
-    							</div>
-    							<!--/ .site-header-top-right -->
-    						</div>
-    						<!--/ .site-header-row .site-header-top -->
+<!--                                    {% if user %}-->
+<!--                                    <div class="topnav topnav&#45;&#45;lang align-self-center">-->
+<!--                                        <div class="languages drop">-->
+<!--                                            <a href="javascript:;" class="topnav-item">-->
+<!--                                                <span class="fas far fa-user-circle xs-icon"></span>-->
+<!--                                                <span class="topnav-item&#45;&#45;text">{{'ACCOUNT'|__}}</span>-->
+<!--                                            </a>-->
+<!--                                            <div class="pPanel">-->
+<!--                                                <ul class="inner">-->
+<!--                                                    <li class="toplang-item">-->
+<!--                                                        <a href="{{'dashboard/dashboard'|page}}">-->
+<!--                                                            <img src="./front/images/set-03-01.svg" alt="{{'Dashboard'|__}}" class="toplang-flag"> {{'Dashboard'|__}}-->
+<!--                                                        </a>-->
+<!--                                                    </li>-->
+<!--                                                    <li class="toplang-item">-->
+<!--                                                        <a href="{{'dashboard/profile'|page}}">-->
+<!--                                                            <img src="./front/images/set-03-04.svg" alt="{{'Profile'|__}}" class="toplang-flag"> {{'Profile'|__}}-->
+<!--                                                        </a>-->
+<!--                                                    </li>-->
+<!--                                                    <li class="toplang-item">-->
+<!--                                                        <a href="javascript:;" data-request="onLogout" data-request-data="redirect: '/'">-->
+<!--                                                            <img src="./front/images/set-03-03.svg" alt="{{'Logout'|__}}" class="toplang-flag"> {{'Logout'|__}}-->
+<!--                                                        </a>-->
+<!--                                                    </li>-->
+<!--                                                </ul>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    {% else %}-->
+<!--    								&lt;!&ndash; Login trigger &ndash;&gt;-->
+<!--    								<div class="topnav login&#45;&#45;panel align-self-center">-->
+<!--    									<a class="topnav-item popup-with-form" href="#login_panel">-->
+<!--    										<i class="login-icon fas fa-sign-in-alt visible-xs xs-icon"></i>-->
+<!--    										<span class="topnav-item&#45;&#45;text">{{'LOGIN'|__}}</span>-->
+<!--    									</a>-->
+<!--    								</div>-->
+<!--    								&lt;!&ndash;/ Login trigger &ndash;&gt;-->
+<!--                                    {% endif %}-->
+<!--    							</div>-->
+<!--    							&lt;!&ndash;/ .site-header-top-right &ndash;&gt;-->
+<!--    						</div>-->
+<!--    						&lt;!&ndash;/ .site-header-row .site-header-top &ndash;&gt;-->
 
-    						<!-- Header separator -->
-    						<div class="separator site-header-separator"></div>
-    						<!--/ Header separator -->
-    					</div>
-    					<!--/ .siteheader-container .container -->
-    				</div>
+<!--    						&lt;!&ndash; Header separator &ndash;&gt;-->
+<!--    						<div class="separator site-header-separator"></div>-->
+<!--    						&lt;!&ndash;/ Header separator &ndash;&gt;-->
+<!--    					</div>-->
+<!--    					&lt;!&ndash;/ .siteheader-container .container &ndash;&gt;-->
+<!--    				</div>-->
     				<!--/ Header Top wrapper -->
 
     				<!-- Header Main wrapper -->
-    				<div class="site-header-main-wrapper d-flex">
+    				<div class="site-header-main-wrapper d-flex py-2">
     					<!-- Header Main container -->
     					<div class="siteheader-container container align-self-center">
     						<!-- Header Main -->
@@ -330,53 +330,53 @@ function onMyRegister()
     									<!--/ Logo -->
 
     									<!-- InfoCard -->
-    									<div id="infocard" class="logo-infocard">
-    										<div class="custom">
-    											<div class="row">
-    												<div class="col-sm-6 left-side d-flex">
-    													<div class="align-self-center">
-    														<div class="infocard-wrapper text-center">
-    															<img src="{% if settings.favicon %}{{ settings.favicon.thumb(72,72) }}{% else %}./admin/media/logos/logo.svg{% endif %}" class="mb-25" alt="{ settings.company.title|__ }}" title="{ settings.company.title|__ }}" />
-    															<p>
-    																{{ settings.company.description|__ }}.
-    															</p>
-    														</div>
-    														<!--/ infocard-wrapper -->
-    													</div>
-    													<!--/ .align-self-center -->
-    												</div>
-    												<!--/ col-sm-6 left-side d-flex -->
+<!--    									<div id="infocard" class="logo-infocard">-->
+<!--    										<div class="custom">-->
+<!--    											<div class="row">-->
+<!--    												<div class="col-sm-6 left-side d-flex">-->
+<!--    													<div class="align-self-center">-->
+<!--    														<div class="infocard-wrapper text-center">-->
+<!--    															<img src="{% if settings.favicon %}{{ settings.favicon.thumb(72,72) }}{% else %}./admin/media/logos/logo.svg{% endif %}" class="mb-25" alt="{ settings.company.title|__ }}" title="{ settings.company.title|__ }}" />-->
+<!--    															<p>-->
+<!--    																{{ settings.company.description|__ }}.-->
+<!--    															</p>-->
+<!--    														</div>-->
+<!--    														&lt;!&ndash;/ infocard-wrapper &ndash;&gt;-->
+<!--    													</div>-->
+<!--    													&lt;!&ndash;/ .align-self-center &ndash;&gt;-->
+<!--    												</div>-->
+<!--    												&lt;!&ndash;/ col-sm-6 left-side d-flex &ndash;&gt;-->
 
-    												<div class="col-sm-6 right-side">
-    													<div class="custom contact-details">
-    														<p>
-    															{{ settings.company.contact_phone }} <br>
-    															{{ settings.company.address }} <br>
-    															<a href="mailto:{{ settings.company.primary_email }}">{{ settings.company.primary_email }}</a>
-    														</p>
-    													</div>
-    													<div style="height:20px;">
-    													</div>
-    													<!-- Social links clean style -->
-    													<ul class="social-icons sc--clean">
-                                                            {% if settings.company.twitter %}
-    														<li><a href="{{ settings.company.twitter }}" target="_blank" class="fab fa-twitter" title="Twitter"></a></li>
-                                                            {% endif %}
-                                                            {% if settings.company.facebook %}
-    														<li><a href="{{ settings.company.facebook }}" target="_blank" class="fab fa-facebook-f" title="Facebook"></a></li>
-                                                            {% endif %}
-                                                            {% if settings.company.instagram %}
-    														<li><a href="{{ settings.company.instagram }}" target="_blank" class="fab fa-instagram" title="Instagram"></a></li>
-                                                            {% endif %}
-    													</ul>
-    													<!--/ Social links clean style -->
-    												</div>
-    												<!--/ col-sm-6 right-side -->
-    											</div>
-    											<!--/ row -->
-    										</div>
-    										<!--/ custom -->
-    									</div>
+<!--    												<div class="col-sm-6 right-side">-->
+<!--    													<div class="custom contact-details">-->
+<!--    														<p>-->
+<!--    															{{ settings.company.contact_phone }} <br>-->
+<!--    															{{ settings.company.address }} <br>-->
+<!--    															<a href="mailto:{{ settings.company.primary_email }}">{{ settings.company.primary_email }}</a>-->
+<!--    														</p>-->
+<!--    													</div>-->
+<!--    													<div style="height:20px;">-->
+<!--    													</div>-->
+<!--    													&lt;!&ndash; Social links clean style &ndash;&gt;-->
+<!--    													<ul class="social-icons sc&#45;&#45;clean">-->
+<!--                                                            {% if settings.company.twitter %}-->
+<!--    														<li><a href="{{ settings.company.twitter }}" target="_blank" class="fab fa-twitter" title="Twitter"></a></li>-->
+<!--                                                            {% endif %}-->
+<!--                                                            {% if settings.company.facebook %}-->
+<!--    														<li><a href="{{ settings.company.facebook }}" target="_blank" class="fab fa-facebook-f" title="Facebook"></a></li>-->
+<!--                                                            {% endif %}-->
+<!--                                                            {% if settings.company.instagram %}-->
+<!--    														<li><a href="{{ settings.company.instagram }}" target="_blank" class="fab fa-instagram" title="Instagram"></a></li>-->
+<!--                                                            {% endif %}-->
+<!--    													</ul>-->
+<!--    													&lt;!&ndash;/ Social links clean style &ndash;&gt;-->
+<!--    												</div>-->
+<!--    												&lt;!&ndash;/ col-sm-6 right-side &ndash;&gt;-->
+<!--    											</div>-->
+<!--    											&lt;!&ndash;/ row &ndash;&gt;-->
+<!--    										</div>-->
+<!--    										&lt;!&ndash;/ custom &ndash;&gt;-->
+<!--    									</div>-->
     									<!--/ InfoCard -->
     								</div>
     								<!--/ logo container-->
@@ -439,15 +439,82 @@ function onMyRegister()
     							<!-- Header Main Right Side -->
     							<div class="site-header-main-right d-flex justify-content-end align-items-center">
     								<!-- Call to action ribbon Free Quote (Contact form pop-up element) -->
-    								<div class="quote-ribbon">
-    									<a href="#contact_panel" id="ctabutton" class="ctabutton kl-cta-ribbon" title="GET A FREE QUOTE" target="_self">
-    										<strong>{{'TRACK'|__}}</strong>{{'package'|__}}
-    										<svg version="1.1" class="trisvg"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" preserveaspectratio="none" width="14px" height="5px" viewbox="0 0 14 5" enable-background="new 0 0 14 5" xml:space="preserve">
-    											<polygon fill-rule="nonzero" points="14 0 7 5 0 0"></polygon>
-    										</svg>
-    									</a>
-    								</div>
+<!--    								<div class="quote-ribbon">-->
+<!--    									<a href="#contact_panel" id="ctabutton" class="ctabutton kl-cta-ribbon" title="GET A FREE QUOTE" target="_self">-->
+<!--    										<strong>{{'TRACK'|__}}</strong>{{'package'|__}}-->
+<!--    										<svg version="1.1" class="trisvg"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" preserveaspectratio="none" width="14px" height="5px" viewbox="0 0 14 5" enable-background="new 0 0 14 5" xml:space="preserve">-->
+<!--    											<polygon fill-rule="nonzero" points="14 0 7 5 0 0"></polygon>-->
+<!--    										</svg>-->
+<!--    									</a>-->
+<!--    								</div>-->
     								<!--/ Call to action ribbon Free Quote (Contact form pop-up element) -->
+
+									{% if locales %}
+									<!-- Languages -->
+									<div class="topnav topnav--lang align-self-center">
+										<div class="languages drop">
+											<a href="javascript:void(0);" class="topnav-item d-inline-flex align-items-center">
+												<span class="fas fa-globe xs-icon"></span>
+<!--												<span class="topnav-item&#45;&#45;text d-none">{{'LANGUAGES'|__}}</span>-->
+												<span class="topnav-item--image ml-2">
+													<img src="./front/images/en.svg" alt="English" class="toplang-flag">
+												</span>
+											</a>
+											<div class="pPanel">
+												<ul class="inner">
+													{% for code, name in locales %}
+													<li class="toplang-item {% if activeLocale == code %}active{% endif %}">
+														<a href="javascript:void(0);" class="locale" rel="{{code}}">
+															<img src="./front/images/{{code}}.svg" alt="{{name}}" class="toplang-flag"> {{name|capitalize}}
+														</a>
+													</li>
+													{% endfor %}
+												</ul>
+											</div>
+										</div>
+									</div>
+									<!--/ Languages -->
+									{% endif %}
+
+									{% if user %}
+									<div class="topnav topnav--lang topnav-account-login topnav-account align-self-center">
+										<div class="languages drop">
+											<a href="javascript:;" class="topnav-item">
+												<span class="fas far fa-user-circle xs-icon"></span>
+												<span class="topnav-item--text">{{'ACCOUNT'|__}}</span>
+											</a>
+											<div class="pPanel">
+												<ul class="inner">
+													<li class="toplang-item">
+														<a href="{{'dashboard/dashboard'|page}}">
+															<img src="./front/images/set-03-01.svg" alt="{{'Dashboard'|__}}" class="toplang-flag"> {{'Dashboard'|__}}
+														</a>
+													</li>
+													<li class="toplang-item">
+														<a href="{{'dashboard/profile'|page}}">
+															<img src="./front/images/set-03-04.svg" alt="{{'Profile'|__}}" class="toplang-flag"> {{'Profile'|__}}
+														</a>
+													</li>
+													<li class="toplang-item">
+														<a href="javascript:;" data-request="onLogout" data-request-data="redirect: '/'">
+															<img src="./front/images/set-03-03.svg" alt="{{'Logout'|__}}" class="toplang-flag"> {{'Logout'|__}}
+														</a>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+									{% else %}
+									<!-- Login trigger -->
+									<div class="topnav login--panel topnav-account-login topnav-login align-self-center">
+										<a class="topnav-item popup-with-form" href="#login_panel">
+											<span class="login-icon fas fa-sign-in-alt visible-xs xs-icon"></span>
+											<span class="topnav-item--text">{{'LOGIN'|__}}</span>
+										</a>
+									</div>
+									<!--/ Login trigger -->
+									{% endif %}
+
     							</div>
     							<!--/ .site-header-main-right -->
     						</div>
@@ -466,7 +533,7 @@ function onMyRegister()
             <footer id="footer" data-footer-style="4">
             	<div class="container contact-details">
             		<div class="row">
-            			<div class="row w-100 d-flex justify-content-between text-center">
+            			<div class="row w-100 d-flex justify-content-between">
 
 							<div class="col-sm-3">
 								<div class="footer-widget">
@@ -475,11 +542,14 @@ function onMyRegister()
 <!--											App</h4>-->
 <!--									</div>-->
 									<div class="footer-detail-wrap">
-                                        <div>
+                                        <div class="footer-logo-wrap">
                                             <a href="{{url('/')}}">
                                                 <img src="{% if settings.mobile_logo %}{{ settings.mobile_logo.path }}{% else %}./admin/media/logos/logo.svg{% endif %}" alt="{{ settings.company.title|__ }}" class="footer-logo" title="{{ settings.company.title|__ }}" />
                                             </a>
                                         </div>
+										<div class="mt-30 footer-about-wrap">
+											<p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut quis nostrud exercitation commodo consequat.</p>
+										</div>
 									</div>
 								</div>
 
@@ -488,19 +558,28 @@ function onMyRegister()
             				<div class="col-sm-3">
 								<div class="footer-widget">
 									<div  class="footer-title-wrap">
-										<h4 class="footer-title">Quick<br>
-											Links</h4>
+										<h4 class="footer-title">Quick<br>Links</h4>
 									</div>
 									<div class="footer-detail-wrap d-flex flex-column">
                                         <a href="javascript:void(0);" target="_blank" class="footer-links">
-                                            <i class="glyphicon glyphicon-flag icon-size-xxs"></i>
-                                            <span>{{ settings.company.address }}</span>
+                                            <span>About</span>
                                         </a>
-                                        <a href="mailto:{{ settings.company.primary_email }}" target="_blank" class="footer-links">
-                                            <i class="glyphicon glyphicon-user icon-size-xxs"></i>
-                                            <span>{{ settings.company.primary_email }}</span>
+                                        <a href="javascript:void(0);" target="_blank" class="footer-links">
+                                            <span>Shippers</span>
                                         </a>
-									</div>
+                                        <a href="javascript:void(0);" target="_blank" class="footer-links">
+                                            <span>Carriers</span>
+                                        </a>
+                                        <a href="javascript:void(0);" target="_blank" class="footer-links">
+                                            <span>Careers</span>
+                                        </a>
+                                        <a href="javascript:void(0);" target="_blank" class="footer-links">
+                                            <span>Legal Section</span>
+                                        </a>
+                                        <a href="javascript:void(0);" target="_blank" class="footer-links">
+                                            <span>Contact</span>
+                                        </a>
+                                    </div>
 								</div>
 
             				</div>
@@ -508,8 +587,7 @@ function onMyRegister()
             				<div class="col-sm-3">
 								<div class="footer-widget">
 									<div  class="footer-title-wrap">
-										<h4 class="footer-title">Download<br>
-											App</h4>
+										<h4 class="footer-title">Contact<br>Info</h4>
 									</div>
                                     <div class="footer-detail-wrap d-flex flex-column">
 										<div class="d-flex flex-column">
@@ -565,8 +643,7 @@ function onMyRegister()
 							<div class="col-sm-3">
 								<div class="footer-widget">
 									<div  class="footer-title-wrap">
-										<h4 class="footer-title">Download<br>
-											App</h4>
+										<h4 class="footer-title">Download<br>App</h4>
 									</div>
 									<div class="footer-detail-wrap">
                                         <div class="download-app-wrap d-flex justify-content-around">
@@ -665,27 +742,22 @@ function onMyRegister()
     			<form class="register_panel" name="register_panel" method="post" action="#">
     				<div class=" kl-fancy-form ">
     					<input type="text" id="registerName" name="name" class="form-control inputbox kl-fancy-form-input kl-fw-input" placeholder="{{'type your name'|__}}" required>
-    					<label class="kl-font-alt kl-fancy-form-label">{{"FULL NAME"|__}}</label>
+    					<label for="registerName" class="kl-font-alt kl-fancy-form-label">{{"FULL NAME"|__}}</label>
     				</div>
                     {% if loginAttribute == "username" %}
     				<div class=" kl-fancy-form ">
     					<input type="text" id="registerUsername" name="username" class="form-control inputbox kl-fancy-form-input kl-fw-input" placeholder="{{'type desired username'|__}}" required>
-    					<label class="kl-font-alt kl-fancy-form-label">{{"USERNAME"|__}}</label>
+    					<label for="registerUsername" class="kl-font-alt kl-fancy-form-label">{{"USERNAME"|__}}</label>
     				</div>
                     {% endif %}
 
     				<div class="kl-fancy-form">
     					<input type="text" id="registerEmail" name="email" class="form-control inputbox kl-fancy-form-input kl-fw-input" placeholder="your-email@website.com" required>
-    					<label class="kl-font-alt kl-fancy-form-label">
-    						{{'EMAIL'|__}}
-    					</label>
-    				</div
-    				>
+    					<label for="registerEmail" class="kl-font-alt kl-fancy-form-label">{{'EMAIL'|__}}</label>
+    				</div>
     				<div class=" kl-fancy-form">
     					<input type="password" id="registerPassword" name="password" class="form-control inputbox kl-fancy-form-input kl-fw-input" placeholder="*****" required>
-    					<label class="kl-font-alt kl-fancy-form-label">
-    						{{'PASSWORD'|__}}
-    					</label>
+    					<label  for="registerPassword" class="kl-font-alt kl-fancy-form-label">{{'PASSWORD'|__}}</label>
     				</div>
 
     				<div class="kl-fancy-form">
@@ -793,7 +865,6 @@ function onMyRegister()
     	<!-- ToTop trigger -->
     	<a href="javascript:void(0);" id="totop">{{'TOP'|__}}</a>
     	<!--/ ToTop trigger -->
-
 
 
     	<!-- JS FILES // These should be loaded in every page -->
