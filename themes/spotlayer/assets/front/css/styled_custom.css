@@ -366,6 +366,7 @@ body.sticky-header #header {
     flex-direction: column;
     margin-left: -75%;
     text-align: center;
+    min-height: 250px;
 }
 
 .slide.slick-slide.slick-current.slick-active.slick-center .slide-body .slide-title {
@@ -383,6 +384,12 @@ body.sticky-header #header {
     position: absolute;
     color: #fff;
     top: 50%;
+}
+
+.range_slider button.slick-arrow:hover, .range_slider button.slick-arrow:focus, .range_slider button.slick-arrow:active {
+    outline: none;
+    border: none;
+    box-shadow: none;
 }
 
 .range_slider button.slick-arrow.slick-prev {

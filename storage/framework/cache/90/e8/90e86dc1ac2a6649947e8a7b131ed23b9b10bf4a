@@ -1,4 +1,4 @@
-1616762480a:1:{s:8:"home.htm";a:21:{s:8:"fileName";s:8:"home.htm";s:7:"content";s:231505:"title = "Home"
+1616766193a:1:{s:8:"home.htm";a:21:{s:8:"fileName";s:8:"home.htm";s:7:"content";s:231264:"title = "Home"
 url = "/"
 layout = "front"
 is_hidden = 0
@@ -167,12 +167,12 @@ function onStart(){
 <!--/ Slideshow - iOS Slider element with animateme scroll efect, custom height and bottom mask style 2 -->
 
 <!-- Title element - section with custom paddings -->
-<section class="hg_section bg-white pt-0 pb-0">
+<section class="hg_section bg-white pt-100 pb-100">
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-12 col-md-12">
+			<div class="col-12">
 				<!-- Title element wit custom paddings -->
-				<div class="kl-title-block text-center tbk-symbol--line pt-40 pb-40">
+				<div class="kl-title-block text-center tbk-symbol--line pb-0">
 					<!-- Sub-title with custom color -->
 					<h6 class="gray">{{'WELCOME TO'|__}}</h6>
 
@@ -190,12 +190,8 @@ function onStart(){
 			</div>
 		</div>
 	</div>
-</section>
-<!--/ Title element - section with custom paddings -->
 
-<!-- Icon Boxes element Left Floated Style - section white with custom paddings -->
-<section class="hg_section bg-white pt-20 pb-40">
-	<div class="container_fluid">
+	<div class="container-fluid">
 		<div class="row">
 			<div class="col-lg-8 offset-lg-2">
 				<div class="row gutter-md services-row">
@@ -203,7 +199,7 @@ function onStart(){
 					<div class="col-sm-12 col-md-6 col-lg-3">
 						<!-- Icon box float left -->
 						<div class="kl-iconbox kl-iconbox--fleft text-left">
-							<div class="kl-iconbox__inner ">
+							<div class="kl-iconbox__inner mt-25">
 								<!-- Icon with custom sizes -->
 								<div class="kl-iconbox__icon-wrapper w-30 w-md-30 w-sm-20 w-xs-20 text-white">
 									<img src="{{settings.services_pics[key].path}}" class="kl-iconbox__icon"  alt="" title="" />
@@ -213,8 +209,8 @@ function onStart(){
 								<!-- /.kl-iconbox__icon-wrapper -->
 								<div class="kl-iconbox__content-wrapper">
 									<!-- Title with csutom size, weight and color -->
-									<div class="kl-iconbox__el-wrapper kl-iconbox__title-wrapper">
-										<h3 class="kl-iconbox__title fs-s fw-extrabold text-white">
+									<div class="kl-iconbox__el-wrapper kl-iconbox__title-wrapper pt-15 pb-15">
+										<h3 class="kl-iconbox__title fs-s fw-extrabold text-white w-50 text-uppercase">
 											{{service.title|__}}
 										</h3>
 									</div>
@@ -249,9 +245,8 @@ function onStart(){
 		</div>
 		<!--/ row -->
 	</div>
-	<!--/ container-fluid -->
 </section>
-<!--/ Icon Boxes element Left Floated Style - section white with custom paddings -->
+<!--/ Title element - section with custom paddings -->
 
 <!-- Carousel	-->
 <section class="hg_section range-section pt-100 pb-100">
@@ -601,7 +596,7 @@ function onStart(){
      });
  </script>
  {% endput %}
-";s:5:"mtime";i:1616760178;s:6:"markup";s:230980:"<!-- Slideshow - iOS Slider element with animateme scroll efect, custom height and bottom mask style 2 -->
+";s:5:"mtime";i:1616765527;s:6:"markup";s:230739:"<!-- Slideshow - iOS Slider element with animateme scroll efect, custom height and bottom mask style 2 -->
 <div class="custom-slider kl-slideshow iosslider-slideshow uh_light_gray maskcontainer--shadow_ud iosslider--custom-height scrollme">
 	<!-- Loader -->
 	<div class="kl-loader">
@@ -734,12 +729,12 @@ function onStart(){
 <!--/ Slideshow - iOS Slider element with animateme scroll efect, custom height and bottom mask style 2 -->
 
 <!-- Title element - section with custom paddings -->
-<section class="hg_section bg-white pt-0 pb-0">
+<section class="hg_section bg-white pt-100 pb-100">
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-12 col-md-12">
+			<div class="col-12">
 				<!-- Title element wit custom paddings -->
-				<div class="kl-title-block text-center tbk-symbol--line pt-40 pb-40">
+				<div class="kl-title-block text-center tbk-symbol--line pb-0">
 					<!-- Sub-title with custom color -->
 					<h6 class="gray">{{'WELCOME TO'|__}}</h6>
 
@@ -757,12 +752,8 @@ function onStart(){
 			</div>
 		</div>
 	</div>
-</section>
-<!--/ Title element - section with custom paddings -->
 
-<!-- Icon Boxes element Left Floated Style - section white with custom paddings -->
-<section class="hg_section bg-white pt-20 pb-40">
-	<div class="container_fluid">
+	<div class="container-fluid">
 		<div class="row">
 			<div class="col-lg-8 offset-lg-2">
 				<div class="row gutter-md services-row">
@@ -770,7 +761,7 @@ function onStart(){
 					<div class="col-sm-12 col-md-6 col-lg-3">
 						<!-- Icon box float left -->
 						<div class="kl-iconbox kl-iconbox--fleft text-left">
-							<div class="kl-iconbox__inner ">
+							<div class="kl-iconbox__inner mt-25">
 								<!-- Icon with custom sizes -->
 								<div class="kl-iconbox__icon-wrapper w-30 w-md-30 w-sm-20 w-xs-20 text-white">
 									<img src="{{settings.services_pics[key].path}}" class="kl-iconbox__icon"  alt="" title="" />
@@ -780,8 +771,8 @@ function onStart(){
 								<!-- /.kl-iconbox__icon-wrapper -->
 								<div class="kl-iconbox__content-wrapper">
 									<!-- Title with csutom size, weight and color -->
-									<div class="kl-iconbox__el-wrapper kl-iconbox__title-wrapper">
-										<h3 class="kl-iconbox__title fs-s fw-extrabold text-white">
+									<div class="kl-iconbox__el-wrapper kl-iconbox__title-wrapper pt-15 pb-15">
+										<h3 class="kl-iconbox__title fs-s fw-extrabold text-white w-50 text-uppercase">
 											{{service.title|__}}
 										</h3>
 									</div>
@@ -816,9 +807,8 @@ function onStart(){
 		</div>
 		<!--/ row -->
 	</div>
-	<!--/ container-fluid -->
 </section>
-<!--/ Icon Boxes element Left Floated Style - section white with custom paddings -->
+<!--/ Title element - section with custom paddings -->
 
 <!-- Carousel	-->
 <section class="hg_section range-section pt-100 pb-100">

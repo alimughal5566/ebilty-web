@@ -1,4 +1,4 @@
-1616762478a:1:{s:29:"dashboard/update-category.htm";a:20:{s:8:"fileName";s:29:"dashboard/update-category.htm";s:7:"content";s:8859:"title = "Update Category"
+1616765695a:1:{s:29:"dashboard/update-category.htm";a:20:{s:8:"fileName";s:29:"dashboard/update-category.htm";s:7:"content";s:8859:"title = "Update Category"
 url = "/dashboard/settings/categories/:id/edit"
 layout = "admin"
 is_hidden = 0
