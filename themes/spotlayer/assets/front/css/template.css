@@ -6287,7 +6287,7 @@ ul.project-list.style2 .prj-info {-webkit-transition:all 0.15s ease-out; transit
 .kl-slideshow .kl-contentmaps__panel {top: 150px;}
 /* Social Icons Element */
 .elm-social-icons {margin-left: 0; padding:0; display: inline-block; list-style: none;}
-.elm-social-icons li {display:inline-block; margin:5px; margin-left: 3px; margin-right: 3px;}
+.elm-social-icons li {display:inline-block; margin:5px 3px;}
 .elm-social-icons .elm-sc-icon {display:inline-block; color:#fff; width: auto; height: auto; padding:23px; position:relative; text-align: center;
 	-webkit-transition: all 0.2s ease-out; transition: all 0.2s ease-out; font-size: 14px; font-weight: normal; opacity: 1;}
 .elm-social-icons .elm-sc-icon:before {position: absolute;-webkit-transform: translate3d(-50%, -50%, 0);-ms-transform: translate3d(-50%, -50%, 0);

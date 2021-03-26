@@ -112,10 +112,12 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
     \t<link rel=\"stylesheet\" href=\"./front/css/bootstrap.css\" type=\"text/css\" media=\"all\">
 
     \t<!-- Font Awesome icons library -->
-    \t<link rel=\"stylesheet\" href=\"./front/fonts/font-awesome/css/font-awesome.min.css\" type=\"text/css\" media=\"all\">
+<!--    \t<link rel=\"stylesheet\" href=\"./front/fonts/font-awesome/css/font-awesome.min.css\" type=\"text/css\" media=\"all\">-->
+\t\t<link rel=\"stylesheet\" href=\"https://pro.fontawesome.com/releases/v5.10.0/css/all.css\"/>
 
     \t<!-- Required CSS file for IOS Slider element  -->
     \t<link rel=\"stylesheet\" href=\"./front/css/sliders/ios/style.css\" type=\"text/css\" media=\"all\">
+\t\t<link rel=\"stylesheet\" type=\"text/css\" href=\"//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css\"/>
 
     \t<!-- ***** Main + Responsive & Base sizing CSS Stylesheet ***** -->
     \t<link rel=\"stylesheet\" href=\"./front/css/template.css\" type=\"text/css\" media=\"all\">
@@ -136,30 +138,30 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
     \t<script type=\"text/javascript\" src=\"./front/js/jquery.js\"></script>
 
         ";
-        // line 56
+        // line 58
         if ((($context["currentLang"] ?? null) == "ar")) {
-            // line 57
+            // line 59
             echo "            <link href='http://fonts.googleapis.com/css?family=Changa:300,400,500,600,700' rel='stylesheet' type='text/css'>
         ";
         } else {
-            // line 59
+            // line 61
             echo "
         ";
         }
-        // line 61
+        // line 63
         echo "        <!--end::Global Theme Styles -->
         <!--begin::Layout Skins(used by all pages) -->
         <style id=\"template-colors\"> a:hover,.cart-container > .widget_shopping_cart_content .checkout,.sc-infopop__btn,.m_title,.smallm_title,.circle_title,.zn_text_box-title--style1,.feature_box .title,.services_box--classic .services_box__title,.latest_posts.default-style .hoverBorder:hover h6,.latest_posts.style2 ul.posts .title,.recentwork_carousel--1 .recentwork_carousel__crsl-title,.acc--default-style .acc-tgg-button,.acc--style3 .acc-tgg-button:after,.screenshot-box .left-side h3.title,.vertical_tabs.kl-style-1 .tabbable .nav>li.active>a,.services_box_element .box .list li,.shop-latest .tabbable .nav li.active a,.product-list-item:hover .details h3,.product-category .product-list-item:hover h3,.eBlog .itemContainer:not(.featured-post) .post_details .catItemAuthor a,.theHoverBorder:hover,.text-custom,.text-custom-hover:hover,.statbox h4 , #bbpress-forums .bbp-topics li.bbp-body .bbp-topic-title > a,.ib2-text-color-light-theme .ib2-info-message:before,.tbk--color-theme.tbk-symbol--icon .tbk__icon,.pricing-table-element .plan-column .plan-title,.process_steps--style2 .process_steps__step-icon,.vertical_tabs.kl-style-2 .tabbable .nav>li>a:hover,.vertical_tabs.kl-style-2 .tabbable .nav>li.active>a [data-zn_icon]:before,.vertical_tabs.kl-style-2 .tabbable .nav>li>a:hover [data-zn_icon]:before,.services_box--boxed .services_box__fonticon,.services_box--boxed .services_box__list li,.woocommerce ul.product_list_widget li .star-rating,.woocommerce .woocommerce-product-rating .star-rating,body .static-content__infopop .sc-infopop__btn, .hg_accordion_element.style3 .th-accordion .acc-group > a, .grid-ibx__item:hover .grid-ibx__icon, .kl-iconbox__title, .full-portfolio .hg-portfolio-sortable #portfolio-nav li a:hover, .full-portfolio .hg-portfolio-sortable #portfolio-nav li.current a, ul.thumbs.style2 .appreciate::before, .product-list-item:hover .kw-details-title, .kl-store-page ul.products li.product .product-list-item:hover .kw-details-title, .kl-store.widget ul.product_list_widget li .star-rating, .testimonial_slider.quoter-style .testimonialbox .who strong, .hg_accordion_element.default-style .th-accordion .acc-group > button, .team-member .mmb-position, .kl-iconbox.stage:hover .kl-iconbox__icon, .priceListElement-itemPrice, .hg_accordion_element.style2 .th-accordion .acc-group > button, .fun-fact .fun-number, .site-header .kl-header-toptext a, .testimonial_slider__carousel-wrapper .testimonialbox .who strong, .image-boxes__carousel-wrapper .inner-slide:hover a {color: #f0aa1d; } .tcolor, .vertical_tabs .tabbable .nav>li.active>a, .vertical_tabs .tabbable .nav>li>a:hover, .vertical_tabs .tabbable .nav>li.active>a>span, .vertical_tabs .tabbable .nav>li>a:hover>span, .services_boxes_wgt li:hover .kl-icon, .works_carousel.stl-simple .inner-slide:hover a, .works_carousel.stl-simple .inner-slide a:hover, .orange, .blue, .works_carousel .cfs--navigation a:hover::before, .vertical_tabs .tabbable .nav>li>a.active, .vertical_tabs .tabbable .nav>li>a.active>span, .hg_accordion_element.style4 .th-accordion .acc-group a {color: #f0aa1d !important; } .tbg, .photo-wall .pw-item::after, .bg-default, .site-header .kl-cart-button .fas:after, .logo-container .logo-infocard .right-side, .hg_accordion_element.style5 .th-accordion a::before, .image-boxes__carousel-wrapper .inner-slide .imgprev, .hg_accordion_element.style4 > h3, .hg_accordion_element.style3 .th-accordion .acc-group a:before, .keywordbox.keywordbox-4 {background-color: #f0aa1d !important;} .acc--style4,#page-loading:after,.ib2-text-color-light-theme .ib2-info-message:before,.itemThumbnail .overlay__inner a:hover,.acc--style4 .acc-tgg-button .acc-icon, .btn-lined.lined-custom, .hg_accordion_element.style4 .th-accordion {border-color: #f0aa1d; } .btn-lined.lined-custom:hover {border-color: rgba(241,196,15,0.7);} .acc--style3 .acc-tgg-button:hover,.acc--style3 .acc-tgg-button:hover:after,.acc--default-style .acc-tgg-button,.acc--style2 .acc-tgg-button,.acc--style3 .acc-tgg-button,.acc--style4 .acc-tgg-button, .btn-lined.lined-custom {color: #f0aa1d ; } .tabs_style5 > ul.nav > li.active > a, .wgt-title > span, .tabs_style5 > ul.nav > li > a.active {border-bottom: 2px solid #f0aa1d; } header.style1,header.style2 .site-logo a,header.style3 .site-logo a {border-top: 3px solid #f0aa1d; } .tabs_style1 > ul.nav > li.active > a, .tabs_style1 > ul.nav > li > a.active {box-shadow: inset 0 3px 0 #f0aa1d; } .main-nav > ul > li > a:before,.main-nav .zn_mega_container li a:not(.zn_mega_title):before,.social-icons.sc--normal li a:hover,.action_box,body .circlehover,body .kl-flex--classic .zn_general_carousel-arr:hover,body .kl-ioscaption--style1 .more:before,body .kl-ioscaption--style1 .more:after,body .kl-ioscaption--style2 .more,body .nivo-directionNav a:hover,body .th-wowslider a.ws_next:hover,body .th-wowslider a.ws_prev:hover,body .ca-more,body .title_circle,body .title_circle:before,body ul.links li a,.hg-portfolio-sortable #portfolio-nav li a:hover, .hg-portfolio-sortable #portfolio-nav li.current a,.kl-ioscaption--style1 .more:before, .kl-ioscaption--style1 .more:after,.btn-flat ,.zn_limited_offers li:after,.login-panel .login_facebook ,.imgboxes_style1 .hoverBorder h6,.circlehover:before,.kl-cta-ribbon,.newsletter-signup input[type=submit],.recentwork_carousel--1 .recentwork_carousel__bg,.zn-acc--style4 .acc-title,.zn-acc--style3 .acc-tgg-button:before,.process_box .content:before,#bbpress-forums div.bbp-search-form input[type=submit], #bbpress-forums .bbp-submit-wrapper button, #bbpress-forums #bbp-your-profile fieldset.submit button,.bg-custom,.bg-custom-hover:hover,.site-header.style8 .kl-main-header .kl-cta-lined,.site-header.style9 .kl-cta-lined,.latest_posts.default-style.kl-style-2 .lp-title,.latest_posts.default-style.kl-style-2 .post:not(.lp-title) .m_title:after,.latest_posts.default-style .hoverBorder h6,.itemThumbnail .overlay__inner a:hover,.elm-searchbox--normal .elm-searchbox__submit,.elm-searchbox--transparent .elm-searchbox__submit,.itemThumbnail .overlay__inner a:hover,.zn-acc--style4 .acc-tgg-button .acc-icon:before,span.zn_badge_sale,span.zn_badge_sale:after,.zn_limited_offers li:before,.style3 .action_box_inner,.style3 .action_box_inner:before,.action_box.style3:before,.circlehover.style2,.circlehover.style2:before,body .kl-flex--classic .zn_simple_carousel-arr:hover, .main-nav .hg_mega_container li a:not(.zn_mega_title):before {background-color: #f0aa1d; } .breadcrumbs li:after,.ib2-text-color-light-theme .ib2-inner, .breadcrumbs li:after, .breadcrumbs2 li:after, .photogallery-widget .pg-thumb:nth-child(even) .pg-caption::before, .portfolio-item-details.travel li::before {border-left-color: #f0aa1d; } .kl-cta-ribbon .trisvg path,.kl-bottommask .bmask-customfill,.kl-slideshow .kl-loader svg path,.kl-slideshow.kl-loadersvg rect,.kl-diagram circle, .kl-cta-ribbon .trisvg {fill: #f0aa1d; } .how_to_shop .number, .newsletter-signup input[type=submit], .th-map_controls, .hg-portfolio-sortable #portfolio-nav li.current a, .ptcarousel .controls > a:hover, .itemLinks span a:hover, .product-list-item .kw-actions a, .woocommerce ul.products li.product .product-list-item .kw-actions a, .shop-features .shop-feature:hover, .btn-flat, .redbtn, .imgboxes_style1 .hoverBorder h6, .feature_box.style3 .box:hover, .services_box--classic:hover .services_box__icon, services_box_element:hover .box .icon, .latest_posts.default-style .hoverBorder h6, .process_steps--style1 .process_steps__intro, .process_steps--style2 .process_steps__intro, .recentwork_carousel.style2 li a .details .plus, .gobox.ok:before, .gobox.ok:after, .gobox.ok, .recentwork_carousel--1 .recentwork_carousel__bg, .circlehover:before,.kl-ioscaption--style1 .more:before, .kl-ioscaption--style1 .more:after ,.kl-ioscaption--style2 .more {background-color: #f0aa1d; } .hover-box:hover {background-color: #f0aa1d !important;} .vertical_tabs.kl-style-1 .tabbable .nav>li.active>a, .vertical_tabs.kl-style-1 .tabbable .nav >li > a.active {box-shadow: inset -3px 0 0 0 #f0aa1d !important;} .action_box:before, .action_box:after, .site-header.style1, .site-header.style6, .site-header.style4 .site-logo a, .site-header.style5 {border-top-color: #f0aa1d; } .process_steps--style1 .process_steps__intro:after,body .nivo-caption,body .kl-flex--classic .flex-caption,body .th-wowslider .ws-title,.process_box[data-align=left] .content:after,body .ls--laptop .ls__item-caption {border-left-color: #f0aa1d; } .process_box[data-align=right] .content:after, .photogallery-widget .pg-thumb:nth-child(odd) .pg-caption::before {border-right-color: #f0aa1d; } .theHoverBorder:hover {box-shadow: 0 0 0 5px #f0aa1d inset; } .vertical_tabs.kl-style-1 .tabbable .nav>li.active>a {box-shadow: inset -3px 0 0 0 #f0aa1d inset; } .offline-page .containerbox {border-bottom: 5px solid #f0aa1d; } .offline-page .containerbox:after {border-top: 20px solid #f0aa1d; } .site-header.style2 .site-logo a, .site-header.style5, .site-header.style6 .site-logo a {border-top: 3px solid #f0aa1d; } body .kl-ioscaption--style2 .title_big, body .kl-ioscaption--style2 .title_small {border-left: 5px solid #f0aa1d; } body .kl-ioscaption--style2.fromright .title_big, body .kl-ioscaption--style2.fromright .title_small {border-right: 5px solid #f0aa1d ; } #buddypress form#whats-new-form p.activity-greeting:after {border-top-color: #f0aa1d; } #buddypress input[type=submit],#buddypress input[type=button],#buddypress input[type=reset] ,#buddypress .activity-list li.load-more a, .stg-bigblog .bb-title .bb-category, .product-list-item .kw-actions a, .kl-store-page ul.products li.product .product-list-item .kw-actions a, .btn-flat, .kl-store-page a.button, .kl-store-page button.button, .kl-store-page button.button.alt, .kl-store-page input.button, .kl-store-page input#button, .kl-store-page #review_form #submit, .fancy-list li:hover::before, .testimonial_slider.quoter-style .cfs--pagination a.selected, .photogallery-widget .pg-thumb .pg-caption, ul.dash-list li::before, .kl-iconbox--sh-circle span.kl-iconbox__icon, .process-list .processitems li:hover .ico-wrapper > span, .works_carousel.stl-simple .inner-slide .imgprev {background: #f0aa1d; } #buddypress div.item-list-tabs ul li.selected a,#buddypress div.item-list-tabs ul li.current a {border-top: 2px solid #f0aa1d; } #buddypress form#whats-new-form p.activity-greeting,.widget.buddypress ul.item-list li:hover {background-color: #f0aa1d; } .widget.buddypress div.item-options a.selected ,#buddypress div.item-list-tabs ul li.selected a,#buddypress div.item-list-tabs ul li.current a ,#buddypress div.activity-meta a ,#buddypress div.activity-meta a:hover,#buddypress .acomment-options a {color: #f0aa1d; } .keywordbox.keywordbox-2, .hg_post_image, .hg_full_image {border-bottom: 5px solid #f0aa1d;} {border-bottom: solid 5px #f0aa1d; } .keywordbox.keywordbox-3 {border-bottom: solid 10px #f0aa1d; } .process_box4 .number:before,.loginbox-popup input[type=submit],.login-panel .login_facebook {background: #f0aa1d; } .statistics-horizontal .v-line {border-bottom: dotted 1px #f0aa1d; } .statistics-vertical::before {border-left: dotted 1px #f0aa1d; } .circle-text-box.style3 .wpk-circle-span,.circle-text-box.style2 .wpk-circle-span::before {background: #f0aa1d; } .circle-text-box:not(.style3) .wpk-circle-span:after {background-color: #f0aa1d; } .circle-text-box .wpk-circle-title,.media-container .media-container__link--style-borderanim2 .media-container__text:hover {color: #f0aa1d; } .services_box--modern .services_box__icon {box-shadow: inset 0 0 0 2px #f0aa1d; } .services_box--modern:hover .services_box__icon {box-shadow: inset 0 0 0 40px #f0aa1d; } .services_box--modern .services_box__fonticon {color: #f0aa1d; } .services_box--modern .services_box__list li:before {box-shadow: 0 0 0 2px #f0aa1d; } .services_box--modern .services_box__list li:hover:before {box-shadow: 0 0 0 3px #f0aa1d; } .kl-has-overlay .img-intro:hover .overlay {box-shadow: inset 0 -8px 0 0 #f0aa1d; } .kl-cta-ribbon, .hg_accordion_element.style3 .th-accordion .acc-group > a:before, .tbk-symbol--line_border .tbk__symbol span, .stl-hoverstyle .cfs--navigation a:hover {background-color: #f0aa1d} .kl-cta-ribbon .trisvg path {fill: #f0aa1d} .logo-container .logo-infocard {background: #f0aa1d} body .kl-ioscaption--style4 .more:before {border-color: #f0aa1d; background: rgba(241,196,15,0.7)} body .kl-ioscaption--style4 .more:hover:before, .cart-container .buttons .button.wc-forward:hover, .logo-container .logo-infocard .left-side, .kl-ios-selectors-block.bullets2 .item.selected::before, .kl-ios-selectors-block.bullets2 .item:hover:before {background: rgba(241,196,15,0.9)} .timeline_box:hover:before {background-color: #f0aa1d} body .kl-ioscaption--style3.s3ext .main_title::before,body .kl-ios-selectors-block.bullets2 .item.selected::before,.iosslider__item .kl-ioscaption--style5 .klios-separator-line span,.btn-fullcolor,.btn-fullcolor:focus,.btn-fullcolor.btn-skewed:before,.cart-container .buttons .button.wc-forward,body .kl-flex--modern .flex-underbar,.tbk--color-theme.tbk-symbol--line .tbk__symbol span,.tbk--color-theme.tbk-symbol--line_border .tbk__symbol span,.ls__nav-item.selected,.site-header.style7 .kl-cart-button .glyphicon:after,.how_to_shop .number,.recentwork_carousel--2 .recentwork_carousel__title:after,.recentwork_carousel_v3 .btn::before,.recentwork_carousel--2 .recentwork_carousel__cat,.recentwork_carousel_v2 .recentwork_carousel__plus,.recentwork_carousel_v3 .recentwork_carousel__cat,.pricing-table-element .plan-column.featured .subscription-price .inner-cell,.shop-latest .tabbable .nav li.active a:before,.product-list-item .kw-actions a, .woocommerce ul.products li.product .product-list-item .kw-actions a,.latest_posts.style2 ul.posts .details span.date,.eBlog .related-articles .rta-post > a:after,.shop-features .shop-feature:hover,.cart-container .buttons .button.wc-forward,.media-container__link--style-borderanim1 > i,.site-header .kl-cart-button .glyphicon:after,.chaser .main-menu li.active > a,.imgboxes_style4 .imgboxes-title:after,.woocommerce a.button,.woocommerce button.button,.woocommerce button.button.alt,.woocommerce input.button,.woocommerce input#button,.woocommerce #review_form #submit {background-color: #f0aa1d; } .borderanim2-svg__shape {stroke: #f0aa1d !important; } .btn-fullcolor.btn-skewed:hover:before,.woocommerce a.button:hover,.woocommerce button.button:hover,.woocommerce button.button.alt:hover,.woocommerce input.button:hover,.woocommerce input#button:hover,.woocommerce #review_form #submit:hover {background-color: #a41a1b } .site-header.style8 .kl-main-header,.site-header.style9,.shop-latest .tabbable .nav li.active a:after,.zn_post_image,.zn_full_image,.sidebar .widget .widgettitle:after,.imgboxes_style4.kl-title_style_bottom .imgboxes-border-helper,.imgboxes_style4.kl-title_style_bottom:hover .imgboxes-border-helper,.statistic-box__line, .read-more-link:hover {border-bottom-color: #f0aa1d} .fake-loading:after {border: 2px solid rgba(241,196,15,0.15); border-top-color: #f0aa1d; border-right-color: #f0aa1d; } .latest_posts.style2 ul.posts .details span.date:after {border-top-color: #f0aa1d; } .eluidf3608cd8 .kl-bg-source__overlay {background: #f0aa1d ; } .kl-iconbox--sh-circle:hover span.kl-iconbox__icon:after, .kl-iconbox--sh-circle:hover span.kl-iconbox__icon, .btn-fullcolor:hover {background: rgba(241,196,15,0.7) } .btn-fullcolor.btn-skewed:hover:before, .section-video-icons .right-side {background-color: rgba(241,196,15,0.7) !important; } .skills_wgt .skill-bar > i {background: #f0aa1d !important;} .works_carousel .inner-slide:hover .imgprev::after {border-bottom: 8px solid #f0aa1d !important;} .site-header.style2 .kl-main-header, .site-header.style3, .site-header.style10 {border-bottom: 3px solid #f0aa1d;} </style>
         <!--end::Layout Skins -->
         ";
-        // line 65
+        // line 67
         echo $this->env->getExtension('Cms\Twig\Extension')->assetsFunction('css');
         echo $this->env->getExtension('Cms\Twig\Extension')->displayBlock('styles');
-        // line 66
+        // line 68
         echo "    </head>
 
     <body class=\"preloader sticky-header ";
-        // line 68
+        // line 70
         if ((($context["currentLang"] ?? null) == "ar")) {
             echo "rtl";
         }
@@ -179,7 +181,7 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
     \t\t\t\t\t<!-- Title -->
     \t\t\t\t\t<h4 class=\"m_title mb-20\">
     \t\t\t\t\t\t";
-        // line 83
+        // line 85
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["HOW TO ORDER"]);
         echo "
     \t\t\t\t\t</h4>
@@ -189,7 +191,7 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
     \t\t\t\t\t\t<div class=\"row\">
     \t\t\t\t\t\t\t<div class=\"col-sm-4\">
     \t\t\t\t\t\t\t\t<span class=\"number\">1</span> ";
-        // line 90
+        // line 92
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Login or create new account"]);
         echo ".
     \t\t\t\t\t\t\t</div>
@@ -197,7 +199,7 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
 
     \t\t\t\t\t\t\t<div class=\"col-sm-4\">
     \t\t\t\t\t\t\t\t<span class=\"number\">2</span> ";
-        // line 95
+        // line 97
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Place your shipment request"]);
         echo ".
     \t\t\t\t\t\t\t</div>
@@ -205,7 +207,7 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
 
     \t\t\t\t\t\t\t<div class=\"col-sm-4\">
     \t\t\t\t\t\t\t\t<span class=\"number\">3</span> ";
-        // line 100
+        // line 102
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Other steps on us"]);
         echo ".
     \t\t\t\t\t\t\t</div>
@@ -215,10 +217,10 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
 
     \t\t\t\t\t\t<p>
     \t\t\t\t\t\t\t";
-        // line 107
+        // line 109
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["If you still have problems, please let us know, by sending an email to"]);
         echo " ";
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 107), "primary_email", [], "any", false, false, false, 107), "html", null, true);
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 109), "primary_email", [], "any", false, false, false, 109), "html", null, true);
         echo " . ";
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Thank you!"]);
         echo "
@@ -232,7 +234,7 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
     \t\t\t\t\t<!-- Title -->
     \t\t\t\t\t<h4 class=\"m_title mb-20\">
     \t\t\t\t\t\t";
-        // line 117
+        // line 119
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Contact Us"]);
         echo "
     \t\t\t\t\t</h4>
@@ -240,12 +242,12 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
     \t\t\t\t\t<!-- Content -->
     \t\t\t\t\t<div class=\"m_content\">
     \t\t\t\t\t\t";
-        // line 122
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 122), "company_phone", [], "any", false, false, false, 122), "html", null, true);
+        // line 124
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 124), "company_phone", [], "any", false, false, false, 124), "html", null, true);
         echo "<br />
     \t\t\t\t\t\t";
-        // line 123
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 123), "address", [], "any", false, false, false, 123), "html", null, true);
+        // line 125
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 125), "address", [], "any", false, false, false, 125), "html", null, true);
         echo "
     \t\t\t\t\t</div>
     \t\t\t\t\t<!--/ Content -->
@@ -280,13 +282,13 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
 <!--    \t\t\t\t\t\t\t\t&lt;!&ndash; Header Top Social links &ndash;&gt;-->
 <!--    \t\t\t\t\t\t\t\t<ul class=\"topnav social-icons sc&#45;&#45;clean align-self-center\">-->
 <!--                                        ";
-        // line 156
-        if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 156), "facebook", [], "any", false, false, false, 156)) {
+        // line 158
+        if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 158), "facebook", [], "any", false, false, false, 158)) {
             echo "-->
 <!--    \t\t\t\t\t\t\t\t\t<li>-->
 <!--    \t\t\t\t\t\t\t\t\t\t<a href=\"";
-            // line 158
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 158), "facebook", [], "any", false, false, false, 158), "html", null, true);
+            // line 160
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 160), "facebook", [], "any", false, false, false, 160), "html", null, true);
             echo "\" target=\"_self\" title=\"";
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Facebook"]);
             echo "\">-->
@@ -295,16 +297,16 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
 <!--    \t\t\t\t\t\t\t\t\t</li>-->
 <!--                                        ";
         }
-        // line 162
+        // line 164
         echo "-->
 <!--                                        ";
-        // line 163
-        if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 163), "twitter", [], "any", false, false, false, 163)) {
+        // line 165
+        if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 165), "twitter", [], "any", false, false, false, 165)) {
             echo "-->
 <!--    \t\t\t\t\t\t\t\t\t<li>-->
 <!--    \t\t\t\t\t\t\t\t\t\t<a href=\"";
-            // line 165
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 165), "twitter", [], "any", false, false, false, 165), "html", null, true);
+            // line 167
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 167), "twitter", [], "any", false, false, false, 167), "html", null, true);
             echo "\" target=\"_self\" title=\"";
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Twitter"]);
             echo "\">-->
@@ -313,16 +315,16 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
 <!--    \t\t\t\t\t\t\t\t\t</li>-->
 <!--                                        ";
         }
-        // line 169
+        // line 171
         echo "-->
 <!--                                        ";
-        // line 170
-        if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 170), "instagram", [], "any", false, false, false, 170)) {
+        // line 172
+        if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 172), "instagram", [], "any", false, false, false, 172)) {
             echo "-->
 <!--    \t\t\t\t\t\t\t\t\t<li>-->
 <!--    \t\t\t\t\t\t\t\t\t\t<a href=\"";
-            // line 172
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 172), "instagram", [], "any", false, false, false, 172), "html", null, true);
+            // line 174
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 174), "instagram", [], "any", false, false, false, 174), "html", null, true);
             echo "\" target=\"_self\" title=\"";
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Instagram"]);
             echo "\">-->
@@ -331,7 +333,7 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
 <!--    \t\t\t\t\t\t\t\t\t</li>-->
 <!--                                        ";
         }
-        // line 176
+        // line 178
         echo "-->
 <!--    \t\t\t\t\t\t\t\t</ul>-->
 <!--    \t\t\t\t\t\t\t\t&lt;!&ndash;/ Header Top Social links &ndash;&gt;-->
@@ -342,15 +344,15 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
 <!--    \t\t\t\t\t\t\t\t&lt;!&ndash; Top Header contact text &ndash;&gt;-->
 <!--    \t\t\t\t\t\t\t\t<div class=\"kl-header-toptext align-self-center\">-->
 <!--    \t\t\t\t\t\t\t\t\t<span class=\"topnav-item&#45;&#45;text\">";
-        // line 185
+        // line 187
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["QUESTIONS? CALL"]);
         echo ": </span>-->
 <!--    \t\t\t\t\t\t\t\t\t<i class=\"phone-header fas fa-phone ml-5 visible-xs visible-sm visible-md\"></i>-->
 <!--    \t\t\t\t\t\t\t\t\t<a href=\"tel:";
-        // line 187
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 187), "company_phone", [], "any", false, false, false, 187), "html", null, true);
+        // line 189
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 189), "company_phone", [], "any", false, false, false, 189), "html", null, true);
         echo "\" class=\"fw-bold\">";
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 187), "company_phone", [], "any", false, false, false, 187), "html", null, true);
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 189), "company_phone", [], "any", false, false, false, 189), "html", null, true);
         echo "</a>-->
 <!--    \t\t\t\t\t\t\t\t</div>-->
 <!--    \t\t\t\t\t\t\t\t&lt;!&ndash;/ Top Header contact text &ndash;&gt;-->
@@ -360,7 +362,7 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
 <!--    \t\t\t\t\t\t\t&lt;!&ndash; Header Top Right Side &ndash;&gt;-->
 <!--    \t\t\t\t\t\t\t<div class=\"site-header-top-right w-md-40 w-50 d-flex justify-content-end\">-->
 <!--                                    ";
-        // line 195
+        // line 197
         if (($context["locales"] ?? null)) {
             echo "-->
 <!--        \t\t\t\t\t\t\t\t&lt;!&ndash; Languages &ndash;&gt;-->
@@ -369,30 +371,30 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
 <!--        \t\t\t\t\t\t\t\t\t\t<a href=\"javascript:;\" class=\"topnav-item\">-->
 <!--        \t\t\t\t\t\t\t\t\t\t\t<span class=\"fas fa-globe xs-icon\"></span>-->
 <!--        \t\t\t\t\t\t\t\t\t\t\t<span class=\"topnav-item&#45;&#45;text\">";
-            // line 201
+            // line 203
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["LANGUAGES"]);
             echo "</span>-->
 <!--        \t\t\t\t\t\t\t\t\t\t</a>-->
 <!--        \t\t\t\t\t\t\t\t\t\t<div class=\"pPanel\">-->
 <!--        \t\t\t\t\t\t\t\t\t\t\t<ul class=\"inner\">-->
 <!--                                                        ";
-            // line 205
+            // line 207
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable(($context["locales"] ?? null));
             foreach ($context['_seq'] as $context["code"] => $context["name"]) {
                 echo "-->
 <!--            \t\t\t\t\t\t\t\t\t\t\t\t<li class=\"toplang-item ";
-                // line 206
+                // line 208
                 if ((($context["activeLocale"] ?? null) == $context["code"])) {
                     echo "active";
                 }
                 echo "\">-->
 <!--            \t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"javascript:;\" class=\"locale\" rel=\"";
-                // line 207
+                // line 209
                 echo twig_escape_filter($this->env, $context["code"], "html", null, true);
                 echo "\">-->
 <!--            \t\t\t\t\t\t\t\t\t\t\t\t\t\t<img src=\"./front/images/";
-                // line 208
+                // line 210
                 echo twig_escape_filter($this->env, $context["code"], "html", null, true);
                 echo ".svg\" alt=\"";
                 echo twig_escape_filter($this->env, $context["name"], "html", null, true);
@@ -406,7 +408,7 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['code'], $context['name'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 211
+            // line 213
             echo "-->
 <!--        \t\t\t\t\t\t\t\t\t\t\t</ul>-->
 <!--        \t\t\t\t\t\t\t\t\t\t</div>-->
@@ -415,7 +417,7 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
 <!--        \t\t\t\t\t\t\t\t&lt;!&ndash;/ Languages &ndash;&gt;-->
 <!--                                    ";
         }
-        // line 217
+        // line 219
         echo "-->
 
 <!--    \t\t\t\t\t\t\t\t<div class=\"topnav support&#45;&#45;panel align-self-center\">-->
@@ -423,7 +425,7 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
 <!--    \t\t\t\t\t\t\t\t\t<label for=\"support_p\" class=\"topnav-item spanel-label\">-->
 <!--    \t\t\t\t\t\t\t\t\t\t<i class=\"fas fa-info-circle support-info\"></i>-->
 <!--    \t\t\t\t\t\t\t\t\t\t<span class=\"topnav-item&#45;&#45;text\">";
-        // line 223
+        // line 225
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["SUPPORT"]);
         echo "</span>-->
 <!--    \t\t\t\t\t\t\t\t\t</label>-->
@@ -431,7 +433,7 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
 <!--    \t\t\t\t\t\t\t\t</div>-->
 
 <!--                                    ";
-        // line 228
+        // line 230
         if (($context["user"] ?? null)) {
             echo "-->
 <!--                                    <div class=\"topnav topnav&#45;&#45;lang align-self-center\">-->
@@ -439,7 +441,7 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
 <!--                                            <a href=\"javascript:;\" class=\"topnav-item\">-->
 <!--                                                <span class=\"fas far fa-user-circle xs-icon\"></span>-->
 <!--                                                <span class=\"topnav-item&#45;&#45;text\">";
-            // line 233
+            // line 235
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["ACCOUNT"]);
             echo "</span>-->
 <!--                                            </a>-->
@@ -447,11 +449,11 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
 <!--                                                <ul class=\"inner\">-->
 <!--                                                    <li class=\"toplang-item\">-->
 <!--                                                        <a href=\"";
-            // line 238
+            // line 240
             echo $this->extensions['Cms\Twig\Extension']->pageFilter("dashboard/dashboard");
             echo "\">-->
 <!--                                                            <img src=\"./front/images/set-03-01.svg\" alt=\"";
-            // line 239
+            // line 241
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Dashboard"]);
             echo "\" class=\"toplang-flag\"> ";
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Dashboard"]);
@@ -460,11 +462,11 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
 <!--                                                    </li>-->
 <!--                                                    <li class=\"toplang-item\">-->
 <!--                                                        <a href=\"";
-            // line 243
+            // line 245
             echo $this->extensions['Cms\Twig\Extension']->pageFilter("dashboard/profile");
             echo "\">-->
 <!--                                                            <img src=\"./front/images/set-03-04.svg\" alt=\"";
-            // line 244
+            // line 246
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Profile"]);
             echo "\" class=\"toplang-flag\"> ";
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Profile"]);
@@ -474,7 +476,7 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
 <!--                                                    <li class=\"toplang-item\">-->
 <!--                                                        <a href=\"javascript:;\" data-request=\"onLogout\" data-request-data=\"redirect: '/'\">-->
 <!--                                                            <img src=\"./front/images/set-03-03.svg\" alt=\"";
-            // line 249
+            // line 251
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Logout"]);
             echo "\" class=\"toplang-flag\"> ";
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Logout"]);
@@ -487,14 +489,14 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
 <!--                                    </div>-->
 <!--                                    ";
         } else {
-            // line 256
+            // line 258
             echo "-->
 <!--    \t\t\t\t\t\t\t\t&lt;!&ndash; Login trigger &ndash;&gt;-->
 <!--    \t\t\t\t\t\t\t\t<div class=\"topnav login&#45;&#45;panel align-self-center\">-->
 <!--    \t\t\t\t\t\t\t\t\t<a class=\"topnav-item popup-with-form\" href=\"#login_panel\">-->
 <!--    \t\t\t\t\t\t\t\t\t\t<i class=\"login-icon fas fa-sign-in-alt visible-xs xs-icon\"></i>-->
 <!--    \t\t\t\t\t\t\t\t\t\t<span class=\"topnav-item&#45;&#45;text\">";
-            // line 261
+            // line 263
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["LOGIN"]);
             echo "</span>-->
 <!--    \t\t\t\t\t\t\t\t\t</a>-->
@@ -502,7 +504,7 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
 <!--    \t\t\t\t\t\t\t\t&lt;!&ndash;/ Login trigger &ndash;&gt;-->
 <!--                                    ";
         }
-        // line 265
+        // line 267
         echo "-->
 <!--    \t\t\t\t\t\t\t</div>-->
 <!--    \t\t\t\t\t\t\t&lt;!&ndash;/ .site-header-top-right &ndash;&gt;-->
@@ -530,20 +532,20 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
     \t\t\t\t\t\t\t\t\t<!-- Logo -->
     \t\t\t\t\t\t\t\t\t<h1 class=\"site-logo logo\" id=\"logo\">
     \t\t\t\t\t\t\t\t\t\t<a href=\"";
-        // line 291
+        // line 293
         echo url(("/" . ($context["currentLang"] ?? null)));
         echo "\" title=\"\">
     \t\t\t\t\t\t\t\t\t\t\t<img src=\"";
-        // line 292
-        if (twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "mobile_logo", [], "any", false, false, false, 292)) {
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "mobile_logo", [], "any", false, false, false, 292), "path", [], "any", false, false, false, 292), "html", null, true);
+        // line 294
+        if (twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "mobile_logo", [], "any", false, false, false, 294)) {
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "mobile_logo", [], "any", false, false, false, 294), "path", [], "any", false, false, false, 294), "html", null, true);
         } else {
             echo "./admin/media/logos/logo.svg";
         }
         echo "\" class=\"logo-img\" alt=\"";
-        echo call_user_func_array($this->env->getFilter('__')->getCallable(), [twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 292), "title", [], "any", false, false, false, 292)]);
+        echo call_user_func_array($this->env->getFilter('__')->getCallable(), [twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 294), "title", [], "any", false, false, false, 294)]);
         echo "\" title=\"";
-        echo call_user_func_array($this->env->getFilter('__')->getCallable(), [twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 292), "title", [], "any", false, false, false, 292)]);
+        echo call_user_func_array($this->env->getFilter('__')->getCallable(), [twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 294), "title", [], "any", false, false, false, 294)]);
         echo "\" />
     \t\t\t\t\t\t\t\t\t\t</a>
     \t\t\t\t\t\t\t\t\t</h1>
@@ -557,17 +559,17 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
 <!--    \t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"align-self-center\">-->
 <!--    \t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"infocard-wrapper text-center\">-->
 <!--    \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img src=\"";
-        // line 304
-        if (twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "favicon", [], "any", false, false, false, 304)) {
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "favicon", [], "any", false, false, false, 304), "thumb", [0 => 72, 1 => 72], "method", false, false, false, 304), "html", null, true);
+        // line 306
+        if (twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "favicon", [], "any", false, false, false, 306)) {
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "favicon", [], "any", false, false, false, 306), "thumb", [0 => 72, 1 => 72], "method", false, false, false, 306), "html", null, true);
         } else {
             echo "./admin/media/logos/logo.svg";
         }
         echo "\" class=\"mb-25\" alt=\"{ settings.company.title|__ }}\" title=\"{ settings.company.title|__ }}\" />-->
 <!--    \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p>-->
 <!--    \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t";
-        // line 306
-        echo call_user_func_array($this->env->getFilter('__')->getCallable(), [twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 306), "description", [], "any", false, false, false, 306)]);
+        // line 308
+        echo call_user_func_array($this->env->getFilter('__')->getCallable(), [twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 308), "description", [], "any", false, false, false, 308)]);
         echo ".-->
 <!--    \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</p>-->
 <!--    \t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>-->
@@ -581,18 +583,18 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
 <!--    \t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"custom contact-details\">-->
 <!--    \t\t\t\t\t\t\t\t\t\t\t\t\t\t<p>-->
 <!--    \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t";
-        // line 318
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 318), "contact_phone", [], "any", false, false, false, 318), "html", null, true);
+        // line 320
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 320), "contact_phone", [], "any", false, false, false, 320), "html", null, true);
         echo " <br>-->
 <!--    \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t";
-        // line 319
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 319), "address", [], "any", false, false, false, 319), "html", null, true);
+        // line 321
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 321), "address", [], "any", false, false, false, 321), "html", null, true);
         echo " <br>-->
 <!--    \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"mailto:";
-        // line 320
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 320), "primary_email", [], "any", false, false, false, 320), "html", null, true);
+        // line 322
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 322), "primary_email", [], "any", false, false, false, 322), "html", null, true);
         echo "\">";
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 320), "primary_email", [], "any", false, false, false, 320), "html", null, true);
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 322), "primary_email", [], "any", false, false, false, 322), "html", null, true);
         echo "</a>-->
 <!--    \t\t\t\t\t\t\t\t\t\t\t\t\t\t</p>-->
 <!--    \t\t\t\t\t\t\t\t\t\t\t\t\t</div>-->
@@ -601,40 +603,40 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
 <!--    \t\t\t\t\t\t\t\t\t\t\t\t\t&lt;!&ndash; Social links clean style &ndash;&gt;-->
 <!--    \t\t\t\t\t\t\t\t\t\t\t\t\t<ul class=\"social-icons sc&#45;&#45;clean\">-->
 <!--                                                            ";
-        // line 327
-        if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 327), "twitter", [], "any", false, false, false, 327)) {
+        // line 329
+        if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 329), "twitter", [], "any", false, false, false, 329)) {
             echo "-->
 <!--    \t\t\t\t\t\t\t\t\t\t\t\t\t\t<li><a href=\"";
-            // line 328
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 328), "twitter", [], "any", false, false, false, 328), "html", null, true);
+            // line 330
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 330), "twitter", [], "any", false, false, false, 330), "html", null, true);
             echo "\" target=\"_blank\" class=\"fab fa-twitter\" title=\"Twitter\"></a></li>-->
 <!--                                                            ";
         }
-        // line 329
+        // line 331
         echo "-->
 <!--                                                            ";
-        // line 330
-        if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 330), "facebook", [], "any", false, false, false, 330)) {
+        // line 332
+        if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 332), "facebook", [], "any", false, false, false, 332)) {
             echo "-->
 <!--    \t\t\t\t\t\t\t\t\t\t\t\t\t\t<li><a href=\"";
-            // line 331
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 331), "facebook", [], "any", false, false, false, 331), "html", null, true);
+            // line 333
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 333), "facebook", [], "any", false, false, false, 333), "html", null, true);
             echo "\" target=\"_blank\" class=\"fab fa-facebook-f\" title=\"Facebook\"></a></li>-->
 <!--                                                            ";
         }
-        // line 332
+        // line 334
         echo "-->
 <!--                                                            ";
-        // line 333
-        if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 333), "instagram", [], "any", false, false, false, 333)) {
+        // line 335
+        if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 335), "instagram", [], "any", false, false, false, 335)) {
             echo "-->
 <!--    \t\t\t\t\t\t\t\t\t\t\t\t\t\t<li><a href=\"";
-            // line 334
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 334), "instagram", [], "any", false, false, false, 334), "html", null, true);
+            // line 336
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 336), "instagram", [], "any", false, false, false, 336), "html", null, true);
             echo "\" target=\"_blank\" class=\"fab fa-instagram\" title=\"Instagram\"></a></li>-->
 <!--                                                            ";
         }
-        // line 335
+        // line 337
         echo "-->
 <!--    \t\t\t\t\t\t\t\t\t\t\t\t\t</ul>-->
 <!--    \t\t\t\t\t\t\t\t\t\t\t\t\t&lt;!&ndash;/ Social links clean style &ndash;&gt;-->
@@ -667,135 +669,135 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
 
     \t\t\t\t\t\t\t\t\t<!-- Main menu -->
                             \t\t\t";
-        // line 366
-        if (twig_get_attribute($this->env, $this->source, ($context["mainMenu"] ?? null), "menuItems", [], "any", false, false, false, 366)) {
-            // line 367
+        // line 368
+        if (twig_get_attribute($this->env, $this->source, ($context["mainMenu"] ?? null), "menuItems", [], "any", false, false, false, 368)) {
+            // line 369
             echo "        \t\t\t\t\t\t\t\t\t<div id=\"main-menu\" class=\"main-nav zn_mega_wrapper\">
         \t\t\t\t\t\t\t\t\t\t<ul id=\"menu-main-menu\" class=\"main-menu zn_mega_menu\">
                                                     ";
-            // line 369
+            // line 371
             $context['_parent'] = $context;
-            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, ($context["mainMenu"] ?? null), "menuItems", [], "any", false, false, false, 369));
+            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, ($context["mainMenu"] ?? null), "menuItems", [], "any", false, false, false, 371));
             foreach ($context['_seq'] as $context["_key"] => $context["item"]) {
-                if ( !twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["item"], "viewBag", [], "any", false, false, false, 369), "isHidden", [], "any", false, false, false, 369)) {
-                    // line 370
+                if ( !twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["item"], "viewBag", [], "any", false, false, false, 371), "isHidden", [], "any", false, false, false, 371)) {
+                    // line 372
                     echo "                                                        ";
-                    if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => twig_get_attribute($this->env, $this->source, $context["item"], "code", [], "any", false, false, false, 370), 1 => "r"], "method", false, false, false, 370) || twig_test_empty(twig_get_attribute($this->env, $this->source, $context["item"], "code", [], "any", false, false, false, 370)))) {
-                        // line 371
+                    if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => twig_get_attribute($this->env, $this->source, $context["item"], "code", [], "any", false, false, false, 372), 1 => "r"], "method", false, false, false, 372) || twig_test_empty(twig_get_attribute($this->env, $this->source, $context["item"], "code", [], "any", false, false, false, 372)))) {
+                        // line 373
                         echo "                \t\t\t\t\t\t\t\t\t\t\t<li class=\"";
-                        if (twig_get_attribute($this->env, $this->source, $context["item"], "items", [], "any", false, false, false, 371)) {
+                        if (twig_get_attribute($this->env, $this->source, $context["item"], "items", [], "any", false, false, false, 373)) {
                             echo "menu-item-has-children";
                         }
                         echo " ";
-                        echo (((twig_get_attribute($this->env, $this->source, $context["item"], "isActive", [], "any", false, false, false, 371) || twig_get_attribute($this->env, $this->source, $context["item"], "isChildActive", [], "any", false, false, false, 371))) ? ("active") : (""));
+                        echo (((twig_get_attribute($this->env, $this->source, $context["item"], "isActive", [], "any", false, false, false, 373) || twig_get_attribute($this->env, $this->source, $context["item"], "isChildActive", [], "any", false, false, false, 373))) ? ("active") : (""));
                         echo "\">
                                                                 <a href=\"";
-                        // line 372
-                        if (twig_get_attribute($this->env, $this->source, $context["item"], "url", [], "any", false, false, false, 372)) {
-                            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["item"], "url", [], "any", false, false, false, 372), "html", null, true);
+                        // line 374
+                        if (twig_get_attribute($this->env, $this->source, $context["item"], "url", [], "any", false, false, false, 374)) {
+                            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["item"], "url", [], "any", false, false, false, 374), "html", null, true);
                         } else {
                             echo "#";
                         }
                         echo "\"  ";
-                        echo ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["item"], "viewBag", [], "any", false, false, false, 372), "isExternal", [], "any", false, false, false, 372)) ? ("target=\"_blank\"") : (""));
+                        echo ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["item"], "viewBag", [], "any", false, false, false, 374), "isExternal", [], "any", false, false, false, 374)) ? ("target=\"_blank\"") : (""));
                         echo ">";
-                        echo call_user_func_array($this->env->getFilter('__')->getCallable(), [twig_get_attribute($this->env, $this->source, $context["item"], "title", [], "any", false, false, false, 372)]);
+                        echo call_user_func_array($this->env->getFilter('__')->getCallable(), [twig_get_attribute($this->env, $this->source, $context["item"], "title", [], "any", false, false, false, 374)]);
                         echo "</a>
                                                                 ";
-                        // line 373
-                        if (twig_get_attribute($this->env, $this->source, $context["item"], "items", [], "any", false, false, false, 373)) {
-                            // line 374
+                        // line 375
+                        if (twig_get_attribute($this->env, $this->source, $context["item"], "items", [], "any", false, false, false, 375)) {
+                            // line 376
                             echo "                    \t\t\t\t\t\t\t\t\t\t\t\t<ul class=\"sub-menu clearfix\">
                                                                         ";
-                            // line 375
+                            // line 377
                             $context['_parent'] = $context;
-                            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, $context["item"], "items", [], "any", false, false, false, 375));
+                            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, $context["item"], "items", [], "any", false, false, false, 377));
                             foreach ($context['_seq'] as $context["_key"] => $context["item"]) {
-                                if ( !twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["item"], "viewBag", [], "any", false, false, false, 375), "isHidden", [], "any", false, false, false, 375)) {
-                                    // line 376
+                                if ( !twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["item"], "viewBag", [], "any", false, false, false, 377), "isHidden", [], "any", false, false, false, 377)) {
+                                    // line 378
                                     echo "                                                                            ";
-                                    if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => twig_get_attribute($this->env, $this->source, $context["item"], "code", [], "any", false, false, false, 376), 1 => "r"], "method", false, false, false, 376) || twig_test_empty(twig_get_attribute($this->env, $this->source, $context["item"], "code", [], "any", false, false, false, 376)))) {
-                                        // line 377
+                                    if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => twig_get_attribute($this->env, $this->source, $context["item"], "code", [], "any", false, false, false, 378), 1 => "r"], "method", false, false, false, 378) || twig_test_empty(twig_get_attribute($this->env, $this->source, $context["item"], "code", [], "any", false, false, false, 378)))) {
+                                        // line 379
                                         echo "                            \t\t\t\t\t\t\t\t\t\t\t\t\t<li>
                                                                                     <a href=\"";
-                                        // line 378
-                                        if (twig_get_attribute($this->env, $this->source, $context["item"], "url", [], "any", false, false, false, 378)) {
-                                            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["item"], "url", [], "any", false, false, false, 378), "html", null, true);
+                                        // line 380
+                                        if (twig_get_attribute($this->env, $this->source, $context["item"], "url", [], "any", false, false, false, 380)) {
+                                            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["item"], "url", [], "any", false, false, false, 380), "html", null, true);
                                         } else {
                                             echo "#";
                                         }
                                         echo "\">";
-                                        echo call_user_func_array($this->env->getFilter('__')->getCallable(), [twig_get_attribute($this->env, $this->source, $context["item"], "title", [], "any", false, false, false, 378)]);
+                                        echo call_user_func_array($this->env->getFilter('__')->getCallable(), [twig_get_attribute($this->env, $this->source, $context["item"], "title", [], "any", false, false, false, 380)]);
                                         echo "</a>
                                                                                     ";
-                                        // line 379
-                                        if (twig_get_attribute($this->env, $this->source, $context["item"], "items", [], "any", false, false, false, 379)) {
-                                            // line 380
+                                        // line 381
+                                        if (twig_get_attribute($this->env, $this->source, $context["item"], "items", [], "any", false, false, false, 381)) {
+                                            // line 382
                                             echo "                                \t\t\t\t\t\t\t\t\t\t\t\t\t\t<ul class=\"sub-menu clearfix\">
                                                                                             ";
-                                            // line 381
+                                            // line 383
                                             $context['_parent'] = $context;
-                                            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, $context["item"], "items", [], "any", false, false, false, 381));
+                                            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, $context["item"], "items", [], "any", false, false, false, 383));
                                             foreach ($context['_seq'] as $context["_key"] => $context["item"]) {
-                                                if ( !twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["item"], "viewBag", [], "any", false, false, false, 381), "isHidden", [], "any", false, false, false, 381)) {
-                                                    // line 382
+                                                if ( !twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["item"], "viewBag", [], "any", false, false, false, 383), "isHidden", [], "any", false, false, false, 383)) {
+                                                    // line 384
                                                     echo "                                                                                                ";
-                                                    if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => twig_get_attribute($this->env, $this->source, $context["item"], "code", [], "any", false, false, false, 382), 1 => "r"], "method", false, false, false, 382) || twig_test_empty(twig_get_attribute($this->env, $this->source, $context["item"], "code", [], "any", false, false, false, 382)))) {
-                                                        // line 383
+                                                    if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => twig_get_attribute($this->env, $this->source, $context["item"], "code", [], "any", false, false, false, 384), 1 => "r"], "method", false, false, false, 384) || twig_test_empty(twig_get_attribute($this->env, $this->source, $context["item"], "code", [], "any", false, false, false, 384)))) {
+                                                        // line 385
                                                         echo "                                        \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<li><a href=\"";
-                                                        if (twig_get_attribute($this->env, $this->source, $context["item"], "url", [], "any", false, false, false, 383)) {
-                                                            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["item"], "url", [], "any", false, false, false, 383), "html", null, true);
+                                                        if (twig_get_attribute($this->env, $this->source, $context["item"], "url", [], "any", false, false, false, 385)) {
+                                                            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["item"], "url", [], "any", false, false, false, 385), "html", null, true);
                                                         } else {
                                                             echo "#";
                                                         }
                                                         echo "\">";
-                                                        echo call_user_func_array($this->env->getFilter('__')->getCallable(), [twig_get_attribute($this->env, $this->source, $context["item"], "title", [], "any", false, false, false, 383)]);
+                                                        echo call_user_func_array($this->env->getFilter('__')->getCallable(), [twig_get_attribute($this->env, $this->source, $context["item"], "title", [], "any", false, false, false, 385)]);
                                                         echo "</a></li>
                                                                                                 ";
                                                     }
-                                                    // line 385
+                                                    // line 387
                                                     echo "                                                                                            ";
                                                 }
                                             }
                                             $_parent = $context['_parent'];
                                             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['item'], $context['_parent'], $context['loop']);
                                             $context = array_intersect_key($context, $_parent) + $_parent;
-                                            // line 386
+                                            // line 388
                                             echo "                                \t\t\t\t\t\t\t\t\t\t\t\t\t\t</ul>
                                                                                     ";
                                         }
-                                        // line 388
+                                        // line 390
                                         echo "                            \t\t\t\t\t\t\t\t\t\t\t\t\t</li>
                                                                             ";
                                     }
-                                    // line 390
+                                    // line 392
                                     echo "                                                                        ";
                                 }
                             }
                             $_parent = $context['_parent'];
                             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['item'], $context['_parent'], $context['loop']);
                             $context = array_intersect_key($context, $_parent) + $_parent;
-                            // line 391
+                            // line 393
                             echo "                    \t\t\t\t\t\t\t\t\t\t\t\t</ul>
                                                                 ";
                         }
-                        // line 393
+                        // line 395
                         echo "                \t\t\t\t\t\t\t\t\t\t\t</li>
                                                         ";
                     }
-                    // line 395
+                    // line 397
                     echo "                                                    ";
                 }
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['item'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 396
+            // line 398
             echo "        \t\t\t\t\t\t\t\t\t\t</ul>
         \t\t\t\t\t\t\t\t\t</div>
                                         ";
         }
-        // line 398
+        // line 400
         echo "<!--/ Main menu -->
     \t\t\t\t\t\t\t\t</div>
     \t\t\t\t\t\t\t\t<!--/ .main-menu-wrapper -->
@@ -808,7 +810,7 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
 <!--    \t\t\t\t\t\t\t\t<div class=\"quote-ribbon\">-->
 <!--    \t\t\t\t\t\t\t\t\t<a href=\"#contact_panel\" id=\"ctabutton\" class=\"ctabutton kl-cta-ribbon\" title=\"GET A FREE QUOTE\" target=\"_self\">-->
 <!--    \t\t\t\t\t\t\t\t\t\t<strong>";
-        // line 409
+        // line 411
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["TRACK"]);
         echo "</strong>";
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["package"]);
@@ -821,16 +823,16 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
     \t\t\t\t\t\t\t\t<!--/ Call to action ribbon Free Quote (Contact form pop-up element) -->
 
 \t\t\t\t\t\t\t\t\t";
-        // line 417
+        // line 419
         if (($context["locales"] ?? null)) {
-            // line 418
+            // line 420
             echo "\t\t\t\t\t\t\t\t\t<!-- Languages -->
 \t\t\t\t\t\t\t\t\t<div class=\"topnav topnav--lang align-self-center\">
 \t\t\t\t\t\t\t\t\t\t<div class=\"languages drop\">
 \t\t\t\t\t\t\t\t\t\t\t<a href=\"javascript:void(0);\" class=\"topnav-item d-inline-flex align-items-center\">
-\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"fas fa-globe xs-icon\"></span>
+\t\t\t\t\t\t\t\t\t\t\t\t<i class=\"fas fa-globe xs-icon\"></i>
 <!--\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"topnav-item&#45;&#45;text d-none\">";
-            // line 423
+            // line 425
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["LANGUAGES"]);
             echo "</span>-->
 \t\t\t\t\t\t\t\t\t\t\t\t<span class=\"topnav-item--image ml-2\">
@@ -840,22 +842,22 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
 \t\t\t\t\t\t\t\t\t\t\t<div class=\"pPanel\">
 \t\t\t\t\t\t\t\t\t\t\t\t<ul class=\"inner\">
 \t\t\t\t\t\t\t\t\t\t\t\t\t";
-            // line 430
+            // line 432
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable(($context["locales"] ?? null));
             foreach ($context['_seq'] as $context["code"] => $context["name"]) {
-                // line 431
+                // line 433
                 echo "\t\t\t\t\t\t\t\t\t\t\t\t\t<li class=\"toplang-item ";
                 if ((($context["activeLocale"] ?? null) == $context["code"])) {
                     echo "active";
                 }
                 echo "\">
 \t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"javascript:void(0);\" class=\"locale\" rel=\"";
-                // line 432
+                // line 434
                 echo twig_escape_filter($this->env, $context["code"], "html", null, true);
                 echo "\">
 \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img src=\"./front/images/";
-                // line 433
+                // line 435
                 echo twig_escape_filter($this->env, $context["code"], "html", null, true);
                 echo ".svg\" alt=\"";
                 echo twig_escape_filter($this->env, $context["name"], "html", null, true);
@@ -869,7 +871,7 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['code'], $context['name'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 437
+            // line 439
             echo "\t\t\t\t\t\t\t\t\t\t\t\t</ul>
 \t\t\t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t\t\t</div>
@@ -877,18 +879,18 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
 \t\t\t\t\t\t\t\t\t<!--/ Languages -->
 \t\t\t\t\t\t\t\t\t";
         }
-        // line 443
+        // line 445
         echo "
 \t\t\t\t\t\t\t\t\t";
-        // line 444
+        // line 446
         if (($context["user"] ?? null)) {
-            // line 445
+            // line 447
             echo "\t\t\t\t\t\t\t\t\t<div class=\"topnav topnav--lang topnav-account-login topnav-account align-self-center\">
 \t\t\t\t\t\t\t\t\t\t<div class=\"languages drop\">
-\t\t\t\t\t\t\t\t\t\t\t<a href=\"javascript:;\" class=\"topnav-item\">
-\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"fas far fa-user-circle xs-icon\"></span>
+\t\t\t\t\t\t\t\t\t\t\t<a href=\"javascript:void(0);\" class=\"topnav-item\">
+\t\t\t\t\t\t\t\t\t\t\t\t<i class=\"fas far fa-user-circle xs-icon\"></i>
 \t\t\t\t\t\t\t\t\t\t\t\t<span class=\"topnav-item--text\">";
-            // line 449
+            // line 451
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["ACCOUNT"]);
             echo "</span>
 \t\t\t\t\t\t\t\t\t\t\t</a>
@@ -896,11 +898,11 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
 \t\t\t\t\t\t\t\t\t\t\t\t<ul class=\"inner\">
 \t\t\t\t\t\t\t\t\t\t\t\t\t<li class=\"toplang-item\">
 \t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"";
-            // line 454
+            // line 456
             echo $this->extensions['Cms\Twig\Extension']->pageFilter("dashboard/dashboard");
             echo "\">
 \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img src=\"./front/images/set-03-01.svg\" alt=\"";
-            // line 455
+            // line 457
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Dashboard"]);
             echo "\" class=\"toplang-flag\"> ";
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Dashboard"]);
@@ -909,11 +911,11 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
 \t\t\t\t\t\t\t\t\t\t\t\t\t</li>
 \t\t\t\t\t\t\t\t\t\t\t\t\t<li class=\"toplang-item\">
 \t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"";
-            // line 459
+            // line 461
             echo $this->extensions['Cms\Twig\Extension']->pageFilter("dashboard/profile");
             echo "\">
 \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img src=\"./front/images/set-03-04.svg\" alt=\"";
-            // line 460
+            // line 462
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Profile"]);
             echo "\" class=\"toplang-flag\"> ";
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Profile"]);
@@ -923,7 +925,7 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
 \t\t\t\t\t\t\t\t\t\t\t\t\t<li class=\"toplang-item\">
 \t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"javascript:;\" data-request=\"onLogout\" data-request-data=\"redirect: '/'\">
 \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img src=\"./front/images/set-03-03.svg\" alt=\"";
-            // line 465
+            // line 467
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Logout"]);
             echo "\" class=\"toplang-flag\"> ";
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Logout"]);
@@ -936,13 +938,13 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
 \t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t\t";
         } else {
-            // line 473
+            // line 475
             echo "\t\t\t\t\t\t\t\t\t<!-- Login trigger -->
 \t\t\t\t\t\t\t\t\t<div class=\"topnav login--panel topnav-account-login topnav-login align-self-center\">
 \t\t\t\t\t\t\t\t\t\t<a class=\"topnav-item popup-with-form\" href=\"#login_panel\">
-\t\t\t\t\t\t\t\t\t\t\t<span class=\"login-icon fas fa-sign-in-alt visible-xs xs-icon\"></span>
+\t\t\t\t\t\t\t\t\t\t\t<i class=\"login-icon fas fa-sign-in-alt visible-xs xs-icon\"></i>
 \t\t\t\t\t\t\t\t\t\t\t<span class=\"topnav-item--text\">";
-            // line 477
+            // line 479
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["LOGIN"]);
             echo "</span>
 \t\t\t\t\t\t\t\t\t\t</a>
@@ -950,7 +952,7 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
 \t\t\t\t\t\t\t\t\t<!--/ Login trigger -->
 \t\t\t\t\t\t\t\t\t";
         }
-        // line 482
+        // line 484
         echo "
     \t\t\t\t\t\t\t</div>
     \t\t\t\t\t\t\t<!--/ .site-header-main-right -->
@@ -966,14 +968,13 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
     \t\t<!-- / Header style 1 -->
 
             ";
-        // line 496
+        // line 498
         echo $this->env->getExtension('Cms\Twig\Extension')->pageFunction();
-        // line 497
+        // line 499
         echo "
             <footer id=\"footer\" data-footer-style=\"4\">
             \t<div class=\"container contact-details\">
-            \t\t<div class=\"row\">
-            \t\t\t<div class=\"row w-100 d-flex justify-content-between\">
+\t\t\t\t\t<div class=\"row\">
 
 \t\t\t\t\t\t\t<div class=\"col-sm-3\">
 \t\t\t\t\t\t\t\t<div class=\"footer-widget\">
@@ -982,27 +983,27 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
 <!--\t\t\t\t\t\t\t\t\t\t\tApp</h4>-->
 <!--\t\t\t\t\t\t\t\t\t</div>-->
 \t\t\t\t\t\t\t\t\t<div class=\"footer-detail-wrap\">
-                                        <div>
+                                        <div class=\"footer-logo-wrap\">
                                             <a href=\"";
-        // line 511
+        // line 512
         echo url("/");
         echo "\">
                                                 <img src=\"";
-        // line 512
-        if (twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "mobile_logo", [], "any", false, false, false, 512)) {
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "mobile_logo", [], "any", false, false, false, 512), "path", [], "any", false, false, false, 512), "html", null, true);
+        // line 513
+        if (twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "mobile_logo", [], "any", false, false, false, 513)) {
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "mobile_logo", [], "any", false, false, false, 513), "path", [], "any", false, false, false, 513), "html", null, true);
         } else {
             echo "./admin/media/logos/logo.svg";
         }
         echo "\" alt=\"";
-        echo call_user_func_array($this->env->getFilter('__')->getCallable(), [twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 512), "title", [], "any", false, false, false, 512)]);
+        echo call_user_func_array($this->env->getFilter('__')->getCallable(), [twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 513), "title", [], "any", false, false, false, 513)]);
         echo "\" class=\"footer-logo\" title=\"";
-        echo call_user_func_array($this->env->getFilter('__')->getCallable(), [twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 512), "title", [], "any", false, false, false, 512)]);
+        echo call_user_func_array($this->env->getFilter('__')->getCallable(), [twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 513), "title", [], "any", false, false, false, 513)]);
         echo "\" />
                                             </a>
                                         </div>
-\t\t\t\t\t\t\t\t\t\t<div>
-\t\t\t\t\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut quis nostrud exercitation commodo consequat.</p>
+\t\t\t\t\t\t\t\t\t\t<div class=\"mt-30 footer-about-wrap\">
+\t\t\t\t\t\t\t\t\t\t\t<p class=\"mb-0\">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut quis nostrud exercitation commodo consequat.</p>
 \t\t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t</div>
@@ -1044,96 +1045,96 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
 \t\t\t\t\t\t\t\t\t\t<h4 class=\"footer-title\">Contact<br>Info</h4>
 \t\t\t\t\t\t\t\t\t</div>
                                     <div class=\"footer-detail-wrap d-flex flex-column\">
-\t\t\t\t\t\t\t\t\t\t<div class=\"d-flex flex-column\">
+\t\t\t\t\t\t\t\t\t\t<div class=\"contact-info d-flex flex-column\">
 \t<!--                                        <a href=\"javascript:void(0);\" target=\"_blank\" class=\"footer-links\">-->
 \t<!--                                            <i class=\"glyphicon glyphicon-flag icon-size-xxs\"></i>-->
 \t<!--                                            <span>";
-        // line 561
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 561), "address", [], "any", false, false, false, 561), "html", null, true);
+        // line 562
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 562), "address", [], "any", false, false, false, 562), "html", null, true);
         echo "</span>-->
 \t<!--                                        </a>-->
 \t\t\t\t\t\t\t\t\t\t\t<a href=\"mailto:";
-        // line 563
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 563), "primary_email", [], "any", false, false, false, 563), "html", null, true);
+        // line 564
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 564), "primary_email", [], "any", false, false, false, 564), "html", null, true);
         echo "\" target=\"_blank\" class=\"footer-links\">
 \t\t\t\t\t\t\t\t\t\t\t\t<i class=\"glyphicon glyphicon-user icon-size-xxs\"></i>
 \t\t\t\t\t\t\t\t\t\t\t\t<span>";
-        // line 565
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 565), "primary_email", [], "any", false, false, false, 565), "html", null, true);
+        // line 566
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 566), "primary_email", [], "any", false, false, false, 566), "html", null, true);
         echo "</span>
 \t\t\t\t\t\t\t\t\t\t\t</a>
 \t\t\t\t\t\t\t\t\t\t\t<a href=\"tel:";
-        // line 567
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 567), "company_phone", [], "any", false, false, false, 567), "html", null, true);
+        // line 568
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 568), "company_phone", [], "any", false, false, false, 568), "html", null, true);
         echo "\" target=\"_blank\" class=\"footer-links\">
 \t\t\t\t\t\t\t\t\t\t\t\t<i class=\"glyphicon glyphicon-earphone icon-size-xxs\"></i>
 \t\t\t\t\t\t\t\t\t\t\t\t<span>";
-        // line 569
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 569), "company_phone", [], "any", false, false, false, 569), "html", null, true);
+        // line 570
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 570), "company_phone", [], "any", false, false, false, 570), "html", null, true);
         echo "</span>
 \t\t\t\t\t\t\t\t\t\t\t</a>
 \t\t\t\t\t\t\t\t\t\t\t<a href=\"tel:";
-        // line 571
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 571), "company_phone_2", [], "any", false, false, false, 571), "html", null, true);
+        // line 572
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 572), "company_phone_2", [], "any", false, false, false, 572), "html", null, true);
         echo "\" target=\"_blank\" class=\"footer-links\">
 \t\t\t\t\t\t\t\t\t\t\t\t<i class=\"glyphicon glyphicon-earphone icon-size-xxs\"></i>
 \t\t\t\t\t\t\t\t\t\t\t\t<span>";
-        // line 573
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 573), "company_phone_2", [], "any", false, false, false, 573), "html", null, true);
+        // line 574
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 574), "company_phone_2", [], "any", false, false, false, 574), "html", null, true);
         echo "</span>
 \t\t\t\t\t\t\t\t\t\t\t</a>
 \t\t\t\t\t\t\t\t\t\t\t<a href=\"tel:";
-        // line 575
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 575), "company_phone_3", [], "any", false, false, false, 575), "html", null, true);
+        // line 576
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 576), "company_phone_3", [], "any", false, false, false, 576), "html", null, true);
         echo "\" target=\"_blank\" class=\"footer-links\">
 \t\t\t\t\t\t\t\t\t\t\t\t<i class=\"glyphicon glyphicon-earphone icon-size-xxs\"></i>
 \t\t\t\t\t\t\t\t\t\t\t\t<span>";
-        // line 577
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 577), "company_phone_3", [], "any", false, false, false, 577), "html", null, true);
+        // line 578
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 578), "company_phone_3", [], "any", false, false, false, 578), "html", null, true);
         echo "</span>
 \t\t\t\t\t\t\t\t\t\t\t</a>
 \t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t<div class=\"d-flex justify-content-center\">
+\t\t\t\t\t\t\t\t\t\t<div class=\"d-flex\">
 \t\t\t\t\t\t\t\t\t\t\t<!-- Social icons colored background, aligned center and rounded style -->
-\t\t\t\t\t\t\t\t\t\t\t<div class=\"elm-socialicons m-auto \">
-\t\t\t\t\t\t\t\t\t\t\t\t<ul class=\"elm-social-icons sc--colored sh--rounded clearfix mt-3 mb-2\">
+\t\t\t\t\t\t\t\t\t\t\t<div class=\"elm-socialicons mb-0\">
+\t\t\t\t\t\t\t\t\t\t\t\t<ul class=\"elm-social-icons sc--colored sh--circle clearfix mt-3\">
 \t\t\t\t\t\t\t\t\t\t\t\t\t";
-        // line 584
-        if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 584), "facebook", [], "any", false, false, false, 584)) {
-            // line 585
+        // line 585
+        if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 585), "facebook", [], "any", false, false, false, 585)) {
+            // line 586
             echo "\t\t\t\t\t\t\t\t\t\t\t\t\t<li>
 \t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"";
-            // line 586
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 586), "facebook", [], "any", false, false, false, 586), "html", null, true);
+            // line 587
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 587), "facebook", [], "any", false, false, false, 587), "html", null, true);
             echo "\" class=\"elm-sc-icon elm-sc-icon-0 fab fa-facebook-f bg-icon\" target=\"_self\" title=\"Facebook\"></a>
 \t\t\t\t\t\t\t\t\t\t\t\t\t</li>
 \t\t\t\t\t\t\t\t\t\t\t\t\t";
         }
-        // line 589
+        // line 590
         echo "\t\t\t\t\t\t\t\t\t\t\t\t\t";
-        if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 589), "twitter", [], "any", false, false, false, 589)) {
-            // line 590
+        if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 590), "twitter", [], "any", false, false, false, 590)) {
+            // line 591
             echo "\t\t\t\t\t\t\t\t\t\t\t\t\t<li>
 \t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"";
-            // line 591
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 591), "twitter", [], "any", false, false, false, 591), "html", null, true);
+            // line 592
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 592), "twitter", [], "any", false, false, false, 592), "html", null, true);
             echo "\" class=\"elm-sc-icon elm-sc-icon-1 fab fa-twitter bg-icon\" target=\"_self\" title=\"Twitter\"></a>
 \t\t\t\t\t\t\t\t\t\t\t\t\t</li>
 \t\t\t\t\t\t\t\t\t\t\t\t\t";
         }
-        // line 594
+        // line 595
         echo "\t\t\t\t\t\t\t\t\t\t\t\t\t";
-        if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 594), "instagram", [], "any", false, false, false, 594)) {
-            // line 595
+        if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 595), "instagram", [], "any", false, false, false, 595)) {
+            // line 596
             echo "\t\t\t\t\t\t\t\t\t\t\t\t\t<li>
 \t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"";
-            // line 596
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 596), "instagram", [], "any", false, false, false, 596), "html", null, true);
+            // line 597
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 597), "instagram", [], "any", false, false, false, 597), "html", null, true);
             echo "\" class=\"elm-sc-icon elm-sc-icon-2 fab fa-instagram bg-icon\" target=\"_self\" title=\"Instagram\"></a>
 \t\t\t\t\t\t\t\t\t\t\t\t\t</li>
 \t\t\t\t\t\t\t\t\t\t\t\t\t";
         }
-        // line 599
+        // line 600
         echo "\t\t\t\t\t\t\t\t\t\t\t\t</ul>
 \t\t\t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t\t\t\t<!--/ Social icons colored background, aligned center and rounded style -->
@@ -1149,21 +1150,27 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
 \t\t\t\t\t\t\t\t\t\t<h4 class=\"footer-title\">Download<br>App</h4>
 \t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t\t<div class=\"footer-detail-wrap\">
-                                        <div class=\"download-app-wrap d-flex justify-content-around\">
-                                            <span>
-                                                Google Play
+                                        <div class=\"download-app-wrap d-flex flex-column\">
+                                            <span class=\"app-wrap mb-4\">
+                                                <img class=\"\"
+                                                     src=\"";
+        // line 618
+        echo "./front/images/app-google-play.png";
+        echo "\" alt=\"Google Play Store\">
                                             </span>
-                                            <span>
-                                                App Store
+                                            <span class=\"app-wrap mb-4\">
+                                                <img class=\"\"
+                                                     src=\"";
+        // line 622
+        echo "./front/images/app-google-play.png";
+        echo "\" alt=\"Apple App Store\">
                                             </span>
                                         </div>
 \t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t</div>
             \t\t\t</div>
-
             \t\t\t<!--/ col-sm-offset-2 col-md-8 col-sm-8 -->
-            \t\t</div>
             \t\t<!--/ row -->
 
             \t\t<div class=\"row\">
@@ -1172,11 +1179,11 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
             \t\t\t<!-- Left side Copyright -->
             \t\t\t<div class=\"col-sm-12 col-md-6 col-lg-6 d-flex justify-content-start\">
 \t\t\t\t\t\t\t<div class=\"d-flex\">
-            \t\t\t\t\t<p>© ";
-        // line 637
+            \t\t\t\t\t<p class=\"mb-0\">© ";
+        // line 638
         echo twig_escape_filter($this->env, twig_date_format_filter($this->env, "now", "Y"), "html", null, true);
         echo " <span class=\"font-weight-bold brand_title\">";
-        echo call_user_func_array($this->env->getFilter('__')->getCallable(), [twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 637), "title", [], "any", false, false, false, 637)]);
+        echo call_user_func_array($this->env->getFilter('__')->getCallable(), [twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "company", [], "any", false, false, false, 638), "title", [], "any", false, false, false, 638)]);
         echo "</span> ";
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["All rights reserved"]);
         echo ".</p>
@@ -1187,11 +1194,11 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
             \t\t\t<!-- Right side -->
             \t\t\t<div class=\"col-sm-12 col-md-6 col-lg-6\">
             \t\t\t\t<div class=\"d-block text-right\">";
-        // line 644
-        echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Powered By"]);
-        echo " &nbsp;<a href=\"https://ivylabtech.com\" target=\"_blank\" class=\"refer_title\">IvyLab Technologies</a>.
-\t\t\t\t\t\t\t\t<!--                                ";
         // line 645
+        echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Powered By"]);
+        echo " &nbsp;<a href=\"https://ivylabtech.com\" target=\"_blank\" class=\"font-weight-bold refer_title\">IvyLab Technologies</a>.
+\t\t\t\t\t\t\t\t<!--                                ";
+        // line 646
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Developed By"]);
         echo " &nbsp;<a href=\"https://ivylabtech.com\" target=\"_blank\">";
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Spotlayer"]);
@@ -1212,23 +1219,23 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
     \t\t<div class=\"inner-container login-panel auth-popup-panel\">
     \t\t\t<h3 class=\"m_title m_title_ext text-custom auth-popup-title tcolor\">
     \t\t\t\t";
-        // line 661
+        // line 662
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["SIGN IN YOUR ACCOUNT TO HAVE ACCESS TO DIFFERENT FEATURES"]);
         echo "
     \t\t\t</h3>
 
     \t\t\t<form class=\"login_panel\" name=\"login_panel\" method=\"get\" action=\"";
-        // line 664
+        // line 665
         echo url("login");
         echo "\">
     \t\t\t\t<div class=\" kl-fancy-form\">
     \t\t\t\t\t<input type=\"text\" id=\"userSigninLogin\" name=\"login\" class=\"form-control inputbox kl-fancy-form-input kl-fw-input\" placeholder=\"";
-        // line 666
+        // line 667
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["eg"]);
         echo ": james_smith\" required>
     \t\t\t\t\t<label class=\"kl-font-alt kl-fancy-form-label\">
     \t\t\t\t\t\t";
-        // line 668
+        // line 669
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), [($context["loginAttributeLabel"] ?? null)]);
         echo "
     \t\t\t\t\t</label>
@@ -1236,44 +1243,44 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
 
     \t\t\t\t<div class=\" kl-fancy-form\">
     \t\t\t\t\t<input type=\"password\" id=\"userSigninPassword\" name=\"password\" class=\"form-control inputbox kl-fancy-form-input kl-fw-input\" placeholder=\"";
-        // line 673
+        // line 674
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["type password"]);
         echo "\" required>
     \t\t\t\t\t<label class=\"kl-font-alt kl-fancy-form-label\">
     \t\t\t\t\t\t";
-        // line 675
+        // line 676
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Password"]);
         echo "
     \t\t\t\t\t</label>
     \t\t\t\t</div>
 
                     ";
-        // line 679
+        // line 680
         if ((($context["rememberLoginMode"] ?? null) == "ask")) {
-            // line 680
+            // line 681
             echo "        \t\t\t\t<label class=\"auth-popup-remember\" for=\"kl-rememberme\">
                             <input name=\"remember\" type=\"checkbox\" value=\"1\" id=\"kl-rememberme\" class=\"auth-popup-remember-chb\"> ";
-            // line 681
+            // line 682
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Remember me"]);
             echo "
         \t\t\t\t</label>
                     ";
         }
-        // line 684
+        // line 685
         echo "
     \t\t\t\t<input type=\"submit\" name=\"submit_button\" class=\"btn zn_sub_button btn-fullcolor btn-md\" value=\"";
-        // line 685
+        // line 686
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Sign In"]);
         echo "\">
 
     \t\t\t\t<div class=\"links auth-popup-links\">
                         ";
-        // line 688
+        // line 689
         if (($context["canRegister"] ?? null)) {
-            // line 689
+            // line 690
             echo "\t\t\t\t\t\t\t<a href=\"#register_panel\" class=\"create_account auth-popup-createacc kl-login-box auth-popup-link\">
 \t\t\t\t\t\t\t\t";
-            // line 690
+            // line 691
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["CREATE AN ACCOUNT"]);
             echo "
 \t\t\t\t\t\t\t</a>
@@ -1281,21 +1288,21 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
 \t\t\t\t\t\t\t<span class=\"sep auth-popup-sep\"></span>
                         ";
         }
-        // line 695
+        // line 696
         echo "    \t\t\t\t</div>
     \t\t\t</form>
     \t\t</div>
     \t\t<button title=\"Close (Esc)\" type=\"button\" class=\"mfp-close\">×</button>
     \t</div>
         ";
-        // line 700
+        // line 701
         if (($context["canRegister"] ?? null)) {
-            // line 701
+            // line 702
             echo "    \t<div id=\"register_panel\" class=\"mfp-hide loginbox-popup auth-popup\">
     \t\t<div class=\"inner-container register-panel auth-popup-panel\">
     \t\t\t<h3 class=\"m_title m_title_ext text-custom auth-popup-title\">
     \t\t\t\t";
-            // line 704
+            // line 705
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["CREATE ACCOUNT"]);
             echo "
     \t\t\t</h3>
@@ -1303,57 +1310,52 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
     \t\t\t<form class=\"register_panel\" name=\"register_panel\" method=\"post\" action=\"#\">
     \t\t\t\t<div class=\" kl-fancy-form \">
     \t\t\t\t\t<input type=\"text\" id=\"registerName\" name=\"name\" class=\"form-control inputbox kl-fancy-form-input kl-fw-input\" placeholder=\"";
-            // line 709
+            // line 710
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["type your name"]);
             echo "\" required>
-    \t\t\t\t\t<label class=\"kl-font-alt kl-fancy-form-label\">";
-            // line 710
+    \t\t\t\t\t<label for=\"registerName\" class=\"kl-font-alt kl-fancy-form-label\">";
+            // line 711
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["FULL NAME"]);
             echo "</label>
     \t\t\t\t</div>
                     ";
-            // line 712
+            // line 713
             if ((($context["loginAttribute"] ?? null) == "username")) {
-                // line 713
+                // line 714
                 echo "    \t\t\t\t<div class=\" kl-fancy-form \">
     \t\t\t\t\t<input type=\"text\" id=\"registerUsername\" name=\"username\" class=\"form-control inputbox kl-fancy-form-input kl-fw-input\" placeholder=\"";
-                // line 714
+                // line 715
                 echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["type desired username"]);
                 echo "\" required>
-    \t\t\t\t\t<label class=\"kl-font-alt kl-fancy-form-label\">";
-                // line 715
+    \t\t\t\t\t<label for=\"registerUsername\" class=\"kl-font-alt kl-fancy-form-label\">";
+                // line 716
                 echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["USERNAME"]);
                 echo "</label>
     \t\t\t\t</div>
                     ";
             }
-            // line 718
+            // line 719
             echo "
     \t\t\t\t<div class=\"kl-fancy-form\">
     \t\t\t\t\t<input type=\"text\" id=\"registerEmail\" name=\"email\" class=\"form-control inputbox kl-fancy-form-input kl-fw-input\" placeholder=\"your-email@website.com\" required>
-    \t\t\t\t\t<label class=\"kl-font-alt kl-fancy-form-label\">
-    \t\t\t\t\t\t";
+    \t\t\t\t\t<label for=\"registerEmail\" class=\"kl-font-alt kl-fancy-form-label\">";
             // line 722
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["EMAIL"]);
-            echo "
-    \t\t\t\t\t</label>
-    \t\t\t\t</div
-    \t\t\t\t>
+            echo "</label>
+    \t\t\t\t</div>
     \t\t\t\t<div class=\" kl-fancy-form\">
     \t\t\t\t\t<input type=\"password\" id=\"registerPassword\" name=\"password\" class=\"form-control inputbox kl-fancy-form-input kl-fw-input\" placeholder=\"*****\" required>
-    \t\t\t\t\t<label class=\"kl-font-alt kl-fancy-form-label\">
-    \t\t\t\t\t\t";
-            // line 729
+    \t\t\t\t\t<label  for=\"registerPassword\" class=\"kl-font-alt kl-fancy-form-label\">";
+            // line 726
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["PASSWORD"]);
-            echo "
-    \t\t\t\t\t</label>
+            echo "</label>
     \t\t\t\t</div>
 
     \t\t\t\t<div class=\"kl-fancy-form\">
     \t\t\t\t\t<input type=\"password\" id=\"rpassword\" name=\"rpassword\" class=\"form-control inputbox kl-fancy-form-input kl-fw-input\" placeholder=\"*****\" required>
     \t\t\t\t\t<label class=\"kl-font-alt kl-fancy-form-label\">
     \t\t\t\t\t\t";
-            // line 736
+            // line 732
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["CONFIRM PASSWORD"]);
             echo "
     \t\t\t\t\t</label>
@@ -1361,7 +1363,7 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
 
     \t\t\t\t<label class=\"auth-popup-remember\" for=\"agreement\">
                         <input name=\"agree\" type=\"checkbox\" value=\"1\" id=\"agreement\" class=\"auth-popup-remember-chb\" required> ";
-            // line 741
+            // line 737
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["I Agree the"]);
             echo " <a href=\"#\" data-toggle=\"modal\" data-target=\"#kt_modal_6\" class=\"kt-link kt-login__link kt-font-bold\">";
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["terms and conditions"]);
@@ -1370,7 +1372,7 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
 
     \t\t\t\t<div class=\"\">
     \t\t\t\t\t<input type=\"submit\" id=\"signup\" name=\"submit\" class=\"btn zn_sub_button btn-block btn-fullcolor btn-md\" value=\"";
-            // line 745
+            // line 741
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["CREATE MY ACCOUNT"]);
             echo "\">
     \t\t\t\t</div>
@@ -1378,7 +1380,7 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
     \t\t\t\t<div class=\"links auth-popup-links\">
     \t\t\t\t\t<a href=\"#login_panel\" class=\"kl-login-box auth-popup-link\">
     \t\t\t\t\t\t";
-            // line 750
+            // line 746
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["ALREADY HAVE AN ACCOUNT?"]);
             echo "
     \t\t\t\t\t</a>
@@ -1388,18 +1390,18 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
     \t</div>
         ";
         }
-        // line 757
+        // line 753
         echo "    \t<div id=\"forgot_panel\" class=\"mfp-hide loginbox-popup auth-popup forgot-popup\">
     \t\t<div class=\"inner-container forgot-panel auth-popup-panel\">
     \t\t\t<h3 class=\"m_title m_title_ext text-custom auth-popup-title\">
     \t\t\t\t";
-        // line 760
+        // line 756
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["FORGOT YOUR PASSWORD?"]);
         echo "
     \t\t\t</h3>
 
     \t\t\t<form class=\"forgot_form\" data-request=\"";
-        // line 763
+        // line 759
         echo twig_escape_filter($this->env, ($context["__SELF__"] ?? null), "html", null, true);
         echo "::onRestorePassword\" data-request-update=\"'";
         echo twig_escape_filter($this->env, ($context["__SELF__"] ?? null), "html", null, true);
@@ -1408,7 +1410,7 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
     \t\t\t\t\t<input type=\"email\" id=\"userRestoreEmail\" name=\"email\" class=\"form-control inputbox kl-fancy-form-input kl-fw-input\" placeholder=\"...\" required>
     \t\t\t\t\t<label class=\"kl-font-alt kl-fancy-form-label\">
     \t\t\t\t\t\t";
-        // line 767
+        // line 763
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["EMAIL"]);
         echo "
     \t\t\t\t\t</label>
@@ -1416,7 +1418,7 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
 
     \t\t\t\t<div class=\"\">
     \t\t\t\t\t<input type=\"submit\" id=\"kt_login_forgot_submit\" name=\"submit\" class=\"btn btn-block zn_sub_button btn-fullcolor btn-md\" value=\"";
-        // line 772
+        // line 768
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["SEND MY DETAILS!"]);
         echo "\">
     \t\t\t\t</div>
@@ -1424,7 +1426,7 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
     \t\t\t\t<div class=\"links auth-popup-links\">
     \t\t\t\t\t<a href=\"#login_panel\" class=\"kl-login-box auth-popup-link\">
     \t\t\t\t\t\t";
-        // line 777
+        // line 773
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["AAH, WAIT, I REMEMBER NOW!"]);
         echo "
     \t\t\t\t\t</a>
@@ -1447,37 +1449,37 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
     \t\t\t\t\t\t\t<!-- Title -->
     \t\t\t\t\t\t\t<h3 class=\"m_title m_title_ext text-custom contact-popup-title tcolor\">
     \t\t\t\t\t\t\t\t";
-        // line 797
+        // line 793
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["TRACK A PACKAGE"]);
         echo "
     \t\t\t\t\t\t\t</h3>
     \t\t\t\t\t\t\t<h4 class=\"tbk__subtitle fw-thin\">
     \t\t\t\t\t\t\t\t";
-        // line 800
+        // line 796
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Just type the tracking code and we'll do everything"]);
         echo "!
     \t\t\t\t\t\t\t</h4>
 
     \t\t\t\t\t\t\t<form action=\"";
-        // line 803
+        // line 799
         echo url("tracking");
         echo "\" method=\"get\" class=\"contact_form row mt-40\">
                                     ";
-        // line 804
+        // line 800
         echo call_user_func_array($this->env->getFunction('form_token')->getCallable(), ["token"]);
         echo "
                                     ";
-        // line 805
+        // line 801
         echo call_user_func_array($this->env->getFunction('form_sessionKey')->getCallable(), ["sessionKey"]);
         echo "
     \t\t\t\t\t\t\t\t<div class=\"col-sm-12 kl-fancy-form\">
     \t\t\t\t\t\t\t\t\t<input type=\"text\" name=\"number\" id=\"cf_name-pop-up\" class=\"form-control\" placeholder=\"";
-        // line 807
+        // line 803
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Please enter a valid tracking number"]);
         echo "\" value=\"\" tabindex=\"1\" maxlength=\"35\" required>
     \t\t\t\t\t\t\t\t\t<label class=\"control-label\">
     \t\t\t\t\t\t\t\t\t\t";
-        // line 809
+        // line 805
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Tracking numbers"]);
         echo "
     \t\t\t\t\t\t\t\t\t</label>
@@ -1487,7 +1489,7 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
     \t\t\t\t\t\t\t\t\t<!-- Contact form send button -->
     \t\t\t\t\t\t\t\t\t<button class=\"btn btn-fullcolor\" type=\"submit\">
     \t\t\t\t\t\t\t\t\t\t";
-        // line 816
+        // line 812
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Track"]);
         echo "
     \t\t\t\t\t\t\t\t\t</button>
@@ -1504,7 +1506,7 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
     \t\t</div>
     \t\t<!--/ .contact-popup-panel -->
     \t\t<button title=\"";
-        // line 830
+        // line 826
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Close (Esc)"]);
         echo "\" type=\"button\" class=\"mfp-close\">×</button>
     \t</div>
@@ -1513,11 +1515,10 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
 
     \t<!-- ToTop trigger -->
     \t<a href=\"javascript:void(0);\" id=\"totop\">";
-        // line 836
+        // line 832
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["TOP"]);
         echo "</a>
     \t<!--/ ToTop trigger -->
-
 
 
     \t<!-- JS FILES // These should be loaded in every page -->
@@ -1572,7 +1573,10 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
 
 
     \t<!-- Custom Kallyas JS codes -->
+\t\t<script type=\"text/javascript\" src=\"//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js\"></script>
+
     \t<script type=\"text/javascript\" src=\"./front/js/kl-scripts.js\"></script>
+    \t<script type=\"text/javascript\" src=\"./front/js/kl-custom.js\"></script>
 
 
     \t<!-- Google Analytics: change UA-XXXXX-X to be your site's ID.
@@ -1618,17 +1622,17 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
                 },
                 \"text\":{
                     'loading' : '";
-        // line 938
+        // line 936
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Loading ..."]);
         echo "'
                 },
                 \"dateformat\": \"";
-        // line 940
-        echo twig_escape_filter($this->env, twig_replace_filter(twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "dateformat", [], "any", false, false, false, 940), ["d" => "dd", "m" => "mm", "Y" => "yyyy"]), "html", null, true);
+        // line 938
+        echo twig_escape_filter($this->env, twig_replace_filter(twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "dateformat", [], "any", false, false, false, 938), ["d" => "dd", "m" => "mm", "Y" => "yyyy"]), "html", null, true);
         echo "\",
                 \"daterangeformat\": \"";
-        // line 941
-        echo twig_escape_filter($this->env, twig_replace_filter(twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "dateformat", [], "any", false, false, false, 941), ["d" => "DD", "m" => "MM", "M" => "MMM"]), "html", null, true);
+        // line 939
+        echo twig_escape_filter($this->env, twig_replace_filter(twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "dateformat", [], "any", false, false, false, 939), ["d" => "DD", "m" => "MM", "M" => "MMM"]), "html", null, true);
         echo "\"
             };
 
@@ -1637,7 +1641,7 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
 
         <!--begin::Page Scripts(used by this page) -->
             ";
-        // line 948
+        // line 946
         $_minify = System\Classes\CombineAssets::instance()->useMinify;
         if ($_minify) {
             echo '<script src="' . Request::getBasePath() . '/modules/system/assets/js/framework.combined-min.js"></script>'.PHP_EOL;
@@ -1648,11 +1652,11 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
         }
         echo '<link rel="stylesheet" property="stylesheet" href="' . Request::getBasePath() .'/modules/system/assets/css/framework.extras'.($_minify ? '-min' : '').'.css">'.PHP_EOL;
         unset($_minify);
-        // line 949
+        // line 947
         echo "            ";
         echo $this->env->getExtension('Cms\Twig\Extension')->assetsFunction('js');
         echo $this->env->getExtension('Cms\Twig\Extension')->displayBlock('scripts');
-        // line 950
+        // line 948
         echo "            <script type=\"text/javascript\">
                 jQuery(document).ready(function() {
                     \$('body').on('click', '.locale', function(e){
@@ -1680,17 +1684,17 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
 
                                         \$.request('onRegister', {
                                             ";
-        // line 976
+        // line 974
         if ((($context["loginAttribute"] ?? null) == "username")) {
-            // line 977
+            // line 975
             echo "                                                data: {name: \$('#registerName').val(), email: \$('#registerEmail').val(), username: \$('#registerUsername').val(), password: \$('#registerPassword').val(), password_confirmation: \$('#rpassword').val()},
                                             ";
         } else {
-            // line 979
+            // line 977
             echo "                                                data: {name: \$('#registerName').val(), email: \$('#registerEmail').val(), password: \$('#registerPassword').val(), password_confirmation: \$('#rpassword').val()},
                                             ";
         }
-        // line 981
+        // line 979
         echo "                                            error: function(e,response) {
                                                 cform.find('.cf_response').addClass('alert alert-danger error');
                                                 cform.find('.cf_response').html(e.responseJSON.X_OCTOBER_ERROR_MESSAGE);
@@ -1699,27 +1703,27 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
                                             success: function(response, status, xhr, \$form) {
                                                 cform.find('.cf_response').addClass('alert alert-success');
                                                 ";
-        // line 988
+        // line 986
         if ((($context["requireActivation"] ?? null) && (null === ($context["automaticActivation"] ?? null)))) {
-            // line 989
+            // line 987
             echo "                                                    cform.find('.cf_response').html('";
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Thank you. To complete your registration please check your email"]);
             echo ".');
                                 \t\t\t\t\tcResponse.show();
                                                  ";
         } else {
-            // line 992
+            // line 990
             echo "                                                    cform.find('.cf_response').html('";
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Successfully registered, you are being redirect"]);
             echo ".');
                                 \t\t\t\t\tcResponse.show();
                                                     window.location.href = \"";
-            // line 994
+            // line 992
             echo $this->extensions['Cms\Twig\Extension']->pageFilter("dashboard/dashboard");
             echo "\";
                                                 ";
         }
-        // line 996
+        // line 994
         echo "                                            }
                                         });
                     \t\t\t\t}
@@ -1770,7 +1774,7 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
 
     public function getDebugInfo()
     {
-        return array (  1723 => 996,  1718 => 994,  1712 => 992,  1705 => 989,  1703 => 988,  1694 => 981,  1690 => 979,  1686 => 977,  1684 => 976,  1656 => 950,  1652 => 949,  1641 => 948,  1631 => 941,  1627 => 940,  1622 => 938,  1517 => 836,  1508 => 830,  1491 => 816,  1481 => 809,  1476 => 807,  1471 => 805,  1467 => 804,  1463 => 803,  1457 => 800,  1451 => 797,  1428 => 777,  1420 => 772,  1412 => 767,  1403 => 763,  1397 => 760,  1392 => 757,  1382 => 750,  1374 => 745,  1365 => 741,  1357 => 736,  1347 => 729,  1337 => 722,  1331 => 718,  1325 => 715,  1321 => 714,  1318 => 713,  1316 => 712,  1311 => 710,  1307 => 709,  1299 => 704,  1294 => 701,  1292 => 700,  1285 => 695,  1277 => 690,  1274 => 689,  1272 => 688,  1266 => 685,  1263 => 684,  1257 => 681,  1254 => 680,  1252 => 679,  1245 => 675,  1240 => 673,  1232 => 668,  1227 => 666,  1222 => 664,  1216 => 661,  1195 => 645,  1191 => 644,  1177 => 637,  1137 => 599,  1131 => 596,  1128 => 595,  1125 => 594,  1119 => 591,  1116 => 590,  1113 => 589,  1107 => 586,  1104 => 585,  1102 => 584,  1092 => 577,  1087 => 575,  1082 => 573,  1077 => 571,  1072 => 569,  1067 => 567,  1062 => 565,  1057 => 563,  1052 => 561,  992 => 512,  988 => 511,  972 => 497,  970 => 496,  954 => 482,  946 => 477,  940 => 473,  927 => 465,  917 => 460,  913 => 459,  904 => 455,  900 => 454,  892 => 449,  886 => 445,  884 => 444,  881 => 443,  873 => 437,  859 => 433,  855 => 432,  848 => 431,  844 => 430,  834 => 423,  827 => 418,  825 => 417,  812 => 409,  799 => 398,  794 => 396,  787 => 395,  783 => 393,  779 => 391,  772 => 390,  768 => 388,  764 => 386,  757 => 385,  745 => 383,  742 => 382,  737 => 381,  734 => 380,  732 => 379,  722 => 378,  719 => 377,  716 => 376,  711 => 375,  708 => 374,  706 => 373,  694 => 372,  685 => 371,  682 => 370,  677 => 369,  673 => 367,  671 => 366,  638 => 335,  633 => 334,  629 => 333,  626 => 332,  621 => 331,  617 => 330,  614 => 329,  609 => 328,  605 => 327,  593 => 320,  589 => 319,  585 => 318,  570 => 306,  561 => 304,  538 => 292,  534 => 291,  506 => 265,  498 => 261,  491 => 256,  478 => 249,  468 => 244,  464 => 243,  455 => 239,  451 => 238,  443 => 233,  435 => 228,  427 => 223,  419 => 217,  410 => 211,  396 => 208,  392 => 207,  386 => 206,  380 => 205,  373 => 201,  364 => 195,  351 => 187,  346 => 185,  335 => 176,  325 => 172,  320 => 170,  317 => 169,  307 => 165,  302 => 163,  299 => 162,  289 => 158,  284 => 156,  248 => 123,  244 => 122,  236 => 117,  219 => 107,  209 => 100,  201 => 95,  193 => 90,  183 => 83,  163 => 68,  159 => 66,  156 => 65,  150 => 61,  146 => 59,  142 => 57,  140 => 56,  106 => 24,  101 => 22,  95 => 19,  91 => 18,  87 => 17,  83 => 16,  80 => 15,  78 => 14,  73 => 12,  69 => 11,  63 => 8,  56 => 6,  51 => 4,  40 => 2,  37 => 1,);
+        return array (  1727 => 994,  1722 => 992,  1716 => 990,  1709 => 987,  1707 => 986,  1698 => 979,  1694 => 977,  1690 => 975,  1688 => 974,  1660 => 948,  1656 => 947,  1645 => 946,  1635 => 939,  1631 => 938,  1626 => 936,  1519 => 832,  1510 => 826,  1493 => 812,  1483 => 805,  1478 => 803,  1473 => 801,  1469 => 800,  1465 => 799,  1459 => 796,  1453 => 793,  1430 => 773,  1422 => 768,  1414 => 763,  1405 => 759,  1399 => 756,  1394 => 753,  1384 => 746,  1376 => 741,  1367 => 737,  1359 => 732,  1350 => 726,  1343 => 722,  1338 => 719,  1332 => 716,  1328 => 715,  1325 => 714,  1323 => 713,  1318 => 711,  1314 => 710,  1306 => 705,  1301 => 702,  1299 => 701,  1292 => 696,  1284 => 691,  1281 => 690,  1279 => 689,  1273 => 686,  1270 => 685,  1264 => 682,  1261 => 681,  1259 => 680,  1252 => 676,  1247 => 674,  1239 => 669,  1234 => 667,  1229 => 665,  1223 => 662,  1202 => 646,  1198 => 645,  1184 => 638,  1165 => 622,  1158 => 618,  1138 => 600,  1132 => 597,  1129 => 596,  1126 => 595,  1120 => 592,  1117 => 591,  1114 => 590,  1108 => 587,  1105 => 586,  1103 => 585,  1093 => 578,  1088 => 576,  1083 => 574,  1078 => 572,  1073 => 570,  1068 => 568,  1063 => 566,  1058 => 564,  1053 => 562,  993 => 513,  989 => 512,  974 => 499,  972 => 498,  956 => 484,  948 => 479,  942 => 475,  929 => 467,  919 => 462,  915 => 461,  906 => 457,  902 => 456,  894 => 451,  888 => 447,  886 => 446,  883 => 445,  875 => 439,  861 => 435,  857 => 434,  850 => 433,  846 => 432,  836 => 425,  829 => 420,  827 => 419,  814 => 411,  801 => 400,  796 => 398,  789 => 397,  785 => 395,  781 => 393,  774 => 392,  770 => 390,  766 => 388,  759 => 387,  747 => 385,  744 => 384,  739 => 383,  736 => 382,  734 => 381,  724 => 380,  721 => 379,  718 => 378,  713 => 377,  710 => 376,  708 => 375,  696 => 374,  687 => 373,  684 => 372,  679 => 371,  675 => 369,  673 => 368,  640 => 337,  635 => 336,  631 => 335,  628 => 334,  623 => 333,  619 => 332,  616 => 331,  611 => 330,  607 => 329,  595 => 322,  591 => 321,  587 => 320,  572 => 308,  563 => 306,  540 => 294,  536 => 293,  508 => 267,  500 => 263,  493 => 258,  480 => 251,  470 => 246,  466 => 245,  457 => 241,  453 => 240,  445 => 235,  437 => 230,  429 => 225,  421 => 219,  412 => 213,  398 => 210,  394 => 209,  388 => 208,  382 => 207,  375 => 203,  366 => 197,  353 => 189,  348 => 187,  337 => 178,  327 => 174,  322 => 172,  319 => 171,  309 => 167,  304 => 165,  301 => 164,  291 => 160,  286 => 158,  250 => 125,  246 => 124,  238 => 119,  221 => 109,  211 => 102,  203 => 97,  195 => 92,  185 => 85,  165 => 70,  161 => 68,  158 => 67,  152 => 63,  148 => 61,  144 => 59,  142 => 58,  106 => 24,  101 => 22,  95 => 19,  91 => 18,  87 => 17,  83 => 16,  80 => 15,  78 => 14,  73 => 12,  69 => 11,  63 => 8,  56 => 6,  51 => 4,  40 => 2,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -1807,10 +1811,12 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
     \t<link rel=\"stylesheet\" href=\"./front/css/bootstrap.css\" type=\"text/css\" media=\"all\">
 
     \t<!-- Font Awesome icons library -->
-    \t<link rel=\"stylesheet\" href=\"./front/fonts/font-awesome/css/font-awesome.min.css\" type=\"text/css\" media=\"all\">
+<!--    \t<link rel=\"stylesheet\" href=\"./front/fonts/font-awesome/css/font-awesome.min.css\" type=\"text/css\" media=\"all\">-->
+\t\t<link rel=\"stylesheet\" href=\"https://pro.fontawesome.com/releases/v5.10.0/css/all.css\"/>
 
     \t<!-- Required CSS file for IOS Slider element  -->
     \t<link rel=\"stylesheet\" href=\"./front/css/sliders/ios/style.css\" type=\"text/css\" media=\"all\">
+\t\t<link rel=\"stylesheet\" type=\"text/css\" href=\"//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css\"/>
 
     \t<!-- ***** Main + Responsive & Base sizing CSS Stylesheet ***** -->
     \t<link rel=\"stylesheet\" href=\"./front/css/template.css\" type=\"text/css\" media=\"all\">
@@ -2196,7 +2202,7 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
 \t\t\t\t\t\t\t\t\t<div class=\"topnav topnav--lang align-self-center\">
 \t\t\t\t\t\t\t\t\t\t<div class=\"languages drop\">
 \t\t\t\t\t\t\t\t\t\t\t<a href=\"javascript:void(0);\" class=\"topnav-item d-inline-flex align-items-center\">
-\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"fas fa-globe xs-icon\"></span>
+\t\t\t\t\t\t\t\t\t\t\t\t<i class=\"fas fa-globe xs-icon\"></i>
 <!--\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"topnav-item&#45;&#45;text d-none\">{{'LANGUAGES'|__}}</span>-->
 \t\t\t\t\t\t\t\t\t\t\t\t<span class=\"topnav-item--image ml-2\">
 \t\t\t\t\t\t\t\t\t\t\t\t\t<img src=\"./front/images/en.svg\" alt=\"English\" class=\"toplang-flag\">
@@ -2221,8 +2227,8 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
 \t\t\t\t\t\t\t\t\t{% if user %}
 \t\t\t\t\t\t\t\t\t<div class=\"topnav topnav--lang topnav-account-login topnav-account align-self-center\">
 \t\t\t\t\t\t\t\t\t\t<div class=\"languages drop\">
-\t\t\t\t\t\t\t\t\t\t\t<a href=\"javascript:;\" class=\"topnav-item\">
-\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"fas far fa-user-circle xs-icon\"></span>
+\t\t\t\t\t\t\t\t\t\t\t<a href=\"javascript:void(0);\" class=\"topnav-item\">
+\t\t\t\t\t\t\t\t\t\t\t\t<i class=\"fas far fa-user-circle xs-icon\"></i>
 \t\t\t\t\t\t\t\t\t\t\t\t<span class=\"topnav-item--text\">{{'ACCOUNT'|__}}</span>
 \t\t\t\t\t\t\t\t\t\t\t</a>
 \t\t\t\t\t\t\t\t\t\t\t<div class=\"pPanel\">
@@ -2250,7 +2256,7 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
 \t\t\t\t\t\t\t\t\t<!-- Login trigger -->
 \t\t\t\t\t\t\t\t\t<div class=\"topnav login--panel topnav-account-login topnav-login align-self-center\">
 \t\t\t\t\t\t\t\t\t\t<a class=\"topnav-item popup-with-form\" href=\"#login_panel\">
-\t\t\t\t\t\t\t\t\t\t\t<span class=\"login-icon fas fa-sign-in-alt visible-xs xs-icon\"></span>
+\t\t\t\t\t\t\t\t\t\t\t<i class=\"login-icon fas fa-sign-in-alt visible-xs xs-icon\"></i>
 \t\t\t\t\t\t\t\t\t\t\t<span class=\"topnav-item--text\">{{'LOGIN'|__}}</span>
 \t\t\t\t\t\t\t\t\t\t</a>
 \t\t\t\t\t\t\t\t\t</div>
@@ -2274,8 +2280,7 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
 
             <footer id=\"footer\" data-footer-style=\"4\">
             \t<div class=\"container contact-details\">
-            \t\t<div class=\"row\">
-            \t\t\t<div class=\"row w-100 d-flex justify-content-between\">
+\t\t\t\t\t<div class=\"row\">
 
 \t\t\t\t\t\t\t<div class=\"col-sm-3\">
 \t\t\t\t\t\t\t\t<div class=\"footer-widget\">
@@ -2284,13 +2289,13 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
 <!--\t\t\t\t\t\t\t\t\t\t\tApp</h4>-->
 <!--\t\t\t\t\t\t\t\t\t</div>-->
 \t\t\t\t\t\t\t\t\t<div class=\"footer-detail-wrap\">
-                                        <div>
+                                        <div class=\"footer-logo-wrap\">
                                             <a href=\"{{url('/')}}\">
                                                 <img src=\"{% if settings.mobile_logo %}{{ settings.mobile_logo.path }}{% else %}./admin/media/logos/logo.svg{% endif %}\" alt=\"{{ settings.company.title|__ }}\" class=\"footer-logo\" title=\"{{ settings.company.title|__ }}\" />
                                             </a>
                                         </div>
-\t\t\t\t\t\t\t\t\t\t<div>
-\t\t\t\t\t\t\t\t\t\t\t<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut quis nostrud exercitation commodo consequat.</p>
+\t\t\t\t\t\t\t\t\t\t<div class=\"mt-30 footer-about-wrap\">
+\t\t\t\t\t\t\t\t\t\t\t<p class=\"mb-0\">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut quis nostrud exercitation commodo consequat.</p>
 \t\t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t</div>
@@ -2332,7 +2337,7 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
 \t\t\t\t\t\t\t\t\t\t<h4 class=\"footer-title\">Contact<br>Info</h4>
 \t\t\t\t\t\t\t\t\t</div>
                                     <div class=\"footer-detail-wrap d-flex flex-column\">
-\t\t\t\t\t\t\t\t\t\t<div class=\"d-flex flex-column\">
+\t\t\t\t\t\t\t\t\t\t<div class=\"contact-info d-flex flex-column\">
 \t<!--                                        <a href=\"javascript:void(0);\" target=\"_blank\" class=\"footer-links\">-->
 \t<!--                                            <i class=\"glyphicon glyphicon-flag icon-size-xxs\"></i>-->
 \t<!--                                            <span>{{ settings.company.address }}</span>-->
@@ -2354,10 +2359,10 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
 \t\t\t\t\t\t\t\t\t\t\t\t<span>{{ settings.company.company_phone_3 }}</span>
 \t\t\t\t\t\t\t\t\t\t\t</a>
 \t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t<div class=\"d-flex justify-content-center\">
+\t\t\t\t\t\t\t\t\t\t<div class=\"d-flex\">
 \t\t\t\t\t\t\t\t\t\t\t<!-- Social icons colored background, aligned center and rounded style -->
-\t\t\t\t\t\t\t\t\t\t\t<div class=\"elm-socialicons m-auto \">
-\t\t\t\t\t\t\t\t\t\t\t\t<ul class=\"elm-social-icons sc--colored sh--rounded clearfix mt-3 mb-2\">
+\t\t\t\t\t\t\t\t\t\t\t<div class=\"elm-socialicons mb-0\">
+\t\t\t\t\t\t\t\t\t\t\t\t<ul class=\"elm-social-icons sc--colored sh--circle clearfix mt-3\">
 \t\t\t\t\t\t\t\t\t\t\t\t\t{% if settings.company.facebook %}
 \t\t\t\t\t\t\t\t\t\t\t\t\t<li>
 \t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"{{ settings.company.facebook }}\" class=\"elm-sc-icon elm-sc-icon-0 fab fa-facebook-f bg-icon\" target=\"_self\" title=\"Facebook\"></a>
@@ -2388,21 +2393,21 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
 \t\t\t\t\t\t\t\t\t\t<h4 class=\"footer-title\">Download<br>App</h4>
 \t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t\t<div class=\"footer-detail-wrap\">
-                                        <div class=\"download-app-wrap d-flex justify-content-around\">
-                                            <span>
-                                                Google Play
+                                        <div class=\"download-app-wrap d-flex flex-column\">
+                                            <span class=\"app-wrap mb-4\">
+                                                <img class=\"\"
+                                                     src=\"{{'./front/images/app-google-play.png'}}\" alt=\"Google Play Store\">
                                             </span>
-                                            <span>
-                                                App Store
+                                            <span class=\"app-wrap mb-4\">
+                                                <img class=\"\"
+                                                     src=\"{{'./front/images/app-google-play.png'}}\" alt=\"Apple App Store\">
                                             </span>
                                         </div>
 \t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t</div>
             \t\t\t</div>
-
             \t\t\t<!--/ col-sm-offset-2 col-md-8 col-sm-8 -->
-            \t\t</div>
             \t\t<!--/ row -->
 
             \t\t<div class=\"row\">
@@ -2411,14 +2416,14 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
             \t\t\t<!-- Left side Copyright -->
             \t\t\t<div class=\"col-sm-12 col-md-6 col-lg-6 d-flex justify-content-start\">
 \t\t\t\t\t\t\t<div class=\"d-flex\">
-            \t\t\t\t\t<p>© {{'now'|date('Y')}} <span class=\"font-weight-bold brand_title\">{{ settings.company.title|__ }}</span> {{'All rights reserved'|__}}.</p>
+            \t\t\t\t\t<p class=\"mb-0\">© {{'now'|date('Y')}} <span class=\"font-weight-bold brand_title\">{{ settings.company.title|__ }}</span> {{'All rights reserved'|__}}.</p>
             \t\t\t\t</div>
             \t\t\t</div>
             \t\t\t<!--/ Left side Copyright -->
 
             \t\t\t<!-- Right side -->
             \t\t\t<div class=\"col-sm-12 col-md-6 col-lg-6\">
-            \t\t\t\t<div class=\"d-block text-right\">{{'Powered By'|__}} &nbsp;<a href=\"https://ivylabtech.com\" target=\"_blank\" class=\"refer_title\">IvyLab Technologies</a>.
+            \t\t\t\t<div class=\"d-block text-right\">{{'Powered By'|__}} &nbsp;<a href=\"https://ivylabtech.com\" target=\"_blank\" class=\"font-weight-bold refer_title\">IvyLab Technologies</a>.
 \t\t\t\t\t\t\t\t<!--                                {{'Developed By'|__}} &nbsp;<a href=\"https://ivylabtech.com\" target=\"_blank\">{{'Spotlayer'|__}}</a>.--></div>
             \t\t\t</div>
             \t\t\t<!--/ Right side -->
@@ -2484,27 +2489,22 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
     \t\t\t<form class=\"register_panel\" name=\"register_panel\" method=\"post\" action=\"#\">
     \t\t\t\t<div class=\" kl-fancy-form \">
     \t\t\t\t\t<input type=\"text\" id=\"registerName\" name=\"name\" class=\"form-control inputbox kl-fancy-form-input kl-fw-input\" placeholder=\"{{'type your name'|__}}\" required>
-    \t\t\t\t\t<label class=\"kl-font-alt kl-fancy-form-label\">{{\"FULL NAME\"|__}}</label>
+    \t\t\t\t\t<label for=\"registerName\" class=\"kl-font-alt kl-fancy-form-label\">{{\"FULL NAME\"|__}}</label>
     \t\t\t\t</div>
                     {% if loginAttribute == \"username\" %}
     \t\t\t\t<div class=\" kl-fancy-form \">
     \t\t\t\t\t<input type=\"text\" id=\"registerUsername\" name=\"username\" class=\"form-control inputbox kl-fancy-form-input kl-fw-input\" placeholder=\"{{'type desired username'|__}}\" required>
-    \t\t\t\t\t<label class=\"kl-font-alt kl-fancy-form-label\">{{\"USERNAME\"|__}}</label>
+    \t\t\t\t\t<label for=\"registerUsername\" class=\"kl-font-alt kl-fancy-form-label\">{{\"USERNAME\"|__}}</label>
     \t\t\t\t</div>
                     {% endif %}
 
     \t\t\t\t<div class=\"kl-fancy-form\">
     \t\t\t\t\t<input type=\"text\" id=\"registerEmail\" name=\"email\" class=\"form-control inputbox kl-fancy-form-input kl-fw-input\" placeholder=\"your-email@website.com\" required>
-    \t\t\t\t\t<label class=\"kl-font-alt kl-fancy-form-label\">
-    \t\t\t\t\t\t{{'EMAIL'|__}}
-    \t\t\t\t\t</label>
-    \t\t\t\t</div
-    \t\t\t\t>
+    \t\t\t\t\t<label for=\"registerEmail\" class=\"kl-font-alt kl-fancy-form-label\">{{'EMAIL'|__}}</label>
+    \t\t\t\t</div>
     \t\t\t\t<div class=\" kl-fancy-form\">
     \t\t\t\t\t<input type=\"password\" id=\"registerPassword\" name=\"password\" class=\"form-control inputbox kl-fancy-form-input kl-fw-input\" placeholder=\"*****\" required>
-    \t\t\t\t\t<label class=\"kl-font-alt kl-fancy-form-label\">
-    \t\t\t\t\t\t{{'PASSWORD'|__}}
-    \t\t\t\t\t</label>
+    \t\t\t\t\t<label  for=\"registerPassword\" class=\"kl-font-alt kl-fancy-form-label\">{{'PASSWORD'|__}}</label>
     \t\t\t\t</div>
 
     \t\t\t\t<div class=\"kl-fancy-form\">
@@ -2614,7 +2614,6 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
     \t<!--/ ToTop trigger -->
 
 
-
     \t<!-- JS FILES // These should be loaded in every page -->
     \t<script type=\"text/javascript\" src=\"./front/js/bootstrap.min.js\"></script>
     \t<script type=\"text/javascript\" src=\"./front/js/kl-plugins.js\"></script>
@@ -2667,7 +2666,10 @@ class __TwigTemplate_a68a584c8e0f620d4102d98dd328c4022529e3777fd3ff9e515882d6ab8
 
 
     \t<!-- Custom Kallyas JS codes -->
+\t\t<script type=\"text/javascript\" src=\"//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js\"></script>
+
     \t<script type=\"text/javascript\" src=\"./front/js/kl-scripts.js\"></script>
+    \t<script type=\"text/javascript\" src=\"./front/js/kl-custom.js\"></script>
 
 
     \t<!-- Google Analytics: change UA-XXXXX-X to be your site's ID.
