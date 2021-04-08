@@ -3,6 +3,9 @@
 * Our Custom CSS Stylesheet. This is where you should add your own styles!
 *
 ** ========================================================================== */
+.collapse:not(.show) {
+    display: unset !important;
+}
 
 .range-section .slide.slick-slide .slide-body, .kl-bottommask {
     opacity: 0;
@@ -79,7 +82,7 @@ body.sticky-header #header {
     color: #EE8335;
 }
 
-.elm-socialicons .elm-social-icons li a {
+.zn-res-trigger, .elm-socialicons .elm-social-icons li a {
     color: #EE8335 !important;
 }
 
@@ -95,7 +98,7 @@ body.sticky-header #header {
 }
 
 .contact-section .contact-form .form-group label, .contact-section .contact-form .form-group input,
-.contact-section .contact-form .form-group textarea,
+.contact-section .contact-form .form-group textarea, .main-nav > ul > li.active > a,
 .topnav.topnav-account-login .topnav-item:hover i, .topnav.topnav-account-login .topnav-item:focus i, .topnav.topnav-account-login .topnav-item:active i,
 .topnav.topnav-account-login .topnav-item:hover span, .topnav.topnav-account-login .topnav-item:focus span, .topnav.topnav-account-login .topnav-item:active span {
     color: #fff;
@@ -111,7 +114,7 @@ body.sticky-header #header {
 }
 
 .topnav.topnav--lang .languages.drop .topnav-item span, .main-nav > ul > li > a {
-    color: #7c7c7c;
+    color: #7c7c7c !important;
 }
 
 .topnav.topnav--lang.topnav-account .languages.drop .topnav-item span {
@@ -191,8 +194,15 @@ body.sticky-header #header {
 
 .btn-gradient {
     box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3);
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
     display: inline-flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
     border-radius: 30px;
     font-weight: bold;
     font-size: 20px !important;
@@ -203,9 +213,11 @@ body.sticky-header #header {
 }
 
 .btn-gradient-blue {
-    background-color: #63BFEB;
-    background-image: linear-gradient(to right, #0D539B, #63BFEB);
     margin-left: 50px !important;
+    background-color: #63BFEB;
+    background-image: -webkit-gradient(linear, left top, right top, from(#0D539B), to(#63BFEB));
+    background-image: -o-linear-gradient(left, #0D539B, #63BFEB);
+    background-image: linear-gradient(to right, #0D539B, #63BFEB);
 }
 
 .th-google_map, .contact-section .img-col {
@@ -257,6 +269,10 @@ body.sticky-header #header {
 
 .logo-container.hasInfoCard::before {
     content: '';
+}
+
+.zn-res-trigger:after {
+    content: unset;
 }
 
 .contact-section .row > [class*="col-"] {
@@ -364,6 +380,9 @@ body.sticky-header #header {
     color: #fff;
     opacity: 1;
     visibility: visible;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
     margin-left: -75%;
     text-align: center;
@@ -443,4 +462,68 @@ body.sticky-header #header {
 
 #totop::before {
     font-family: "Font Awesome 5 Pro";
+}
+
+@media (max-width: 992px) {
+    #main-menu {
+        display: none !important;
+    }
+
+    .zn-res-trigger {
+        margin-left: 10px;
+    }
+
+    .kl-slideshow.iosslider-slideshow {
+        padding-bottom: 0 !important;
+    }
+
+    .iosslider-slideshow .iosSlider .kl-iosslide-caption {
+        padding-top: 20px;
+    }
+
+    .iosslider-slideshow .iosSlider .kl-iosslide-caption .main_title {
+        font-size: 50px;
+        margin-bottom: 0;
+    }
+
+    .iosslider-slideshow .iosSlider .kl-iosslide-caption .title_big {
+        padding: 15px;
+        font-size: 14px;
+        line-height: 1.15;
+    }
+
+    .iosslider-slideshow .iosSlider .kl-iosslide-caption .button_more {
+        margin: 10px auto 0;
+    }
+
+    .iosslider-slideshow .iosSlider .kl-iosslide-caption .button_more .more {
+        font-size: 18px !important;
+        padding: 0 30px !important;
+        height: 50px !important;
+        width: 250px;
+    }
+}
+
+@media (max-width: 767px) {
+
+    .iosslider-slideshow .iosSlider {
+        width: 100% !important;
+    }
+
+    .iosslider-slideshow .iosSlider .kl-iosslide-caption .main_title {
+        margin-top: 10px;
+    }
+
+    .iosslider-slideshow .iosSlider .kl-iosslide-caption .title_big {
+        font-size: 16px;
+        line-height: 1.25;
+    }
+
+    .iosslider-slideshow .iosSlider .kl-iosslide-caption .button_more {
+        flex-direction: column;
+    }
+
+    .iosslider-slideshow .iosSlider .kl-iosslide-caption .button_more .more.btn-gradient {
+        margin: 15px auto !important;
+    }
 }

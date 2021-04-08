@@ -322,13 +322,14 @@ function onMyRegister()
     							<!-- Header Main Left Side -->
     							<div class="site-header-main-left d-flex justify-content-start align-items-center">
     								<!-- Logo container-->
-    								<div class="logo-container hasInfoCard logosize--yes">
+    								<div class="logo-container hasInfoCard logosize--yes navbar navbar-expand-lg">
     									<!-- Logo -->
     									<h1 class="site-logo logo" id="logo">
     										<a href="{{url('/'~currentLang)}}" title="">
     											<img src="{% if settings.mobile_logo %}{{ settings.mobile_logo.path }}{% else %}./admin/media/logos/logo.svg{% endif %}" class="logo-img" alt="{{ settings.company.title|__ }}" title="{{ settings.company.title|__ }}" />
     										</a>
     									</h1>
+
     									<!--/ Logo -->
 
     									<!-- InfoCard -->
@@ -395,14 +396,16 @@ function onMyRegister()
     								<div class="main-menu-wrapper">
     									<!-- Responsive menu trigger -->
     									<div id="zn-res-menuwrapper">
-    										<a href="javascript:;" class="zn-res-trigger "></a>
+    										<a href="javascript:void(0);" class="zn-res-trigger ">
+                                                <i class="fa fa-bars" aria-hidden="true"></i>
+                                            </a>
     									</div>
     									<!--/ responsive menu trigger -->
 
     									<!-- Main menu -->
                             			{% if mainMenu.menuItems %}
-        									<div id="main-menu" class="main-nav zn_mega_wrapper">
-        										<ul id="menu-main-menu" class="main-menu zn_mega_menu">
+        									<div id="main-menu" class="main-nav zn_mega_wrapper  collapse navbar-collapse">
+        										<ul id="menu-main-menu" class="main-menu zn_mega_menu navbar-nav flex-md-row">
                                                     {% for item in mainMenu.menuItems if not item.viewBag.isHidden %}
                                                         {% if user.hasUserPermission(item.code, 'r') or item.code is empty %}
                 											<li class="{% if item.items %}menu-item-has-children{% endif %} {{ item.isActive or item.isChildActive ? 'active' : '' }}">
