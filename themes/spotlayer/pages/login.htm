@@ -35,7 +35,7 @@ function onStart(){
 
     if(isset($_GET['login'])){
         $data = $_GET;
-        
+
         $rules = [];
 
         $rules['login'] = 'required|between:2,255';
@@ -72,7 +72,7 @@ function onStart(){
             return Redirect::to('login');
         }
     }
-    
+
     $this['requireActivation']      = RainLab\User\Models\Settings::get('require_activation', true);
     $this['automaticActivation']    = RainLab\User\Models\Settings::get('activate_mode', true);
 }
@@ -155,7 +155,7 @@ function onMyRegister()
                                          <img style="max-height:90px;max-width:80%;width:auto;height:auto" src="{% if settings.logo %}{{ settings.logo.path }}{% else %}./admin/media/logos/logo.svg{% endif %}">
                                      </a>
                                      <h3 class="kt-margin-t-30">{{"Sign Up"|__}}</h3>
-             						<div class="kt-login__desc">{{'Enter your details to create your account'|__}}:</div>
+             						<div class="kt-login__desc">{{'Enter your details to create your account'|__}}</div>
                                  </div>
                              </div>
                             <form class="kt-form" action="">
@@ -170,6 +170,24 @@ function onMyRegister()
             							<input class="form-control" type="text" placeholder="{{'Enter your username'|__}}" id="registerUsername" name="username" autocomplete="off" required>
             						</div>
                                 {% endif %}
+
+                                <div class="input-group">
+                                    <input class="form-control" type="text" placeholder="{{'Postal Address'|__}}"  name="postal_code" autocomplete="off" required>
+                                </div>
+                                <div class="input-group">
+                                    <input class="form-control" type="text" placeholder="{{'Mobile Number'|__}}"  name="mobile" autocomplete="off" required>
+                                </div>
+                                <div class="input-group">
+                                    <input class="form-control" type="file" placeholder="{{'Cnic'|__}}"  name="mobile" autocomplete="off" required>
+                                </div>
+                                <div class="input-group">
+                                    <input class="form-control" type="text" placeholder="{{'Bussiness Type'|__}}"  name="mobile" autocomplete="off" required>
+                                </div>
+                                <div class="input-group">
+                                    <input class="form-control" type="text" placeholder="{{'Register As'|__}}"  name="mobile" autocomplete="off" required>
+                                </div>
+
+
         						<div class="input-group">
         							<input class="form-control" type="password" placeholder="{{'Choose a Password'|__}}" id="registerPassword" name="password" required>
         						</div>
@@ -205,7 +223,7 @@ function onMyRegister()
                                  <div class="form-group">
                                      <input class="form-control" type="email" placeholder="{{'Email'|__}}" name="email" id="userRestoreEmail" autocomplete="off">
                                  </div>
-                                 
+
                                  <div class="kt-login__actions">
                                      <button id="kt_login_forgot_submit" class="btn btn-brand btn-pill btn-elevate">{{'Request'|__}}</button>
                                      <button id="kt_login_forgot_cancel" class="btn btn-outline-brand btn-pill">{{'Cancel'|__}}</button>
