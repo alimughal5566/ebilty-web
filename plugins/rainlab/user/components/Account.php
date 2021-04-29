@@ -397,6 +397,7 @@ class Account extends ComponentBase
      */
     public function onUpdate()
     {
+
         if (!$user = $this->user()) {
             return;
         }

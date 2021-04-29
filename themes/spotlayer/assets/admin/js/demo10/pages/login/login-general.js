@@ -130,6 +130,18 @@ var KTLoginGeneral = function() {
                     agree: {
                         required: true
                     }
+                    // , postal_code: {
+                    //     required: true
+                    // }
+                    // , mobile: {
+                    //     required: true
+                    // }
+                    // , bussiness_type: {
+                    //     required: true
+                    // } ,
+                    // user_type: {
+                    //     required: true
+                    // }
                 }
             });
 

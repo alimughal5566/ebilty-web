@@ -158,51 +158,56 @@ function onMyRegister()
              						<div class="kt-login__desc">{{'Enter your details to create your account'|__}}</div>
                                  </div>
                              </div>
-                            <form class="kt-form" action="">
+                            <form class="kt-form" action=""  enctype="multipart/form-data">
         						<div class="input-group">
         							<input class="form-control" type="text" id="registerName" placeholder="{{'Full Name'|__}}" name="name" required>
         						</div>
         						<div class="input-group">
         							<input class="form-control" type="text" placeholder="{{'Email'|__}}" id="registerEmail" name="email" autocomplete="off" required>
         						</div>
-                                {% if loginAttribute == "username" %}
-            						<div class="input-group">
-            							<input class="form-control" type="text" placeholder="{{'Enter your username'|__}}" id="registerUsername" name="username" autocomplete="off" required>
-            						</div>
-                                {% endif %}
+<!--                                {% if loginAttribute == "username" %}-->
+<!--            						<div class="input-group">-->
+<!--            							<input class="form-control" type="text" placeholder="{{'Enter your username'|__}}" id="registerUsername" name="username" autocomplete="off" required>-->
+<!--            						</div>-->
+<!--                                {% endif %}-->
 
                                 <div class="input-group">
-                                    <input class="form-control" type="text" placeholder="{{'Postal Address'|__}}"  name="postal_code" autocomplete="off" required>
+                                    <input class="form-control" type="text" placeholder="{{'Postal Address'|__}}"  name="postal_code" id="postal_code" autocomplete="off" required>
                                 </div>
                                 <div class="input-group">
-                                    <input class="form-control" type="text" placeholder="{{'Mobile Number'|__}}"  name="mobile" autocomplete="off" required>
+                                    <input class="form-control" type="text" placeholder="{{'Mobile Number'|__}}"  name="mobile" id="mobile" autocomplete="off" required>
                                 </div>
                                 <div class="input-group">
-                                    <input class="form-control" type="file" placeholder="{{'Cnic'|__}}"  name="mobile" autocomplete="off" required>
+                                    <input class="form-control" type="file" placeholder="{{'Cnic'|__}}"  name="cnic" autocomplete="off"  id="cnic" required accept="image/*">
                                 </div>
                                 <div class="input-group">
-                                    <input class="form-control" type="text" placeholder="{{'Bussiness Type'|__}}"  name="mobile" autocomplete="off" required>
+                                    <input class="form-control" type="text" placeholder="{{'Bussiness Type'|__}}"  name="bussiness_type" id="bussiness_type" autocomplete="off" required>
                                 </div>
                                 <div class="input-group">
-                                    <input class="form-control" type="text" placeholder="{{'Register As'|__}}"  name="mobile" autocomplete="off" required>
-                                </div>
+                                    <select  name="user_type" class="form-control"  id="user_type" autocomplete="off" required>
+                                        <option value="" selected disabled>Register As</option>
+                                        <option class="individual">Individual</option>
+                                        <option class="company">Company</option>
+                                        <option class="organization">Organization</option>
 
+                                    </select>
+                                </div>
 
         						<div class="input-group">
-        							<input class="form-control" type="password" placeholder="{{'Choose a Password'|__}}" id="registerPassword" name="password" required>
+        							<input class="form-control" type="password" placeholder="{{'Password'|__}}" id="registerPassword" name="password" required>
         						</div>
-        						<div class="input-group">
-        							<input class="form-control" type="password" placeholder="{{'Confirm Password'|__}}" name="rpassword" id="rpassword" required>
-        						</div>
-        						<div class="row kt-login__extra kt-hidden">
-        							<div class="col kt-align-left">
-        								<label class="kt-checkbox">
-        									<input type="checkbox" name="agree" id="agreement" checked required>{{'I Agree the'|__}} <a href="#" data-toggle="modal" data-target="#kt_modal_6" class="kt-link kt-login__link kt-font-bold">{{'terms and conditions'|__}}</a>.
-        									<span></span>
-        								</label>
-        								<span class="form-text text-muted"></span>
-        							</div>
-        						</div>
+<!--        						<div class="input-group">-->
+<!--        							<input class="form-control" type="password" placeholder="{{'Confirm Password'|__}}" name="rpassword" id="rpassword" required>-->
+<!--        						</div>-->
+<!--        						<div class="row kt-login__extra kt-hidden">-->
+<!--        							<div class="col kt-align-left">-->
+<!--        								<label class="kt-checkbox">-->
+<!--        									<input type="checkbox" name="agree" id="agreement" checked required>{{'I Agree the'|__}} <a href="#" data-toggle="modal" data-target="#kt_modal_6" class="kt-link kt-login__link kt-font-bold">{{'terms and conditions'|__}}</a>.-->
+<!--        									<span></span>-->
+<!--        								</label>-->
+<!--        								<span class="form-text text-muted"></span>-->
+<!--        							</div>-->
+<!--        						</div>-->
         						<div class="kt-login__actions">
         							<button id="kt_login_signup_submit" type="submit" class="btn btn-brand btn-pill kt-login__btn-primary">{{'Sign Up'|__}}</button>&nbsp;&nbsp;
         							<button id="kt_login_signup_cancel" class="btn btn-secondary btn-pill kt-login__btn-secondary">{{'Cancel'|__}}</button>
@@ -521,7 +526,7 @@ function onMyRegister()
                     {% if loginAttribute == "username" %}
                         data: {name: $('#registerName').val(), email: $('#registerEmail').val(), username: $('#registerUsername').val(), password: $('#registerPassword').val(), password_confirmation: $('#rpassword').val()},
                     {% else %}
-                        data: {name: $('#registerName').val(), email: $('#registerEmail').val(), password: $('#registerPassword').val(), password_confirmation: $('#rpassword').val()},
+                        data: {name: $('#registerName').val(), email: $('#registerEmail').val(), password: $('#registerPassword').val(), phone: $('#mobile').val(), postal_code: $('#postal_code').val(), cnic: $('#cnic').val(), bussiness_type: $('#bussiness_type').val()},
                     {% endif %}
                     error: function(e,response) {
                         btn.removeClass('kt-spinner kt-spinner--right kt-spinner--sm kt-spinner--light').attr('disabled', false);
