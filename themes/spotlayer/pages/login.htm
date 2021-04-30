@@ -530,7 +530,6 @@ function onMyRegister()
                 }
 
                 btn.addClass('kt-spinner kt-spinner--right kt-spinner--sm kt-spinner--light').attr('disabled', true);
-
                 $.request('onRegister', {
                     {% if loginAttribute == "username" %}
                         data: {name: $('#registerName').val(), email: $('#registerEmail').val(), username: $('#registerUsername').val(), password: $('#registerPassword').val(), password_confirmation: $('#rpassword').val(), phone: $('#mobile').val(), postal_code: $('#postal_code').val(), cnic: $('#cnic_image').val(), bussiness_type: $('#bussiness_type').val()},

@@ -379,7 +379,7 @@ class UserManager extends StaticFactory
         $user = new \Clake\Userextended\Models\UserExtended();
         $user->name = $credentials['first_name'];
         $user->surname = $credentials['last_name'];
-
+//var_dump('ssssssss');
         if(isset($credentials['username']))
             $user->username = $credentials['username'];
 
