@@ -547,7 +547,7 @@ crumb_disabled = 0
                        {% endif %}
                         <div class="kt-widget__content">
                             <div class="kt-widget__head">
-                                <a href="javascript:;" class="kt-widget__username">
+                                <a href="javascript:void(0);" class="kt-widget__username">
                                     {{user.name|capitalize}}
                                 </a>
 
@@ -558,15 +558,15 @@ crumb_disabled = 0
 
                             <div class="kt-widget__subhead">
                                 {% if user.mobile %}
-                                    <a href="javascript:;"><i class="flaticon-alarm-1"></i>{{user.mobile}}</a>
+                                    <a href="javascript:void(0);"><i class="flaticon-alarm-1"></i>{{user.mobile}}</a>
                                 {% elseif user.email %}
-                                    <a href="javascript:;"><i class="flaticon2-new-email"></i>{{user.email}}</a>
+                                    <a href="javascript:void(0);"><i class="flaticon2-new-email"></i>{{user.email}}</a>
                                 {% else %}
-                                    <a href="javascript:;"><i class="flaticon-user-settings"></i>{{user.username}}</a>
+                                    <a href="javascript:void(0);"><i class="flaticon-user-settings"></i>{{user.username}}</a>
                                 {% endif %}
-                                <a href="javascript:;"><i class="flaticon2-calendar-3"></i>{{user.role.name}} </a>
+                                <a href="javascript:void(0);"><i class="flaticon2-calendar-3"></i>{{user.role.name}} </a>
                                 {% if user.branch %}
-                                    <a href="javascript:;"><i class="flaticon2-placeholder"></i>{{user.branch.name}}</a>
+                                    <a href="javascript:void(0);"><i class="flaticon2-placeholder"></i>{{user.branch.name}}</a>
                                 {% endif %}
                             </div>
 
@@ -668,25 +668,25 @@ crumb_disabled = 0
             		</div>
             		<!--
                         <div class="kt-portlet__head-toolbar">
-                			<a href="javascript:;" class="btn btn-label-brand btn-bold btn-sm dropdown-toggle" data-toggle="dropdown">
+                			<a href="javascript:void(0);" class="btn btn-label-brand btn-bold btn-sm dropdown-toggle" data-toggle="dropdown">
                 				<i class="kt-nav__link-icon flaticon2-calendar-8"></i>
                 			</a>
                 			<div class="dropdown-menu dropdown-menu-right dropdown-menu-fit dropdown-menu-md">
                                 <ul class="kt-nav">
                                     <li class="kt-nav__item">
-                                        <a href="javascript:;" class="kt-nav__link">
+                                        <a href="javascript:void(0);" class="kt-nav__link">
                                             <i class="kt-nav__link-icon flaticon2-drop"></i>
                                             <span class="kt-nav__link-text">{{'Last Month Summary'|__}}</span>
                                         </a>
                                     </li>
                                     <li class="kt-nav__item">
-                                        <a href="javascript:;" class="kt-nav__link">
+                                        <a href="javascript:void(0);" class="kt-nav__link">
                                             <i class="kt-nav__link-icon flaticon2-calendar-8"></i>
                                             <span class="kt-nav__link-text">{{'Consolidated List'|__}}</span>
                                         </a>
                                     </li>
                                     <li class="kt-nav__item">
-                                        <a href="javascript:;" class="kt-nav__link">
+                                        <a href="javascript:void(0);" class="kt-nav__link">
                                             <i class="kt-nav__link-icon flaticon2-telegram-logo"></i>
                                             <span class="kt-nav__link-text">{{'Delivered List'|__}}</span>
                                         </a>

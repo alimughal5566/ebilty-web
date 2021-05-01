@@ -1,25 +1,25 @@
 .form-control::-webkit-input-placeholder {
-    color:  #0D539B !important;
+    color: #0D539B !important;
     font-weight: bold;
 }
 
 .form-control::-moz-placeholder {
-    color:  #0D539B !important;
+    color: #0D539B !important;
     font-weight: bold;
 }
 
 .form-control:-ms-input-placeholder {
-    color:  #0D539B !important;
+    color: #0D539B !important;
     font-weight: bold;
 }
 
 .form-control::-ms-input-placeholder {
-    color:  #0D539B !important;
+    color: #0D539B !important;
     font-weight: bold;
 }
 
 .form-control::placeholder {
-    color:  #0D539B !important;
+    color: #0D539B !important;
     font-weight: bold;
 }
 
@@ -31,7 +31,7 @@
     color: #0D539B;
 }
 
-body {
+.custom-grid {
     background: #EE8335 url('../media/images/bg01.jpg') no-repeat center /cover !important;
 }
 
@@ -310,6 +310,45 @@ body {
     opacity: 0;
     width: 100% !important;
     height: 100% !important;
+}
+
+.kt-aside-menu .kt-menu__nav > .kt-menu__item.kt-menu__item--open > .kt-menu__submenu .kt-menu__subnav > .kt-menu__item:hover > .kt-menu__link,
+.kt-aside-menu .kt-menu__nav > .kt-menu__item.kt-menu__item--open > .kt-menu__submenu .kt-menu__subnav > .kt-menu__item:focus > .kt-menu__link,
+.kt-aside-menu .kt-menu__nav > .kt-menu__item.kt-menu__item--open > .kt-menu__submenu .kt-menu__subnav > .kt-menu__item:active > .kt-menu__link,
+.kt-aside-menu .kt-menu__nav > .kt-menu__item:hover > .kt-menu__link,
+.kt-aside-menu .kt-menu__nav > .kt-menu__item:focus > .kt-menu__link,
+.kt-aside-menu .kt-menu__nav > .kt-menu__item:active > .kt-menu__link,
+.kt-aside-menu .kt-menu__nav > .kt-menu__item.kt-menu__item--open > .kt-menu__heading,
+.kt-aside-menu .kt-menu__nav > .kt-menu__item.kt-menu__item--open > .kt-menu__link {
+    background-color: #FED06F !important;
+    color: #2c3038 !important;
+}
+
+.kt-aside-menu .kt-menu__nav > .kt-menu__item.kt-menu__item--open > .kt-menu__submenu .kt-menu__subnav > .kt-menu__item:hover > .kt-menu__link .kt-menu__link-icon,
+.kt-aside-menu .kt-menu__nav > .kt-menu__item.kt-menu__item--open > .kt-menu__submenu .kt-menu__subnav > .kt-menu__item:focus > .kt-menu__link .kt-menu__link-icon,
+.kt-aside-menu .kt-menu__nav > .kt-menu__item.kt-menu__item--open > .kt-menu__submenu .kt-menu__subnav > .kt-menu__item:active > .kt-menu__link .kt-menu__link-icon,
+.kt-aside-menu .kt-menu__nav > .kt-menu__item.kt-menu__item--open > .kt-menu__submenu .kt-menu__subnav > .kt-menu__item:hover > .kt-menu__link .kt-menu__link-text,
+.kt-aside-menu .kt-menu__nav > .kt-menu__item.kt-menu__item--open > .kt-menu__submenu .kt-menu__subnav > .kt-menu__item:focus > .kt-menu__link .kt-menu__link-text,
+.kt-aside-menu .kt-menu__nav > .kt-menu__item.kt-menu__item--open > .kt-menu__submenu .kt-menu__subnav > .kt-menu__item:active > .kt-menu__link .kt-menu__link-text,
+.kt-aside-menu .kt-menu__nav > .kt-menu__item:hover > .kt-menu__link .kt-menu__link-icon,
+.kt-aside-menu .kt-menu__nav > .kt-menu__item:focus > .kt-menu__link .kt-menu__link-icon,
+.kt-aside-menu .kt-menu__nav > .kt-menu__item:active > .kt-menu__link .kt-menu__link-icon,
+.kt-aside-menu .kt-menu__nav > .kt-menu__item:hover > .kt-menu__link .kt-menu__link-text,
+.kt-aside-menu .kt-menu__nav > .kt-menu__item:focus > .kt-menu__link .kt-menu__link-text,
+.kt-aside-menu .kt-menu__nav > .kt-menu__item:active > .kt-menu__link .kt-menu__link-text,
+.kt-aside-menu .kt-menu__nav > .kt-menu__item.kt-menu__item--open > .kt-menu__link .kt-menu__link-icon,
+.kt-aside-menu .kt-menu__nav > .kt-menu__item.kt-menu__item--open > .kt-menu__link .kt-menu__link-text {
+    color: #2c3038 !important;
+}
+
+.kt-aside-menu .kt-menu__nav > .kt-menu__item.kt-menu__item--open > .kt-menu__submenu .kt-menu__subnav > .kt-menu__item:hover > .kt-menu__link .kt-menu__link-icon svg g [fill],
+.kt-aside-menu .kt-menu__nav > .kt-menu__item.kt-menu__item--open > .kt-menu__submenu .kt-menu__subnav > .kt-menu__item:focus > .kt-menu__link .kt-menu__link-icon svg g [fill],
+.kt-aside-menu .kt-menu__nav > .kt-menu__item.kt-menu__item--open > .kt-menu__submenu .kt-menu__subnav > .kt-menu__item:active > .kt-menu__link .kt-menu__link-icon svg g [fill],
+.kt-aside-menu .kt-menu__nav > .kt-menu__item.kt-menu__item--open > .kt-menu__link .kt-menu__link-icon svg g [fill],
+.kt-aside-menu .kt-menu__nav > .kt-menu__item:hover > .kt-menu__link .kt-menu__link-icon svg g [fill],
+.kt-aside-menu .kt-menu__nav > .kt-menu__item:focus > .kt-menu__link .kt-menu__link-icon svg g [fill],
+.kt-aside-menu .kt-menu__nav > .kt-menu__item:active > .kt-menu__link .kt-menu__link-icon svg g [fill] {
+    fill: #2c3038 !important;
 }
 
 /* DESKTOP FIRST MEDIA QUERIES */
