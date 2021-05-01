@@ -171,13 +171,13 @@
 ?>
 ==
 
-<div class="col-sm-12 col-md-4">
+<div class="col-12">
     <div class="kt-portlet kt-portlet--height-fluid kt-portlet--border-bottom-warning">
         <div class="kt-portlet__body kt-portlet__body--fluid">
             <div class="kt-widget26">
-                <div class="kt-widget26__content">
-                    <span class="kt-widget26__number"><span class="kt-currency_before"></span>{{PendingPayments}}<span class="kt-currency_after"></span></span>
+                <div class="kt-widget26__content flex-md-row">
                     <span class="kt-widget26__desc">{{'Pending Payments'|__}}</span>
+                    <span class="kt-widget26__number ml-md-4 color-danger"><span class="kt-currency_before"></span>{{PendingPayments}}<span class="kt-currency_after"></span></span>
                 </div>
                 <div class="kt-widget26__chart" style="height:200px; width: 100%;">
                     <canvas id="kt_chart_quick_stats_1"></canvas>
@@ -185,15 +185,15 @@
             </div>
         </div>
     </div>
-
 </div>
-<div class="col-sm-12 col-md-4">
+
+<div class="col-12">
     <div class="kt-portlet kt-portlet--height-fluid kt-portlet--border-bottom-success">
         <div class="kt-portlet__body kt-portlet__body--fluid">
             <div class="kt-widget26">
-                <div class="kt-widget26__content">
-                    <span class="kt-widget26__number"><span class="kt-currency_before"></span>{{CurrentMonthSales}}<span class="kt-currency_after"></span></span>
+                <div class="kt-widget26__content flex-md-row">
                     <span class="kt-widget26__desc">{{'Current Month Sales'|__}}</span>
+                    <span class="kt-widget26__number ml-md-4 color-success"><span class="kt-currency_before"></span>{{CurrentMonthSales}}<span class="kt-currency_after"></span></span>
                 </div>
                 <div class="kt-widget26__chart" style="height:200px; width: 100%;">
                     <canvas id="kt_chart_quick_stats_2"></canvas>
@@ -202,13 +202,14 @@
         </div>
     </div>
 </div>
-<div class="col-sm-12 col-md-4">
+
+<div class="col-12">
     <div class="kt-portlet kt-portlet--height-fluid kt-portlet--border-bottom-dark">
         <div class="kt-portlet__body kt-portlet__body--fluid">
             <div class="kt-widget26">
-                <div class="kt-widget26__content">
-                    <span class="kt-widget26__number kt-font-danger">{{shipping}}% </span>
+                <div class="kt-widget26__content flex-md-row">
                     <span class="kt-widget26__desc">{{'Delayed Shipping Percentage'|__}}</span>
+                    <span class="kt-widget26__number ml-md-4 kt-font-danger">{{shipping}}% </span>
                 </div>
                 <div class="kt-widget26__chart" style="height:200px; width: 100%;">
                     <canvas id="kt_chart_quick_stats_3"></canvas>
@@ -217,6 +218,7 @@
         </div>
     </div>
 </div>
+
 <script>
 function quickStats(){
     _initSparklineChart($('#kt_chart_quick_stats_1'), [{{PendingPaymentsChart}}], KTApp.getStateColor('warning'), 3);

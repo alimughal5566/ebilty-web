@@ -1,4 +1,4 @@
-1619896154a:1:{s:23:"dashboard/dashboard.htm";a:20:{s:8:"fileName";s:23:"dashboard/dashboard.htm";s:7:"content";s:60148:"title = "Dashboard"
+1619896673a:1:{s:23:"dashboard/dashboard.htm";a:20:{s:8:"fileName";s:23:"dashboard/dashboard.htm";s:7:"content";s:60176:"title = "Dashboard"
 daterange = 1
 url = "/dashboard"
 layout = "admin"
@@ -537,6 +537,7 @@ crumb_disabled = 0
      
             <div class="kt-portlet kt-portlet--height-fluid">
             <div class="kt-portlet__body">
+
                 <div class='row'>
                        <div class="col-12 col-md-4">
             <div class='dashboard-top-container '>
@@ -597,7 +598,7 @@ crumb_disabled = 0
             </div>
         </div>
         <div class="col-12 col-md-8">
-              <div class="kt-widget kt-widget--user-profile-3">
+              <div class="kt-widget kt-widget--user-profile-3 custom-widget">
                     <div class="kt-widget__top">
                         {% if user.avatar %}
                             <div class="kt-widget__media">
@@ -969,7 +970,7 @@ crumb_disabled = 0
 
 					</div>
 					<div class="kt-widget11__action kt-align-right">
-						<a href="{{url('dashboard/shipments/all')}}" class="btn btn-label-success btn-sm btn-bold">{{'View All Shipments'|__}}</a>
+						<a href="{{url('dashboard/shipments/all')}}" class="btn background-primary text-white btn-sm btn-bold">{{'View All Shipments'|__}}</a>
 					</div>
 				</div>
         	</div>
@@ -1215,7 +1216,7 @@ jQuery(document).ready(function() {
 });
 </script>
 {% endput %}
-";s:5:"mtime";i:1619895552;s:6:"markup";s:32269:"<!--Begin::Section-->
+";s:5:"mtime";i:1619896071;s:6:"markup";s:32297:"<!--Begin::Section-->
 
 <div class="row">
    
@@ -1224,6 +1225,7 @@ jQuery(document).ready(function() {
      
             <div class="kt-portlet kt-portlet--height-fluid">
             <div class="kt-portlet__body">
+
                 <div class='row'>
                        <div class="col-12 col-md-4">
             <div class='dashboard-top-container '>
@@ -1284,7 +1286,7 @@ jQuery(document).ready(function() {
             </div>
         </div>
         <div class="col-12 col-md-8">
-              <div class="kt-widget kt-widget--user-profile-3">
+              <div class="kt-widget kt-widget--user-profile-3 custom-widget">
                     <div class="kt-widget__top">
                         {% if user.avatar %}
                             <div class="kt-widget__media">
@@ -1656,7 +1658,7 @@ jQuery(document).ready(function() {
 
 					</div>
 					<div class="kt-widget11__action kt-align-right">
-						<a href="{{url('dashboard/shipments/all')}}" class="btn btn-label-success btn-sm btn-bold">{{'View All Shipments'|__}}</a>
+						<a href="{{url('dashboard/shipments/all')}}" class="btn background-primary text-white btn-sm btn-bold">{{'View All Shipments'|__}}</a>
 					</div>
 				</div>
         	</div>

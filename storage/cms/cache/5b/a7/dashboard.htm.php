@@ -1,5 +1,5 @@
 <?php 
-class Cms608da502d89a5368686391_4cf900323b5a9d861a1d0f515a361fb4Class extends Cms\Classes\PageCode
+class Cms608da709add7e741221439_7cdde321edd02361ad4694f6c6f20386Class extends Cms\Classes\PageCode
 {
 public function onStart(){
         $value                      =   50;

@@ -34,19 +34,19 @@ class __TwigTemplate_0db96a5d6ff719c848b9661bbe94a9878fce4a4847c3c750b6cd8dbb98e
     {
         $macros = $this->macros;
         // line 1
-        echo "<div class=\"col-sm-12 col-md-4\">
+        echo "<div class=\"col-12\">
     <div class=\"kt-portlet kt-portlet--height-fluid kt-portlet--border-bottom-warning\">
         <div class=\"kt-portlet__body kt-portlet__body--fluid\">
             <div class=\"kt-widget26\">
-                <div class=\"kt-widget26__content\">
-                    <span class=\"kt-widget26__number\"><span class=\"kt-currency_before\"></span>";
-        // line 6
-        echo twig_escape_filter($this->env, ($context["PendingPayments"] ?? null), "html", null, true);
-        echo "<span class=\"kt-currency_after\"></span></span>
+                <div class=\"kt-widget26__content flex-md-row\">
                     <span class=\"kt-widget26__desc\">";
-        // line 7
+        // line 6
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Pending Payments"]);
         echo "</span>
+                    <span class=\"kt-widget26__number ml-md-4 color-danger\"><span class=\"kt-currency_before\"></span>";
+        // line 7
+        echo twig_escape_filter($this->env, ($context["PendingPayments"] ?? null), "html", null, true);
+        echo "<span class=\"kt-currency_after\"></span></span>
                 </div>
                 <div class=\"kt-widget26__chart\" style=\"height:200px; width: 100%;\">
                     <canvas id=\"kt_chart_quick_stats_1\"></canvas>
@@ -54,21 +54,21 @@ class __TwigTemplate_0db96a5d6ff719c848b9661bbe94a9878fce4a4847c3c750b6cd8dbb98e
             </div>
         </div>
     </div>
-
 </div>
-<div class=\"col-sm-12 col-md-4\">
+
+<div class=\"col-12\">
     <div class=\"kt-portlet kt-portlet--height-fluid kt-portlet--border-bottom-success\">
         <div class=\"kt-portlet__body kt-portlet__body--fluid\">
             <div class=\"kt-widget26\">
-                <div class=\"kt-widget26__content\">
-                    <span class=\"kt-widget26__number\"><span class=\"kt-currency_before\"></span>";
-        // line 22
-        echo twig_escape_filter($this->env, ($context["CurrentMonthSales"] ?? null), "html", null, true);
-        echo "<span class=\"kt-currency_after\"></span></span>
+                <div class=\"kt-widget26__content flex-md-row\">
                     <span class=\"kt-widget26__desc\">";
-        // line 23
+        // line 22
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Current Month Sales"]);
         echo "</span>
+                    <span class=\"kt-widget26__number ml-md-4 color-success\"><span class=\"kt-currency_before\"></span>";
+        // line 23
+        echo twig_escape_filter($this->env, ($context["CurrentMonthSales"] ?? null), "html", null, true);
+        echo "<span class=\"kt-currency_after\"></span></span>
                 </div>
                 <div class=\"kt-widget26__chart\" style=\"height:200px; width: 100%;\">
                     <canvas id=\"kt_chart_quick_stats_2\"></canvas>
@@ -77,19 +77,20 @@ class __TwigTemplate_0db96a5d6ff719c848b9661bbe94a9878fce4a4847c3c750b6cd8dbb98e
         </div>
     </div>
 </div>
-<div class=\"col-sm-12 col-md-4\">
+
+<div class=\"col-12\">
     <div class=\"kt-portlet kt-portlet--height-fluid kt-portlet--border-bottom-dark\">
         <div class=\"kt-portlet__body kt-portlet__body--fluid\">
             <div class=\"kt-widget26\">
-                <div class=\"kt-widget26__content\">
-                    <span class=\"kt-widget26__number kt-font-danger\">";
-        // line 37
-        echo twig_escape_filter($this->env, ($context["shipping"] ?? null), "html", null, true);
-        echo "% </span>
+                <div class=\"kt-widget26__content flex-md-row\">
                     <span class=\"kt-widget26__desc\">";
         // line 38
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Delayed Shipping Percentage"]);
         echo "</span>
+                    <span class=\"kt-widget26__number ml-md-4 kt-font-danger\">";
+        // line 39
+        echo twig_escape_filter($this->env, ($context["shipping"] ?? null), "html", null, true);
+        echo "% </span>
                 </div>
                 <div class=\"kt-widget26__chart\" style=\"height:200px; width: 100%;\">
                     <canvas id=\"kt_chart_quick_stats_3\"></canvas>
@@ -98,18 +99,19 @@ class __TwigTemplate_0db96a5d6ff719c848b9661bbe94a9878fce4a4847c3c750b6cd8dbb98e
         </div>
     </div>
 </div>
+
 <script>
 function quickStats(){
     _initSparklineChart(\$('#kt_chart_quick_stats_1'), [";
-        // line 49
+        // line 51
         echo twig_escape_filter($this->env, ($context["PendingPaymentsChart"] ?? null), "html", null, true);
         echo "], KTApp.getStateColor('warning'), 3);
     _initSparklineChart(\$('#kt_chart_quick_stats_2'), [";
-        // line 50
+        // line 52
         echo twig_escape_filter($this->env, ($context["CurrentMonthSalesChart"] ?? null), "html", null, true);
         echo "], KTApp.getStateColor('success'), 3);
     _initSparklineChart(\$('#kt_chart_quick_stats_3'), [";
-        // line 51
+        // line 53
         echo twig_escape_filter($this->env, ($context["shippingChart"] ?? null), "html", null, true);
         echo "], KTApp.getStateColor('danger'), 3);
 }
@@ -128,18 +130,18 @@ function quickStats(){
 
     public function getDebugInfo()
     {
-        return array (  113 => 51,  109 => 50,  105 => 49,  91 => 38,  87 => 37,  70 => 23,  66 => 22,  48 => 7,  44 => 6,  37 => 1,);
+        return array (  115 => 53,  111 => 52,  107 => 51,  92 => 39,  88 => 38,  70 => 23,  66 => 22,  48 => 7,  44 => 6,  37 => 1,);
     }
 
     public function getSourceContext()
     {
-        return new Source("<div class=\"col-sm-12 col-md-4\">
+        return new Source("<div class=\"col-12\">
     <div class=\"kt-portlet kt-portlet--height-fluid kt-portlet--border-bottom-warning\">
         <div class=\"kt-portlet__body kt-portlet__body--fluid\">
             <div class=\"kt-widget26\">
-                <div class=\"kt-widget26__content\">
-                    <span class=\"kt-widget26__number\"><span class=\"kt-currency_before\"></span>{{PendingPayments}}<span class=\"kt-currency_after\"></span></span>
+                <div class=\"kt-widget26__content flex-md-row\">
                     <span class=\"kt-widget26__desc\">{{'Pending Payments'|__}}</span>
+                    <span class=\"kt-widget26__number ml-md-4 color-danger\"><span class=\"kt-currency_before\"></span>{{PendingPayments}}<span class=\"kt-currency_after\"></span></span>
                 </div>
                 <div class=\"kt-widget26__chart\" style=\"height:200px; width: 100%;\">
                     <canvas id=\"kt_chart_quick_stats_1\"></canvas>
@@ -147,15 +149,15 @@ function quickStats(){
             </div>
         </div>
     </div>
-
 </div>
-<div class=\"col-sm-12 col-md-4\">
+
+<div class=\"col-12\">
     <div class=\"kt-portlet kt-portlet--height-fluid kt-portlet--border-bottom-success\">
         <div class=\"kt-portlet__body kt-portlet__body--fluid\">
             <div class=\"kt-widget26\">
-                <div class=\"kt-widget26__content\">
-                    <span class=\"kt-widget26__number\"><span class=\"kt-currency_before\"></span>{{CurrentMonthSales}}<span class=\"kt-currency_after\"></span></span>
+                <div class=\"kt-widget26__content flex-md-row\">
                     <span class=\"kt-widget26__desc\">{{'Current Month Sales'|__}}</span>
+                    <span class=\"kt-widget26__number ml-md-4 color-success\"><span class=\"kt-currency_before\"></span>{{CurrentMonthSales}}<span class=\"kt-currency_after\"></span></span>
                 </div>
                 <div class=\"kt-widget26__chart\" style=\"height:200px; width: 100%;\">
                     <canvas id=\"kt_chart_quick_stats_2\"></canvas>
@@ -164,13 +166,14 @@ function quickStats(){
         </div>
     </div>
 </div>
-<div class=\"col-sm-12 col-md-4\">
+
+<div class=\"col-12\">
     <div class=\"kt-portlet kt-portlet--height-fluid kt-portlet--border-bottom-dark\">
         <div class=\"kt-portlet__body kt-portlet__body--fluid\">
             <div class=\"kt-widget26\">
-                <div class=\"kt-widget26__content\">
-                    <span class=\"kt-widget26__number kt-font-danger\">{{shipping}}% </span>
+                <div class=\"kt-widget26__content flex-md-row\">
                     <span class=\"kt-widget26__desc\">{{'Delayed Shipping Percentage'|__}}</span>
+                    <span class=\"kt-widget26__number ml-md-4 kt-font-danger\">{{shipping}}% </span>
                 </div>
                 <div class=\"kt-widget26__chart\" style=\"height:200px; width: 100%;\">
                     <canvas id=\"kt_chart_quick_stats_3\"></canvas>
@@ -179,6 +182,7 @@ function quickStats(){
         </div>
     </div>
 </div>
+
 <script>
 function quickStats(){
     _initSparklineChart(\$('#kt_chart_quick_stats_1'), [{{PendingPaymentsChart}}], KTApp.getStateColor('warning'), 3);
