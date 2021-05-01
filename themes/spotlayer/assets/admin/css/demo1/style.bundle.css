@@ -9503,6 +9503,8 @@ button.btn {
     .btn-skype + .btn.dropdown-toggle:hover:before, .btn-skype + .btn.dropdown-toggle:focus:before, .btn-skype + .btn.dropdown-toggle.active:before {
       display: none; }
 
+
+
 .btn-outline-brand {
   color: #EE8335;
   border-color: #EE8335; }
@@ -19205,7 +19207,8 @@ strong {
     .kt-portlet.kt-portlet--tabs-border-3x .kt-portlet__head .nav.nav-tabs {
       margin-bottom: -3px; }
   .kt-portlet.kt-portlet--solid-brand {
-    background: #EE8335; }
+    background: #EE8335;
+    font-size: 45px; }
     .kt-portlet.kt-portlet--solid-brand .kt-portlet__head {
       color: #ffffff;
       border-bottom: 1px solid transparent; }

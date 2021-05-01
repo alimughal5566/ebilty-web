@@ -529,19 +529,83 @@ crumb_disabled = 0
 ?>
 ==
 <!--Begin::Section-->
+
 <div class="row">
-    <div class="col-xl-12">
+   
+    <div class="col-12">
         <!--begin:: Widgets/Applications/User/Profile3-->
-        <div class="kt-portlet kt-portlet--height-fluid">
+     
+            <div class="kt-portlet kt-portlet--height-fluid">
             <div class="kt-portlet__body">
-                <div class="kt-widget kt-widget--user-profile-3 custom-widget">
+
+                <div class='row'>
+                       <div class="col-12 col-md-4">
+            <div class='dashboard-top-container '>
+                <div class="text-center img-container">
+                <img alt="Logo" src="./admin/media/images/logo.png" style="max-height:40px"/>
+                 <h5>Summary</h5>
+                </div>
+                  <div class='top-dashbord-left-container'>
+                                
+                                <div class="container-info">
+                                    <div>
+                                        <!-- <i class="flaticon-map-location"></i>  -->
+                                        <i class="fas fa-clipboard-list"></i>
+                                        No of transactions
+                                    </div>
+                                    <div>
+                                       <h2>1500</h2>
+                                    </div>
+                                </div> 
+                                <div class="container-info">
+                                    <div>
+                                      <i class="fas fa-chart-line"></i>
+                                       Ranking 
+                                    </div>
+                                    <div>
+                                       <h2>25</h2>
+                                    </div>
+                                </div>
+                                <div class="container-info">
+                                    <div>
+                                       <i class="fas fa-money-bill"></i>
+                                       Payments
+                                    </div>
+                                    <div>
+                                       <h2>3222</h2>
+                                    </div>
+                                </div>
+
+                                <div class="container-info">
+                                    <div>
+                                      <i class="fas fa-chart-bar"></i>
+                                       Revenue
+                                    </div>
+                                    <div>
+                                       <h2>1212</h2>
+                                    </div>
+                                </div>
+                                <div class="container-info">
+                                    <div>
+                                       <i class="far fa-window-close"></i>
+                                       Cancelled Rides
+                                    </div>
+                                    <div>
+                                       <h2>10</h2>
+                                    </div>
+                                </div>
+                            </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-8">
+              <div class="kt-widget kt-widget--user-profile-3 custom-widget">
                     <div class="kt-widget__top">
                         {% if user.avatar %}
                             <div class="kt-widget__media">
                                 <img src="{{user.avatar.thumb(100, 100,'crop')}}" alt="image">
                             </div>
                        {% else %}
-                            <div class="kt-widget__pic kt-widget__pic--brand kt-font-boldest kt-font-light">
+                            <div class="kt-widget__pic kt-widget__pic--brand kt-font-boldest kt-font-light boxnameShow">
                                 {{user.name|upper|slice(0,2)}}
                             </div>
                        {% endif %}
@@ -601,6 +665,175 @@ crumb_disabled = 0
                             </div>
                         </div>
                     </div>
+
+                    <div class='row'>
+                        <div class='col-4'>
+                            <div class='dashboardcontainainer a'>
+                                <div class="headers">
+                                    <div>United Kingdom</div>
+                                    <div><img src="https://www.countryflags.io/gb/flat/64.png"></div>
+                                </div>
+                                <div class="container-info">
+                                    <div>
+                                        <!-- <i class="flaticon-map-location"></i>  -->
+                                        <i class="fas fa-clipboard-list"></i>
+                                        No of transactions
+                                    </div>
+                                    <div>
+                                       <h3>1500</h3>
+                                    </div>
+                                </div> 
+                                <div class="container-info">
+                                    <div>
+                                      <i class="fas fa-chart-line"></i>
+                                       Ranking 
+                                    </div>
+                                    <div>
+                                       <h3>25</h3>
+                                    </div>
+                                </div>
+                                <div class="container-info">
+                                    <div>
+                                       <i class="fas fa-money-bill"></i>
+                                       Payments
+                                    </div>
+                                    <div>
+                                       <h3>3222</h3>
+                                    </div>
+                                </div>
+
+                                <div class="container-info">
+                                    <div>
+                                      <i class="fas fa-chart-bar"></i>
+                                       Revenue
+                                    </div>
+                                    <div>
+                                       <h3>1212</h3>
+                                    </div>
+                                </div>
+                                <div class="container-info">
+                                    <div>
+                                       <i class="far fa-window-close"></i>
+                                       Cancelled Rides
+                                    </div>
+                                    <div>
+                                       <h3>10</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                          <div class='col-4'>
+                            <div class='dashboardcontainainer b'>
+                                <div class="headers">
+                                    <div>Canada</div>
+                                    <div><img src="https://www.countryflags.io/ca/flat/64.png"></div>
+                                </div>
+                                <div class="container-info">
+                                    <div>
+                                        <!-- <i class="flaticon-map-location"></i>  -->
+                                        <i class="fas fa-clipboard-list"></i>
+                                        No of transactions
+                                    </div>
+                                    <div>
+                                       <h3>1500</h3>
+                                    </div>
+                                </div> 
+                                <div class="container-info">
+                                    <div>
+                                      <i class="fas fa-chart-line"></i>
+                                       Ranking 
+                                    </div>
+                                    <div>
+                                       <h3>25</h3>
+                                    </div>
+                                </div>
+                                <div class="container-info">
+                                    <div>
+                                       <i class="fas fa-money-bill"></i>
+                                       Payments
+                                    </div>
+                                    <div>
+                                       <h3>3222</h3>
+                                    </div>
+                                </div>
+
+                                <div class="container-info">
+                                    <div>
+                                      <i class="fas fa-chart-bar"></i>
+                                       Revenue
+                                    </div>
+                                    <div>
+                                       <h3>1212</h3>
+                                    </div>
+                                </div>
+                                <div class="container-info">
+                                    <div>
+                                       <i class="far fa-window-close"></i>
+                                       Cancelled Rides
+                                    </div>
+                                    <div>
+                                       <h3>10</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                          <div class='col-4'>
+                            <div class='dashboardcontainainer c'>
+                                <div class="headers">
+                                    <div>Malaysia</div>
+                                    <div><img src="https://www.countryflags.io/my/flat/64.png"></div>
+                                </div>
+                                <div class="container-info">
+                                    <div>
+                                        <!-- <i class="flaticon-map-location"></i>  -->
+                                        <i class="fas fa-clipboard-list"></i>
+                                        No of transactions
+                                    </div>
+                                    <div>
+                                       <h3>1500</h3>
+                                    </div>
+                                </div> 
+                                <div class="container-info">
+                                    <div>
+                                      <i class="fas fa-chart-line"></i>
+                                       Ranking 
+                                    </div>
+                                    <div>
+                                       <h3>25</h3>
+                                    </div>
+                                </div>
+                                <div class="container-info">
+                                    <div>
+                                       <i class="fas fa-money-bill"></i>
+                                       Payments
+                                    </div>
+                                    <div>
+                                       <h3>3222</h3>
+                                    </div>
+                                </div>
+
+                                <div class="container-info">
+                                    <div>
+                                      <i class="fas fa-chart-bar"></i>
+                                       Revenue
+                                    </div>
+                                    <div>
+                                       <h3>1212</h3>
+                                    </div>
+                                </div>
+                                <div class="container-info">
+                                    <div>
+                                       <i class="far fa-window-close"></i>
+                                       Cancelled Rides
+                                    </div>
+                                    <div>
+                                       <h3>10</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                       
+                    </div>
                     <div class="kt-widget__bottom">
                         <a href="{{url('dashboard/shipments/approved')}}" class="kt-widget__item">
                             <div class="kt-widget__icon">
@@ -649,7 +882,10 @@ crumb_disabled = 0
 
                     </div>
                 </div>
+                </div>
+              
             </div>
+        </div>
         </div>
         <!--end:: Widgets/Applications/User/Profile3-->
     </div>
