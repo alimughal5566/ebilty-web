@@ -517,6 +517,7 @@ body.sticky-header #header {
     .iosslider-slideshow .iosSlider .kl-iosslide-caption .title_big {
         font-size: 16px;
         line-height: 1.25;
+        padding: 15px 25px;
     }
 
     .iosslider-slideshow .iosSlider .kl-iosslide-caption .button_more {

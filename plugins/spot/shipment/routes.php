@@ -7,6 +7,8 @@ Route::get('/', function () {
     return Redirect::to('dashboard');
 });
 
+//Route::any('abc/{typre}', function(Request $req,$type) {});
+
 
 Route::group(['prefix' => 'api'], function() {
     /********************************************/
