@@ -8916,14 +8916,14 @@ button.btn {
     background-color: #f4f5f8; }
 
 .btn-brand {
-  color: #fff;
+
   background-color: #EE8335;
   border-color: #EE8335;
   color: #ffffff; }
   .btn-brand:hover {
-    color: #fff;
-    background-color: #1054dd;
-    border-color: #1054dd; }
+    color: #EE8335;
+    background-color: #fff;
+    border-color: #EE8335; }
   .btn-brand:focus, .btn-brand.focus {
     -webkit-box-shadow: 0 0 0 0.2rem rgba(117, 140, 255, 0.5);
     box-shadow: 0 0 0 0.2rem rgba(117, 140, 255, 0.5); }
@@ -10144,6 +10144,7 @@ a.btn.btn-label-brand,
 button.btn.btn-label-brand,
 input.btn.btn-label-brand {
   cursor: pointer !important; }
+
   label.btn.btn-label-brand:focus, label.btn.btn-label-brand:hover, label.btn.btn-label-brand.active,
   a.btn.btn-label-brand:focus,
   a.btn.btn-label-brand:hover,
@@ -10154,8 +10155,10 @@ input.btn.btn-label-brand {
   input.btn.btn-label-brand:focus,
   input.btn.btn-label-brand:hover,
   input.btn.btn-label-brand.active {
-    background-color: #1054dd;
-    color: #ffffff; }
+    background-color: #fff;
+    color: #EE8335;
+    border: 1px solid #EE8335;
+  }
 
 .btn.btn-label-light {
   background-color: rgba(255, 255, 255, 0.1);

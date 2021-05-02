@@ -466,7 +466,7 @@ crumb_disabled = 0
         //0 = Pending | 1 = Approved | 2 = Refused | 3 = Delivered to driver | 4 = Delivered | 5 = Return request | 6 = Delivery of discards to the driver | 7 = Supply in stock | 8 = Returned | 9 = received
         $stockedRecord = $approvedRecord  =  $deliveredRecord = $savedREcord = $records;
          //dd($records->where('requested',7)->count());
-        
+
         $new                        =   $records->where('requested',0)->count();
         //$approved                   =   $approvedRecord->where('requested',1)->count();
         //$stocked                    =   $stockedRecord->where('requested',7)->count();
@@ -531,70 +531,71 @@ crumb_disabled = 0
 <!--Begin::Section-->
 
 <div class="row">
-   
+
     <div class="col-12">
         <!--begin:: Widgets/Applications/User/Profile3-->
-     
+
             <div class="kt-portlet kt-portlet--height-fluid">
             <div class="kt-portlet__body">
 
                 <div class='row'>
-                       <div class="col-12 col-md-4">
-            <div class='dashboard-top-container '>
-                <div class="text-center img-container">
-                <img alt="Logo" src="./admin/media/images/logo.png" style="max-height:40px"/>
-                 <h5>Summary</h5>
-                </div>
-                  <div class='top-dashbord-left-container'>
-                                
-                                <div class="container-info">
-                                    <div>
-                                        <!-- <i class="flaticon-map-location"></i>  -->
-                                        <i class="fas fa-clipboard-list"></i>
-                                        No of transactions
-                                    </div>
-                                    <div>
-                                       <h2>1500</h2>
-                                    </div>
-                                </div> 
-                                <div class="container-info">
-                                    <div>
-                                      <i class="fas fa-chart-line"></i>
-                                       Ranking 
-                                    </div>
-                                    <div>
-                                       <h2>25</h2>
-                                    </div>
-                                </div>
-                                <div class="container-info">
-                                    <div>
-                                       <i class="fas fa-money-bill"></i>
-                                       Payments
-                                    </div>
-                                    <div>
-                                       <h2>3222</h2>
-                                    </div>
-                                </div>
+       <div class="col-12 col-md-4">
 
-                                <div class="container-info">
-                                    <div>
-                                      <i class="fas fa-chart-bar"></i>
-                                       Revenue
-                                    </div>
-                                    <div>
-                                       <h2>1212</h2>
-                                    </div>
-                                </div>
-                                <div class="container-info">
-                                    <div>
-                                       <i class="far fa-window-close"></i>
-                                       Cancelled Rides
-                                    </div>
-                                    <div>
-                                       <h2>10</h2>
-                                    </div>
-                                </div>
-                            </div>
+           <div class='dashboard-top-container '>
+                <div class="text-center img-container">
+                    <img alt="Logo" src="./admin/media/images/logo.png" style="max-height:40px"/>
+                    <h5>Summary</h5>
+                </div>
+
+                <div class='top-dashbord-left-container d-flex flex-column align-items-stretch h-100 '>
+                    <div class="container-info">
+                        <div>
+                            <!-- <i class="flaticon-map-location"></i>  -->
+                            <i class="fas fa-clipboard-list"></i>
+                            No of transactions
+                        </div>
+                        <div>
+                           <h2>1500</h2>
+                        </div>
+                    </div>
+                    <div class="container-info">
+                        <div>
+                          <i class="fas fa-chart-line"></i>
+                           Ranking
+                        </div>
+                        <div>
+                           <h2>25</h2>
+                        </div>
+                    </div>
+                    <div class="container-info">
+                        <div>
+                           <i class="fas fa-money-bill"></i>
+                           Payments
+                        </div>
+                        <div>
+                           <h2>3222</h2>
+                        </div>
+                    </div>
+                    <div class="container-info">
+                        <div>
+                          <i class="fas fa-chart-bar"></i>
+                           Revenue
+                        </div>
+                        <div>
+                           <h2>1212</h2>
+                        </div>
+                    </div>
+                    <div class="container-info">
+                        <div>
+                           <i class="far fa-window-close"></i>
+                           Cancelled Rides
+                        </div>
+                        <div>
+                           <h2>10</h2>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
         <div class="col-12 col-md-8">
@@ -670,8 +671,8 @@ crumb_disabled = 0
                         <div class='col-4'>
                             <div class='dashboardcontainainer a'>
                                 <div class="headers">
-                                    <div>United Kingdom</div>
-                                    <div><img src="https://www.countryflags.io/gb/flat/64.png"></div>
+                                    <h4>United Kingdom</h4>
+                                    <div><img src="https://www.countryflags.io/gb/flat/64.png" alt=""></div>
                                 </div>
                                 <div class="container-info">
                                     <div>
@@ -682,11 +683,11 @@ crumb_disabled = 0
                                     <div>
                                        <h3>1500</h3>
                                     </div>
-                                </div> 
+                                </div>
                                 <div class="container-info">
                                     <div>
                                       <i class="fas fa-chart-line"></i>
-                                       Ranking 
+                                       Ranking
                                     </div>
                                     <div>
                                        <h3>25</h3>
@@ -721,12 +722,12 @@ crumb_disabled = 0
                                     </div>
                                 </div>
                             </div>
-                        </div> 
+                        </div>
                           <div class='col-4'>
                             <div class='dashboardcontainainer b'>
                                 <div class="headers">
-                                    <div>Canada</div>
-                                    <div><img src="https://www.countryflags.io/ca/flat/64.png"></div>
+                                    <h4>Canada</h4>
+                                    <div><img src="https://www.countryflags.io/ca/flat/64.png" alt=""></div>
                                 </div>
                                 <div class="container-info">
                                     <div>
@@ -737,11 +738,11 @@ crumb_disabled = 0
                                     <div>
                                        <h3>1500</h3>
                                     </div>
-                                </div> 
+                                </div>
                                 <div class="container-info">
                                     <div>
                                       <i class="fas fa-chart-line"></i>
-                                       Ranking 
+                                       Ranking
                                     </div>
                                     <div>
                                        <h3>25</h3>
@@ -776,12 +777,12 @@ crumb_disabled = 0
                                     </div>
                                 </div>
                             </div>
-                        </div> 
+                        </div>
                           <div class='col-4'>
                             <div class='dashboardcontainainer c'>
                                 <div class="headers">
-                                    <div>Malaysia</div>
-                                    <div><img src="https://www.countryflags.io/my/flat/64.png"></div>
+                                    <h4>Malaysia</h4>
+                                    <div><img src="https://www.countryflags.io/my/flat/64.png" alt=""></div>
                                 </div>
                                 <div class="container-info">
                                     <div>
@@ -792,11 +793,11 @@ crumb_disabled = 0
                                     <div>
                                        <h3>1500</h3>
                                     </div>
-                                </div> 
+                                </div>
                                 <div class="container-info">
                                     <div>
                                       <i class="fas fa-chart-line"></i>
-                                       Ranking 
+                                       Ranking
                                     </div>
                                     <div>
                                        <h3>25</h3>
@@ -830,62 +831,65 @@ crumb_disabled = 0
                                        <h3>10</h3>
                                     </div>
                                 </div>
-                            </div>
-                        </div> 
-                       
-                    </div>
-                    <div class="kt-widget__bottom">
-                        <a href="{{url('dashboard/shipments/approved')}}" class="kt-widget__item">
-                            <div class="kt-widget__icon">
-                                <i class="flaticon-map-location"></i>
-                            </div>
-                            <div class="kt-widget__details">
-                                <span class="kt-widget__title">{{approved}} {{'shipment'|__}}</span>
-                                <span class="kt-widget__value">{{'Approved List'|__}}</span>
-                            </div>
-                        </a>
-
-                        <a href="{{url('dashboard/shipments/stock')}}" class="kt-widget__item">
-                            <div class="kt-widget__icon">
-                                <i class="flaticon-truck"></i>
-                            </div>
-                            <div class="kt-widget__details">
-                                <span class="kt-widget__title">{{stocked}} {{'shipment'|__}}</span>
-                                <span class="kt-widget__value">{{'In Stock List'|__}}</span>
-                            </div>
-                        </a>
-
-                        <a href="{{url('dashboard/shipments/delivered')}}" class="kt-widget__item">
-                            <div class="kt-widget__icon">
-                                <i class="flaticon-bag"></i>
-                            </div>
-                            <div class="kt-widget__details">
-                                <span class="kt-widget__title">{{delivered}} {{'shipment'|__}}</span>
-                                <span class="kt-widget__value">{{'Delivered List'|__}}</span>
-                            </div>
-                        </a>
-
-                        <div class="kt-widget__item">
-                            <div class="kt-widget__icon">
-                                <i class="flaticon-file-2"></i>
-                            </div>
-                            <div class="kt-widget__details">
-                                {% if user.role_id == 5 %}
-                                    <span class="kt-widget__title">{{saved}} {{'Saved Shipments'|__}}</span>
-                                    <a href="{{url('dashboard/shipments/saved')}}" class="kt-widget__value kt-font-brand">{{'View'|__}}</a>
-                                {% else %}
-                                    <span class="kt-widget__title">{{new}} {{'New Shipment Request'|__}}</span>
-                                    <a href="{{url('dashboard/shipments/requests')}}" class="kt-widget__value kt-font-brand">{{'View'|__}}</a>
-                                {% endif %}
                             </div>
                         </div>
 
                     </div>
+
+<!--                    <div class="kt-widget__bottom">-->
+<!--                        <a href="{{url('dashboard/shipments/approved')}}" class="kt-widget__item">-->
+<!--                            <div class="kt-widget__icon">-->
+<!--                                <i class="flaticon-map-location"></i>-->
+<!--                            </div>-->
+<!--                            <div class="kt-widget__details">-->
+<!--                                <span class="kt-widget__title">{{approved}} {{'shipment'|__}}</span>-->
+<!--                                <span class="kt-widget__value">{{'Approved List'|__}}</span>-->
+<!--                            </div>-->
+<!--                        </a>-->
+
+<!--                        <a href="{{url('dashboard/shipments/stock')}}" class="kt-widget__item">-->
+<!--                            <div class="kt-widget__icon">-->
+<!--                                <i class="flaticon-truck"></i>-->
+<!--                            </div>-->
+<!--                            <div class="kt-widget__details">-->
+<!--                                <span class="kt-widget__title">{{stocked}} {{'shipment'|__}}</span>-->
+<!--                                <span class="kt-widget__value">{{'In Stock List'|__}}</span>-->
+<!--                            </div>-->
+<!--                        </a>-->
+
+<!--                        <a href="{{url('dashboard/shipments/delivered')}}" class="kt-widget__item">-->
+<!--                            <div class="kt-widget__icon">-->
+<!--                                <i class="flaticon-bag"></i>-->
+<!--                            </div>-->
+<!--                            <div class="kt-widget__details">-->
+<!--                                <span class="kt-widget__title">{{delivered}} {{'shipment'|__}}</span>-->
+<!--                                <span class="kt-widget__value">{{'Delivered List'|__}}</span>-->
+<!--                            </div>-->
+<!--                        </a>-->
+
+<!--                        <div class="kt-widget__item">-->
+<!--                            <div class="kt-widget__icon">-->
+<!--                                <i class="flaticon-file-2"></i>-->
+<!--                            </div>-->
+<!--                            <div class="kt-widget__details">-->
+<!--                                {% if user.role_id == 5 %}-->
+<!--                                    <span class="kt-widget__title">{{saved}} {{'Saved Shipments'|__}}</span>-->
+<!--                                    <a href="{{url('dashboard/shipments/saved')}}" class="kt-widget__value kt-font-brand">{{'View'|__}}</a>-->
+<!--                                {% else %}-->
+<!--                                    <span class="kt-widget__title">{{new}} {{'New Shipment Request'|__}}</span>-->
+<!--                                    <a href="{{url('dashboard/shipments/requests')}}" class="kt-widget__value kt-font-brand">{{'View'|__}}</a>-->
+<!--                                {% endif %}-->
+<!--                            </div>-->
+<!--                        </div>-->
+
+<!--                    </div>-->
+
+                    </div>
                 </div>
-                </div>
-              
+
             </div>
         </div>
+
         </div>
         <!--end:: Widgets/Applications/User/Profile3-->
     </div>

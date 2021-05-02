@@ -1,5 +1,5 @@
 <?php 
-class Cms608da5ac22f76571950176_7c3b93226c59c3a55fdc6951f96ccfd6Class extends Cms\Classes\PageCode
+class Cms608db2a76362c025126084_d9e3d5ad511bdedb319cf350ce7c1600Class extends Cms\Classes\PageCode
 {
 public function onStart(){
         $value                      =   50;
@@ -451,7 +451,7 @@ public function onStart(){
         //0 = Pending | 1 = Approved | 2 = Refused | 3 = Delivered to driver | 4 = Delivered | 5 = Return request | 6 = Delivery of discards to the driver | 7 = Supply in stock | 8 = Returned | 9 = received
         $stockedRecord = $approvedRecord  =  $deliveredRecord = $savedREcord = $records;
          //dd($records->where('requested',7)->count());
-        
+
         $new                        =   $records->where('requested',0)->count();
         //$approved                   =   $approvedRecord->where('requested',1)->count();
         //$stocked                    =   $stockedRecord->where('requested',7)->count();

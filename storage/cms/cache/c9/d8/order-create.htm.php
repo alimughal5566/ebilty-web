@@ -1,5 +1,5 @@
 <?php 
-use \Spot\Shipment\Models\Settings;class Cms608cb8a0ae820899411163_7b73f920172054fbec9c2dd56096649bClass extends Cms\Classes\PageCode
+use \Spot\Shipment\Models\Settings;class Cms608df99b51fd0231736328_aca0b49fdc888dfc14f280be3fbb31e7Class extends Cms\Classes\PageCode
 {
 
 public function onStart() {
