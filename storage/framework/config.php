@@ -173,7 +173,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => 'C:\\xampp\\htdocs\\Beta\\storage\\framework/cache',
+        'path' => 'C:\\xampp\\htdocs\\IVYLABS\\ebilty-web\\storage\\framework/cache',
       ),
       'memcached' => 
       array (
@@ -203,7 +203,7 @@
     'paths' => 
     array (
     ),
-    'compiled' => 'C:\\xampp\\htdocs\\Beta\\storage\\framework\\views',
+    'compiled' => 'C:\\xampp\\htdocs\\IVYLABS\\ebilty-web\\storage\\framework\\views',
   ),
   '*::database' => 
   array (
@@ -222,7 +222,7 @@
         'driver' => 'mysql',
         'host' => 'localhost',
         'port' => 3306,
-        'database' => 'beta1',
+        'database' => 'admin_ebilty',
         'username' => 'root',
         'password' => '',
         'charset' => 'utf8mb4',
@@ -234,7 +234,7 @@
         'driver' => 'pgsql',
         'host' => 'localhost',
         'port' => 5432,
-        'database' => 'database',
+        'database' => 'admin_ebilty',
         'username' => 'root',
         'password' => '',
         'charset' => 'utf8',
@@ -246,7 +246,7 @@
         'driver' => 'sqlsrv',
         'host' => 'localhost',
         'port' => 1433,
-        'database' => 'database',
+        'database' => 'admin_ebilty',
         'username' => 'root',
         'password' => '',
         'prefix' => '',
@@ -275,7 +275,7 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\xampp\\htdocs\\Beta\\storage\\app',
+        'root' => 'C:\\xampp\\htdocs\\IVYLABS\\ebilty-web\\storage\\app',
       ),
       's3' => 
       array (

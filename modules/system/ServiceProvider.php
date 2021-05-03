@@ -478,6 +478,7 @@ class ServiceProvider extends ModuleServiceProvider
                     'permissions' => ['system.manage_mail_settings'],
                     'order'       => 620
                 ],
+
                 'mail_brand_settings' => [
                     'label'       => 'system::lang.mail_brand.menu_label',
                     'description' => 'system::lang.mail_brand.menu_description',
@@ -487,6 +488,7 @@ class ServiceProvider extends ModuleServiceProvider
                     'permissions' => ['system.manage_mail_templates'],
                     'order'       => 630
                 ],
+
                 'event_logs' => [
                     'label'       => 'system::lang.event_log.menu_label',
                     'description' => 'system::lang.event_log.menu_description',
@@ -497,6 +499,7 @@ class ServiceProvider extends ModuleServiceProvider
                     'order'       => 900,
                     'keywords'    => 'error exception'
                 ],
+
                 'request_logs' => [
                     'label'       => 'system::lang.request_log.menu_label',
                     'description' => 'system::lang.request_log.menu_description',
@@ -507,6 +510,7 @@ class ServiceProvider extends ModuleServiceProvider
                     'order'       => 910,
                     'keywords'    => '404 error'
                 ],
+
                 'log_settings' => [
                     'label'       => 'system::lang.log.menu_label',
                     'description' => 'system::lang.log.menu_description',

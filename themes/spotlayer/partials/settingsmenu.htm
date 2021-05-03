@@ -151,6 +151,12 @@
 								<span class="kt-nav__link-text">{{'Cars'|__}}</span>
 							</a>
 						</li>
+						<li class="kt-nav__item {% if this.param.page == 'vehicle' or this.page.child_of_page == 'vehicle' %}kt-nav__item--active{% endif %}" aria-haspopup="true" >
+							<a  href="{{url('/dashboard/settings/vehicle')}}" class="kt-nav__link ">
+								<span class="kt-nav__link-bullet kt-nav__link-bullet--line"><span></span></span>
+								<span class="kt-nav__link-text">{{'vehicle'|__}}</span>
+							</a>
+						</li>
 					</ul>
 				</li>
 
