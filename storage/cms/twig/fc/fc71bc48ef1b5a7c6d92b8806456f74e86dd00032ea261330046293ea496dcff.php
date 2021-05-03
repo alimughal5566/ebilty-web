@@ -263,48 +263,46 @@ class __TwigTemplate_ec4c8615aa4f88c386affbc38bac22809438612aac9c65131d1bdfda2f5
                      <div id=\"kt_aside_menu\" class=\"kt-aside-menu \" data-ktmenu-vertical=\"1\" data-ktmenu-scroll=\"1\" data-ktmenu-dropdown-timeout=\"500\">
 
                             <div class=\"kt-widget kt-widget--user-profile-1 kt-padding-l-20 kt-padding-r-20 kt-padding-b-0\">
-<!--                                <div class=\"kt-widget__head\">-->
-<!--                                    ";
+                                <div class=\"kt-widget__head\">
+                                    ";
         // line 129
         if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "avatar", [], "any", false, false, false, 129)) {
-            echo "-->
-<!--                                        <div class=\"kt-widget__media\">-->
-<!--                                            <img src=\"";
+            // line 130
+            echo "                                        <div class=\"kt-widget__media\">
+                                            <img src=\"";
             // line 131
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "avatar", [], "any", false, false, false, 131), "thumb", [0 => 100, 1 => 100, 2 => "crop"], "method", false, false, false, 131), "html", null, true);
-            echo "\" alt=\"image\">-->
-<!--                                        </div>-->
-<!--                                   ";
+            echo "\" alt=\"image\">
+                                        </div>
+                                   ";
         } else {
-            // line 133
-            echo "-->
-<!--                                       <span class=\"kt-media kt-media&#45;&#45;lg kt-media&#45;&#45;brand \">-->
-<!--                                            <span>";
+            // line 134
+            echo "                                       <span class=\"kt-media kt-media--lg kt-media--brand \">
+                                            <span>";
             // line 135
             echo twig_escape_filter($this->env, twig_slice($this->env, twig_upper_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "name", [], "any", false, false, false, 135)), 0, 2), "html", null, true);
-            echo "</span>-->
-<!--                                        </span>-->
-<!--                                   ";
+            echo "</span>
+                                        </span>
+                                   ";
         }
-        // line 137
-        echo "-->
-<!--                                    <div class=\"kt-widget__content kt-padding-t-10\">-->
-<!--                                        <div class=\"kt-widget__section\">-->
-<!--                                            <a href=\"javascript:void(0);\" class=\"kt-widget__username\">-->
-<!--                                                ";
+        // line 138
+        echo "                                    <div class=\"kt-widget__content kt-padding-t-10\">
+                                        <div class=\"kt-widget__section\">
+                                            <a href=\"javascript:void(0);\" class=\"kt-widget__username\">
+                                                ";
         // line 141
         echo twig_escape_filter($this->env, twig_capitalize_string_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "name", [], "any", false, false, false, 141)), "html", null, true);
-        echo "-->
-<!--                                            </a>-->
-<!--                                            <span class=\"kt-widget__subtitle\">-->
-<!--                                                ";
+        echo "
+                                            </a>
+                                            <span class=\"kt-widget__subtitle\">
+                                                ";
         // line 144
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Welcome back"]);
-        echo ",-->
-<!--                                            </span>-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                </div>-->
+        echo ",
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
 
                                 <div class=\"kt-widget__footer kt-margin-t-15\">
                                     <a href=\"";
@@ -1149,87 +1147,78 @@ class __TwigTemplate_ec4c8615aa4f88c386affbc38bac22809438612aac9c65131d1bdfda2f5
         }
         // line 540
         echo "                                </div>
-<!--                                <div class=\"kt-subheader__toolbar\">-->
-<!--                                    <div class=\"kt-subheader__wrapper\">-->
-<!--                                        ";
+                                <div class=\"kt-subheader__toolbar\">
+                                    <div class=\"kt-subheader__wrapper\">
+                                        ";
         // line 543
         if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, false, false, 543), "daterange", [], "any", false, false, false, 543) == 1)) {
-            echo "-->
-<!--                                            <div class=\"btn kt-subheader__btn-daterange\" id=\"kt_dashboard_daterangepicker\" data-toggle=\"kt-tooltip\" title=\"";
             // line 544
+            echo "                                            <div class=\"btn kt-subheader__btn-daterange\" id=\"kt_dashboard_daterangepicker\" data-toggle=\"kt-tooltip\" title=\"";
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Select dashboard daterange"]);
-            echo "\" data-placement=\"left\">-->
-<!--                                                <span class=\"kt-subheader__btn-daterange-title\" id=\"kt_dashboard_daterangepicker_title\">";
+            echo "\" data-placement=\"left\">
+                                                <span class=\"kt-subheader__btn-daterange-title\" id=\"kt_dashboard_daterangepicker_title\">";
             // line 545
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Today"]);
-            echo "</span>&nbsp;-->
-<!--                                                <span class=\"kt-subheader__btn-daterange-date\" id=\"kt_dashboard_daterangepicker_date\">";
+            echo "</span>&nbsp;
+                                                <span class=\"kt-subheader__btn-daterange-date\" id=\"kt_dashboard_daterangepicker_date\">";
             // line 546
             echo twig_escape_filter($this->env, twig_date_format_filter($this->env, "now", "d M"), "html", null, true);
-            echo "</span>-->
-<!--                                                <i class=\"flaticon2-calendar-1\"></i>-->
-<!--                                            </div>-->
-<!--                                        ";
+            echo "</span>
+                                                <i class=\"flaticon2-calendar-1\"></i>
+                                            </div>
+                                        ";
         } else {
-            // line 549
-            echo "-->
-<!--                                            ";
             // line 550
+            echo "                                            ";
             if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, false, false, 550), "actions", [], "any", false, false, false, 550)) {
-                echo "-->
-<!--                                                ";
                 // line 551
+                echo "                                                ";
                 if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, true, false, 551), "actions", [], "any", false, true, false, 551), "add", [], "any", true, true, false, 551)) {
-                    echo "-->
-<!--                                                    <a href=\"";
                     // line 552
+                    echo "                                                    <a href=\"";
                     echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, false, false, 552), "actions", [], "any", false, false, false, 552), "add", [], "any", false, false, false, 552), "html", null, true);
                     echo "\" class=\"btn btn-label-success btn-bold\" id=\"add_new_btn\">";
                     echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Add new"]);
-                    echo "&nbsp;<i class=\"flaticon2-add\"></i></a>-->
-<!--                                                ";
+                    echo "&nbsp;<i class=\"flaticon2-add\"></i></a>
+                                                ";
                 }
-                // line 553
-                echo "-->
-
-<!--                                                ";
+                // line 554
+                echo "
+                                                ";
                 // line 555
                 if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, true, false, 555), "actions", [], "any", false, true, false, 555), "filter", [], "any", true, true, false, 555)) {
-                    echo "-->
-<!--                                                    <a href=\"#\" class=\"btn btn-label-success btn-bold\" id=\"filter\">";
                     // line 556
+                    echo "                                                    <a href=\"#\" class=\"btn btn-label-success btn-bold\" id=\"filter\">";
                     echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Filter"]);
-                    echo "&nbsp;<i class=\"flaticon2-search\"></i></a>-->
-<!--                                                ";
+                    echo "&nbsp;<i class=\"flaticon2-search\"></i></a>
+                                                ";
                 }
-                // line 557
-                echo "-->
-<!--                                                 &lt;!&ndash; add multi shipments  &ndash;&gt;-->
-<!--                                                ";
+                // line 558
+                echo "                                                 <!-- add multi shipments  -->
+                                                ";
                 // line 559
                 if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, true, false, 559), "actions", [], "any", false, true, false, 559), "multi", [], "any", true, true, false, 559)) {
-                    echo "-->
-<!--                                                <div class=\"kt-subheader__group\" id=\"kt_subheader_search\" style=\"display:inline-block; \">-->
-<!--                                                    <div class=\"btn-toolbar kt-margin-l-20\">-->
-<!--                                                        <div class=\"dropdown\" id=\"\">-->
-<!--                                                            <button type=\"button\" class=\"btn btn-label-success btn-bold btn-sm dropdown-toggle\" data-toggle=\"dropdown\">";
+                    // line 560
+                    echo "                                                <div class=\"kt-subheader__group\" id=\"kt_subheader_search\" style=\"display:inline-block; \">
+                                                    <div class=\"btn-toolbar kt-margin-l-20\">
+                                                        <div class=\"dropdown\" id=\"\">
+                                                            <button type=\"button\" class=\"btn btn-label-success btn-bold btn-sm dropdown-toggle\" data-toggle=\"dropdown\">";
                     // line 563
                     echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Add Using"]);
-                    echo "<span id=\"filter_selected\"></span></button>-->
-<!--                                                            <div class=\"dropdown-menu kt-padding-t-0 kt-padding-b-0\">-->
-<!--                                                                <ul class=\"kt-nav kt-padding-t-0 kt-padding-b-10\">-->
-<!--                                                                    <li class=\"kt-nav__section kt-nav__section&#45;&#45;first\">-->
-<!--                                                                    ";
+                    echo "<span id=\"filter_selected\"></span></button>
+                                                            <div class=\"dropdown-menu kt-padding-t-0 kt-padding-b-0\">
+                                                                <ul class=\"kt-nav kt-padding-t-0 kt-padding-b-10\">
+                                                                    <li class=\"kt-nav__section kt-nav__section--first\">
+                                                                    ";
                     // line 567
                     $context['_parent'] = $context;
                     $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, false, false, 567), "actions", [], "any", false, false, false, 567), "multi", [], "any", false, false, false, 567));
                     foreach ($context['_seq'] as $context["_key"] => $context["button"]) {
-                        echo "-->
-<!--                                                                        <button class=\"btn btn-outline-dark btn-sm btn-bold \" id=\"";
                         // line 568
+                        echo "                                                                        <button class=\"btn btn-outline-dark btn-sm btn-bold \" id=\"";
                         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["button"], "id", [], "any", false, false, false, 568), "html", null, true);
-                        echo "\" style=\"display: block;width: 100%;\" >-->
-<!--                                                                            <a href=\"";
+                        echo "\" style=\"display: block;width: 100%;\" >
+                                                                            <a href=\"";
                         // line 569
                         if (twig_get_attribute($this->env, $this->source, $context["button"], "url", [], "any", false, false, false, 569)) {
                             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["button"], "url", [], "any", false, false, false, 569), "html", null, true);
@@ -1240,38 +1229,34 @@ class __TwigTemplate_ec4c8615aa4f88c386affbc38bac22809438612aac9c65131d1bdfda2f5
                         if (call_user_func_array($this->env->getFilter('__')->getCallable(), [twig_get_attribute($this->env, $this->source, $context["button"], "title", [], "any", false, false, false, 569)])) {
                             echo call_user_func_array($this->env->getFilter('__')->getCallable(), [twig_get_attribute($this->env, $this->source, $context["button"], "title", [], "any", false, false, false, 569)]);
                         }
-                        echo "</a></button>-->
-<!--                                                                        -->
-<!--                                                                    ";
+                        echo "</a></button>
+
+                                                                    ";
                     }
                     $_parent = $context['_parent'];
                     unset($context['_seq'], $context['_iterated'], $context['_key'], $context['button'], $context['_parent'], $context['loop']);
                     $context = array_intersect_key($context, $_parent) + $_parent;
-                    // line 571
-                    echo "-->
-<!--                                                                    </li>-->
-<!--                                                                </ul>-->
-<!--                                                            </div>-->
-<!--                                                        </div>-->
-<!--                                                    </div>-->
-<!--                                                </div>-->
-<!--                                                ";
+                    // line 572
+                    echo "                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                ";
                 }
-                // line 578
-                echo "-->
-<!--                                                &lt;!&ndash;end  &ndash;&gt;-->
-<!--                                                ";
+                // line 579
+                echo "                                                <!--end  -->
+                                                ";
                 // line 580
                 if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, true, false, 580), "actions", [], "any", false, true, false, 580), "buttons", [], "any", true, true, false, 580)) {
-                    echo "-->
-<!--                                                    ";
                     // line 581
+                    echo "                                                    ";
                     $context['_parent'] = $context;
                     $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, false, false, 581), "actions", [], "any", false, false, false, 581), "buttons", [], "any", false, false, false, 581));
                     foreach ($context['_seq'] as $context["_key"] => $context["button"]) {
-                        echo "-->
-<!--                                                        <a href=\"";
                         // line 582
+                        echo "                                                        <a href=\"";
                         if (twig_get_attribute($this->env, $this->source, $context["button"], "url", [], "any", false, false, false, 582)) {
                             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["button"], "url", [], "any", false, false, false, 582), "html", null, true);
                         } else {
@@ -1291,89 +1276,82 @@ class __TwigTemplate_ec4c8615aa4f88c386affbc38bac22809438612aac9c65131d1bdfda2f5
                         }
                         echo "&nbsp;<i class=\"";
                         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["button"], "icon", [], "any", false, false, false, 582), "html", null, true);
-                        echo "\"></i></a>-->
-<!--                                                    ";
+                        echo "\"></i></a>
+                                                    ";
                     }
                     $_parent = $context['_parent'];
                     unset($context['_seq'], $context['_iterated'], $context['_key'], $context['button'], $context['_parent'], $context['loop']);
                     $context = array_intersect_key($context, $_parent) + $_parent;
-                    // line 583
-                    echo "-->
-<!--                                                ";
+                    // line 584
+                    echo "                                                ";
                 }
-                // line 584
-                echo "                                                                                               -->
-<!--                                                ";
                 // line 585
+                echo "                                                ";
                 if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, true, false, 585), "actions", [], "any", false, true, false, 585), "other", [], "any", true, true, false, 585)) {
-                    echo "-->
-<!--                                                    <div class=\"dropdown dropdown-inline\" data-toggle-=\"kt-tooltip\" title=\"Quick actions\" data-placement=\"left\">-->
-<!--                                                        <a href=\"#\" class=\"btn kt-subheader__btn-primary\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">-->
-<!--                                                            ";
+                    // line 586
+                    echo "                                                    <div class=\"dropdown dropdown-inline\" data-toggle-=\"kt-tooltip\" title=\"Quick actions\" data-placement=\"left\">
+                                                        <a href=\"#\" class=\"btn kt-subheader__btn-primary\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
+                                                            ";
                     // line 588
                     echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Other Actions"]);
-                    echo " &nbsp;-->
+                    echo " &nbsp;
 
-<!--                                                            &lt;!&ndash;<i class=\"flaticon2-calendar-1\"></i>&ndash;&gt;-->
-<!--                                                            <svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" width=\"24px\" height=\"24px\" viewBox=\"0 0 24 24\" version=\"1.1\" class=\"kt-svg-icon kt-svg-icon&#45;&#45;sm\">-->
-<!--                                                                <g stroke=\"none\" stroke-width=\"1\" fill=\"none\" fill-rule=\"evenodd\">-->
-<!--                                                                    <rect id=\"bound\" x=\"0\" y=\"0\" width=\"24\" height=\"24\" />-->
-<!--                                                                    <rect id=\"Rectangle-8\" fill=\"#000000\" x=\"4\" y=\"5\" width=\"16\" height=\"3\" rx=\"1.5\" />-->
-<!--                                                                    <path d=\"M7.5,11 L16.5,11 C17.3284271,11 18,11.6715729 18,12.5 C18,13.3284271 17.3284271,14 16.5,14 L7.5,14 C6.67157288,14 6,13.3284271 6,12.5 C6,11.6715729 6.67157288,11 7.5,11 Z M10.5,17 L13.5,17 C14.3284271,17 15,17.6715729 15,18.5 C15,19.3284271 14.3284271,20 13.5,20 L10.5,20 C9.67157288,20 9,19.3284271 9,18.5 C9,17.6715729 9.67157288,17 10.5,17 Z\" id=\"Combined-Shape\" fill=\"#000000\" opacity=\"0.3\" />-->
-<!--                                                                </g>-->
-<!--                                                            </svg>-->
-<!--                                                        </a>-->
-<!--                                                        <div class=\"dropdown-menu dropdown-menu-fit dropdown-menu-md dropdown-menu-right\">-->
+                                                            <!--<i class=\"flaticon2-calendar-1\"></i>-->
+                                                            <svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" width=\"24px\" height=\"24px\" viewBox=\"0 0 24 24\" version=\"1.1\" class=\"kt-svg-icon kt-svg-icon--sm\">
+                                                                <g stroke=\"none\" stroke-width=\"1\" fill=\"none\" fill-rule=\"evenodd\">
+                                                                    <rect id=\"bound\" x=\"0\" y=\"0\" width=\"24\" height=\"24\" />
+                                                                    <rect id=\"Rectangle-8\" fill=\"#000000\" x=\"4\" y=\"5\" width=\"16\" height=\"3\" rx=\"1.5\" />
+                                                                    <path d=\"M7.5,11 L16.5,11 C17.3284271,11 18,11.6715729 18,12.5 C18,13.3284271 17.3284271,14 16.5,14 L7.5,14 C6.67157288,14 6,13.3284271 6,12.5 C6,11.6715729 6.67157288,11 7.5,11 Z M10.5,17 L13.5,17 C14.3284271,17 15,17.6715729 15,18.5 C15,19.3284271 14.3284271,20 13.5,20 L10.5,20 C9.67157288,20 9,19.3284271 9,18.5 C9,17.6715729 9.67157288,17 10.5,17 Z\" id=\"Combined-Shape\" fill=\"#000000\" opacity=\"0.3\" />
+                                                                </g>
+                                                            </svg>
+                                                        </a>
+                                                        <div class=\"dropdown-menu dropdown-menu-fit dropdown-menu-md dropdown-menu-right\">
 
-<!--                                                            &lt;!&ndash;begin::Nav&ndash;&gt;-->
-<!--                                                            <ul class=\"kt-nav\">-->
-<!--                                                                ";
+                                                            <!--begin::Nav-->
+                                                            <ul class=\"kt-nav\">
+                                                                ";
                     // line 603
                     $context['_parent'] = $context;
                     $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, false, false, 603), "actions", [], "any", false, false, false, 603), "other", [], "any", false, false, false, 603));
                     foreach ($context['_seq'] as $context["_key"] => $context["link"]) {
-                        echo "-->
-<!--                                                                    <li class=\"kt-nav__item\">-->
-<!--                                                                        <a href=\"";
+                        // line 604
+                        echo "                                                                    <li class=\"kt-nav__item\">
+                                                                        <a href=\"";
                         // line 605
                         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["link"], "url", [], "any", false, false, false, 605), "html", null, true);
-                        echo "\" class=\"kt-nav__link\">-->
-<!--                                                                            <i class=\"kt-nav__link-icon ";
+                        echo "\" class=\"kt-nav__link\">
+                                                                            <i class=\"kt-nav__link-icon ";
                         // line 606
                         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["link"], "icon", [], "any", false, false, false, 606), "html", null, true);
-                        echo "\"></i>-->
-<!--                                                                            <span class=\"kt-nav__link-text\">";
+                        echo "\"></i>
+                                                                            <span class=\"kt-nav__link-text\">";
                         // line 607
                         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["link"], "name", [], "any", false, false, false, 607), "html", null, true);
-                        echo "</span>-->
-<!--                                                                        </a>-->
-<!--                                                                    </li>-->
-<!--                                                                ";
+                        echo "</span>
+                                                                        </a>
+                                                                    </li>
+                                                                ";
                     }
                     $_parent = $context['_parent'];
                     unset($context['_seq'], $context['_iterated'], $context['_key'], $context['link'], $context['_parent'], $context['loop']);
                     $context = array_intersect_key($context, $_parent) + $_parent;
-                    // line 610
-                    echo "-->
-<!--                                                            </ul>-->
+                    // line 611
+                    echo "                                                            </ul>
 
-<!--                                                            &lt;!&ndash;end::Nav&ndash;&gt;-->
-<!--                                                        </div>-->
-<!--                                                    </div>-->
-<!--                                                ";
+                                                            <!--end::Nav-->
+                                                        </div>
+                                                    </div>
+                                                ";
                 }
-                // line 616
-                echo "-->
-<!--                                            ";
+                // line 617
+                echo "                                            ";
             }
-            // line 617
-            echo "-->
-<!--                                        ";
+            // line 618
+            echo "                                        ";
         }
-        // line 618
-        echo "-->
-<!--                                    </div>-->
-<!--                                </div>-->
+        // line 619
+        echo "                                    </div>
+                                </div>
                             </div>
                         </div>
                         <!-- end:: Content Head -->
@@ -2089,7 +2067,7 @@ class __TwigTemplate_ec4c8615aa4f88c386affbc38bac22809438612aac9c65131d1bdfda2f5
 
     public function getDebugInfo()
     {
-        return array (  2073 => 1079,  2058 => 1067,  2039 => 1051,  2026 => 1041,  2022 => 1040,  2013 => 1037,  2011 => 1036,  1940 => 968,  1846 => 877,  1842 => 876,  1835 => 872,  1830 => 870,  1825 => 868,  1821 => 867,  1809 => 858,  1799 => 851,  1795 => 850,  1769 => 849,  1743 => 848,  1727 => 847,  1711 => 846,  1695 => 845,  1691 => 844,  1671 => 827,  1648 => 807,  1619 => 781,  1576 => 741,  1565 => 732,  1561 => 731,  1550 => 730,  1543 => 725,  1539 => 723,  1537 => 722,  1523 => 711,  1519 => 710,  1515 => 709,  1511 => 708,  1506 => 706,  1475 => 677,  1472 => 676,  1469 => 675,  1467 => 674,  1445 => 655,  1437 => 652,  1427 => 644,  1425 => 643,  1420 => 640,  1406 => 637,  1403 => 636,  1401 => 635,  1398 => 634,  1392 => 631,  1389 => 630,  1387 => 629,  1374 => 618,  1370 => 617,  1366 => 616,  1357 => 610,  1347 => 607,  1343 => 606,  1339 => 605,  1332 => 603,  1314 => 588,  1308 => 585,  1305 => 584,  1301 => 583,  1275 => 582,  1269 => 581,  1265 => 580,  1261 => 578,  1251 => 571,  1234 => 569,  1230 => 568,  1224 => 567,  1217 => 563,  1210 => 559,  1206 => 557,  1201 => 556,  1197 => 555,  1193 => 553,  1186 => 552,  1182 => 551,  1178 => 550,  1175 => 549,  1168 => 546,  1164 => 545,  1160 => 544,  1156 => 543,  1151 => 540,  1148 => 539,  1144 => 537,  1130 => 536,  1127 => 535,  1124 => 534,  1121 => 533,  1118 => 532,  1110 => 530,  1102 => 528,  1093 => 522,  1091 => 521,  1086 => 520,  1083 => 519,  1080 => 518,  1062 => 517,  1060 => 516,  1057 => 515,  1054 => 514,  1049 => 511,  1043 => 509,  1040 => 508,  1033 => 503,  1020 => 501,  1016 => 500,  1009 => 496,  1006 => 495,  1003 => 494,  997 => 490,  987 => 486,  983 => 485,  980 => 484,  976 => 483,  972 => 482,  966 => 479,  963 => 478,  961 => 477,  956 => 475,  953 => 474,  944 => 467,  934 => 463,  930 => 462,  925 => 460,  921 => 459,  918 => 458,  914 => 457,  909 => 455,  902 => 451,  897 => 448,  895 => 447,  885 => 440,  880 => 438,  876 => 437,  867 => 435,  864 => 434,  862 => 433,  859 => 432,  853 => 430,  851 => 429,  845 => 427,  843 => 426,  824 => 410,  820 => 409,  810 => 404,  804 => 401,  791 => 391,  785 => 388,  772 => 378,  766 => 375,  757 => 369,  754 => 368,  748 => 364,  739 => 363,  733 => 360,  723 => 354,  721 => 353,  713 => 348,  707 => 345,  698 => 339,  680 => 332,  674 => 329,  670 => 327,  664 => 325,  658 => 323,  656 => 322,  648 => 316,  642 => 314,  636 => 312,  634 => 311,  630 => 310,  626 => 309,  619 => 304,  612 => 299,  602 => 295,  598 => 294,  588 => 292,  584 => 291,  578 => 287,  568 => 285,  563 => 284,  557 => 280,  555 => 279,  551 => 277,  547 => 276,  530 => 262,  524 => 259,  520 => 258,  516 => 257,  461 => 204,  457 => 202,  450 => 201,  446 => 199,  441 => 196,  434 => 195,  426 => 191,  422 => 189,  416 => 187,  414 => 186,  406 => 185,  401 => 184,  398 => 183,  393 => 182,  388 => 179,  386 => 178,  383 => 177,  379 => 175,  377 => 174,  373 => 173,  368 => 171,  353 => 169,  344 => 168,  341 => 167,  336 => 166,  333 => 165,  331 => 164,  323 => 159,  312 => 151,  302 => 144,  296 => 141,  290 => 137,  284 => 135,  280 => 133,  274 => 131,  269 => 129,  224 => 91,  220 => 90,  194 => 71,  190 => 70,  178 => 60,  175 => 59,  167 => 53,  154 => 42,  139 => 29,  137 => 28,  121 => 19,  113 => 18,  105 => 17,  97 => 16,  89 => 15,  79 => 12,  71 => 11,  60 => 9,  55 => 7,  51 => 6,  40 => 2,  37 => 1,);
+        return array (  2051 => 1079,  2036 => 1067,  2017 => 1051,  2004 => 1041,  2000 => 1040,  1991 => 1037,  1989 => 1036,  1918 => 968,  1824 => 877,  1820 => 876,  1813 => 872,  1808 => 870,  1803 => 868,  1799 => 867,  1787 => 858,  1777 => 851,  1773 => 850,  1747 => 849,  1721 => 848,  1705 => 847,  1689 => 846,  1673 => 845,  1669 => 844,  1649 => 827,  1626 => 807,  1597 => 781,  1554 => 741,  1543 => 732,  1539 => 731,  1528 => 730,  1521 => 725,  1517 => 723,  1515 => 722,  1501 => 711,  1497 => 710,  1493 => 709,  1489 => 708,  1484 => 706,  1453 => 677,  1450 => 676,  1447 => 675,  1445 => 674,  1423 => 655,  1415 => 652,  1405 => 644,  1403 => 643,  1398 => 640,  1384 => 637,  1381 => 636,  1379 => 635,  1376 => 634,  1370 => 631,  1367 => 630,  1365 => 629,  1353 => 619,  1350 => 618,  1347 => 617,  1339 => 611,  1329 => 607,  1325 => 606,  1321 => 605,  1318 => 604,  1314 => 603,  1296 => 588,  1292 => 586,  1289 => 585,  1286 => 584,  1259 => 582,  1254 => 581,  1252 => 580,  1249 => 579,  1240 => 572,  1223 => 569,  1218 => 568,  1214 => 567,  1207 => 563,  1202 => 560,  1200 => 559,  1197 => 558,  1191 => 556,  1189 => 555,  1186 => 554,  1178 => 552,  1175 => 551,  1172 => 550,  1165 => 546,  1161 => 545,  1156 => 544,  1154 => 543,  1149 => 540,  1146 => 539,  1142 => 537,  1128 => 536,  1125 => 535,  1122 => 534,  1119 => 533,  1116 => 532,  1108 => 530,  1100 => 528,  1091 => 522,  1089 => 521,  1084 => 520,  1081 => 519,  1078 => 518,  1060 => 517,  1058 => 516,  1055 => 515,  1052 => 514,  1047 => 511,  1041 => 509,  1038 => 508,  1031 => 503,  1018 => 501,  1014 => 500,  1007 => 496,  1004 => 495,  1001 => 494,  995 => 490,  985 => 486,  981 => 485,  978 => 484,  974 => 483,  970 => 482,  964 => 479,  961 => 478,  959 => 477,  954 => 475,  951 => 474,  942 => 467,  932 => 463,  928 => 462,  923 => 460,  919 => 459,  916 => 458,  912 => 457,  907 => 455,  900 => 451,  895 => 448,  893 => 447,  883 => 440,  878 => 438,  874 => 437,  865 => 435,  862 => 434,  860 => 433,  857 => 432,  851 => 430,  849 => 429,  843 => 427,  841 => 426,  822 => 410,  818 => 409,  808 => 404,  802 => 401,  789 => 391,  783 => 388,  770 => 378,  764 => 375,  755 => 369,  752 => 368,  746 => 364,  737 => 363,  731 => 360,  721 => 354,  719 => 353,  711 => 348,  705 => 345,  696 => 339,  678 => 332,  672 => 329,  668 => 327,  662 => 325,  656 => 323,  654 => 322,  646 => 316,  640 => 314,  634 => 312,  632 => 311,  628 => 310,  624 => 309,  617 => 304,  610 => 299,  600 => 295,  596 => 294,  586 => 292,  582 => 291,  576 => 287,  566 => 285,  561 => 284,  555 => 280,  553 => 279,  549 => 277,  545 => 276,  528 => 262,  522 => 259,  518 => 258,  514 => 257,  459 => 204,  455 => 202,  448 => 201,  444 => 199,  439 => 196,  432 => 195,  424 => 191,  420 => 189,  414 => 187,  412 => 186,  404 => 185,  399 => 184,  396 => 183,  391 => 182,  386 => 179,  384 => 178,  381 => 177,  377 => 175,  375 => 174,  371 => 173,  366 => 171,  351 => 169,  342 => 168,  339 => 167,  334 => 166,  331 => 165,  329 => 164,  321 => 159,  310 => 151,  300 => 144,  294 => 141,  289 => 138,  283 => 135,  280 => 134,  274 => 131,  271 => 130,  269 => 129,  224 => 91,  220 => 90,  194 => 71,  190 => 70,  178 => 60,  175 => 59,  167 => 53,  154 => 42,  139 => 29,  137 => 28,  121 => 19,  113 => 18,  105 => 17,  97 => 16,  89 => 15,  79 => 12,  71 => 11,  60 => 9,  55 => 7,  51 => 6,  40 => 2,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -2221,27 +2199,27 @@ class __TwigTemplate_ec4c8615aa4f88c386affbc38bac22809438612aac9c65131d1bdfda2f5
                      <div id=\"kt_aside_menu\" class=\"kt-aside-menu \" data-ktmenu-vertical=\"1\" data-ktmenu-scroll=\"1\" data-ktmenu-dropdown-timeout=\"500\">
 
                             <div class=\"kt-widget kt-widget--user-profile-1 kt-padding-l-20 kt-padding-r-20 kt-padding-b-0\">
-<!--                                <div class=\"kt-widget__head\">-->
-<!--                                    {% if user.avatar %}-->
-<!--                                        <div class=\"kt-widget__media\">-->
-<!--                                            <img src=\"{{user.avatar.thumb(100, 100,'crop')}}\" alt=\"image\">-->
-<!--                                        </div>-->
-<!--                                   {% else %}-->
-<!--                                       <span class=\"kt-media kt-media&#45;&#45;lg kt-media&#45;&#45;brand \">-->
-<!--                                            <span>{{user.name|upper|slice(0,2)}}</span>-->
-<!--                                        </span>-->
-<!--                                   {% endif %}-->
-<!--                                    <div class=\"kt-widget__content kt-padding-t-10\">-->
-<!--                                        <div class=\"kt-widget__section\">-->
-<!--                                            <a href=\"javascript:void(0);\" class=\"kt-widget__username\">-->
-<!--                                                {{user.name|capitalize}}-->
-<!--                                            </a>-->
-<!--                                            <span class=\"kt-widget__subtitle\">-->
-<!--                                                {{'Welcome back'|__}},-->
-<!--                                            </span>-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                </div>-->
+                                <div class=\"kt-widget__head\">
+                                    {% if user.avatar %}
+                                        <div class=\"kt-widget__media\">
+                                            <img src=\"{{user.avatar.thumb(100, 100,'crop')}}\" alt=\"image\">
+                                        </div>
+                                   {% else %}
+                                       <span class=\"kt-media kt-media--lg kt-media--brand \">
+                                            <span>{{user.name|upper|slice(0,2)}}</span>
+                                        </span>
+                                   {% endif %}
+                                    <div class=\"kt-widget__content kt-padding-t-10\">
+                                        <div class=\"kt-widget__section\">
+                                            <a href=\"javascript:void(0);\" class=\"kt-widget__username\">
+                                                {{user.name|capitalize}}
+                                            </a>
+                                            <span class=\"kt-widget__subtitle\">
+                                                {{'Welcome back'|__}},
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
 
                                 <div class=\"kt-widget__footer kt-margin-t-15\">
                                     <a href=\"{{'dashboard/order-create'|page}}\" class=\"btn btn-label-brand btn-lg btn-upper btn-block\">
@@ -2634,86 +2612,86 @@ class __TwigTemplate_ec4c8615aa4f88c386affbc38bac22809438612aac9c65131d1bdfda2f5
                                         {% endif %}
                                     {% endif %}
                                 </div>
-<!--                                <div class=\"kt-subheader__toolbar\">-->
-<!--                                    <div class=\"kt-subheader__wrapper\">-->
-<!--                                        {% if this.page.daterange == 1 %}-->
-<!--                                            <div class=\"btn kt-subheader__btn-daterange\" id=\"kt_dashboard_daterangepicker\" data-toggle=\"kt-tooltip\" title=\"{{'Select dashboard daterange'|__}}\" data-placement=\"left\">-->
-<!--                                                <span class=\"kt-subheader__btn-daterange-title\" id=\"kt_dashboard_daterangepicker_title\">{{'Today'|__}}</span>&nbsp;-->
-<!--                                                <span class=\"kt-subheader__btn-daterange-date\" id=\"kt_dashboard_daterangepicker_date\">{{'now'|date('d M')}}</span>-->
-<!--                                                <i class=\"flaticon2-calendar-1\"></i>-->
-<!--                                            </div>-->
-<!--                                        {% else %}-->
-<!--                                            {% if this.page.actions %}-->
-<!--                                                {% if this.page.actions.add is defined %}-->
-<!--                                                    <a href=\"{{this.page.actions.add}}\" class=\"btn btn-label-success btn-bold\" id=\"add_new_btn\">{{'Add new'|__}}&nbsp;<i class=\"flaticon2-add\"></i></a>-->
-<!--                                                {% endif %}-->
+                                <div class=\"kt-subheader__toolbar\">
+                                    <div class=\"kt-subheader__wrapper\">
+                                        {% if this.page.daterange == 1 %}
+                                            <div class=\"btn kt-subheader__btn-daterange\" id=\"kt_dashboard_daterangepicker\" data-toggle=\"kt-tooltip\" title=\"{{'Select dashboard daterange'|__}}\" data-placement=\"left\">
+                                                <span class=\"kt-subheader__btn-daterange-title\" id=\"kt_dashboard_daterangepicker_title\">{{'Today'|__}}</span>&nbsp;
+                                                <span class=\"kt-subheader__btn-daterange-date\" id=\"kt_dashboard_daterangepicker_date\">{{'now'|date('d M')}}</span>
+                                                <i class=\"flaticon2-calendar-1\"></i>
+                                            </div>
+                                        {% else %}
+                                            {% if this.page.actions %}
+                                                {% if this.page.actions.add is defined %}
+                                                    <a href=\"{{this.page.actions.add}}\" class=\"btn btn-label-success btn-bold\" id=\"add_new_btn\">{{'Add new'|__}}&nbsp;<i class=\"flaticon2-add\"></i></a>
+                                                {% endif %}
 
-<!--                                                {% if this.page.actions.filter is defined %}-->
-<!--                                                    <a href=\"#\" class=\"btn btn-label-success btn-bold\" id=\"filter\">{{'Filter'|__}}&nbsp;<i class=\"flaticon2-search\"></i></a>-->
-<!--                                                {% endif %}-->
-<!--                                                 &lt;!&ndash; add multi shipments  &ndash;&gt;-->
-<!--                                                {% if this.page.actions.multi  is defined %}-->
-<!--                                                <div class=\"kt-subheader__group\" id=\"kt_subheader_search\" style=\"display:inline-block; \">-->
-<!--                                                    <div class=\"btn-toolbar kt-margin-l-20\">-->
-<!--                                                        <div class=\"dropdown\" id=\"\">-->
-<!--                                                            <button type=\"button\" class=\"btn btn-label-success btn-bold btn-sm dropdown-toggle\" data-toggle=\"dropdown\">{{'Add Using'|__}}<span id=\"filter_selected\"></span></button>-->
-<!--                                                            <div class=\"dropdown-menu kt-padding-t-0 kt-padding-b-0\">-->
-<!--                                                                <ul class=\"kt-nav kt-padding-t-0 kt-padding-b-10\">-->
-<!--                                                                    <li class=\"kt-nav__section kt-nav__section&#45;&#45;first\">-->
-<!--                                                                    {% for button in this.page.actions.multi %}-->
-<!--                                                                        <button class=\"btn btn-outline-dark btn-sm btn-bold \" id=\"{{button.id}}\" style=\"display: block;width: 100%;\" >-->
-<!--                                                                            <a href=\"{% if button.url %}{{button.url}}{% else %}#{% endif %}\" style=\"\">{% if button.title|__ %}{{button.title|__}}{% endif %}</a></button>-->
-<!--                                                                        -->
-<!--                                                                    {% endfor %}-->
-<!--                                                                    </li>-->
-<!--                                                                </ul>-->
-<!--                                                            </div>-->
-<!--                                                        </div>-->
-<!--                                                    </div>-->
-<!--                                                </div>-->
-<!--                                                {% endif %}-->
-<!--                                                &lt;!&ndash;end  &ndash;&gt;-->
-<!--                                                {% if this.page.actions.buttons is defined %}-->
-<!--                                                    {% for button in this.page.actions.buttons %}-->
-<!--                                                        <a href=\"{% if button.url %}{{button.url}}{% else %}#{% endif %}\" class=\"btn btn-label-{% if button.type %}{{button.type}}{% else %}primary{% endif %} btn-bold\" id=\"{{button.id}}\">{% if button.title|__ %}{{button.title|__}}{% endif %}&nbsp;<i class=\"{{button.icon}}\"></i></a>-->
-<!--                                                    {% endfor %}-->
-<!--                                                {% endif %}                                                                                               -->
-<!--                                                {% if this.page.actions.other is defined %}-->
-<!--                                                    <div class=\"dropdown dropdown-inline\" data-toggle-=\"kt-tooltip\" title=\"Quick actions\" data-placement=\"left\">-->
-<!--                                                        <a href=\"#\" class=\"btn kt-subheader__btn-primary\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">-->
-<!--                                                            {{'Other Actions'|__}} &nbsp;-->
+                                                {% if this.page.actions.filter is defined %}
+                                                    <a href=\"#\" class=\"btn btn-label-success btn-bold\" id=\"filter\">{{'Filter'|__}}&nbsp;<i class=\"flaticon2-search\"></i></a>
+                                                {% endif %}
+                                                 <!-- add multi shipments  -->
+                                                {% if this.page.actions.multi  is defined %}
+                                                <div class=\"kt-subheader__group\" id=\"kt_subheader_search\" style=\"display:inline-block; \">
+                                                    <div class=\"btn-toolbar kt-margin-l-20\">
+                                                        <div class=\"dropdown\" id=\"\">
+                                                            <button type=\"button\" class=\"btn btn-label-success btn-bold btn-sm dropdown-toggle\" data-toggle=\"dropdown\">{{'Add Using'|__}}<span id=\"filter_selected\"></span></button>
+                                                            <div class=\"dropdown-menu kt-padding-t-0 kt-padding-b-0\">
+                                                                <ul class=\"kt-nav kt-padding-t-0 kt-padding-b-10\">
+                                                                    <li class=\"kt-nav__section kt-nav__section--first\">
+                                                                    {% for button in this.page.actions.multi %}
+                                                                        <button class=\"btn btn-outline-dark btn-sm btn-bold \" id=\"{{button.id}}\" style=\"display: block;width: 100%;\" >
+                                                                            <a href=\"{% if button.url %}{{button.url}}{% else %}#{% endif %}\" style=\"\">{% if button.title|__ %}{{button.title|__}}{% endif %}</a></button>
 
-<!--                                                            &lt;!&ndash;<i class=\"flaticon2-calendar-1\"></i>&ndash;&gt;-->
-<!--                                                            <svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" width=\"24px\" height=\"24px\" viewBox=\"0 0 24 24\" version=\"1.1\" class=\"kt-svg-icon kt-svg-icon&#45;&#45;sm\">-->
-<!--                                                                <g stroke=\"none\" stroke-width=\"1\" fill=\"none\" fill-rule=\"evenodd\">-->
-<!--                                                                    <rect id=\"bound\" x=\"0\" y=\"0\" width=\"24\" height=\"24\" />-->
-<!--                                                                    <rect id=\"Rectangle-8\" fill=\"#000000\" x=\"4\" y=\"5\" width=\"16\" height=\"3\" rx=\"1.5\" />-->
-<!--                                                                    <path d=\"M7.5,11 L16.5,11 C17.3284271,11 18,11.6715729 18,12.5 C18,13.3284271 17.3284271,14 16.5,14 L7.5,14 C6.67157288,14 6,13.3284271 6,12.5 C6,11.6715729 6.67157288,11 7.5,11 Z M10.5,17 L13.5,17 C14.3284271,17 15,17.6715729 15,18.5 C15,19.3284271 14.3284271,20 13.5,20 L10.5,20 C9.67157288,20 9,19.3284271 9,18.5 C9,17.6715729 9.67157288,17 10.5,17 Z\" id=\"Combined-Shape\" fill=\"#000000\" opacity=\"0.3\" />-->
-<!--                                                                </g>-->
-<!--                                                            </svg>-->
-<!--                                                        </a>-->
-<!--                                                        <div class=\"dropdown-menu dropdown-menu-fit dropdown-menu-md dropdown-menu-right\">-->
+                                                                    {% endfor %}
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                {% endif %}
+                                                <!--end  -->
+                                                {% if this.page.actions.buttons is defined %}
+                                                    {% for button in this.page.actions.buttons %}
+                                                        <a href=\"{% if button.url %}{{button.url}}{% else %}#{% endif %}\" class=\"btn btn-label-{% if button.type %}{{button.type}}{% else %}primary{% endif %} btn-bold\" id=\"{{button.id}}\">{% if button.title|__ %}{{button.title|__}}{% endif %}&nbsp;<i class=\"{{button.icon}}\"></i></a>
+                                                    {% endfor %}
+                                                {% endif %}
+                                                {% if this.page.actions.other is defined %}
+                                                    <div class=\"dropdown dropdown-inline\" data-toggle-=\"kt-tooltip\" title=\"Quick actions\" data-placement=\"left\">
+                                                        <a href=\"#\" class=\"btn kt-subheader__btn-primary\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
+                                                            {{'Other Actions'|__}} &nbsp;
 
-<!--                                                            &lt;!&ndash;begin::Nav&ndash;&gt;-->
-<!--                                                            <ul class=\"kt-nav\">-->
-<!--                                                                {% for link in this.page.actions.other %}-->
-<!--                                                                    <li class=\"kt-nav__item\">-->
-<!--                                                                        <a href=\"{{link.url}}\" class=\"kt-nav__link\">-->
-<!--                                                                            <i class=\"kt-nav__link-icon {{link.icon}}\"></i>-->
-<!--                                                                            <span class=\"kt-nav__link-text\">{{link.name}}</span>-->
-<!--                                                                        </a>-->
-<!--                                                                    </li>-->
-<!--                                                                {% endfor %}-->
-<!--                                                            </ul>-->
+                                                            <!--<i class=\"flaticon2-calendar-1\"></i>-->
+                                                            <svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" width=\"24px\" height=\"24px\" viewBox=\"0 0 24 24\" version=\"1.1\" class=\"kt-svg-icon kt-svg-icon--sm\">
+                                                                <g stroke=\"none\" stroke-width=\"1\" fill=\"none\" fill-rule=\"evenodd\">
+                                                                    <rect id=\"bound\" x=\"0\" y=\"0\" width=\"24\" height=\"24\" />
+                                                                    <rect id=\"Rectangle-8\" fill=\"#000000\" x=\"4\" y=\"5\" width=\"16\" height=\"3\" rx=\"1.5\" />
+                                                                    <path d=\"M7.5,11 L16.5,11 C17.3284271,11 18,11.6715729 18,12.5 C18,13.3284271 17.3284271,14 16.5,14 L7.5,14 C6.67157288,14 6,13.3284271 6,12.5 C6,11.6715729 6.67157288,11 7.5,11 Z M10.5,17 L13.5,17 C14.3284271,17 15,17.6715729 15,18.5 C15,19.3284271 14.3284271,20 13.5,20 L10.5,20 C9.67157288,20 9,19.3284271 9,18.5 C9,17.6715729 9.67157288,17 10.5,17 Z\" id=\"Combined-Shape\" fill=\"#000000\" opacity=\"0.3\" />
+                                                                </g>
+                                                            </svg>
+                                                        </a>
+                                                        <div class=\"dropdown-menu dropdown-menu-fit dropdown-menu-md dropdown-menu-right\">
 
-<!--                                                            &lt;!&ndash;end::Nav&ndash;&gt;-->
-<!--                                                        </div>-->
-<!--                                                    </div>-->
-<!--                                                {% endif %}-->
-<!--                                            {% endif %}-->
-<!--                                        {% endif %}-->
-<!--                                    </div>-->
-<!--                                </div>-->
+                                                            <!--begin::Nav-->
+                                                            <ul class=\"kt-nav\">
+                                                                {% for link in this.page.actions.other %}
+                                                                    <li class=\"kt-nav__item\">
+                                                                        <a href=\"{{link.url}}\" class=\"kt-nav__link\">
+                                                                            <i class=\"kt-nav__link-icon {{link.icon}}\"></i>
+                                                                            <span class=\"kt-nav__link-text\">{{link.name}}</span>
+                                                                        </a>
+                                                                    </li>
+                                                                {% endfor %}
+                                                            </ul>
+
+                                                            <!--end::Nav-->
+                                                        </div>
+                                                    </div>
+                                                {% endif %}
+                                            {% endif %}
+                                        {% endif %}
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <!-- end:: Content Head -->

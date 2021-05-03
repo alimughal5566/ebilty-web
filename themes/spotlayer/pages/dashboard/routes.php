@@ -3989,6 +3989,59 @@ Route::group(['prefix' => 'api'], function() {
         die(json_encode($full_data));
 
     });
+
+    Route::any('vehicle', function(Request $req) {
+
+        $request = post();
+        dd($request);
+        $page                       =   $request['pagination']['page'];
+        $perpage                    =   $request['pagination']['perpage'];
+        $sort                       =   ((isset($request['sort']['sort']))? $request['sort']['sort'] : 'desc');
+        $field                      =   ((isset($request['sort']['field']))? $request['sort']['field'] : 'id');
+        $skip                       =   intval(($page-1)*$perpage);
+
+        $records    =   \Spot\Shipment\Models\Vehicles::orderBy($field, $sort);
+        if(isset($request['query'])){
+            if(isset($request['query']['generalSearch']) && $request['query']['generalSearch'] != ''){
+                $search     =   $request['query']['generalSearch'];
+                $records    =   $records->where(function($q) use($search){
+                    $q->where('name', 'like', "%$search%");
+                });
+            }
+        }
+        $count      =   $records->count();
+        $records    =   $records->skip($skip)->take($perpage)->orderBy($field, $sort)->get();
+
+        $recordsArray   =   array();
+        foreach($records as $record){
+            \Carbon\Carbon::setLocale(Config::get('app.locale'));
+            $recordArray = array(
+                'id'                  =>  $record->id,
+                'name'                =>  $record->name,
+                'capacity'            =>  $record->capacity,
+                'description'         =>  $record->description,
+            );
+            array_push($recordsArray,$recordArray);
+        }
+
+        $total      =   $count;
+        $pages      =   intval($count/$perpage);
+
+        $full_data  =   array(
+            'meta'  =>  array(
+                "page"=> $page,
+                "pages"=> $pages,
+                "perpage"=> $perpage,
+                "total"=> $total,
+                "sort"=> $sort,
+                "field"=> $field
+            ),
+            'data'  =>  $recordsArray,
+        );
+        die(json_encode($full_data));
+
+    });
+
     Route::any('cars', function(Request $req) {
         $request = post();
         $page                       =   $request['pagination']['page'];

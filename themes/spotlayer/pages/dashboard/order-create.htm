@@ -17,6 +17,11 @@ crumb_disabled = 0
 <?php
 use \Spot\Shipment\Models\Settings;
 function onStart() {
+
+        $this['categories_rud']=\Spot\Shipment\Models\categories::all();
+        $this['vehicles_cruds']=\Spot\Shipment\Models\Vehicles::all();
+
+
     if(!Auth::getUser()->hasUserPermission(["order"],'c')) {
         \Flash::error($this['theme_lang']['not_allowed']);
         return Redirect::to('dashboard/settings');
@@ -1630,9 +1635,13 @@ function onChangefees(){
 }
 ?>
 ==
+
 {{ form_ajax('onSave', { success: 'created successfully!', flash: true, class: 'kt_form' }) }}
+
  {% if addShipmentForm == "add_form_simple" %}
+
  {% if user.role_id != 5 %}
+
  <div class="row">
     <div class="col-lg-12">
         <div class="kt-portlet kt-portlet--mobile">
@@ -1687,6 +1696,7 @@ function onChangefees(){
 </div>
 
 {% endif %}
+
  <div class="row">
     <div class="col-lg-12">
         <div class="kt-portlet kt-portlet--mobile">
@@ -3113,9 +3123,7 @@ function onChangefees(){
         <div class="kt-portlet kt-portlet--mobile">
             <div class="kt-portlet__head">
                 <div class="kt-portlet__head-label">
-                    <h3 class="kt-portlet__head-title">
-                        {{'Choose your truck'|__}}
-                    </h3>
+                    <h3 class="kt-portlet__head-title">{{'Choose your truck'|__}}</h3>
                 </div>
             </div>
             <div class="kt-portlet__body">
@@ -3124,9 +3132,11 @@ function onChangefees(){
                         <label for="vehicle_category">{{'Choose your vehicle category'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
                     </div>
                     <div class="form-group col-lg-8">
-                        <select class="form-control vehicle_category"  name="vehicle_category" id="vehicle_category" >
+                        <select class="form-control vehicle_category"  name="vehicle_category" id="vehicle_category"  >
                             <option data-hidden="true"></option>
-                            <option value="Category A">Category A</option>
+                            {% for data in categories_rud %}
+                            <option value="{{data.id}}">{{data.title}}</option>
+                             {% endfor %}
                         </select>
                     </div>
                 </div>
@@ -3136,44 +3146,31 @@ function onChangefees(){
                     </div>
                     <div class="form-group col-lg-12" id="vehicle_type">
                         <div id="vehicleTypeCarousel" class="carousel slide w-100" data-ride="carousel">
-                            <div class="carousel-inner w-100" role="listbox">
+
+                            <div class="carousel-inner w-100" role="listbox" >
+
                                 <div class="carousel-item active">
+                                    {% for vehicles_cru in vehicles_cruds  %}
                                     <div class="col-md-4">
                                         <div class="card card-body px-0 border-0">
+                                            {% if vehicles_cru.thumbnail %}
+                                            <img alt="" class="img-fluid" src="./admin/media/images/{{vehicles_cru.thumbnail}}">
+                                            {% else %}
                                             <img alt="" class="img-fluid" src="http://placehold.it/300?text=1">
+                                            {% endif %}
+
                                             <div class="vehicle-detail">
-                                                <h4 class="font-weight-bold">Flat Bed</h4>
-                                                <p class="mb-0">Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum
-                                                    Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum</p>
+                                                <h4 class="font-weight-bold">{{vehicles_cru.name}}</h4>
+                                                <p class="mb-0">{{vehicles_cru.description}} Capacity = {{vehicles_cru.capacity}}</p>
                                             </div>
                                         </div>
                                     </div>
+                                    {% endfor %}
                                 </div>
-                                <div class="carousel-item">
-                                    <div class="col-md-4">
-                                        <div class="card card-body px-0 border-0">
-                                            <img alt="" class="img-fluid" src="http://placehold.it/300?text=1">
-                                            <div class="vehicle-detail">
-                                                <h4 class="font-weight-bold">Flat Bed</h4>
-                                                <p class="mb-0">Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum
-                                                    Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="carousel-item">
-                                    <div class="col-md-4">
-                                        <div class="card card-body px-0 border-0">
-                                            <img alt="" class="img-fluid" src="http://placehold.it/300?text=1">
-                                            <div class="vehicle-detail">
-                                                <h4 class="font-weight-bold">Flat Bed</h4>
-                                                <p class="mb-0">Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum
-                                                    Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+
+
                             </div>
+
                             <a class="carousel-control-prev w-auto" href="#vehicleTypeCarousel" role="button" data-slide="prev">
                                 <span class="carousel-control-prev-icon rounded-circle" aria-hidden="true"></span>
                                 <span class="sr-only">Previous</span>
@@ -3255,6 +3252,11 @@ KTUtil.ready(function () {
             KTUtil.scrollTop();
         }
     });
+
+
+
+
+
 
     function formatRepo(repo) {
         if (repo.loading) return repo.text;
@@ -3355,6 +3357,20 @@ KTUtil.ready(function () {
                        $('#return_courier_fee').val(response.return_courier_fee);
                   }
              });
+    });
+
+
+
+    $('body').on('change', '#vehicle_category', function(e){
+
+        var id=this.value;
+        $.request('onChangecategory', {
+            data: {id: id},
+            success: function(response, status, xhr, $form) {
+                consol.log(response)
+            }
+        });
+
     });
 
 

@@ -632,4 +632,7 @@
   'Spot\\Shipment\\Models\\ExpectedOrder' => 'plugins\\spot\\shipment\\models\\ExpectedOrder.php',
   'Spot\\Shipment\\Models\\Bank' => 'plugins\\spot\\shipment\\models\\Bank.php',
   'Spot\\Shipment\\Models\\Transaction' => 'plugins\\spot\\shipment\\models\\Transaction.php',
+  'Spot\\Shipment\\Models\\categories' => 'plugins\\spot\\shipment\\models\\categories.php',
+  'Spot\\Shipment\\Models\\Vehicles' => 'plugins\\spot\\shipment\\models\\Vehicles.php',
+  'Spot\\Shipment\\Models\\Categories' => 'plugins\\spot\\shipment\\models\\Categories.php',
 );

@@ -10536,17 +10536,135 @@ var KTAppUserListDatatable = function () {
             echo "                        },
                     }
                 ]
-            ";
+        ";
         } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 5113
-($context["this"] ?? null), "param", [], "any", false, false, false, 5113), "page", [], "any", false, false, false, 5113) == "statuses")) {
+($context["this"] ?? null), "param", [], "any", false, false, false, 5113), "page", [], "any", false, false, false, 5113) == "vehicle")) {
             // line 5114
+            echo "        // datasource definition
+        dd('dasdasd');
+        data: {
+            type: 'remote',
+                source: {
+                read: {
+                    url: '";
+            // line 5120
+            echo url("api/vehicle");
+            echo "',
+                },
+            },
+            pageSize: 10, // display 20 records per page
+                serverPaging: true,
+                serverFiltering: true,
+                serverSorting: true,
+        },
+        // columns definition
+        columns: [
+            {
+                field: 'id',
+                title: '#',
+                sortable: false,
+                width: 20,
+                selector: {
+                    class: 'kt-checkbox--solid'
+                },
+                textAlign: 'center',
+            },
+            {
+                field: \"name\",
+                title: \"";
+            // line 5142
+            echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["name"]);
+            echo "\",
+                autoHide: false,
+                sortable: false,
+                width: 'auto',
+            },
+            {
+                field: \"decription\",
+                title: \"";
+            // line 5149
+            echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["decription"]);
+            echo "\",
+                autoHide: false,
+                sortable: false,
+                width: 100,
+                template: function(row) {
+                    return row.destination.name;
+                },
+            },
+            {
+                field: \"capacity\",
+                title: \"";
+            // line 5159
+            echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["capacity"]);
+            echo "\",
+                autoHide: false,
+                sortable: false,
+                width: 'auto',
+                template: function(row) {
+                    return row.transport.name;
+                },
+            },
+            {
+                field: \"Actions\",
+                width: 100,
+                title: \"";
+            // line 5170
+            echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Actions"]);
+            echo "\",
+                sortable: false,
+                autoHide: false,
+                overflow: 'visible',
+                template: function (data) {
+                    ";
+            // line 5175
+            if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "vehicle", 1 => "u"], "method", false, false, false, 5175) || twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "packaging", 1 => "d"], "method", false, false, false, 5175))) {
+                // line 5176
+                echo "                    return '' +
+                        '<div class=\"btn-group btn-group\" role=\"group\" aria-label=\"...\">'+
+                        ";
+                // line 5178
+                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "vehicle", 1 => "u"], "method", false, false, false, 5178)) {
+                    // line 5179
+                    echo "                    '<a href=\"";
+                    echo url("dashboard/settings/vehicle");
+                    echo "/'+data.id+'/edit\" class=\"btn btn-info btn-sm btn-icon\" data-placement=\"top\" title=\"";
+                    echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Edit"]);
+                    echo "\"><i class=\"flaticon-edit\"></i>&nbsp;</a>'+
+                    ";
+                }
+                // line 5181
+                echo "                    ";
+                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "vehicle", 1 => "d"], "method", false, false, false, 5181)) {
+                    // line 5182
+                    echo "                    '<a href=\"javascript:void(0);\" class=\"btn btn-danger btn-sm delete_record kt-font-light btn-icon\" rel=\"'+data.id+'\" data-type=\"cars\" data-placement=\"top\" title=\"";
+                    echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Delete"]);
+                    echo "\"><i class=\"flaticon2-delete\"></i>&nbsp;</a>'+
+                    ";
+                }
+                // line 5184
+                echo "                    '</div>';
+                    ";
+            } else {
+                // line 5186
+                echo "                    return '-';
+                    ";
+            }
+            // line 5188
+            echo "                },
+            }
+        ]
+            ";
+        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 5191
+($context["this"] ?? null), "param", [], "any", false, false, false, 5191), "page", [], "any", false, false, false, 5191) == "statuses")) {
+            // line 5192
             echo "                // datasource definition
                 data: {
                     type: 'remote',
                     source: {
                         read: {
                             url: '";
-            // line 5119
+            // line 5197
             echo url("api/statuses");
             echo "',
                         },
@@ -10571,7 +10689,7 @@ var KTAppUserListDatatable = function () {
                     {
                         field: \"name\",
                         title: \"";
-            // line 5141
+            // line 5219
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Name"]);
             echo "\",
                         autoHide: false,
@@ -10582,7 +10700,7 @@ var KTAppUserListDatatable = function () {
                         field: \"Actions\",
                         width: 'auto',
                         title: \"";
-            // line 5149
+            // line 5227
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Actions"]);
             echo "\",
                         sortable: false,
@@ -10590,15 +10708,15 @@ var KTAppUserListDatatable = function () {
                         overflow: 'visible',
                         template: function (data) {
                                 ";
-            // line 5154
-            if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "statuses", 1 => "u"], "method", false, false, false, 5154) || twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "statuses", 1 => "d"], "method", false, false, false, 5154))) {
-                // line 5155
+            // line 5232
+            if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "statuses", 1 => "u"], "method", false, false, false, 5232) || twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "statuses", 1 => "d"], "method", false, false, false, 5232))) {
+                // line 5233
                 echo "                                    return '' +
                                     '<div class=\"btn-group btn-group\" role=\"group\" aria-label=\"...\">'+
                                         ";
-                // line 5157
-                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "statuses", 1 => "u"], "method", false, false, false, 5157)) {
-                    // line 5158
+                // line 5235
+                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "statuses", 1 => "u"], "method", false, false, false, 5235)) {
+                    // line 5236
                     echo "                                        '<a href=\"";
                     echo url("dashboard/settings/statuses");
                     echo "/'+data.id+'/edit/statuses\" class=\"btn btn-info btn-sm\"><i class=\"flaticon-edit\"></i>&nbsp;";
@@ -10606,38 +10724,38 @@ var KTAppUserListDatatable = function () {
                     echo "</button>'+
                                         ";
                 }
-                // line 5160
+                // line 5238
                 echo "                                        ";
-                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "statuses", 1 => "d"], "method", false, false, false, 5160)) {
-                    // line 5161
+                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "statuses", 1 => "d"], "method", false, false, false, 5238)) {
+                    // line 5239
                     echo "                                        '<a href=\"javascript:void(0);\" class=\"btn btn-danger btn-sm delete_record kt-font-light\" rel=\"'+data.id+'\" data-type=\"statuses\"><i class=\"flaticon2-delete\"></i>&nbsp;";
                     echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Delete"]);
                     echo "</a>'+
                                         ";
                 }
-                // line 5163
+                // line 5241
                 echo "                                    '</div>';
                                 ";
             } else {
-                // line 5165
+                // line 5243
                 echo "                                    return '-';
                                 ";
             }
-            // line 5167
+            // line 5245
             echo "                        },
                     }
                 ]
             ";
-        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 5170
-($context["this"] ?? null), "param", [], "any", false, false, false, 5170), "page", [], "any", false, false, false, 5170) == "Stockstatuses")) {
-            // line 5171
+        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 5248
+($context["this"] ?? null), "param", [], "any", false, false, false, 5248), "page", [], "any", false, false, false, 5248) == "Stockstatuses")) {
+            // line 5249
             echo "                // datasource definition
                 data: {
                     type: 'remote',
                     source: {
                         read: {
                             url: '";
-            // line 5176
+            // line 5254
             echo url("api/Stockstatuses");
             echo "',
                         },
@@ -10662,7 +10780,7 @@ var KTAppUserListDatatable = function () {
                     {
                         field: \"name\",
                         title: \"";
-            // line 5198
+            // line 5276
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Name"]);
             echo "\",
                         autoHide: false,
@@ -10673,7 +10791,7 @@ var KTAppUserListDatatable = function () {
                         field: \"Actions\",
                         width: 'auto',
                         title: \"";
-            // line 5206
+            // line 5284
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Actions"]);
             echo "\",
                         sortable: false,
@@ -10681,15 +10799,15 @@ var KTAppUserListDatatable = function () {
                         overflow: 'visible',
                         template: function (data) {
                                 ";
-            // line 5211
-            if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "statuses", 1 => "u"], "method", false, false, false, 5211) || twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "statuses", 1 => "d"], "method", false, false, false, 5211))) {
-                // line 5212
+            // line 5289
+            if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "statuses", 1 => "u"], "method", false, false, false, 5289) || twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "statuses", 1 => "d"], "method", false, false, false, 5289))) {
+                // line 5290
                 echo "                                    return '' +
                                     '<div class=\"btn-group btn-group\" role=\"group\" aria-label=\"...\">'+
                                         ";
-                // line 5214
-                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "statuses", 1 => "u"], "method", false, false, false, 5214)) {
-                    // line 5215
+                // line 5292
+                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "statuses", 1 => "u"], "method", false, false, false, 5292)) {
+                    // line 5293
                     echo "                                        '<a href=\"";
                     echo url("dashboard/settings/statuses");
                     echo "/'+data.id+'/edit/Stockstatuses\" class=\"btn btn-info btn-sm\"><i class=\"flaticon-edit\"></i>&nbsp;";
@@ -10697,38 +10815,38 @@ var KTAppUserListDatatable = function () {
                     echo "</button>'+
                                         ";
                 }
-                // line 5217
+                // line 5295
                 echo "                                        ";
-                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "statuses", 1 => "d"], "method", false, false, false, 5217)) {
-                    // line 5218
+                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "statuses", 1 => "d"], "method", false, false, false, 5295)) {
+                    // line 5296
                     echo "                                        '<a href=\"javascript:void(0);\" class=\"btn btn-danger btn-sm delete_record kt-font-light\" rel=\"'+data.id+'\" data-type=\"statuses\"><i class=\"flaticon2-delete\"></i>&nbsp;";
                     echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Delete"]);
                     echo "</a>'+
                                         ";
                 }
-                // line 5220
+                // line 5298
                 echo "                                    '</div>';
                                 ";
             } else {
-                // line 5222
+                // line 5300
                 echo "                                    return '-';
                                 ";
             }
-            // line 5224
+            // line 5302
             echo "                        },
                     }
                 ]
             ";
-        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 5227
-($context["this"] ?? null), "param", [], "any", false, false, false, 5227), "page", [], "any", false, false, false, 5227) == "Customstatuses")) {
-            // line 5228
+        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 5305
+($context["this"] ?? null), "param", [], "any", false, false, false, 5305), "page", [], "any", false, false, false, 5305) == "Customstatuses")) {
+            // line 5306
             echo "                // datasource definition
                 data: {
                     type: 'remote',
                     source: {
                         read: {
                             url: '";
-            // line 5233
+            // line 5311
             echo url("api/Customstatuses");
             echo "',
                         },
@@ -10753,7 +10871,7 @@ var KTAppUserListDatatable = function () {
                     {
                         field: \"name\",
                         title: \"";
-            // line 5255
+            // line 5333
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Name"]);
             echo "\",
                         autoHide: false,
@@ -10764,7 +10882,7 @@ var KTAppUserListDatatable = function () {
                         field: \"Actions\",
                         width: 'auto',
                         title: \"";
-            // line 5263
+            // line 5341
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Actions"]);
             echo "\",
                         sortable: false,
@@ -10772,15 +10890,15 @@ var KTAppUserListDatatable = function () {
                         overflow: 'visible',
                         template: function (data) {
                                 ";
-            // line 5268
-            if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "statuses", 1 => "u"], "method", false, false, false, 5268) || twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "statuses", 1 => "d"], "method", false, false, false, 5268))) {
-                // line 5269
+            // line 5346
+            if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "statuses", 1 => "u"], "method", false, false, false, 5346) || twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "statuses", 1 => "d"], "method", false, false, false, 5346))) {
+                // line 5347
                 echo "                                    return '' +
                                     '<div class=\"btn-group btn-group\" role=\"group\" aria-label=\"...\">'+
                                         ";
-                // line 5271
-                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "statuses", 1 => "u"], "method", false, false, false, 5271)) {
-                    // line 5272
+                // line 5349
+                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "statuses", 1 => "u"], "method", false, false, false, 5349)) {
+                    // line 5350
                     echo "                                        '<a href=\"";
                     echo url("dashboard/settings/statuses");
                     echo "/'+data.id+'/edit/Customstatuses\" class=\"btn btn-info btn-sm\"><i class=\"flaticon-edit\"></i>&nbsp;";
@@ -10788,38 +10906,38 @@ var KTAppUserListDatatable = function () {
                     echo "</button>'+
                                         ";
                 }
-                // line 5274
+                // line 5352
                 echo "                                        ";
-                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "statuses", 1 => "d"], "method", false, false, false, 5274)) {
-                    // line 5275
+                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "statuses", 1 => "d"], "method", false, false, false, 5352)) {
+                    // line 5353
                     echo "                                        '<a href=\"javascript:void(0);\" class=\"btn btn-danger btn-sm delete_record kt-font-light\" rel=\"'+data.id+'\" data-type=\"statuses\"><i class=\"flaticon2-delete\"></i>&nbsp;";
                     echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Delete"]);
                     echo "</a>'+
                                         ";
                 }
-                // line 5277
+                // line 5355
                 echo "                                    '</div>';
                                 ";
             } else {
-                // line 5279
+                // line 5357
                 echo "                                    return '-';
                                 ";
             }
-            // line 5281
+            // line 5359
             echo "                        },
                     }
                 ]         
             ";
-        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 5284
-($context["this"] ?? null), "param", [], "any", false, false, false, 5284), "page", [], "any", false, false, false, 5284) == "treasury")) {
-            // line 5285
+        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 5362
+($context["this"] ?? null), "param", [], "any", false, false, false, 5362), "page", [], "any", false, false, false, 5362) == "treasury")) {
+            // line 5363
             echo "                // datasource definition
                 data: {
                     type: 'remote',
                     source: {
                         read: {
                             url: '";
-            // line 5290
+            // line 5368
             echo url("api/treasury");
             echo "',
                         },
@@ -10844,7 +10962,7 @@ var KTAppUserListDatatable = function () {
                     {
                         field: \"name\",
                         title: \"";
-            // line 5312
+            // line 5390
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Name"]);
             echo "\",
                         autoHide: false,
@@ -10852,7 +10970,7 @@ var KTAppUserListDatatable = function () {
                         width: 'auto',
                         template: function (data) {
                             return '<a href=\"";
-            // line 5317
+            // line 5395
             echo url("dashboard/treasury");
             echo "/' + data.id + '/view\">' + data.name + '</a>';
                         },
@@ -10860,7 +10978,7 @@ var KTAppUserListDatatable = function () {
                     {
                         field: \"balance\",
                         title: \"";
-            // line 5322
+            // line 5400
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Balance"]);
             echo "\",
                         autoHide: false,
@@ -10870,7 +10988,7 @@ var KTAppUserListDatatable = function () {
                     {
                         field: \"office\",
                         title: \"";
-            // line 5329
+            // line 5407
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Office"]);
             echo "\",
                         autoHide: false,
@@ -10881,7 +10999,7 @@ var KTAppUserListDatatable = function () {
                         field: \"Actions\",
                         width: 'auto',
                         title: \"";
-            // line 5337
+            // line 5415
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Actions"]);
             echo "\",
                         sortable: false,
@@ -10889,15 +11007,15 @@ var KTAppUserListDatatable = function () {
                         overflow: 'visible',
                         template: function (data) {
                                 ";
-            // line 5342
-            if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "treasury", 1 => "u"], "method", false, false, false, 5342) || twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "treasury", 1 => "d"], "method", false, false, false, 5342))) {
-                // line 5343
+            // line 5420
+            if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "treasury", 1 => "u"], "method", false, false, false, 5420) || twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "treasury", 1 => "d"], "method", false, false, false, 5420))) {
+                // line 5421
                 echo "                                    return '' +
                                     '<div class=\"btn-group btn-group\" role=\"group\" aria-label=\"...\">'+
                                         ";
-                // line 5345
-                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "treasury", 1 => "u"], "method", false, false, false, 5345)) {
-                    // line 5346
+                // line 5423
+                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "treasury", 1 => "u"], "method", false, false, false, 5423)) {
+                    // line 5424
                     echo "                                        '<a href=\"";
                     echo url("dashboard/settings/treasury");
                     echo "/'+data.id+'/edit\" class=\"btn btn-info btn-sm\"><i class=\"flaticon-edit\"></i>&nbsp;";
@@ -10905,38 +11023,38 @@ var KTAppUserListDatatable = function () {
                     echo "</button>'+
                                         ";
                 }
-                // line 5348
+                // line 5426
                 echo "                                        ";
-                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "treasury", 1 => "d"], "method", false, false, false, 5348)) {
-                    // line 5349
+                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "treasury", 1 => "d"], "method", false, false, false, 5426)) {
+                    // line 5427
                     echo "                                        '<a href=\"javascript:void(0);\" class=\"btn btn-danger btn-sm delete_record kt-font-light\" rel=\"'+data.id+'\" data-type=\"treasury\"><i class=\"flaticon2-delete\"></i>&nbsp;";
                     echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Delete"]);
                     echo "</a>'+
                                         ";
                 }
-                // line 5351
+                // line 5429
                 echo "                                    '</div>';
                                 ";
             } else {
-                // line 5353
+                // line 5431
                 echo "                                    return '-';
                                 ";
             }
-            // line 5355
+            // line 5433
             echo "                        },
                     }
                 ]
             ";
-        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 5358
-($context["this"] ?? null), "param", [], "any", false, false, false, 5358), "page", [], "any", false, false, false, 5358) == "categories")) {
-            // line 5359
+        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 5436
+($context["this"] ?? null), "param", [], "any", false, false, false, 5436), "page", [], "any", false, false, false, 5436) == "categories")) {
+            // line 5437
             echo "                // datasource definition
                 data: {
                     type: 'remote',
                     source: {
                         read: {
                             url: '";
-            // line 5364
+            // line 5442
             echo url("api/categories");
             echo "',
                         },
@@ -10961,7 +11079,7 @@ var KTAppUserListDatatable = function () {
                     {
                         field: \"name\",
                         title: \"";
-            // line 5386
+            // line 5464
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Name"]);
             echo "\",
                         autoHide: false,
@@ -10972,7 +11090,7 @@ var KTAppUserListDatatable = function () {
                         field: \"Actions\",
                         width: 'auto',
                         title: \"";
-            // line 5394
+            // line 5472
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Actions"]);
             echo "\",
                         sortable: false,
@@ -10980,15 +11098,15 @@ var KTAppUserListDatatable = function () {
                         overflow: 'visible',
                         template: function (data) {
                                 ";
-            // line 5399
-            if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "category", 1 => "u"], "method", false, false, false, 5399) || twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "category", 1 => "d"], "method", false, false, false, 5399))) {
-                // line 5400
+            // line 5477
+            if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "category", 1 => "u"], "method", false, false, false, 5477) || twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "category", 1 => "d"], "method", false, false, false, 5477))) {
+                // line 5478
                 echo "                                    return '' +
                                     '<div class=\"btn-group btn-group\" role=\"group\" aria-label=\"...\">'+
                                         ";
-                // line 5402
-                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "category", 1 => "u"], "method", false, false, false, 5402)) {
-                    // line 5403
+                // line 5480
+                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "category", 1 => "u"], "method", false, false, false, 5480)) {
+                    // line 5481
                     echo "                                        '<a href=\"";
                     echo url("dashboard/settings/categories");
                     echo "/'+data.id+'/edit\" class=\"btn btn-info btn-sm\"><i class=\"flaticon-edit\"></i>&nbsp;";
@@ -10996,38 +11114,38 @@ var KTAppUserListDatatable = function () {
                     echo "</button>'+
                                         ";
                 }
-                // line 5405
+                // line 5483
                 echo "                                        ";
-                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "category", 1 => "d"], "method", false, false, false, 5405)) {
-                    // line 5406
+                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "category", 1 => "d"], "method", false, false, false, 5483)) {
+                    // line 5484
                     echo "                                        '<a href=\"javascript:void(0);\" class=\"btn btn-danger btn-sm delete_record kt-font-light\" rel=\"'+data.id+'\" data-type=\"category\"><i class=\"flaticon2-delete\"></i>&nbsp;";
                     echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Delete"]);
                     echo "</a>'+
                                         ";
                 }
-                // line 5408
+                // line 5486
                 echo "                                    '</div>';
                                 ";
             } else {
-                // line 5410
+                // line 5488
                 echo "                                    return '-';
                                 ";
             }
-            // line 5412
+            // line 5490
             echo "                        },
                     }
                 ]
             ";
-        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 5415
-($context["this"] ?? null), "param", [], "any", false, false, false, 5415), "page", [], "any", false, false, false, 5415) == "couriers")) {
-            // line 5416
+        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 5493
+($context["this"] ?? null), "param", [], "any", false, false, false, 5493), "page", [], "any", false, false, false, 5493) == "couriers")) {
+            // line 5494
             echo "                // datasource definition
                 data: {
                     type: 'remote',
                     source: {
                         read: {
                             url: '";
-            // line 5421
+            // line 5499
             echo url("api/couriers");
             echo "',
                         },
@@ -11052,7 +11170,7 @@ var KTAppUserListDatatable = function () {
                     {
                         field: \"name\",
                         title: \"";
-            // line 5443
+            // line 5521
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Name"]);
             echo "\",
                         autoHide: false,
@@ -11063,7 +11181,7 @@ var KTAppUserListDatatable = function () {
                         field: \"Actions\",
                         width: 'auto',
                         title: \"";
-            // line 5451
+            // line 5529
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Actions"]);
             echo "\",
                         sortable: false,
@@ -11071,15 +11189,15 @@ var KTAppUserListDatatable = function () {
                         overflow: 'visible',
                         template: function (data) {
                                 ";
-            // line 5456
-            if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "couriers", 1 => "u"], "method", false, false, false, 5456) || twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "couriers", 1 => "d"], "method", false, false, false, 5456))) {
-                // line 5457
+            // line 5534
+            if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "couriers", 1 => "u"], "method", false, false, false, 5534) || twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "couriers", 1 => "d"], "method", false, false, false, 5534))) {
+                // line 5535
                 echo "                                    return '' +
                                     '<div class=\"btn-group btn-group\" role=\"group\" aria-label=\"...\">'+
                                         ";
-                // line 5459
-                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "category", 1 => "u"], "method", false, false, false, 5459)) {
-                    // line 5460
+                // line 5537
+                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "category", 1 => "u"], "method", false, false, false, 5537)) {
+                    // line 5538
                     echo "                                        '<a href=\"";
                     echo url("dashboard/settings/couriers");
                     echo "/'+data.id+'/edit\" class=\"btn btn-info btn-sm\"><i class=\"flaticon-edit\"></i>&nbsp;";
@@ -11087,38 +11205,38 @@ var KTAppUserListDatatable = function () {
                     echo "</button>'+
                                         ";
                 }
-                // line 5462
+                // line 5540
                 echo "                                        ";
-                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "couriers", 1 => "d"], "method", false, false, false, 5462)) {
-                    // line 5463
+                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "couriers", 1 => "d"], "method", false, false, false, 5540)) {
+                    // line 5541
                     echo "                                        '<a href=\"javascript:void(0);\" class=\"btn btn-danger btn-sm delete_record kt-font-light\" rel=\"'+data.id+'\" data-type=\"couriers\"><i class=\"flaticon2-delete\"></i>&nbsp;";
                     echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Delete"]);
                     echo "</a>'+
                                         ";
                 }
-                // line 5465
+                // line 5543
                 echo "                                    '</div>';
                                 ";
             } else {
-                // line 5467
+                // line 5545
                 echo "                                    return '-';
                                 ";
             }
-            // line 5469
+            // line 5547
             echo "                        },
                     }
                 ]
             ";
-        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 5472
-($context["this"] ?? null), "param", [], "any", false, false, false, 5472), "page", [], "any", false, false, false, 5472) == "deliverytimes")) {
-            // line 5473
+        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 5550
+($context["this"] ?? null), "param", [], "any", false, false, false, 5550), "page", [], "any", false, false, false, 5550) == "deliverytimes")) {
+            // line 5551
             echo "                // datasource definition
                 data: {
                     type: 'remote',
                     source: {
                         read: {
                             url: '";
-            // line 5478
+            // line 5556
             echo url("api/deliverytimes");
             echo "',
                         },
@@ -11143,7 +11261,7 @@ var KTAppUserListDatatable = function () {
                     {
                         field: \"name\",
                         title: \"";
-            // line 5500
+            // line 5578
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Name"]);
             echo "\",
                         autoHide: false,
@@ -11154,7 +11272,7 @@ var KTAppUserListDatatable = function () {
                         field: \"Actions\",
                         width: 'auto',
                         title: \"";
-            // line 5508
+            // line 5586
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Actions"]);
             echo "\",
                         sortable: false,
@@ -11162,15 +11280,15 @@ var KTAppUserListDatatable = function () {
                         overflow: 'visible',
                         template: function (data) {
                                 ";
-            // line 5513
-            if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "deliverytimes", 1 => "u"], "method", false, false, false, 5513) || twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "deliverytimes", 1 => "d"], "method", false, false, false, 5513))) {
-                // line 5514
+            // line 5591
+            if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "deliverytimes", 1 => "u"], "method", false, false, false, 5591) || twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "deliverytimes", 1 => "d"], "method", false, false, false, 5591))) {
+                // line 5592
                 echo "                                    return '' +
                                     '<div class=\"btn-group btn-group\" role=\"group\" aria-label=\"...\">'+
                                         ";
-                // line 5516
-                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "category", 1 => "u"], "method", false, false, false, 5516)) {
-                    // line 5517
+                // line 5594
+                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "category", 1 => "u"], "method", false, false, false, 5594)) {
+                    // line 5595
                     echo "                                        '<a href=\"";
                     echo url("dashboard/settings/deliverytimes");
                     echo "/'+data.id+'/edit\" class=\"btn btn-info btn-sm\"><i class=\"flaticon-edit\"></i>&nbsp;";
@@ -11178,38 +11296,38 @@ var KTAppUserListDatatable = function () {
                     echo "</button>'+
                                         ";
                 }
-                // line 5519
+                // line 5597
                 echo "                                        ";
-                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "deliverytimes", 1 => "d"], "method", false, false, false, 5519)) {
-                    // line 5520
+                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "deliverytimes", 1 => "d"], "method", false, false, false, 5597)) {
+                    // line 5598
                     echo "                                        '<a href=\"javascript:void(0);\" class=\"btn btn-danger btn-sm delete_record kt-font-light\" rel=\"'+data.id+'\" data-type=\"deliverytimes\"><i class=\"flaticon2-delete\"></i>&nbsp;";
                     echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Delete"]);
                     echo "</a>'+
                                         ";
                 }
-                // line 5522
+                // line 5600
                 echo "                                    '</div>';
                                 ";
             } else {
-                // line 5524
+                // line 5602
                 echo "                                    return '-';
                                 ";
             }
-            // line 5526
+            // line 5604
             echo "                        },
                     }
                 ]
             ";
-        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 5529
-($context["this"] ?? null), "param", [], "any", false, false, false, 5529), "page", [], "any", false, false, false, 5529) == "shipping")) {
-            // line 5530
+        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 5607
+($context["this"] ?? null), "param", [], "any", false, false, false, 5607), "page", [], "any", false, false, false, 5607) == "shipping")) {
+            // line 5608
             echo "                // datasource definition
                 data: {
                     type: 'remote',
                     source: {
                         read: {
                             url: '";
-            // line 5535
+            // line 5613
             echo url("api/shipping");
             echo "',
                         },
@@ -11234,7 +11352,7 @@ var KTAppUserListDatatable = function () {
                     {
                         field: \"name\",
                         title: \"";
-            // line 5557
+            // line 5635
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Name"]);
             echo "\",
                         autoHide: false,
@@ -11245,7 +11363,7 @@ var KTAppUserListDatatable = function () {
                         field: \"Actions\",
                         width: 'auto',
                         title: \"";
-            // line 5565
+            // line 5643
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Actions"]);
             echo "\",
                         sortable: false,
@@ -11253,15 +11371,15 @@ var KTAppUserListDatatable = function () {
                         overflow: 'visible',
                         template: function (data) {
                                 ";
-            // line 5570
-            if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "shipping", 1 => "u"], "method", false, false, false, 5570) || twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "shipping", 1 => "d"], "method", false, false, false, 5570))) {
-                // line 5571
+            // line 5648
+            if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "shipping", 1 => "u"], "method", false, false, false, 5648) || twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "shipping", 1 => "d"], "method", false, false, false, 5648))) {
+                // line 5649
                 echo "                                    return '' +
                                     '<div class=\"btn-group btn-group\" role=\"group\" aria-label=\"...\">'+
                                         ";
-                // line 5573
-                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "shipping", 1 => "u"], "method", false, false, false, 5573)) {
-                    // line 5574
+                // line 5651
+                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "shipping", 1 => "u"], "method", false, false, false, 5651)) {
+                    // line 5652
                     echo "                                        '<a href=\"";
                     echo url("dashboard/settings/shipping");
                     echo "/'+data.id+'/edit\" class=\"btn btn-info btn-sm\"><i class=\"flaticon-edit\"></i>&nbsp;";
@@ -11269,38 +11387,38 @@ var KTAppUserListDatatable = function () {
                     echo "</button>'+
                                         ";
                 }
-                // line 5576
+                // line 5654
                 echo "                                        ";
-                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "shipping", 1 => "d"], "method", false, false, false, 5576)) {
-                    // line 5577
+                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "shipping", 1 => "d"], "method", false, false, false, 5654)) {
+                    // line 5655
                     echo "                                        '<a href=\"javascript:void(0);\" class=\"btn btn-danger btn-sm delete_record kt-font-light\" rel=\"'+data.id+'\" data-type=\"shipping\"><i class=\"flaticon2-delete\"></i>&nbsp;";
                     echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Delete"]);
                     echo "</a>'+
                                         ";
                 }
-                // line 5579
+                // line 5657
                 echo "                                    '</div>';
                                 ";
             } else {
-                // line 5581
+                // line 5659
                 echo "                                    return '-';
                                 ";
             }
-            // line 5583
+            // line 5661
             echo "                        },
                     }
                 ]
             ";
-        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 5586
-($context["this"] ?? null), "param", [], "any", false, false, false, 5586), "page", [], "any", false, false, false, 5586) == "labels")) {
-            // line 5587
+        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 5664
+($context["this"] ?? null), "param", [], "any", false, false, false, 5664), "page", [], "any", false, false, false, 5664) == "labels")) {
+            // line 5665
             echo "                // datasource definition
                 data: {
                     type: 'remote',
                     source: {
                         read: {
                             url: '";
-            // line 5592
+            // line 5670
             echo url("api/labels");
             echo "',
                         },
@@ -11325,7 +11443,7 @@ var KTAppUserListDatatable = function () {
                     {
                         field: \"name\",
                         title: \"";
-            // line 5614
+            // line 5692
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Name"]);
             echo "\",
                         autoHide: false,
@@ -11336,7 +11454,7 @@ var KTAppUserListDatatable = function () {
                         field: \"Actions\",
                         width: 'auto',
                         title: \"";
-            // line 5622
+            // line 5700
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Actions"]);
             echo "\",
                         sortable: false,
@@ -11344,15 +11462,15 @@ var KTAppUserListDatatable = function () {
                         overflow: 'visible',
                         template: function (data) {
                                 ";
-            // line 5627
-            if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "labels", 1 => "u"], "method", false, false, false, 5627) || twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "labels", 1 => "d"], "method", false, false, false, 5627))) {
-                // line 5628
+            // line 5705
+            if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "labels", 1 => "u"], "method", false, false, false, 5705) || twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "labels", 1 => "d"], "method", false, false, false, 5705))) {
+                // line 5706
                 echo "                                    return '' +
                                     '<div class=\"btn-group btn-group\" role=\"group\" aria-label=\"...\">'+
                                         ";
-                // line 5630
-                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "labels", 1 => "u"], "method", false, false, false, 5630)) {
-                    // line 5631
+                // line 5708
+                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "labels", 1 => "u"], "method", false, false, false, 5708)) {
+                    // line 5709
                     echo "                                        '<a href=\"";
                     echo url("dashboard/settings/labels");
                     echo "/'+data.id+'/edit\" class=\"btn btn-info btn-sm\"><i class=\"flaticon-edit\"></i>&nbsp;";
@@ -11360,38 +11478,38 @@ var KTAppUserListDatatable = function () {
                     echo "</button>'+
                                         ";
                 }
-                // line 5633
+                // line 5711
                 echo "                                        ";
-                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "labels", 1 => "d"], "method", false, false, false, 5633)) {
-                    // line 5634
+                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "labels", 1 => "d"], "method", false, false, false, 5711)) {
+                    // line 5712
                     echo "                                        '<a href=\"javascript:void(0);\" class=\"btn btn-danger btn-sm delete_record kt-font-light\" rel=\"'+data.id+'\" data-type=\"labels\"><i class=\"flaticon2-delete\"></i>&nbsp;";
                     echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Delete"]);
                     echo "</a>'+
                                         ";
                 }
-                // line 5636
+                // line 5714
                 echo "                                    '</div>';
                                 ";
             } else {
-                // line 5638
+                // line 5716
                 echo "                                    return '-';
                                 ";
             }
-            // line 5640
+            // line 5718
             echo "                        },
                     }
                 ]
             ";
-        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 5643
-($context["this"] ?? null), "param", [], "any", false, false, false, 5643), "page", [], "any", false, false, false, 5643) == "handler")) {
-            // line 5644
+        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 5721
+($context["this"] ?? null), "param", [], "any", false, false, false, 5721), "page", [], "any", false, false, false, 5721) == "handler")) {
+            // line 5722
             echo "                // datasource definition
                 data: {
                     type: 'remote',
                     source: {
                         read: {
                             url: '";
-            // line 5649
+            // line 5727
             echo url("api/handler");
             echo "',
                         },
@@ -11416,7 +11534,7 @@ var KTAppUserListDatatable = function () {
                     {
                         field: \"name\",
                         title: \"";
-            // line 5671
+            // line 5749
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Name"]);
             echo "\",
                         autoHide: false,
@@ -11427,7 +11545,7 @@ var KTAppUserListDatatable = function () {
                         field: \"Actions\",
                         width: 'auto',
                         title: \"";
-            // line 5679
+            // line 5757
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Actions"]);
             echo "\",
                         sortable: false,
@@ -11435,15 +11553,15 @@ var KTAppUserListDatatable = function () {
                         overflow: 'visible',
                         template: function (data) {
                                 ";
-            // line 5684
-            if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "handler", 1 => "u"], "method", false, false, false, 5684) || twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "handler", 1 => "d"], "method", false, false, false, 5684))) {
-                // line 5685
+            // line 5762
+            if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "handler", 1 => "u"], "method", false, false, false, 5762) || twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "handler", 1 => "d"], "method", false, false, false, 5762))) {
+                // line 5763
                 echo "                                    return '' +
                                     '<div class=\"btn-group btn-group\" role=\"group\" aria-label=\"...\">'+
                                         ";
-                // line 5687
-                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "handler", 1 => "u"], "method", false, false, false, 5687)) {
-                    // line 5688
+                // line 5765
+                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "handler", 1 => "u"], "method", false, false, false, 5765)) {
+                    // line 5766
                     echo "                                        '<a href=\"";
                     echo url("dashboard/settings/handler");
                     echo "/'+data.id+'/edit\" class=\"btn btn-info btn-sm\"><i class=\"flaticon-edit\"></i>&nbsp;";
@@ -11451,38 +11569,38 @@ var KTAppUserListDatatable = function () {
                     echo "</button>'+
                                         ";
                 }
-                // line 5690
+                // line 5768
                 echo "                                        ";
-                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "handler", 1 => "d"], "method", false, false, false, 5690)) {
-                    // line 5691
+                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "handler", 1 => "d"], "method", false, false, false, 5768)) {
+                    // line 5769
                     echo "                                        '<a href=\"javascript:void(0);\" class=\"btn btn-danger btn-sm delete_record kt-font-light\" rel=\"'+data.id+'\" data-type=\"handler\"><i class=\"flaticon2-delete\"></i>&nbsp;";
                     echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Delete"]);
                     echo "</a>'+
                                         ";
                 }
-                // line 5693
+                // line 5771
                 echo "                                    '</div>';
                                 ";
             } else {
-                // line 5695
+                // line 5773
                 echo "                                    return '-';
                                 ";
             }
-            // line 5697
+            // line 5775
             echo "                        },
                     }
                 ]
             ";
-        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 5700
-($context["this"] ?? null), "param", [], "any", false, false, false, 5700), "page", [], "any", false, false, false, 5700) == "break")) {
-            // line 5701
+        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 5778
+($context["this"] ?? null), "param", [], "any", false, false, false, 5778), "page", [], "any", false, false, false, 5778) == "break")) {
+            // line 5779
             echo "                // datasource definition
                 data: {
                     type: 'remote',
                     source: {
                         read: {
                             url: '";
-            // line 5706
+            // line 5784
             echo url("api/break");
             echo "',
                         },
@@ -11507,7 +11625,7 @@ var KTAppUserListDatatable = function () {
                     {
                         field: \"name\",
                         title: \"";
-            // line 5728
+            // line 5806
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Name"]);
             echo "\",
                         autoHide: false,
@@ -11518,7 +11636,7 @@ var KTAppUserListDatatable = function () {
                         field: \"Actions\",
                         width: 'auto',
                         title: \"";
-            // line 5736
+            // line 5814
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Actions"]);
             echo "\",
                         sortable: false,
@@ -11526,15 +11644,15 @@ var KTAppUserListDatatable = function () {
                         overflow: 'visible',
                         template: function (data) {
                                 ";
-            // line 5741
-            if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "break", 1 => "u"], "method", false, false, false, 5741) || twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "break", 1 => "d"], "method", false, false, false, 5741))) {
-                // line 5742
+            // line 5819
+            if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "break", 1 => "u"], "method", false, false, false, 5819) || twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "break", 1 => "d"], "method", false, false, false, 5819))) {
+                // line 5820
                 echo "                                    return '' +
                                     '<div class=\"btn-group btn-group\" role=\"group\" aria-label=\"...\">'+
                                         ";
-                // line 5744
-                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "break", 1 => "u"], "method", false, false, false, 5744)) {
-                    // line 5745
+                // line 5822
+                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "break", 1 => "u"], "method", false, false, false, 5822)) {
+                    // line 5823
                     echo "                                        '<a href=\"";
                     echo url("dashboard/settings/break");
                     echo "/'+data.id+'/edit\" class=\"btn btn-info btn-sm\"><i class=\"flaticon-edit\"></i>&nbsp;";
@@ -11542,38 +11660,38 @@ var KTAppUserListDatatable = function () {
                     echo "</button>'+
                                         ";
                 }
-                // line 5747
+                // line 5825
                 echo "                                        ";
-                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "break", 1 => "d"], "method", false, false, false, 5747)) {
-                    // line 5748
+                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "break", 1 => "d"], "method", false, false, false, 5825)) {
+                    // line 5826
                     echo "                                        '<a href=\"javascript:void(0);\" class=\"btn btn-danger btn-sm delete_record kt-font-light\" rel=\"'+data.id+'\" data-type=\"break\"><i class=\"flaticon2-delete\"></i>&nbsp;";
                     echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Delete"]);
                     echo "</a>'+
                                         ";
                 }
-                // line 5750
+                // line 5828
                 echo "                                    '</div>';
                                 ";
             } else {
-                // line 5752
+                // line 5830
                 echo "                                    return '-';
                                 ";
             }
-            // line 5754
+            // line 5832
             echo "                        },
                     }
                 ]            
             ";
-        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 5757
-($context["this"] ?? null), "param", [], "any", false, false, false, 5757), "page", [], "any", false, false, false, 5757) == "packaging")) {
-            // line 5758
+        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 5835
+($context["this"] ?? null), "param", [], "any", false, false, false, 5835), "page", [], "any", false, false, false, 5835) == "packaging")) {
+            // line 5836
             echo "                // datasource definition
                 data: {
                     type: 'remote',
                     source: {
                         read: {
                             url: '";
-            // line 5763
+            // line 5841
             echo url("api/packaging");
             echo "',
                         },
@@ -11598,7 +11716,7 @@ var KTAppUserListDatatable = function () {
                     {
                         field: \"name\",
                         title: \"";
-            // line 5785
+            // line 5863
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Name"]);
             echo "\",
                         autoHide: false,
@@ -11609,7 +11727,7 @@ var KTAppUserListDatatable = function () {
                         field: \"Actions\",
                         width: 'auto',
                         title: \"";
-            // line 5793
+            // line 5871
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Actions"]);
             echo "\",
                         sortable: false,
@@ -11617,15 +11735,15 @@ var KTAppUserListDatatable = function () {
                         overflow: 'visible',
                         template: function (data) {
                                 ";
-            // line 5798
-            if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "packaging", 1 => "u"], "method", false, false, false, 5798) || twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "packaging", 1 => "d"], "method", false, false, false, 5798))) {
-                // line 5799
+            // line 5876
+            if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "packaging", 1 => "u"], "method", false, false, false, 5876) || twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "packaging", 1 => "d"], "method", false, false, false, 5876))) {
+                // line 5877
                 echo "                                    return '' +
                                     '<div class=\"btn-group btn-group\" role=\"group\" aria-label=\"...\">'+
                                         ";
-                // line 5801
-                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "packaging", 1 => "u"], "method", false, false, false, 5801)) {
-                    // line 5802
+                // line 5879
+                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "packaging", 1 => "u"], "method", false, false, false, 5879)) {
+                    // line 5880
                     echo "                                        '<a href=\"";
                     echo url("dashboard/settings/packaging");
                     echo "/'+data.id+'/edit\" class=\"btn btn-info btn-sm\"><i class=\"flaticon-edit\"></i>&nbsp;";
@@ -11633,38 +11751,38 @@ var KTAppUserListDatatable = function () {
                     echo "</button>'+
                                         ";
                 }
-                // line 5804
+                // line 5882
                 echo "                                        ";
-                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "packaging", 1 => "d"], "method", false, false, false, 5804)) {
-                    // line 5805
+                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "packaging", 1 => "d"], "method", false, false, false, 5882)) {
+                    // line 5883
                     echo "                                        '<a href=\"javascript:void(0);\" class=\"btn btn-danger btn-sm delete_record kt-font-light\" rel=\"'+data.id+'\" data-type=\"packaging\"><i class=\"flaticon2-delete\"></i>&nbsp;";
                     echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Delete"]);
                     echo "</a>'+
                                         ";
                 }
-                // line 5807
+                // line 5885
                 echo "                                    '</div>';
                                 ";
             } else {
-                // line 5809
+                // line 5887
                 echo "                                    return '-';
                                 ";
             }
-            // line 5811
+            // line 5889
             echo "                        },
                     }
                 ]
             ";
-        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 5814
-($context["this"] ?? null), "param", [], "any", false, false, false, 5814), "page", [], "any", false, false, false, 5814) == "countries")) {
-            // line 5815
+        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 5892
+($context["this"] ?? null), "param", [], "any", false, false, false, 5892), "page", [], "any", false, false, false, 5892) == "countries")) {
+            // line 5893
             echo "                // datasource definition
                 data: {
                     type: 'remote',
                     source: {
                         read: {
                             url: '";
-            // line 5820
+            // line 5898
             echo url("api/countries");
             echo "',
                         },
@@ -11689,7 +11807,7 @@ var KTAppUserListDatatable = function () {
                     {
                         field: \"number\",
                         title: \"";
-            // line 5842
+            // line 5920
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["ID"]);
             echo "\",
                         autoHide: false,
@@ -11702,7 +11820,7 @@ var KTAppUserListDatatable = function () {
                     {
                         field: \"name\",
                         title: \"";
-            // line 5852
+            // line 5930
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Name"]);
             echo "\",
                         autoHide: false,
@@ -11713,7 +11831,7 @@ var KTAppUserListDatatable = function () {
                         field: \"Actions\",
                         width: 'auto',
                         title: \"";
-            // line 5860
+            // line 5938
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Actions"]);
             echo "\",
                         sortable: false,
@@ -11721,15 +11839,15 @@ var KTAppUserListDatatable = function () {
                         overflow: 'visible',
                         template: function (data) {
                                 ";
-            // line 5865
-            if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "countries", 1 => "u"], "method", false, false, false, 5865) || twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "countries", 1 => "d"], "method", false, false, false, 5865))) {
-                // line 5866
+            // line 5943
+            if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "countries", 1 => "u"], "method", false, false, false, 5943) || twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "countries", 1 => "d"], "method", false, false, false, 5943))) {
+                // line 5944
                 echo "                                    return '' +
                                     '<div class=\"btn-group btn-group\" role=\"group\" aria-label=\"...\">'+
                                         ";
-                // line 5868
-                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "countries", 1 => "u"], "method", false, false, false, 5868)) {
-                    // line 5869
+                // line 5946
+                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "countries", 1 => "u"], "method", false, false, false, 5946)) {
+                    // line 5947
                     echo "                                        '<a href=\"";
                     echo url("dashboard/settings/countries");
                     echo "/'+data.id+'/edit\" class=\"btn btn-info btn-sm\"><i class=\"flaticon-edit\"></i>&nbsp;";
@@ -11737,38 +11855,38 @@ var KTAppUserListDatatable = function () {
                     echo "</button>'+
                                         ";
                 }
-                // line 5871
+                // line 5949
                 echo "                                        ";
-                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "countries", 1 => "d"], "method", false, false, false, 5871)) {
-                    // line 5872
+                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "countries", 1 => "d"], "method", false, false, false, 5949)) {
+                    // line 5950
                     echo "                                        '<a href=\"javascript:void(0);\" class=\"btn btn-danger btn-sm delete_record kt-font-light\" rel=\"'+data.id+'\" data-type=\"countries\"><i class=\"flaticon2-delete\"></i>&nbsp;";
                     echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Delete"]);
                     echo "</a>'+
                                         ";
                 }
-                // line 5874
+                // line 5952
                 echo "                                    '</div>';
                                 ";
             } else {
-                // line 5876
+                // line 5954
                 echo "                                    return '-';
                                 ";
             }
-            // line 5878
+            // line 5956
             echo "                        },
                     }
                 ]
             ";
-        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 5881
-($context["this"] ?? null), "param", [], "any", false, false, false, 5881), "page", [], "any", false, false, false, 5881) == "states")) {
-            // line 5882
+        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 5959
+($context["this"] ?? null), "param", [], "any", false, false, false, 5959), "page", [], "any", false, false, false, 5959) == "states")) {
+            // line 5960
             echo "                // datasource definition
                 data: {
                     type: 'remote',
                     source: {
                         read: {
                             url: '";
-            // line 5887
+            // line 5965
             echo url("api/states");
             echo "',
                         },
@@ -11793,7 +11911,7 @@ var KTAppUserListDatatable = function () {
                     {
                         field: \"number\",
                         title: \"";
-            // line 5909
+            // line 5987
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["ID"]);
             echo "\",
                         autoHide: false,
@@ -11806,7 +11924,7 @@ var KTAppUserListDatatable = function () {
                     {
                         field: \"name\",
                         title: \"";
-            // line 5919
+            // line 5997
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Name"]);
             echo "\",
                         autoHide: false,
@@ -11816,7 +11934,7 @@ var KTAppUserListDatatable = function () {
                     {
                         field: \"place\",
                         title: \"";
-            // line 5926
+            // line 6004
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Place"]);
             echo "\",
                         autoHide: false,
@@ -11827,7 +11945,7 @@ var KTAppUserListDatatable = function () {
                         field: \"Actions\",
                         width: 'auto',
                         title: \"";
-            // line 5934
+            // line 6012
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Actions"]);
             echo "\",
                         sortable: false,
@@ -11835,15 +11953,15 @@ var KTAppUserListDatatable = function () {
                         overflow: 'visible',
                         template: function (data) {
                                 ";
-            // line 5939
-            if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "states", 1 => "u"], "method", false, false, false, 5939) || twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "states", 1 => "d"], "method", false, false, false, 5939))) {
-                // line 5940
+            // line 6017
+            if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "states", 1 => "u"], "method", false, false, false, 6017) || twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "states", 1 => "d"], "method", false, false, false, 6017))) {
+                // line 6018
                 echo "                                    return '' +
                                     '<div class=\"btn-group btn-group\" role=\"group\" aria-label=\"...\">'+
                                         ";
-                // line 5942
-                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "states", 1 => "u"], "method", false, false, false, 5942)) {
-                    // line 5943
+                // line 6020
+                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "states", 1 => "u"], "method", false, false, false, 6020)) {
+                    // line 6021
                     echo "                                        '<a href=\"";
                     echo url("dashboard/settings/states");
                     echo "/'+data.id+'/edit\" class=\"btn btn-info btn-sm\"><i class=\"flaticon-edit\"></i>&nbsp;";
@@ -11851,38 +11969,38 @@ var KTAppUserListDatatable = function () {
                     echo "</button>'+
                                         ";
                 }
-                // line 5945
+                // line 6023
                 echo "                                        ";
-                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "states", 1 => "d"], "method", false, false, false, 5945)) {
-                    // line 5946
+                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "states", 1 => "d"], "method", false, false, false, 6023)) {
+                    // line 6024
                     echo "                                        '<a href=\"javascript:void(0);\" class=\"btn btn-danger btn-sm delete_record kt-font-light\" rel=\"'+data.id+'\" data-type=\"states\"><i class=\"flaticon2-delete\"></i>&nbsp;";
                     echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Delete"]);
                     echo "</a>'+
                                         ";
                 }
-                // line 5948
+                // line 6026
                 echo "                                    '</div>';
                                 ";
             } else {
-                // line 5950
+                // line 6028
                 echo "                                    return '-';
                                 ";
             }
-            // line 5952
+            // line 6030
             echo "                        },
                     }
                 ]
             ";
-        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 5955
-($context["this"] ?? null), "param", [], "any", false, false, false, 5955), "page", [], "any", false, false, false, 5955) == "cities")) {
-            // line 5956
+        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 6033
+($context["this"] ?? null), "param", [], "any", false, false, false, 6033), "page", [], "any", false, false, false, 6033) == "cities")) {
+            // line 6034
             echo "                // datasource definition
                 data: {
                     type: 'remote',
                     source: {
                         read: {
                             url: '";
-            // line 5961
+            // line 6039
             echo url("api/cities");
             echo "',
                         },
@@ -11907,7 +12025,7 @@ var KTAppUserListDatatable = function () {
                     {
                         field: \"number\",
                         title: \"";
-            // line 5983
+            // line 6061
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["ID"]);
             echo "\",
                         autoHide: false,
@@ -11920,7 +12038,7 @@ var KTAppUserListDatatable = function () {
                     {
                         field: \"name\",
                         title: \"";
-            // line 5993
+            // line 6071
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Name"]);
             echo "\",
                         autoHide: false,
@@ -11930,7 +12048,7 @@ var KTAppUserListDatatable = function () {
                     {
                         field: \"place\",
                         title: \"";
-            // line 6000
+            // line 6078
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Place"]);
             echo "\",
                         autoHide: false,
@@ -11941,7 +12059,7 @@ var KTAppUserListDatatable = function () {
                         field: \"Actions\",
                         width: 'auto',
                         title: \"";
-            // line 6008
+            // line 6086
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Actions"]);
             echo "\",
                         sortable: false,
@@ -11949,15 +12067,15 @@ var KTAppUserListDatatable = function () {
                         overflow: 'visible',
                         template: function (data) {
                                 ";
-            // line 6013
-            if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "cities", 1 => "u"], "method", false, false, false, 6013) || twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "cities", 1 => "d"], "method", false, false, false, 6013))) {
-                // line 6014
+            // line 6091
+            if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "cities", 1 => "u"], "method", false, false, false, 6091) || twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "cities", 1 => "d"], "method", false, false, false, 6091))) {
+                // line 6092
                 echo "                                    return '' +
                                     '<div class=\"btn-group btn-group\" role=\"group\" aria-label=\"...\">'+
                                         ";
-                // line 6016
-                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "cities", 1 => "u"], "method", false, false, false, 6016)) {
-                    // line 6017
+                // line 6094
+                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "cities", 1 => "u"], "method", false, false, false, 6094)) {
+                    // line 6095
                     echo "                                        '<a href=\"";
                     echo url("dashboard/settings/cities");
                     echo "/'+data.id+'/edit\" class=\"btn btn-info btn-sm\"><i class=\"flaticon-edit\"></i>&nbsp;";
@@ -11965,38 +12083,38 @@ var KTAppUserListDatatable = function () {
                     echo "</button>'+
                                         ";
                 }
-                // line 6019
+                // line 6097
                 echo "                                        ";
-                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "cities", 1 => "d"], "method", false, false, false, 6019)) {
-                    // line 6020
+                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "cities", 1 => "d"], "method", false, false, false, 6097)) {
+                    // line 6098
                     echo "                                        '<a href=\"javascript:void(0);\" class=\"btn btn-danger btn-sm delete_record kt-font-light\" rel=\"'+data.id+'\" data-type=\"cities\"><i class=\"flaticon2-delete\"></i>&nbsp;";
                     echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Delete"]);
                     echo "</a>'+
                                         ";
                 }
-                // line 6022
+                // line 6100
                 echo "                                    '</div>';
                                 ";
             } else {
-                // line 6024
+                // line 6102
                 echo "                                    return '-';
                                 ";
             }
-            // line 6026
+            // line 6104
             echo "                        },
                     }
                 ]
             ";
-        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 6029
-($context["this"] ?? null), "param", [], "any", false, false, false, 6029), "page", [], "any", false, false, false, 6029) == "areas")) {
-            // line 6030
+        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 6107
+($context["this"] ?? null), "param", [], "any", false, false, false, 6107), "page", [], "any", false, false, false, 6107) == "areas")) {
+            // line 6108
             echo "                // datasource definition
                 data: {
                     type: 'remote',
                     source: {
                         read: {
                             url: '";
-            // line 6035
+            // line 6113
             echo url("api/areas");
             echo "',
                         },
@@ -12021,7 +12139,7 @@ var KTAppUserListDatatable = function () {
                     {
                         field: \"number\",
                         title: \"";
-            // line 6057
+            // line 6135
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["ID"]);
             echo "\",
                         autoHide: false,
@@ -12034,7 +12152,7 @@ var KTAppUserListDatatable = function () {
                     {
                         field: \"name\",
                         title: \"";
-            // line 6067
+            // line 6145
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Name"]);
             echo "\",
                         autoHide: false,
@@ -12044,7 +12162,7 @@ var KTAppUserListDatatable = function () {
                     {
                         field: \"place\",
                         title: \"";
-            // line 6074
+            // line 6152
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Place"]);
             echo "\",
                         autoHide: false,
@@ -12055,7 +12173,7 @@ var KTAppUserListDatatable = function () {
                         field: \"Actions\",
                         width: 'auto',
                         title: \"";
-            // line 6082
+            // line 6160
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Actions"]);
             echo "\",
                         sortable: false,
@@ -12063,15 +12181,15 @@ var KTAppUserListDatatable = function () {
                         overflow: 'visible',
                         template: function (data) {
                                 ";
-            // line 6087
-            if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "areas", 1 => "u"], "method", false, false, false, 6087) || twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "areas", 1 => "d"], "method", false, false, false, 6087))) {
-                // line 6088
+            // line 6165
+            if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "areas", 1 => "u"], "method", false, false, false, 6165) || twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "areas", 1 => "d"], "method", false, false, false, 6165))) {
+                // line 6166
                 echo "                                    return '' +
                                     '<div class=\"btn-group btn-group\" role=\"group\" aria-label=\"...\">'+
                                         ";
-                // line 6090
-                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "areas", 1 => "u"], "method", false, false, false, 6090)) {
-                    // line 6091
+                // line 6168
+                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "areas", 1 => "u"], "method", false, false, false, 6168)) {
+                    // line 6169
                     echo "                                        '<a href=\"";
                     echo url("dashboard/settings/areas");
                     echo "/'+data.id+'/edit\" class=\"btn btn-info btn-sm\"><i class=\"flaticon-edit\"></i>&nbsp;";
@@ -12079,38 +12197,38 @@ var KTAppUserListDatatable = function () {
                     echo "</button>'+
                                         ";
                 }
-                // line 6093
+                // line 6171
                 echo "                                        ";
-                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "areas", 1 => "d"], "method", false, false, false, 6093)) {
-                    // line 6094
+                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "areas", 1 => "d"], "method", false, false, false, 6171)) {
+                    // line 6172
                     echo "                                        '<a href=\"javascript:void(0);\" class=\"btn btn-danger btn-sm delete_record kt-font-light\" rel=\"'+data.id+'\" data-type=\"areas\"><i class=\"flaticon2-delete\"></i>&nbsp;";
                     echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Delete"]);
                     echo "</a>'+
                                         ";
                 }
-                // line 6096
+                // line 6174
                 echo "                                    '</div>';
                                 ";
             } else {
-                // line 6098
+                // line 6176
                 echo "                                    return '-';
                                 ";
             }
-            // line 6100
+            // line 6178
             echo "                        },
                     }
                 ]
             ";
-        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 6103
-($context["this"] ?? null), "param", [], "any", false, false, false, 6103), "page", [], "any", false, false, false, 6103) == "fees")) {
-            // line 6104
+        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 6181
+($context["this"] ?? null), "param", [], "any", false, false, false, 6181), "page", [], "any", false, false, false, 6181) == "fees")) {
+            // line 6182
             echo "                // datasource definition
                 data: {
                     type: 'remote',
                     source: {
                         read: {
                             url: '";
-            // line 6109
+            // line 6187
             echo url("api/fees");
             echo "',
                         },
@@ -12135,7 +12253,7 @@ var KTAppUserListDatatable = function () {
                     {
                         field: \"from\",
                         title: \"";
-            // line 6131
+            // line 6209
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["From"]);
             echo "\",
                         autoHide: false,
@@ -12145,7 +12263,7 @@ var KTAppUserListDatatable = function () {
                     {
                         field: \"to\",
                         title: \"";
-            // line 6138
+            // line 6216
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["To"]);
             echo "\",
                         autoHide: false,
@@ -12156,7 +12274,7 @@ var KTAppUserListDatatable = function () {
                         field: \"Actions\",
                         width: 'auto',
                         title: \"";
-            // line 6146
+            // line 6224
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Actions"]);
             echo "\",
                         sortable: false,
@@ -12164,15 +12282,15 @@ var KTAppUserListDatatable = function () {
                         overflow: 'visible',
                         template: function (data) {
                                 ";
-            // line 6151
-            if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "fees", 1 => "u"], "method", false, false, false, 6151) || twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "fees", 1 => "d"], "method", false, false, false, 6151))) {
-                // line 6152
+            // line 6229
+            if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "fees", 1 => "u"], "method", false, false, false, 6229) || twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "fees", 1 => "d"], "method", false, false, false, 6229))) {
+                // line 6230
                 echo "                                    return '' +
                                     '<div class=\"btn-group btn-group\" role=\"group\" aria-label=\"...\">'+
                                         ";
-                // line 6154
-                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "fees", 1 => "u"], "method", false, false, false, 6154)) {
-                    // line 6155
+                // line 6232
+                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "fees", 1 => "u"], "method", false, false, false, 6232)) {
+                    // line 6233
                     echo "                                        '<a href=\"";
                     echo url("dashboard/settings/fees");
                     echo "/'+data.id+'/edit\" class=\"btn btn-info btn-sm\"><i class=\"flaticon-edit\"></i>&nbsp;";
@@ -12180,40 +12298,40 @@ var KTAppUserListDatatable = function () {
                     echo "</button>'+
                                         ";
                 }
-                // line 6157
+                // line 6235
                 echo "                                        ";
-                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "fees", 1 => "d"], "method", false, false, false, 6157)) {
-                    // line 6158
+                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "fees", 1 => "d"], "method", false, false, false, 6235)) {
+                    // line 6236
                     echo "                                        '<a href=\"javascript:void(0);\" class=\"btn btn-danger btn-sm delete_record kt-font-light\" rel=\"'+data.id+'\" data-type=\"fees\"><i class=\"flaticon2-delete\"></i>&nbsp;";
                     echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Delete"]);
                     echo "</a>'+
                                         ";
                 }
-                // line 6160
+                // line 6238
                 echo "                                    '</div>';
                                 ";
             } else {
-                // line 6162
+                // line 6240
                 echo "                                    return '-';
                                 ";
             }
-            // line 6164
+            // line 6242
             echo "                        },
                     }
                 ]
 
 
             ";
-        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 6169
-($context["this"] ?? null), "param", [], "any", false, false, false, 6169), "page", [], "any", false, false, false, 6169) == "employees")) {
-            // line 6170
+        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 6247
+($context["this"] ?? null), "param", [], "any", false, false, false, 6247), "page", [], "any", false, false, false, 6247) == "employees")) {
+            // line 6248
             echo "                // datasource definition
                 data: {
                     type: 'remote',
                     source: {
                         read: {
                             url: '";
-            // line 6175
+            // line 6253
             echo url("api/employees");
             echo "',
                         },
@@ -12238,7 +12356,7 @@ var KTAppUserListDatatable = function () {
                     {
                         field: \"name\",
                         title: \"";
-            // line 6197
+            // line 6275
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Name"]);
             echo "\",
                         autoHide: false,
@@ -12248,7 +12366,7 @@ var KTAppUserListDatatable = function () {
                     {
                         field: \"role\",
                         title: \"";
-            // line 6204
+            // line 6282
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Role"]);
             echo "\",
                         autoHide: false,
@@ -12258,7 +12376,7 @@ var KTAppUserListDatatable = function () {
                     {
                         field: \"groups\",
                         title: \"";
-            // line 6211
+            // line 6289
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Departments"]);
             echo "\",
                         autoHide: false,
@@ -12288,7 +12406,7 @@ var KTAppUserListDatatable = function () {
                         field: \"Actions\",
                         width: 'auto',
                         title: \"";
-            // line 6238
+            // line 6316
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Actions"]);
             echo "\",
                         sortable: false,
@@ -12296,15 +12414,15 @@ var KTAppUserListDatatable = function () {
                         overflow: 'visible',
                         template: function (data) {
                                 ";
-            // line 6243
-            if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "employees", 1 => "u"], "method", false, false, false, 6243) || twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "employees", 1 => "d"], "method", false, false, false, 6243))) {
-                // line 6244
+            // line 6321
+            if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "employees", 1 => "u"], "method", false, false, false, 6321) || twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "employees", 1 => "d"], "method", false, false, false, 6321))) {
+                // line 6322
                 echo "                                    return '' +
                                     '<div class=\"btn-group btn-group\" role=\"group\" aria-label=\"...\">'+
                                         ";
-                // line 6246
-                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "employees", 1 => "u"], "method", false, false, false, 6246)) {
-                    // line 6247
+                // line 6324
+                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "employees", 1 => "u"], "method", false, false, false, 6324)) {
+                    // line 6325
                     echo "                                        '<a href=\"";
                     echo url("dashboard/settings/employees");
                     echo "/'+data.id+'/edit\" class=\"btn btn-info btn-sm\"><i class=\"flaticon-edit\"></i>&nbsp;";
@@ -12312,38 +12430,38 @@ var KTAppUserListDatatable = function () {
                     echo "</button>'+
                                         ";
                 }
-                // line 6249
+                // line 6327
                 echo "                                        ";
-                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "employees", 1 => "d"], "method", false, false, false, 6249)) {
-                    // line 6250
+                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "employees", 1 => "d"], "method", false, false, false, 6327)) {
+                    // line 6328
                     echo "                                        '<a href=\"javascript:void(0);\" class=\"btn btn-danger btn-sm delete_record kt-font-light\" rel=\"'+data.id+'\" data-type=\"employees\"><i class=\"flaticon2-delete\"></i>&nbsp;";
                     echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Delete"]);
                     echo "</a>'+
                                         ";
                 }
-                // line 6252
+                // line 6330
                 echo "                                    '</div>';
                                 ";
             } else {
-                // line 6254
+                // line 6332
                 echo "                                    return '-';
                                 ";
             }
-            // line 6256
+            // line 6334
             echo "                        },
                     }
                 ]
             ";
-        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 6259
-($context["this"] ?? null), "param", [], "any", false, false, false, 6259), "page", [], "any", false, false, false, 6259) == "backup")) {
-            // line 6260
+        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 6337
+($context["this"] ?? null), "param", [], "any", false, false, false, 6337), "page", [], "any", false, false, false, 6337) == "backup")) {
+            // line 6338
             echo "                // datasource definition
                 data: {
                     type: 'remote',
                     source: {
                         read: {
                             url: '";
-            // line 6265
+            // line 6343
             echo url("api/backups");
             echo "',
                         },
@@ -12358,7 +12476,7 @@ var KTAppUserListDatatable = function () {
                     {
                         field: \"fileInfo\",
                         title: \"";
-            // line 6277
+            // line 6355
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Name"]);
             echo "\",
                         autoHide: false,
@@ -12366,7 +12484,7 @@ var KTAppUserListDatatable = function () {
                         width: 'auto',
                         template: function (data) {
                             return '<a href=\"";
-            // line 6282
+            // line 6360
             echo twig_escape_filter($this->env, twig_replace_filter($this->extensions['System\Twig\Extension']->mediaFilter("app/uploads/panakour-backup"), ["app/media/" => ""]), "html", null, true);
             echo "/' + data.fileInfo.basename + '\" download>' + data.fileInfo.basename + '</a>';
                         },
@@ -12374,7 +12492,7 @@ var KTAppUserListDatatable = function () {
                     {
                         field: \"size\",
                         title: \"";
-            // line 6287
+            // line 6365
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Size"]);
             echo "\",
                         autoHide: false,
@@ -12382,7 +12500,7 @@ var KTAppUserListDatatable = function () {
                         width: 'auto',
                         template: function (data) {
                             return data.size + ' ";
-            // line 6292
+            // line 6370
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["KB"]);
             echo "';
                         },
@@ -12390,7 +12508,7 @@ var KTAppUserListDatatable = function () {
                     {
                         field: \"lastModified\",
                         title: \"";
-            // line 6297
+            // line 6375
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Created Date"]);
             echo "\",
                         autoHide: false,
@@ -12401,7 +12519,7 @@ var KTAppUserListDatatable = function () {
                         field: \"Actions\",
                         width: 'auto',
                         title: \"";
-            // line 6305
+            // line 6383
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Actions"]);
             echo "\",
                         sortable: false,
@@ -12409,35 +12527,35 @@ var KTAppUserListDatatable = function () {
                         overflow: 'visible',
                         template: function (data) {
                                 ";
-            // line 6310
-            if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "backups", 1 => "d"], "method", false, false, false, 6310)) {
-                // line 6311
+            // line 6388
+            if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "backups", 1 => "d"], "method", false, false, false, 6388)) {
+                // line 6389
                 echo "                                    return '' +
                                     '<div class=\"btn-group btn-group\" role=\"group\" aria-label=\"...\">'+
                                         ";
-                // line 6313
-                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "backups", 1 => "d"], "method", false, false, false, 6313)) {
-                    // line 6314
+                // line 6391
+                if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "backups", 1 => "d"], "method", false, false, false, 6391)) {
+                    // line 6392
                     echo "                                        '<a href=\"javascript:void(0);\" class=\"btn btn-danger btn-sm delete_record kt-font-light\" rel=\"'+data.fileInfo.basename+'\" data-type=\"backup\"><i class=\"flaticon2-delete\"></i>&nbsp;";
                     echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Delete"]);
                     echo "</a>'+
                                         ";
                 }
-                // line 6316
+                // line 6394
                 echo "                                    '</div>';
                                 ";
             } else {
-                // line 6318
+                // line 6396
                 echo "                                    return '-';
                                 ";
             }
-            // line 6320
+            // line 6398
             echo "                        },
                     }
                 ]
             ";
         }
-        // line 6324
+        // line 6402
         echo "        });
     };
 
@@ -12498,7 +12616,7 @@ var KTAppUserListDatatable = function () {
                     buttonsStyling: false,
 
                     html: \"";
-        // line 6383
+        // line 6461
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Are you sure to update"]);
         echo " \" + ids.length + \" ";
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["selected records status to"]);
@@ -12506,14 +12624,14 @@ var KTAppUserListDatatable = function () {
                     type: \"info\",
 
                     confirmButtonText: \"";
-        // line 6386
+        // line 6464
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Yes, update"]);
         echo "!\",
                     confirmButtonClass: \"btn btn-sm btn-bold btn-brand\",
 
                     showCancelButton: true,
                     cancelButtonText: \"";
-        // line 6390
+        // line 6468
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["No, cancel"]);
         echo "\",
                     cancelButtonClass: \"btn btn-sm btn-bold btn-default\"
@@ -12521,17 +12639,17 @@ var KTAppUserListDatatable = function () {
                     if (result.value) {
                         swal.fire({
                             title: '";
-        // line 6395
+        // line 6473
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Deleted"]);
         echo "!',
                             text: '";
-        // line 6396
+        // line 6474
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Your selected records statuses have been updated"]);
         echo "!',
                             type: 'success',
                             buttonsStyling: false,
                             confirmButtonText: \"";
-        // line 6399
+        // line 6477
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["OK"]);
         echo "\",
                             confirmButtonClass: \"btn btn-sm btn-bold btn-brand\",
@@ -12541,17 +12659,17 @@ var KTAppUserListDatatable = function () {
                     } else if (result.dismiss === 'cancel') {
                         swal.fire({
                             title: '";
-        // line 6406
+        // line 6484
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Cancelled"]);
         echo "',
                             text: '";
-        // line 6407
+        // line 6485
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["You selected records statuses have not been updated"]);
         echo "!',
                             type: 'error',
                             buttonsStyling: false,
                             confirmButtonText: \"";
-        // line 6410
+        // line 6488
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["OK"]);
         echo "\",
                             confirmButtonClass: \"btn btn-sm btn-bold btn-brand\",
@@ -12579,7 +12697,7 @@ var KTAppUserListDatatable = function () {
                     buttonsStyling: false,
 
                     text: \"";
-        // line 6435
+        // line 6513
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Are you sure to delete"]);
         echo " \" + ids.length + \" ";
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["selected records ?"]);
@@ -12587,14 +12705,14 @@ var KTAppUserListDatatable = function () {
                     type: \"danger\",
 
                     confirmButtonText: \"";
-        // line 6438
+        // line 6516
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Yes, delete!"]);
         echo "\",
                     confirmButtonClass: \"btn btn-sm btn-bold btn-danger\",
 
                     showCancelButton: true,
                     cancelButtonText: '";
-        // line 6442
+        // line 6520
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["No, cancel"]);
         echo "',
                     cancelButtonClass: \"btn btn-sm btn-bold btn-brand\"
@@ -12605,17 +12723,17 @@ var KTAppUserListDatatable = function () {
                             success: function(data) {
                                 swal.fire({
                                     title: '";
-        // line 6450
+        // line 6528
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Deleted!"]);
         echo "',
                                     text: '";
-        // line 6451
+        // line 6529
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Your selected records have been deleted! :("]);
         echo "',
                                     type: 'success',
                                     buttonsStyling: false,
                                     confirmButtonText: '";
-        // line 6454
+        // line 6532
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["OK"]);
         echo "',
                                     confirmButtonClass: \"btn btn-sm btn-bold btn-brand\",
@@ -12628,17 +12746,17 @@ var KTAppUserListDatatable = function () {
                     } else if (result.dismiss === 'cancel') {
                         swal.fire({
                             title: '";
-        // line 6464
+        // line 6542
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Cancelled"]);
         echo "',
                             text: '";
-        // line 6465
+        // line 6543
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["You selected records have not been deleted! :)"]);
         echo "',
                             type: 'error',
                             buttonsStyling: false,
                             confirmButtonText: '";
-        // line 6468
+        // line 6546
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["OK"]);
         echo "',
                             confirmButtonClass: \"btn btn-sm btn-bold btn-brand\",
@@ -12656,20 +12774,20 @@ var KTAppUserListDatatable = function () {
                 buttonsStyling: false,
 
                 text: \"";
-        // line 6483
+        // line 6561
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Are you sure to delete this item ?"]);
         echo "\",
                 type: \"danger\",
 
                 confirmButtonText: \"";
-        // line 6486
+        // line 6564
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Yes, delete!"]);
         echo "\",
                 confirmButtonClass: \"btn btn-sm btn-bold btn-danger\",
 
                 showCancelButton: true,
                 cancelButtonText: '";
-        // line 6490
+        // line 6568
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["No, cancel"]);
         echo "',
                 cancelButtonClass: \"btn btn-sm btn-bold btn-brand\"
@@ -12681,17 +12799,17 @@ var KTAppUserListDatatable = function () {
 
                             swal.fire({
                                 title: '";
-        // line 6499
+        // line 6577
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Deleted!"]);
         echo "',
                                 text: '";
-        // line 6500
+        // line 6578
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Your selected record has been deleted! :("]);
         echo "',
                                 type: 'success',
                                 buttonsStyling: false,
                                 confirmButtonText: '";
-        // line 6503
+        // line 6581
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["OK"]);
         echo "',
                                 confirmButtonClass: \"btn btn-sm btn-bold btn-brand\",
@@ -12704,17 +12822,17 @@ var KTAppUserListDatatable = function () {
                 } else if (result.dismiss === 'cancel') {
                     swal.fire({
                         title: '";
-        // line 6513
+        // line 6591
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Cancelled"]);
         echo "',
                         text: '";
-        // line 6514
+        // line 6592
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["You selected record has not been deleted! :)"]);
         echo "',
                         type: 'error',
                         buttonsStyling: false,
                         confirmButtonText: '";
-        // line 6517
+        // line 6595
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["OK"]);
         echo "',
                         confirmButtonClass: \"btn btn-sm btn-bold btn-brand\",
@@ -12727,7 +12845,7 @@ var KTAppUserListDatatable = function () {
     var updateTotal = function () {
         datatable.on('kt-datatable--on-layout-updated', function () {
             \$('#kt_subheader_total').html(datatable.getTotalRows() + ' ";
-        // line 6527
+        // line 6605
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Total"]);
         echo "');
         });
@@ -12759,24 +12877,24 @@ var KTDatatablesExtensions = function() {
   var table = \$('#kt_table_1');
 
         ";
-        // line 6556
-        if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "param", [], "any", false, false, false, 6556), "page", [], "any", false, false, false, 6556) == "translate")) {
-            // line 6557
+        // line 6634
+        if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "param", [], "any", false, false, false, 6634), "page", [], "any", false, false, false, 6634) == "translate")) {
+            // line 6635
             echo "      // begin first table
       table.DataTable({
        responsive: true,
                 dom: \"<'row'<'col-md-6' f><'col-md-6 text-right'>>\\n\\t\\t\\t<'row'<'col-md-12'tr>>\\n\\t\\t\\t<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7 dataTables_pager'>>\",
                 language: {
                     lengthMenu:     \"";
-            // line 6562
+            // line 6640
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Display"]);
             echo " _MENU_\",
                     emptyTable:     \"";
-            // line 6563
+            // line 6641
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["No data available in table"]);
             echo "\",
                     info:           \"";
-            // line 6564
+            // line 6642
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Showing"]);
             echo " _START_ ";
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["to"]);
@@ -12786,7 +12904,7 @@ var KTDatatablesExtensions = function() {
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["entries"]);
             echo "\",
                     infoEmpty:      \"";
-            // line 6565
+            // line 6643
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Showing"]);
             echo " 0 ";
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["to"]);
@@ -12796,19 +12914,19 @@ var KTDatatablesExtensions = function() {
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["entries"]);
             echo "\",
                     loadingRecords: \"";
-            // line 6566
+            // line 6644
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Loading"]);
             echo "...\",
                     processing:     \"";
-            // line 6567
+            // line 6645
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Processing"]);
             echo "...\",
                     search:         \"";
-            // line 6568
+            // line 6646
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Search"]);
             echo "\",
                     infoFiltered:   \"(";
-            // line 6569
+            // line 6647
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["filtered from"]);
             echo " _MAX_ ";
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["total entries"]);
@@ -12816,7 +12934,7 @@ var KTDatatablesExtensions = function() {
                 },
                 ajax: {
                     url: '";
-            // line 6572
+            // line 6650
             echo url("api/translatemessages");
             echo "',
                     type: \"POST\",
@@ -12827,26 +12945,26 @@ var KTDatatablesExtensions = function() {
        scroller: true,
        columns: [
            ";
-            // line 6580
+            // line 6658
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable(($context["languages"] ?? null));
             foreach ($context['_seq'] as $context["_key"] => $context["lang"]) {
-                // line 6581
+                // line 6659
                 echo "            {data: '";
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["lang"], "name", [], "any", false, false, false, 6581), "html", null, true);
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["lang"], "name", [], "any", false, false, false, 6659), "html", null, true);
                 echo "'},
            ";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['lang'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 6583
+            // line 6661
             echo "       ],
       });
         ";
-        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 6585
-($context["this"] ?? null), "param", [], "any", false, false, false, 6585), "page", [], "any", false, false, false, 6585) == "backup")) {
-            // line 6586
+        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 6663
+($context["this"] ?? null), "param", [], "any", false, false, false, 6663), "page", [], "any", false, false, false, 6663) == "backup")) {
+            // line 6664
             echo "            table.DataTable({
        responsive: true,
                 dom: \"<'row'<'col-md-6'><'col-md-6 text-right'>>\\n\\t\\t\\t<'row'<'col-md-12'tr>>\\n\\t\\t\\t<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7 dataTables_pager'lp>>\",
@@ -12860,15 +12978,15 @@ var KTDatatablesExtensions = function() {
                 pageLength: 10,
                 language: {
                     lengthMenu: \"";
-            // line 6598
+            // line 6676
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Display"]);
             echo " _MENU_\",
                     emptyTable:     \"";
-            // line 6599
+            // line 6677
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["No data available in table"]);
             echo "\",
                     info:           \"";
-            // line 6600
+            // line 6678
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Showing"]);
             echo " _START_ ";
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["to"]);
@@ -12878,7 +12996,7 @@ var KTDatatablesExtensions = function() {
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["entries"]);
             echo "\",
                     infoEmpty:      \"";
-            // line 6601
+            // line 6679
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Showing"]);
             echo " 0 ";
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["to"]);
@@ -12888,19 +13006,19 @@ var KTDatatablesExtensions = function() {
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["entries"]);
             echo "\",
                     loadingRecords: \"";
-            // line 6602
+            // line 6680
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Loading"]);
             echo "...\",
                     processing:     \"";
-            // line 6603
+            // line 6681
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Processing"]);
             echo "...\",
                     search:         \"";
-            // line 6604
+            // line 6682
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Search"]);
             echo "\",
                     infoFiltered:   \"(";
-            // line 6605
+            // line 6683
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["filtered from"]);
             echo " _MAX_ ";
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["total entries"]);
@@ -12911,7 +13029,7 @@ var KTDatatablesExtensions = function() {
                 serverSide: true,
                 ajax: {
                     url: '";
-            // line 6611
+            // line 6689
             echo url("api/backups");
             echo "',
                     type: \"POST\",
@@ -12922,7 +13040,7 @@ var KTDatatablesExtensions = function() {
                     'orderable':false,
                     'render': function (data, type, full, meta){
                         return '<a href=\"";
-            // line 6619
+            // line 6697
             echo twig_escape_filter($this->env, twig_replace_filter($this->extensions['System\Twig\Extension']->mediaFilter("app/uploads/panakour-backup"), ["app/media/" => ""]), "html", null, true);
             echo "/' + full.fileInfo.basename + '\" download>' + full.fileInfo.basename + '</a>';
                     }
@@ -12932,7 +13050,7 @@ var KTDatatablesExtensions = function() {
                     'orderable':false,
                     'render': function (data, type, full, meta){
                         return full.size + ' ";
-            // line 6626
+            // line 6704
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["KB"]);
             echo "';
                     }
@@ -12952,7 +13070,7 @@ var KTDatatablesExtensions = function() {
                    'className': 'dt-body-center',
                    'render': function (data, type, full, meta){
                         return '<div class=\"btn-group m-btn-group\" role=\"group\" aria-label=\"...\"><button class=\"btn btn-danger delete_record\" rel=\"' + full.fileInfo.basename + '\" data-type=\"backup\" ><span><i class=\"la la-times\"></i> <span>";
-            // line 6643
+            // line 6721
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Delete"]);
             echo "</span></span></button></div>';
                     }
@@ -12960,7 +13078,7 @@ var KTDatatablesExtensions = function() {
             });
         ";
         }
-        // line 6648
+        // line 6726
         echo "
 
 
@@ -13023,9 +13141,9 @@ KTUtil.ready(function() {
     });
 
     ";
-        // line 6709
-        if (((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "param", [], "any", false, false, false, 6709), "page", [], "any", false, false, false, 6709) == "general") || twig_test_empty(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "param", [], "any", false, false, false, 6709), "page", [], "any", false, false, false, 6709)))) {
-            // line 6710
+        // line 6787
+        if (((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "param", [], "any", false, false, false, 6787), "page", [], "any", false, false, false, 6787) == "general") || twig_test_empty(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "param", [], "any", false, false, false, 6787), "page", [], "any", false, false, false, 6787)))) {
+            // line 6788
             echo "        \$('body').on('changed.bs.select', '#currency', function(e, clickedIndex, newValue, oldValue){
             var selected = \$(e.currentTarget).val();
             if(selected != ''){
@@ -13050,9 +13168,9 @@ KTUtil.ready(function() {
             }
         });
     ";
-        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 6733
-($context["this"] ?? null), "param", [], "any", false, false, false, 6733), "page", [], "any", false, false, false, 6733) == "website")) {
-            // line 6734
+        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 6811
+($context["this"] ?? null), "param", [], "any", false, false, false, 6811), "page", [], "any", false, false, false, 6811) == "website")) {
+            // line 6812
             echo "        \$('#homepage_slider').repeater({
             initEmpty: false,
             show: function () {
@@ -13093,9 +13211,9 @@ KTUtil.ready(function() {
         var input = document.getElementById('kt_tagify_2');
         new Tagify(input);
     ";
-        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 6773
-($context["this"] ?? null), "param", [], "any", false, false, false, 6773), "page", [], "any", false, false, false, 6773) == "company")) {
-            // line 6774
+        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 6851
+($context["this"] ?? null), "param", [], "any", false, false, false, 6851), "page", [], "any", false, false, false, 6851) == "company")) {
+            // line 6852
             echo "        \$(\"#address\").geocomplete({
             map: \"#map_canvas\",
             mapOptions: {
@@ -13106,17 +13224,17 @@ KTUtil.ready(function() {
             },
             details: \".location-complete\",
             ";
-            // line 6783
-            if (twig_get_attribute($this->env, $this->source, ($context["company"] ?? null), "lat", [], "any", false, false, false, 6783)) {
-                // line 6784
+            // line 6861
+            if (twig_get_attribute($this->env, $this->source, ($context["company"] ?? null), "lat", [], "any", false, false, false, 6861)) {
+                // line 6862
                 echo "                location: [";
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["company"] ?? null), "lat", [], "any", false, false, false, 6784), "html", null, true);
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["company"] ?? null), "lat", [], "any", false, false, false, 6862), "html", null, true);
                 echo ",";
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["company"] ?? null), "lng", [], "any", false, false, false, 6784), "html", null, true);
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["company"] ?? null), "lng", [], "any", false, false, false, 6862), "html", null, true);
                 echo "]
             ";
             }
-            // line 6786
+            // line 6864
             echo "        });
         \$(\"#address\").bind(\"geocode:dragged\", function(event, latLng){
             \$(\"input[id=lat]\").val(latLng.lat());
@@ -13127,14 +13245,14 @@ KTUtil.ready(function() {
         var input = document.getElementById('kt_tagify_2');
         new Tagify(input);
     ";
-        } elseif ((((((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 6795
-($context["this"] ?? null), "param", [], "any", false, false, false, 6795), "page", [], "any", false, false, false, 6795) == "languages") || (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "param", [], "any", false, false, false, 6795), "page", [], "any", false, false, false, 6795) == "departments")) || (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "param", [], "any", false, false, false, 6795), "page", [], "any", false, false, false, 6795) == "employees")) || (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "param", [], "any", false, false, false, 6795), "page", [], "any", false, false, false, 6795) == "currencies")) || (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "param", [], "any", false, false, false, 6795), "page", [], "any", false, false, false, 6795) == "packaging"))) {
-            // line 6796
+        } elseif ((((((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 6873
+($context["this"] ?? null), "param", [], "any", false, false, false, 6873), "page", [], "any", false, false, false, 6873) == "languages") || (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "param", [], "any", false, false, false, 6873), "page", [], "any", false, false, false, 6873) == "departments")) || (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "param", [], "any", false, false, false, 6873), "page", [], "any", false, false, false, 6873) == "employees")) || (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "param", [], "any", false, false, false, 6873), "page", [], "any", false, false, false, 6873) == "currencies")) || (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "param", [], "any", false, false, false, 6873), "page", [], "any", false, false, false, 6873) == "packaging"))) {
+            // line 6874
             echo "        KTAppUserListDatatable.init();
     ";
-        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 6797
-($context["this"] ?? null), "param", [], "any", false, false, false, 6797), "page", [], "any", false, false, false, 6797) == "sms")) {
-            // line 6798
+        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 6875
+($context["this"] ?? null), "param", [], "any", false, false, false, 6875), "page", [], "any", false, false, false, 6875) == "sms")) {
+            // line 6876
             echo "        \$('body').on('click', '#enable_sms_notification', function(){
             \$('#sms_notification').addClass('kt-hidden');
             if(\$(this).is(':checked')){
@@ -13161,9 +13279,9 @@ KTUtil.ready(function() {
             }
         });
     ";
-        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 6823
-($context["this"] ?? null), "param", [], "any", false, false, false, 6823), "page", [], "any", false, false, false, 6823) == "mail")) {
-            // line 6824
+        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 6901
+($context["this"] ?? null), "param", [], "any", false, false, false, 6901), "page", [], "any", false, false, false, 6901) == "mail")) {
+            // line 6902
             echo "        \$('body').on('changed.bs.select', '.send_mode', function(e, clickedIndex, newValue, oldValue){
             var selected = \$(e.currentTarget).val();
 
@@ -13178,9 +13296,9 @@ KTUtil.ready(function() {
             }
         });
     ";
-        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 6837
-($context["this"] ?? null), "param", [], "any", false, false, false, 6837), "page", [], "any", false, false, false, 6837) == "payment")) {
-            // line 6838
+        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 6915
+($context["this"] ?? null), "param", [], "any", false, false, false, 6915), "page", [], "any", false, false, false, 6915) == "payment")) {
+            // line 6916
             echo "        \$('body').on('click', '#enable_payment_transfer', function(){
             \$('.transfer').addClass('kt-hidden');
             if(\$(this).is(':checked')){
@@ -13217,9 +13335,9 @@ KTUtil.ready(function() {
             }
         });
     ";
-        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 6873
-($context["this"] ?? null), "param", [], "any", false, false, false, 6873), "page", [], "any", false, false, false, 6873) == "notifications")) {
-            // line 6874
+        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 6951
+($context["this"] ?? null), "param", [], "any", false, false, false, 6951), "page", [], "any", false, false, false, 6951) == "notifications")) {
+            // line 6952
             echo "        \$('body').on('changed.bs.select', '.provider', function(e, clickedIndex, newValue, oldValue){
             var selected = \$(e.currentTarget).val();
             if(selected != ''){
@@ -13267,30 +13385,30 @@ KTUtil.ready(function() {
             }
         });
     ";
-        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 6920
-($context["this"] ?? null), "param", [], "any", false, false, false, 6920), "page", [], "any", false, false, false, 6920) == "backup")) {
-            // line 6921
+        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 6998
+($context["this"] ?? null), "param", [], "any", false, false, false, 6998), "page", [], "any", false, false, false, 6998) == "backup")) {
+            // line 6999
             echo "    
         KTAppUserListDatatable.init();
 
        ";
-            // line 6924
-            if (twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "demo_mode", [], "any", false, false, false, 6924)) {
-                // line 6925
+            // line 7002
+            if (twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "demo_mode", [], "any", false, false, false, 7002)) {
+                // line 7003
                 echo "         \$('body').on('click', '#database', function(e){
              swal.fire({
                  title: '";
-                // line 6927
+                // line 7005
                 echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Error"]);
                 echo "',
                  text: '";
-                // line 6928
+                // line 7006
                 echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["This feature is not allowed in demo"]);
                 echo "',
                  type: 'error',
                  buttonsStyling: false,
                  confirmButtonText: '";
-                // line 6931
+                // line 7009
                 echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["OK"]);
                 echo "',
                  confirmButtonClass: \"btn btn-sm btn-bold btn-brand\",
@@ -13299,17 +13417,17 @@ KTUtil.ready(function() {
          \$('body').on('click', '#files', function(e){
              swal.fire({
                  title: '";
-                // line 6937
+                // line 7015
                 echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Error"]);
                 echo "',
                  text: '";
-                // line 6938
+                // line 7016
                 echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["This feature is not allowed in demo"]);
                 echo "',
                  type: 'error',
                  buttonsStyling: false,
                  confirmButtonText: '";
-                // line 6941
+                // line 7019
                 echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["OK"]);
                 echo "',
                  confirmButtonClass: \"btn btn-sm btn-bold btn-brand\",
@@ -13318,17 +13436,17 @@ KTUtil.ready(function() {
          \$('body').on('click', '#whole', function(e){
              swal.fire({
                  title: '";
-                // line 6947
+                // line 7025
                 echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Error"]);
                 echo "',
                  text: '";
-                // line 6948
+                // line 7026
                 echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["This feature is not allowed in demo"]);
                 echo "',
                  type: 'error',
                  buttonsStyling: false,
                  confirmButtonText: '";
-                // line 6951
+                // line 7029
                 echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["OK"]);
                 echo "',
                  confirmButtonClass: \"btn btn-sm btn-bold btn-brand\",
@@ -13336,14 +13454,14 @@ KTUtil.ready(function() {
          });
         ";
             } else {
-                // line 6956
+                // line 7034
                 echo "          \$('body').on('click', '#database', function(e){
               KTApp.blockPage({
                   overlayColor: '#000000',
                   type: 'v2',
                   state: 'primary',
                   message: '";
-                // line 6961
+                // line 7039
                 echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Processing, please wait"]);
                 echo "...'
               });
@@ -13354,14 +13472,14 @@ KTUtil.ready(function() {
                        console.log(response.result);
                        swal.fire({
                            title: '";
-                // line 6969
+                // line 7047
                 echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Success!"]);
                 echo "',
                            text: response.result,
                            type: 'success',
                            buttonsStyling: false,
                            confirmButtonText: '";
-                // line 6973
+                // line 7051
                 echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["OK"]);
                 echo "',
                            confirmButtonClass: \"btn btn-sm btn-bold btn-brand\",
@@ -13378,7 +13496,7 @@ KTUtil.ready(function() {
                   type: 'v2',
                   state: 'primary',
                   message: '";
-                // line 6987
+                // line 7065
                 echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Processing, please wait"]);
                 echo "...'
               });
@@ -13389,14 +13507,14 @@ KTUtil.ready(function() {
                        console.log(response.result);
                        swal.fire({
                            title: '";
-                // line 6995
+                // line 7073
                 echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Success!"]);
                 echo "',
                            text: response.result,
                            type: 'success',
                            buttonsStyling: false,
                            confirmButtonText: '";
-                // line 6999
+                // line 7077
                 echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["OK"]);
                 echo "',
                            confirmButtonClass: \"btn btn-sm btn-bold btn-brand\",
@@ -13412,7 +13530,7 @@ KTUtil.ready(function() {
                   type: 'v2',
                   state: 'primary',
                   message: '";
-                // line 7012
+                // line 7090
                 echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Processing, please wait"]);
                 echo "...'
               });
@@ -13423,14 +13541,14 @@ KTUtil.ready(function() {
                        console.log(response.result);
                        swal.fire({
                            title: '";
-                // line 7020
+                // line 7098
                 echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Success!"]);
                 echo "',
                            text: response.result,
                            type: 'success',
                            buttonsStyling: false,
                            confirmButtonText: '";
-                // line 7024
+                // line 7102
                 echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["OK"]);
                 echo "',
                            confirmButtonClass: \"btn btn-sm btn-bold btn-brand\",
@@ -13445,10 +13563,10 @@ KTUtil.ready(function() {
           }
         ";
             }
-            // line 7036
+            // line 7114
             echo "    ";
-        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "param", [], "any", false, false, false, 7036), "page", [], "any", false, false, false, 7036) == "fees")) {
-            // line 7037
+        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "param", [], "any", false, false, false, 7114), "page", [], "any", false, false, false, 7114) == "fees")) {
+            // line 7115
             echo "        \$('.bootstrap-touchspin-vertical-btn').TouchSpin({
             buttondown_class: 'btn btn-secondary',
             buttonup_class: 'btn btn-secondary',
@@ -13458,9 +13576,9 @@ KTUtil.ready(function() {
         });
         KTAppUserListDatatable.init();
     ";
-        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 7045
-($context["this"] ?? null), "param", [], "any", false, false, false, 7045), "page", [], "any", false, false, false, 7045) == "translate")) {
-            // line 7046
+        } elseif ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 7123
+($context["this"] ?? null), "param", [], "any", false, false, false, 7123), "page", [], "any", false, false, false, 7123) == "translate")) {
+            // line 7124
             echo "        // Activate an inline edit on click of a table cell
         \$('#kt_table_1').on( 'click', 'tbody td .translate', function (e) {
             if(\$(this).find('.inline_edit').length == 0){
@@ -13488,19 +13606,19 @@ KTUtil.ready(function() {
         });
      KTDatatablesExtensions.init();
     ";
-        } elseif (((((((((((((((((((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 7072
-($context["this"] ?? null), "param", [], "any", false, false, false, 7072), "page", [], "any", false, false, false, 7072) == "statuses") || (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "param", [], "any", false, false, false, 7072), "page", [], "any", false, false, false, 7072) == "Stockstatuses")) || (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "param", [], "any", false, false, false, 7072), "page", [], "any", false, false, false, 7072) == "Customstatuses")) || (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "param", [], "any", false, false, false, 7072), "page", [], "any", false, false, false, 7072) == "treasury")) || (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "param", [], "any", false, false, false, 7072), "page", [], "any", false, false, false, 7072) == "categories")) || (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "param", [], "any", false, false, false, 7072), "page", [], "any", false, false, false, 7072) == "couriers")) || (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "param", [], "any", false, false, false, 7072), "page", [], "any", false, false, false, 7072) == "deliverytimes")) || (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "param", [], "any", false, false, false, 7072), "page", [], "any", false, false, false, 7072) == "shipping")) || (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "param", [], "any", false, false, false, 7072), "page", [], "any", false, false, false, 7072) == "branches")) || (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "param", [], "any", false, false, false, 7072), "page", [], "any", false, false, false, 7072) == "cars")) || (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "param", [], "any", false, false, false, 7072), "page", [], "any", false, false, false, 7072) == "destination")) || (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "param", [], "any", false, false, false, 7072), "page", [], "any", false, false, false, 7072) == "location")) || (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "param", [], "any", false, false, false, 7072), "page", [], "any", false, false, false, 7072) == "statuscontainer")) || (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 7073
-($context["this"] ?? null), "param", [], "any", false, false, false, 7073), "page", [], "any", false, false, false, 7073) == "reasonarrival")) || (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "param", [], "any", false, false, false, 7073), "page", [], "any", false, false, false, 7073) == "size")) || (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "param", [], "any", false, false, false, 7073), "page", [], "any", false, false, false, 7073) == "labels")) || (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "param", [], "any", false, false, false, 7073), "page", [], "any", false, false, false, 7073) == "handler")) || (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "param", [], "any", false, false, false, 7073), "page", [], "any", false, false, false, 7073) == "break"))) {
-            // line 7074
+        } elseif (((((((((((((((((((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 7150
+($context["this"] ?? null), "param", [], "any", false, false, false, 7150), "page", [], "any", false, false, false, 7150) == "statuses") || (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "param", [], "any", false, false, false, 7150), "page", [], "any", false, false, false, 7150) == "Stockstatuses")) || (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "param", [], "any", false, false, false, 7150), "page", [], "any", false, false, false, 7150) == "Customstatuses")) || (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "param", [], "any", false, false, false, 7150), "page", [], "any", false, false, false, 7150) == "treasury")) || (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "param", [], "any", false, false, false, 7150), "page", [], "any", false, false, false, 7150) == "categories")) || (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "param", [], "any", false, false, false, 7150), "page", [], "any", false, false, false, 7150) == "couriers")) || (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "param", [], "any", false, false, false, 7150), "page", [], "any", false, false, false, 7150) == "deliverytimes")) || (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "param", [], "any", false, false, false, 7150), "page", [], "any", false, false, false, 7150) == "shipping")) || (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "param", [], "any", false, false, false, 7150), "page", [], "any", false, false, false, 7150) == "branches")) || (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "param", [], "any", false, false, false, 7150), "page", [], "any", false, false, false, 7150) == "cars")) || (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "param", [], "any", false, false, false, 7150), "page", [], "any", false, false, false, 7150) == "destination")) || (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "param", [], "any", false, false, false, 7150), "page", [], "any", false, false, false, 7150) == "location")) || (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "param", [], "any", false, false, false, 7150), "page", [], "any", false, false, false, 7150) == "statuscontainer")) || (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 7151
+($context["this"] ?? null), "param", [], "any", false, false, false, 7151), "page", [], "any", false, false, false, 7151) == "reasonarrival")) || (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "param", [], "any", false, false, false, 7151), "page", [], "any", false, false, false, 7151) == "size")) || (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "param", [], "any", false, false, false, 7151), "page", [], "any", false, false, false, 7151) == "labels")) || (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "param", [], "any", false, false, false, 7151), "page", [], "any", false, false, false, 7151) == "handler")) || (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "param", [], "any", false, false, false, 7151), "page", [], "any", false, false, false, 7151) == "break"))) {
+            // line 7152
             echo "        KTAppUserListDatatable.init();
     ";
-        } elseif (((((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 7075
-($context["this"] ?? null), "param", [], "any", false, false, false, 7075), "page", [], "any", false, false, false, 7075) == "areas") || (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "param", [], "any", false, false, false, 7075), "page", [], "any", false, false, false, 7075) == "cities")) || (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "param", [], "any", false, false, false, 7075), "page", [], "any", false, false, false, 7075) == "states")) || (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "param", [], "any", false, false, false, 7075), "page", [], "any", false, false, false, 7075) == "countries"))) {
-            // line 7076
+        } elseif (((((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 7153
+($context["this"] ?? null), "param", [], "any", false, false, false, 7153), "page", [], "any", false, false, false, 7153) == "areas") || (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "param", [], "any", false, false, false, 7153), "page", [], "any", false, false, false, 7153) == "cities")) || (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "param", [], "any", false, false, false, 7153), "page", [], "any", false, false, false, 7153) == "states")) || (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "param", [], "any", false, false, false, 7153), "page", [], "any", false, false, false, 7153) == "countries"))) {
+            // line 7154
             echo "        KTAppUserListDatatable.init();
     ";
         }
-        // line 7078
+        // line 7156
         echo "});
 </script>
 ";
@@ -13520,7 +13638,7 @@ KTUtil.ready(function() {
 
     public function getDebugInfo()
     {
-        return array (  13508 => 4271,  13504 => 7078,  13500 => 7076,  13498 => 7075,  13495 => 7074,  13493 => 7073,  13492 => 7072,  13464 => 7046,  13462 => 7045,  13452 => 7037,  13449 => 7036,  13434 => 7024,  13427 => 7020,  13416 => 7012,  13400 => 6999,  13393 => 6995,  13382 => 6987,  13365 => 6973,  13358 => 6969,  13347 => 6961,  13340 => 6956,  13332 => 6951,  13326 => 6948,  13322 => 6947,  13313 => 6941,  13307 => 6938,  13303 => 6937,  13294 => 6931,  13288 => 6928,  13284 => 6927,  13280 => 6925,  13278 => 6924,  13273 => 6921,  13271 => 6920,  13223 => 6874,  13221 => 6873,  13184 => 6838,  13182 => 6837,  13167 => 6824,  13165 => 6823,  13138 => 6798,  13136 => 6797,  13133 => 6796,  13131 => 6795,  13120 => 6786,  13112 => 6784,  13110 => 6783,  13099 => 6774,  13097 => 6773,  13056 => 6734,  13054 => 6733,  13029 => 6710,  13027 => 6709,  12964 => 6648,  12956 => 6643,  12936 => 6626,  12926 => 6619,  12915 => 6611,  12904 => 6605,  12900 => 6604,  12896 => 6603,  12892 => 6602,  12882 => 6601,  12872 => 6600,  12868 => 6599,  12864 => 6598,  12850 => 6586,  12848 => 6585,  12844 => 6583,  12835 => 6581,  12831 => 6580,  12820 => 6572,  12812 => 6569,  12808 => 6568,  12804 => 6567,  12800 => 6566,  12790 => 6565,  12780 => 6564,  12776 => 6563,  12772 => 6562,  12765 => 6557,  12763 => 6556,  12731 => 6527,  12718 => 6517,  12712 => 6514,  12708 => 6513,  12695 => 6503,  12689 => 6500,  12685 => 6499,  12673 => 6490,  12666 => 6486,  12660 => 6483,  12642 => 6468,  12636 => 6465,  12632 => 6464,  12619 => 6454,  12613 => 6451,  12609 => 6450,  12598 => 6442,  12591 => 6438,  12583 => 6435,  12555 => 6410,  12549 => 6407,  12545 => 6406,  12535 => 6399,  12529 => 6396,  12525 => 6395,  12517 => 6390,  12510 => 6386,  12502 => 6383,  12441 => 6324,  12435 => 6320,  12431 => 6318,  12427 => 6316,  12421 => 6314,  12419 => 6313,  12415 => 6311,  12413 => 6310,  12405 => 6305,  12394 => 6297,  12386 => 6292,  12378 => 6287,  12370 => 6282,  12362 => 6277,  12347 => 6265,  12340 => 6260,  12338 => 6259,  12333 => 6256,  12329 => 6254,  12325 => 6252,  12319 => 6250,  12316 => 6249,  12308 => 6247,  12306 => 6246,  12302 => 6244,  12300 => 6243,  12292 => 6238,  12262 => 6211,  12252 => 6204,  12242 => 6197,  12217 => 6175,  12210 => 6170,  12208 => 6169,  12201 => 6164,  12197 => 6162,  12193 => 6160,  12187 => 6158,  12184 => 6157,  12176 => 6155,  12174 => 6154,  12170 => 6152,  12168 => 6151,  12160 => 6146,  12149 => 6138,  12139 => 6131,  12114 => 6109,  12107 => 6104,  12105 => 6103,  12100 => 6100,  12096 => 6098,  12092 => 6096,  12086 => 6094,  12083 => 6093,  12075 => 6091,  12073 => 6090,  12069 => 6088,  12067 => 6087,  12059 => 6082,  12048 => 6074,  12038 => 6067,  12025 => 6057,  12000 => 6035,  11993 => 6030,  11991 => 6029,  11986 => 6026,  11982 => 6024,  11978 => 6022,  11972 => 6020,  11969 => 6019,  11961 => 6017,  11959 => 6016,  11955 => 6014,  11953 => 6013,  11945 => 6008,  11934 => 6000,  11924 => 5993,  11911 => 5983,  11886 => 5961,  11879 => 5956,  11877 => 5955,  11872 => 5952,  11868 => 5950,  11864 => 5948,  11858 => 5946,  11855 => 5945,  11847 => 5943,  11845 => 5942,  11841 => 5940,  11839 => 5939,  11831 => 5934,  11820 => 5926,  11810 => 5919,  11797 => 5909,  11772 => 5887,  11765 => 5882,  11763 => 5881,  11758 => 5878,  11754 => 5876,  11750 => 5874,  11744 => 5872,  11741 => 5871,  11733 => 5869,  11731 => 5868,  11727 => 5866,  11725 => 5865,  11717 => 5860,  11706 => 5852,  11693 => 5842,  11668 => 5820,  11661 => 5815,  11659 => 5814,  11654 => 5811,  11650 => 5809,  11646 => 5807,  11640 => 5805,  11637 => 5804,  11629 => 5802,  11627 => 5801,  11623 => 5799,  11621 => 5798,  11613 => 5793,  11602 => 5785,  11577 => 5763,  11570 => 5758,  11568 => 5757,  11563 => 5754,  11559 => 5752,  11555 => 5750,  11549 => 5748,  11546 => 5747,  11538 => 5745,  11536 => 5744,  11532 => 5742,  11530 => 5741,  11522 => 5736,  11511 => 5728,  11486 => 5706,  11479 => 5701,  11477 => 5700,  11472 => 5697,  11468 => 5695,  11464 => 5693,  11458 => 5691,  11455 => 5690,  11447 => 5688,  11445 => 5687,  11441 => 5685,  11439 => 5684,  11431 => 5679,  11420 => 5671,  11395 => 5649,  11388 => 5644,  11386 => 5643,  11381 => 5640,  11377 => 5638,  11373 => 5636,  11367 => 5634,  11364 => 5633,  11356 => 5631,  11354 => 5630,  11350 => 5628,  11348 => 5627,  11340 => 5622,  11329 => 5614,  11304 => 5592,  11297 => 5587,  11295 => 5586,  11290 => 5583,  11286 => 5581,  11282 => 5579,  11276 => 5577,  11273 => 5576,  11265 => 5574,  11263 => 5573,  11259 => 5571,  11257 => 5570,  11249 => 5565,  11238 => 5557,  11213 => 5535,  11206 => 5530,  11204 => 5529,  11199 => 5526,  11195 => 5524,  11191 => 5522,  11185 => 5520,  11182 => 5519,  11174 => 5517,  11172 => 5516,  11168 => 5514,  11166 => 5513,  11158 => 5508,  11147 => 5500,  11122 => 5478,  11115 => 5473,  11113 => 5472,  11108 => 5469,  11104 => 5467,  11100 => 5465,  11094 => 5463,  11091 => 5462,  11083 => 5460,  11081 => 5459,  11077 => 5457,  11075 => 5456,  11067 => 5451,  11056 => 5443,  11031 => 5421,  11024 => 5416,  11022 => 5415,  11017 => 5412,  11013 => 5410,  11009 => 5408,  11003 => 5406,  11000 => 5405,  10992 => 5403,  10990 => 5402,  10986 => 5400,  10984 => 5399,  10976 => 5394,  10965 => 5386,  10940 => 5364,  10933 => 5359,  10931 => 5358,  10926 => 5355,  10922 => 5353,  10918 => 5351,  10912 => 5349,  10909 => 5348,  10901 => 5346,  10899 => 5345,  10895 => 5343,  10893 => 5342,  10885 => 5337,  10874 => 5329,  10864 => 5322,  10856 => 5317,  10848 => 5312,  10823 => 5290,  10816 => 5285,  10814 => 5284,  10809 => 5281,  10805 => 5279,  10801 => 5277,  10795 => 5275,  10792 => 5274,  10784 => 5272,  10782 => 5271,  10778 => 5269,  10776 => 5268,  10768 => 5263,  10757 => 5255,  10732 => 5233,  10725 => 5228,  10723 => 5227,  10718 => 5224,  10714 => 5222,  10710 => 5220,  10704 => 5218,  10701 => 5217,  10693 => 5215,  10691 => 5214,  10687 => 5212,  10685 => 5211,  10677 => 5206,  10666 => 5198,  10641 => 5176,  10634 => 5171,  10632 => 5170,  10627 => 5167,  10623 => 5165,  10619 => 5163,  10613 => 5161,  10610 => 5160,  10602 => 5158,  10600 => 5157,  10596 => 5155,  10594 => 5154,  10586 => 5149,  10575 => 5141,  10550 => 5119,  10543 => 5114,  10541 => 5113,  10536 => 5110,  10532 => 5108,  10528 => 5106,  10522 => 5104,  10519 => 5103,  10511 => 5101,  10509 => 5100,  10505 => 5098,  10503 => 5097,  10495 => 5092,  10484 => 5084,  10471 => 5074,  10458 => 5064,  10448 => 5057,  10438 => 5050,  10413 => 5028,  10406 => 5023,  10404 => 5022,  10399 => 5019,  10395 => 5017,  10391 => 5015,  10385 => 5013,  10382 => 5012,  10374 => 5010,  10372 => 5009,  10368 => 5007,  10366 => 5006,  10358 => 5001,  10347 => 4993,  10322 => 4971,  10315 => 4966,  10313 => 4965,  10308 => 4962,  10304 => 4960,  10300 => 4958,  10294 => 4956,  10291 => 4955,  10283 => 4953,  10281 => 4952,  10277 => 4950,  10275 => 4949,  10267 => 4944,  10256 => 4936,  10231 => 4914,  10224 => 4909,  10222 => 4908,  10217 => 4905,  10213 => 4903,  10209 => 4901,  10203 => 4899,  10200 => 4898,  10192 => 4896,  10190 => 4895,  10186 => 4893,  10184 => 4892,  10176 => 4887,  10165 => 4879,  10140 => 4857,  10133 => 4852,  10131 => 4851,  10126 => 4848,  10122 => 4846,  10118 => 4844,  10112 => 4842,  10109 => 4841,  10101 => 4839,  10099 => 4838,  10095 => 4836,  10093 => 4835,  10085 => 4830,  10074 => 4822,  10049 => 4800,  10042 => 4795,  10040 => 4794,  10035 => 4791,  10031 => 4789,  10027 => 4787,  10021 => 4785,  10018 => 4784,  10010 => 4782,  10008 => 4781,  10004 => 4779,  10002 => 4778,  9994 => 4773,  9983 => 4765,  9958 => 4743,  9950 => 4737,  9948 => 4736,  9943 => 4733,  9939 => 4731,  9935 => 4729,  9929 => 4727,  9926 => 4726,  9918 => 4724,  9916 => 4723,  9912 => 4721,  9910 => 4720,  9902 => 4715,  9891 => 4707,  9866 => 4685,  9859 => 4680,  9857 => 4679,  9852 => 4676,  9848 => 4674,  9844 => 4672,  9838 => 4670,  9835 => 4669,  9827 => 4667,  9825 => 4666,  9821 => 4664,  9819 => 4663,  9811 => 4658,  9800 => 4650,  9790 => 4643,  9765 => 4621,  9758 => 4616,  9756 => 4615,  9751 => 4612,  9747 => 4610,  9743 => 4608,  9737 => 4606,  9734 => 4605,  9726 => 4603,  9724 => 4602,  9720 => 4600,  9718 => 4599,  9710 => 4594,  9697 => 4584,  9690 => 4580,  9683 => 4576,  9671 => 4567,  9660 => 4559,  9653 => 4555,  9646 => 4551,  9634 => 4542,  9624 => 4535,  9614 => 4528,  9589 => 4506,  9582 => 4501,  9580 => 4500,  9575 => 4497,  9571 => 4495,  9567 => 4493,  9561 => 4491,  9559 => 4490,  9555 => 4488,  9553 => 4487,  9545 => 4482,  9532 => 4472,  9525 => 4468,  9518 => 4464,  9506 => 4455,  9495 => 4447,  9488 => 4443,  9481 => 4439,  9469 => 4430,  9459 => 4423,  9449 => 4416,  9424 => 4394,  9417 => 4389,  9415 => 4388,  9381 => 4367,  9375 => 4364,  9371 => 4363,  9367 => 4362,  9363 => 4361,  9359 => 4360,  9355 => 4359,  9351 => 4358,  9342 => 4352,  9338 => 4351,  9302 => 4318,  9260 => 4278,  9254 => 4276,  9252 => 4275,  9248 => 4274,  9243 => 4273,  9241 => 4272,  9239 => 4271,  9237 => 4253,  9226 => 4261,  9224 => 4260,  9217 => 4255,  9214 => 4254,  9212 => 4253,  9201 => 4246,  9193 => 4240,  9191 => 4239,  9184 => 4234,  9175 => 4232,  9171 => 4231,  9164 => 4226,  9162 => 4225,  9155 => 4220,  9153 => 4219,  9146 => 4214,  9144 => 4213,  9137 => 4208,  9135 => 4207,  9128 => 4202,  9126 => 4201,  9119 => 4197,  9109 => 4190,  9104 => 4188,  9097 => 4184,  9092 => 4182,  9079 => 4176,  9070 => 4170,  9065 => 4168,  9055 => 4163,  9049 => 4162,  9041 => 4157,  9034 => 4153,  9029 => 4151,  9022 => 4149,  9015 => 4145,  9010 => 4143,  9003 => 4141,  8994 => 4137,  8988 => 4136,  8982 => 4135,  8976 => 4134,  8969 => 4130,  8962 => 4126,  8957 => 4124,  8950 => 4120,  8945 => 4118,  8939 => 4115,  8933 => 4111,  8931 => 4110,  8924 => 4106,  8908 => 4092,  8902 => 4090,  8896 => 4087,  8893 => 4086,  8891 => 4085,  8886 => 4083,  8879 => 4079,  8872 => 4075,  8866 => 4071,  8864 => 4070,  8857 => 4066,  8835 => 4051,  8820 => 4045,  8805 => 4039,  8799 => 4035,  8784 => 4033,  8780 => 4032,  8775 => 4030,  8769 => 4029,  8758 => 4025,  8752 => 4021,  8737 => 4019,  8733 => 4018,  8728 => 4016,  8722 => 4015,  8711 => 4011,  8698 => 4005,  8685 => 3999,  8672 => 3993,  8665 => 3989,  8651 => 3982,  8636 => 3976,  8621 => 3970,  8615 => 3966,  8600 => 3964,  8596 => 3963,  8591 => 3961,  8585 => 3960,  8574 => 3956,  8568 => 3952,  8553 => 3950,  8549 => 3949,  8544 => 3947,  8538 => 3946,  8527 => 3942,  8514 => 3936,  8501 => 3930,  8488 => 3924,  8481 => 3920,  8467 => 3913,  8452 => 3907,  8437 => 3901,  8431 => 3897,  8416 => 3895,  8412 => 3894,  8407 => 3892,  8401 => 3891,  8390 => 3887,  8384 => 3883,  8369 => 3881,  8365 => 3880,  8360 => 3878,  8354 => 3877,  8343 => 3873,  8330 => 3867,  8317 => 3861,  8304 => 3855,  8297 => 3851,  8283 => 3844,  8268 => 3838,  8253 => 3832,  8247 => 3828,  8232 => 3826,  8228 => 3825,  8223 => 3823,  8217 => 3822,  8206 => 3818,  8200 => 3814,  8185 => 3812,  8181 => 3811,  8176 => 3809,  8170 => 3808,  8159 => 3804,  8146 => 3798,  8133 => 3792,  8120 => 3786,  8113 => 3782,  8099 => 3775,  8084 => 3769,  8069 => 3763,  8063 => 3759,  8048 => 3757,  8044 => 3756,  8039 => 3754,  8033 => 3753,  8022 => 3749,  8016 => 3745,  8001 => 3743,  7997 => 3742,  7992 => 3740,  7986 => 3739,  7975 => 3735,  7962 => 3729,  7949 => 3723,  7936 => 3717,  7929 => 3713,  7915 => 3706,  7900 => 3700,  7885 => 3694,  7879 => 3690,  7864 => 3688,  7860 => 3687,  7855 => 3685,  7849 => 3684,  7838 => 3680,  7832 => 3676,  7817 => 3674,  7813 => 3673,  7808 => 3671,  7802 => 3670,  7791 => 3666,  7778 => 3660,  7765 => 3654,  7752 => 3648,  7745 => 3644,  7731 => 3637,  7716 => 3631,  7701 => 3625,  7695 => 3621,  7680 => 3619,  7676 => 3618,  7671 => 3616,  7665 => 3615,  7654 => 3611,  7648 => 3607,  7633 => 3605,  7629 => 3604,  7624 => 3602,  7618 => 3601,  7607 => 3597,  7594 => 3591,  7581 => 3585,  7568 => 3579,  7561 => 3575,  7547 => 3568,  7532 => 3562,  7517 => 3556,  7511 => 3552,  7496 => 3550,  7492 => 3549,  7487 => 3547,  7481 => 3546,  7470 => 3542,  7464 => 3538,  7449 => 3536,  7445 => 3535,  7440 => 3533,  7434 => 3532,  7423 => 3528,  7410 => 3522,  7397 => 3516,  7384 => 3510,  7377 => 3506,  7363 => 3499,  7348 => 3493,  7333 => 3487,  7327 => 3483,  7312 => 3481,  7308 => 3480,  7303 => 3478,  7297 => 3477,  7286 => 3473,  7280 => 3469,  7265 => 3467,  7261 => 3466,  7256 => 3464,  7250 => 3463,  7239 => 3459,  7226 => 3453,  7213 => 3447,  7200 => 3441,  7193 => 3437,  7179 => 3430,  7164 => 3424,  7149 => 3418,  7143 => 3414,  7128 => 3412,  7124 => 3411,  7119 => 3409,  7113 => 3408,  7102 => 3404,  7096 => 3400,  7081 => 3398,  7077 => 3397,  7072 => 3395,  7066 => 3394,  7055 => 3390,  7042 => 3384,  7029 => 3378,  7016 => 3372,  7009 => 3368,  6995 => 3361,  6980 => 3355,  6965 => 3349,  6959 => 3345,  6944 => 3343,  6940 => 3342,  6935 => 3340,  6929 => 3339,  6918 => 3335,  6912 => 3331,  6897 => 3329,  6893 => 3328,  6888 => 3326,  6882 => 3325,  6871 => 3321,  6858 => 3315,  6845 => 3309,  6832 => 3303,  6825 => 3299,  6809 => 3292,  6794 => 3286,  6788 => 3282,  6773 => 3280,  6769 => 3279,  6764 => 3277,  6758 => 3276,  6747 => 3272,  6741 => 3268,  6726 => 3266,  6722 => 3265,  6717 => 3263,  6711 => 3262,  6700 => 3258,  6687 => 3252,  6674 => 3246,  6661 => 3240,  6654 => 3236,  6638 => 3229,  6623 => 3223,  6617 => 3219,  6602 => 3217,  6598 => 3216,  6593 => 3214,  6587 => 3213,  6576 => 3209,  6570 => 3205,  6555 => 3203,  6551 => 3202,  6546 => 3200,  6540 => 3199,  6529 => 3195,  6516 => 3189,  6503 => 3183,  6490 => 3177,  6483 => 3173,  6467 => 3166,  6452 => 3160,  6446 => 3156,  6431 => 3154,  6427 => 3153,  6422 => 3151,  6416 => 3150,  6405 => 3146,  6399 => 3142,  6384 => 3140,  6380 => 3139,  6375 => 3137,  6369 => 3136,  6358 => 3132,  6345 => 3126,  6332 => 3120,  6319 => 3114,  6312 => 3110,  6298 => 3103,  6283 => 3097,  6268 => 3091,  6262 => 3087,  6247 => 3085,  6243 => 3084,  6238 => 3082,  6232 => 3081,  6221 => 3077,  6215 => 3073,  6200 => 3071,  6196 => 3070,  6191 => 3068,  6185 => 3067,  6174 => 3063,  6161 => 3057,  6148 => 3051,  6135 => 3045,  6128 => 3041,  6112 => 3034,  6097 => 3028,  6091 => 3024,  6076 => 3022,  6072 => 3021,  6067 => 3019,  6061 => 3018,  6050 => 3014,  6044 => 3010,  6029 => 3008,  6025 => 3007,  6020 => 3005,  6014 => 3004,  6003 => 3000,  5990 => 2994,  5977 => 2988,  5964 => 2982,  5957 => 2978,  5951 => 2975,  5938 => 2964,  5932 => 2962,  5926 => 2959,  5923 => 2958,  5921 => 2957,  5916 => 2955,  5911 => 2952,  5905 => 2950,  5899 => 2947,  5896 => 2946,  5894 => 2945,  5889 => 2943,  5882 => 2941,  5873 => 2937,  5866 => 2933,  5859 => 2931,  5846 => 2925,  5839 => 2921,  5833 => 2918,  5822 => 2909,  5814 => 2906,  5808 => 2905,  5802 => 2904,  5796 => 2903,  5790 => 2902,  5784 => 2901,  5778 => 2900,  5772 => 2899,  5768 => 2897,  5762 => 2894,  5759 => 2893,  5757 => 2892,  5752 => 2890,  5747 => 2887,  5741 => 2885,  5735 => 2882,  5732 => 2881,  5730 => 2880,  5725 => 2878,  5720 => 2875,  5714 => 2873,  5708 => 2870,  5705 => 2869,  5703 => 2868,  5698 => 2866,  5693 => 2863,  5687 => 2861,  5681 => 2858,  5678 => 2857,  5676 => 2856,  5671 => 2854,  5664 => 2852,  5655 => 2848,  5648 => 2844,  5641 => 2842,  5628 => 2836,  5621 => 2832,  5613 => 2827,  5607 => 2823,  5605 => 2822,  5598 => 2818,  5577 => 2802,  5571 => 2801,  5564 => 2797,  5557 => 2795,  5548 => 2788,  5542 => 2786,  5536 => 2783,  5533 => 2782,  5531 => 2781,  5526 => 2779,  5521 => 2776,  5515 => 2774,  5509 => 2771,  5506 => 2770,  5504 => 2769,  5499 => 2767,  5490 => 2761,  5480 => 2756,  5467 => 2750,  5460 => 2746,  5451 => 2739,  5445 => 2737,  5439 => 2734,  5436 => 2733,  5434 => 2732,  5429 => 2730,  5424 => 2727,  5418 => 2725,  5412 => 2722,  5409 => 2721,  5407 => 2720,  5402 => 2718,  5393 => 2712,  5383 => 2707,  5370 => 2701,  5363 => 2697,  5354 => 2690,  5348 => 2688,  5342 => 2685,  5339 => 2684,  5337 => 2683,  5332 => 2681,  5323 => 2675,  5313 => 2670,  5300 => 2664,  5293 => 2660,  5279 => 2653,  5272 => 2649,  5266 => 2646,  5260 => 2642,  5258 => 2641,  5251 => 2637,  5234 => 2623,  5229 => 2621,  5219 => 2616,  5213 => 2615,  5206 => 2611,  5196 => 2606,  5190 => 2605,  5183 => 2601,  5176 => 2597,  5171 => 2595,  5164 => 2591,  5159 => 2589,  5152 => 2587,  5145 => 2583,  5140 => 2581,  5133 => 2577,  5128 => 2575,  5121 => 2571,  5116 => 2569,  5109 => 2567,  5102 => 2563,  5097 => 2561,  5090 => 2557,  5085 => 2555,  5078 => 2553,  5067 => 2547,  5061 => 2546,  5054 => 2542,  5047 => 2538,  5042 => 2536,  5035 => 2532,  5030 => 2530,  5020 => 2525,  5014 => 2524,  5007 => 2520,  5000 => 2516,  4995 => 2514,  4988 => 2510,  4983 => 2508,  4976 => 2504,  4971 => 2502,  4964 => 2500,  4955 => 2496,  4949 => 2495,  4943 => 2494,  4937 => 2493,  4930 => 2489,  4923 => 2487,  4910 => 2481,  4903 => 2477,  4897 => 2474,  4891 => 2470,  4889 => 2469,  4882 => 2464,  4880 => 2463,  4873 => 2458,  4871 => 2457,  4864 => 2452,  4862 => 2451,  4855 => 2446,  4853 => 2445,  4846 => 2440,  4844 => 2439,  4837 => 2434,  4835 => 2433,  4828 => 2428,  4826 => 2427,  4819 => 2422,  4817 => 2421,  4810 => 2416,  4808 => 2415,  4801 => 2410,  4799 => 2409,  4792 => 2404,  4790 => 2403,  4783 => 2398,  4781 => 2397,  4774 => 2392,  4772 => 2391,  4765 => 2386,  4763 => 2385,  4756 => 2380,  4754 => 2379,  4747 => 2374,  4745 => 2373,  4738 => 2368,  4736 => 2367,  4729 => 2362,  4727 => 2361,  4720 => 2356,  4718 => 2355,  4711 => 2350,  4709 => 2349,  4702 => 2344,  4700 => 2343,  4693 => 2338,  4691 => 2337,  4684 => 2332,  4682 => 2331,  4675 => 2327,  4657 => 2312,  4653 => 2311,  4647 => 2308,  4643 => 2307,  4635 => 2302,  4631 => 2301,  4623 => 2296,  4612 => 2288,  4603 => 2286,  4595 => 2285,  4587 => 2284,  4579 => 2283,  4573 => 2280,  4566 => 2275,  4551 => 2273,  4547 => 2272,  4541 => 2269,  4536 => 2266,  4521 => 2264,  4517 => 2263,  4511 => 2260,  4502 => 2254,  4498 => 2253,  4494 => 2252,  4488 => 2249,  4484 => 2248,  4475 => 2242,  4471 => 2241,  4467 => 2240,  4461 => 2237,  4457 => 2236,  4449 => 2231,  4442 => 2227,  4436 => 2223,  4434 => 2222,  4427 => 2218,  4410 => 2203,  4395 => 2201,  4391 => 2200,  4384 => 2196,  4370 => 2189,  4363 => 2185,  4356 => 2181,  4345 => 2172,  4328 => 2170,  4324 => 2169,  4317 => 2165,  4303 => 2158,  4296 => 2154,  4289 => 2150,  4278 => 2141,  4263 => 2139,  4259 => 2138,  4252 => 2134,  4238 => 2127,  4231 => 2123,  4224 => 2119,  4213 => 2110,  4198 => 2108,  4194 => 2107,  4187 => 2103,  4173 => 2096,  4166 => 2092,  4159 => 2088,  4148 => 2079,  4133 => 2077,  4129 => 2076,  4122 => 2072,  4108 => 2065,  4101 => 2061,  4094 => 2057,  4079 => 2045,  4074 => 2043,  4060 => 2036,  4053 => 2032,  4046 => 2028,  4035 => 2020,  4029 => 2017,  4015 => 2010,  4008 => 2006,  4001 => 2002,  3989 => 1993,  3983 => 1990,  3976 => 1986,  3970 => 1983,  3961 => 1977,  3953 => 1974,  3947 => 1971,  3934 => 1965,  3927 => 1961,  3920 => 1957,  3906 => 1946,  3897 => 1940,  3888 => 1934,  3880 => 1929,  3866 => 1922,  3859 => 1918,  3844 => 1914,  3833 => 1906,  3829 => 1905,  3824 => 1903,  3810 => 1896,  3803 => 1892,  3796 => 1888,  3785 => 1880,  3780 => 1878,  3766 => 1871,  3759 => 1867,  3752 => 1863,  3741 => 1855,  3736 => 1853,  3722 => 1846,  3715 => 1842,  3708 => 1838,  3698 => 1830,  3683 => 1828,  3679 => 1827,  3672 => 1823,  3658 => 1816,  3651 => 1812,  3644 => 1808,  3626 => 1797,  3615 => 1793,  3606 => 1787,  3591 => 1779,  3584 => 1775,  3577 => 1771,  3561 => 1762,  3553 => 1761,  3545 => 1760,  3537 => 1759,  3530 => 1755,  3516 => 1748,  3509 => 1744,  3502 => 1740,  3486 => 1731,  3478 => 1730,  3471 => 1726,  3457 => 1719,  3450 => 1715,  3443 => 1711,  3427 => 1698,  3422 => 1696,  3408 => 1689,  3401 => 1685,  3394 => 1681,  3384 => 1673,  3369 => 1671,  3365 => 1670,  3358 => 1666,  3344 => 1659,  3337 => 1655,  3330 => 1651,  3320 => 1643,  3305 => 1641,  3301 => 1640,  3294 => 1636,  3280 => 1629,  3273 => 1625,  3266 => 1621,  3248 => 1610,  3237 => 1606,  3228 => 1600,  3213 => 1592,  3206 => 1588,  3199 => 1584,  3189 => 1576,  3187 => 1575,  3180 => 1571,  3153 => 1553,  3144 => 1547,  3129 => 1539,  3122 => 1535,  3115 => 1531,  3104 => 1522,  3083 => 1520,  3079 => 1519,  3070 => 1513,  3055 => 1505,  3048 => 1501,  3041 => 1497,  3029 => 1488,  3022 => 1484,  3007 => 1476,  3000 => 1472,  2993 => 1468,  2982 => 1459,  2961 => 1457,  2957 => 1456,  2948 => 1450,  2933 => 1442,  2926 => 1438,  2919 => 1434,  2907 => 1425,  2900 => 1421,  2885 => 1413,  2878 => 1409,  2871 => 1405,  2859 => 1396,  2852 => 1392,  2837 => 1384,  2830 => 1380,  2823 => 1376,  2804 => 1364,  2793 => 1360,  2784 => 1354,  2769 => 1346,  2762 => 1342,  2755 => 1338,  2734 => 1324,  2723 => 1320,  2714 => 1314,  2699 => 1306,  2692 => 1302,  2685 => 1298,  2666 => 1286,  2655 => 1282,  2646 => 1276,  2631 => 1268,  2624 => 1264,  2617 => 1260,  2598 => 1248,  2587 => 1244,  2578 => 1238,  2563 => 1230,  2556 => 1226,  2549 => 1222,  2538 => 1213,  2536 => 1212,  2521 => 1202,  2516 => 1200,  2502 => 1189,  2480 => 1170,  2474 => 1166,  2454 => 1160,  2440 => 1148,  2434 => 1146,  2432 => 1145,  2427 => 1144,  2421 => 1142,  2419 => 1141,  2412 => 1137,  2400 => 1128,  2396 => 1127,  2389 => 1123,  2379 => 1117,  2362 => 1116,  2354 => 1111,  2340 => 1099,  2334 => 1097,  2332 => 1096,  2327 => 1095,  2321 => 1093,  2319 => 1092,  2312 => 1088,  2299 => 1078,  2292 => 1074,  2278 => 1063,  2271 => 1061,  2258 => 1055,  2246 => 1045,  2238 => 1042,  2232 => 1040,  2230 => 1039,  2223 => 1038,  2217 => 1036,  2215 => 1035,  2210 => 1033,  2207 => 1032,  2203 => 1031,  2196 => 1027,  2189 => 1025,  2176 => 1019,  2162 => 1008,  2159 => 1007,  2153 => 1005,  2151 => 1004,  2146 => 1003,  2140 => 1001,  2138 => 1000,  2133 => 998,  2127 => 995,  2124 => 994,  2118 => 992,  2116 => 991,  2111 => 990,  2105 => 988,  2103 => 987,  2098 => 985,  2090 => 980,  2087 => 979,  2081 => 977,  2079 => 976,  2074 => 975,  2068 => 973,  2066 => 972,  2061 => 970,  2055 => 967,  2052 => 966,  2046 => 964,  2044 => 963,  2039 => 962,  2033 => 960,  2031 => 959,  2026 => 957,  2018 => 952,  2006 => 943,  2000 => 940,  1993 => 936,  1987 => 933,  1981 => 932,  1975 => 929,  1969 => 926,  1963 => 925,  1957 => 922,  1951 => 919,  1945 => 918,  1931 => 911,  1920 => 907,  1911 => 901,  1903 => 896,  1896 => 892,  1890 => 888,  1888 => 887,  1878 => 880,  1860 => 865,  1854 => 861,  1842 => 855,  1830 => 846,  1824 => 843,  1812 => 834,  1806 => 831,  1799 => 826,  1795 => 825,  1787 => 820,  1772 => 808,  1757 => 796,  1744 => 786,  1730 => 775,  1726 => 774,  1718 => 769,  1702 => 756,  1696 => 752,  1684 => 746,  1669 => 734,  1657 => 725,  1651 => 722,  1639 => 713,  1633 => 710,  1626 => 705,  1622 => 704,  1614 => 699,  1599 => 687,  1584 => 675,  1569 => 663,  1556 => 653,  1540 => 640,  1534 => 636,  1522 => 630,  1507 => 618,  1495 => 609,  1489 => 606,  1477 => 597,  1471 => 594,  1459 => 585,  1453 => 582,  1446 => 577,  1442 => 576,  1434 => 571,  1419 => 559,  1407 => 550,  1401 => 547,  1389 => 538,  1383 => 535,  1371 => 526,  1365 => 523,  1352 => 513,  1343 => 506,  1341 => 505,  1334 => 501,  1325 => 494,  1315 => 488,  1312 => 487,  1307 => 486,  1304 => 485,  1299 => 484,  1297 => 483,  1292 => 481,  1284 => 477,  1281 => 476,  1276 => 475,  1273 => 474,  1268 => 473,  1266 => 472,  1261 => 470,  1253 => 466,  1250 => 465,  1245 => 464,  1242 => 463,  1237 => 462,  1235 => 461,  1230 => 459,  1225 => 456,  1216 => 450,  1210 => 447,  1204 => 444,  1197 => 440,  1191 => 437,  1185 => 434,  1178 => 430,  1172 => 427,  1165 => 423,  1160 => 420,  1158 => 419,  1146 => 412,  1141 => 410,  1132 => 406,  1127 => 404,  1118 => 400,  1113 => 398,  1104 => 394,  1099 => 392,  1090 => 388,  1085 => 386,  1078 => 382,  1072 => 379,  1065 => 375,  1061 => 374,  1055 => 373,  1050 => 371,  1042 => 366,  1037 => 364,  1030 => 360,  1025 => 358,  1018 => 354,  1013 => 352,  1003 => 347,  996 => 343,  986 => 338,  979 => 334,  969 => 329,  962 => 325,  955 => 321,  950 => 319,  943 => 315,  936 => 313,  929 => 309,  922 => 305,  916 => 304,  911 => 302,  904 => 298,  899 => 296,  892 => 292,  887 => 290,  880 => 286,  875 => 284,  869 => 281,  863 => 277,  861 => 276,  854 => 272,  838 => 258,  832 => 256,  830 => 255,  822 => 254,  815 => 249,  809 => 247,  807 => 246,  799 => 245,  792 => 241,  783 => 234,  777 => 232,  775 => 231,  767 => 230,  760 => 225,  754 => 223,  752 => 222,  744 => 221,  737 => 217,  720 => 207,  707 => 201,  700 => 197,  690 => 189,  684 => 187,  682 => 186,  672 => 185,  665 => 180,  659 => 178,  657 => 177,  647 => 176,  640 => 171,  634 => 169,  632 => 168,  622 => 167,  615 => 163,  607 => 158,  602 => 156,  595 => 152,  591 => 151,  586 => 149,  579 => 145,  575 => 144,  570 => 142,  556 => 135,  543 => 129,  533 => 121,  518 => 119,  514 => 118,  507 => 114,  495 => 109,  487 => 108,  479 => 107,  471 => 106,  464 => 102,  452 => 97,  444 => 96,  436 => 95,  428 => 94,  420 => 93,  412 => 92,  404 => 91,  396 => 90,  388 => 89,  380 => 88,  372 => 87,  364 => 86,  356 => 85,  348 => 84,  340 => 83,  332 => 82,  324 => 81,  316 => 80,  308 => 79,  300 => 78,  292 => 77,  284 => 76,  276 => 75,  268 => 74,  262 => 73,  254 => 72,  246 => 71,  238 => 70,  230 => 69,  222 => 68,  214 => 67,  206 => 66,  198 => 65,  190 => 64,  182 => 63,  174 => 62,  166 => 61,  158 => 60,  150 => 59,  142 => 58,  135 => 54,  129 => 50,  114 => 48,  110 => 47,  103 => 43,  97 => 40,  91 => 36,  89 => 35,  81 => 30,  73 => 25,  66 => 20,  62 => 19,  52 => 11,  48 => 10,  37 => 1,);
+        return array (  13626 => 4271,  13622 => 7156,  13618 => 7154,  13616 => 7153,  13613 => 7152,  13611 => 7151,  13610 => 7150,  13582 => 7124,  13580 => 7123,  13570 => 7115,  13567 => 7114,  13552 => 7102,  13545 => 7098,  13534 => 7090,  13518 => 7077,  13511 => 7073,  13500 => 7065,  13483 => 7051,  13476 => 7047,  13465 => 7039,  13458 => 7034,  13450 => 7029,  13444 => 7026,  13440 => 7025,  13431 => 7019,  13425 => 7016,  13421 => 7015,  13412 => 7009,  13406 => 7006,  13402 => 7005,  13398 => 7003,  13396 => 7002,  13391 => 6999,  13389 => 6998,  13341 => 6952,  13339 => 6951,  13302 => 6916,  13300 => 6915,  13285 => 6902,  13283 => 6901,  13256 => 6876,  13254 => 6875,  13251 => 6874,  13249 => 6873,  13238 => 6864,  13230 => 6862,  13228 => 6861,  13217 => 6852,  13215 => 6851,  13174 => 6812,  13172 => 6811,  13147 => 6788,  13145 => 6787,  13082 => 6726,  13074 => 6721,  13054 => 6704,  13044 => 6697,  13033 => 6689,  13022 => 6683,  13018 => 6682,  13014 => 6681,  13010 => 6680,  13000 => 6679,  12990 => 6678,  12986 => 6677,  12982 => 6676,  12968 => 6664,  12966 => 6663,  12962 => 6661,  12953 => 6659,  12949 => 6658,  12938 => 6650,  12930 => 6647,  12926 => 6646,  12922 => 6645,  12918 => 6644,  12908 => 6643,  12898 => 6642,  12894 => 6641,  12890 => 6640,  12883 => 6635,  12881 => 6634,  12849 => 6605,  12836 => 6595,  12830 => 6592,  12826 => 6591,  12813 => 6581,  12807 => 6578,  12803 => 6577,  12791 => 6568,  12784 => 6564,  12778 => 6561,  12760 => 6546,  12754 => 6543,  12750 => 6542,  12737 => 6532,  12731 => 6529,  12727 => 6528,  12716 => 6520,  12709 => 6516,  12701 => 6513,  12673 => 6488,  12667 => 6485,  12663 => 6484,  12653 => 6477,  12647 => 6474,  12643 => 6473,  12635 => 6468,  12628 => 6464,  12620 => 6461,  12559 => 6402,  12553 => 6398,  12549 => 6396,  12545 => 6394,  12539 => 6392,  12537 => 6391,  12533 => 6389,  12531 => 6388,  12523 => 6383,  12512 => 6375,  12504 => 6370,  12496 => 6365,  12488 => 6360,  12480 => 6355,  12465 => 6343,  12458 => 6338,  12456 => 6337,  12451 => 6334,  12447 => 6332,  12443 => 6330,  12437 => 6328,  12434 => 6327,  12426 => 6325,  12424 => 6324,  12420 => 6322,  12418 => 6321,  12410 => 6316,  12380 => 6289,  12370 => 6282,  12360 => 6275,  12335 => 6253,  12328 => 6248,  12326 => 6247,  12319 => 6242,  12315 => 6240,  12311 => 6238,  12305 => 6236,  12302 => 6235,  12294 => 6233,  12292 => 6232,  12288 => 6230,  12286 => 6229,  12278 => 6224,  12267 => 6216,  12257 => 6209,  12232 => 6187,  12225 => 6182,  12223 => 6181,  12218 => 6178,  12214 => 6176,  12210 => 6174,  12204 => 6172,  12201 => 6171,  12193 => 6169,  12191 => 6168,  12187 => 6166,  12185 => 6165,  12177 => 6160,  12166 => 6152,  12156 => 6145,  12143 => 6135,  12118 => 6113,  12111 => 6108,  12109 => 6107,  12104 => 6104,  12100 => 6102,  12096 => 6100,  12090 => 6098,  12087 => 6097,  12079 => 6095,  12077 => 6094,  12073 => 6092,  12071 => 6091,  12063 => 6086,  12052 => 6078,  12042 => 6071,  12029 => 6061,  12004 => 6039,  11997 => 6034,  11995 => 6033,  11990 => 6030,  11986 => 6028,  11982 => 6026,  11976 => 6024,  11973 => 6023,  11965 => 6021,  11963 => 6020,  11959 => 6018,  11957 => 6017,  11949 => 6012,  11938 => 6004,  11928 => 5997,  11915 => 5987,  11890 => 5965,  11883 => 5960,  11881 => 5959,  11876 => 5956,  11872 => 5954,  11868 => 5952,  11862 => 5950,  11859 => 5949,  11851 => 5947,  11849 => 5946,  11845 => 5944,  11843 => 5943,  11835 => 5938,  11824 => 5930,  11811 => 5920,  11786 => 5898,  11779 => 5893,  11777 => 5892,  11772 => 5889,  11768 => 5887,  11764 => 5885,  11758 => 5883,  11755 => 5882,  11747 => 5880,  11745 => 5879,  11741 => 5877,  11739 => 5876,  11731 => 5871,  11720 => 5863,  11695 => 5841,  11688 => 5836,  11686 => 5835,  11681 => 5832,  11677 => 5830,  11673 => 5828,  11667 => 5826,  11664 => 5825,  11656 => 5823,  11654 => 5822,  11650 => 5820,  11648 => 5819,  11640 => 5814,  11629 => 5806,  11604 => 5784,  11597 => 5779,  11595 => 5778,  11590 => 5775,  11586 => 5773,  11582 => 5771,  11576 => 5769,  11573 => 5768,  11565 => 5766,  11563 => 5765,  11559 => 5763,  11557 => 5762,  11549 => 5757,  11538 => 5749,  11513 => 5727,  11506 => 5722,  11504 => 5721,  11499 => 5718,  11495 => 5716,  11491 => 5714,  11485 => 5712,  11482 => 5711,  11474 => 5709,  11472 => 5708,  11468 => 5706,  11466 => 5705,  11458 => 5700,  11447 => 5692,  11422 => 5670,  11415 => 5665,  11413 => 5664,  11408 => 5661,  11404 => 5659,  11400 => 5657,  11394 => 5655,  11391 => 5654,  11383 => 5652,  11381 => 5651,  11377 => 5649,  11375 => 5648,  11367 => 5643,  11356 => 5635,  11331 => 5613,  11324 => 5608,  11322 => 5607,  11317 => 5604,  11313 => 5602,  11309 => 5600,  11303 => 5598,  11300 => 5597,  11292 => 5595,  11290 => 5594,  11286 => 5592,  11284 => 5591,  11276 => 5586,  11265 => 5578,  11240 => 5556,  11233 => 5551,  11231 => 5550,  11226 => 5547,  11222 => 5545,  11218 => 5543,  11212 => 5541,  11209 => 5540,  11201 => 5538,  11199 => 5537,  11195 => 5535,  11193 => 5534,  11185 => 5529,  11174 => 5521,  11149 => 5499,  11142 => 5494,  11140 => 5493,  11135 => 5490,  11131 => 5488,  11127 => 5486,  11121 => 5484,  11118 => 5483,  11110 => 5481,  11108 => 5480,  11104 => 5478,  11102 => 5477,  11094 => 5472,  11083 => 5464,  11058 => 5442,  11051 => 5437,  11049 => 5436,  11044 => 5433,  11040 => 5431,  11036 => 5429,  11030 => 5427,  11027 => 5426,  11019 => 5424,  11017 => 5423,  11013 => 5421,  11011 => 5420,  11003 => 5415,  10992 => 5407,  10982 => 5400,  10974 => 5395,  10966 => 5390,  10941 => 5368,  10934 => 5363,  10932 => 5362,  10927 => 5359,  10923 => 5357,  10919 => 5355,  10913 => 5353,  10910 => 5352,  10902 => 5350,  10900 => 5349,  10896 => 5347,  10894 => 5346,  10886 => 5341,  10875 => 5333,  10850 => 5311,  10843 => 5306,  10841 => 5305,  10836 => 5302,  10832 => 5300,  10828 => 5298,  10822 => 5296,  10819 => 5295,  10811 => 5293,  10809 => 5292,  10805 => 5290,  10803 => 5289,  10795 => 5284,  10784 => 5276,  10759 => 5254,  10752 => 5249,  10750 => 5248,  10745 => 5245,  10741 => 5243,  10737 => 5241,  10731 => 5239,  10728 => 5238,  10720 => 5236,  10718 => 5235,  10714 => 5233,  10712 => 5232,  10704 => 5227,  10693 => 5219,  10668 => 5197,  10661 => 5192,  10659 => 5191,  10654 => 5188,  10650 => 5186,  10646 => 5184,  10640 => 5182,  10637 => 5181,  10629 => 5179,  10627 => 5178,  10623 => 5176,  10621 => 5175,  10613 => 5170,  10599 => 5159,  10586 => 5149,  10576 => 5142,  10551 => 5120,  10543 => 5114,  10541 => 5113,  10536 => 5110,  10532 => 5108,  10528 => 5106,  10522 => 5104,  10519 => 5103,  10511 => 5101,  10509 => 5100,  10505 => 5098,  10503 => 5097,  10495 => 5092,  10484 => 5084,  10471 => 5074,  10458 => 5064,  10448 => 5057,  10438 => 5050,  10413 => 5028,  10406 => 5023,  10404 => 5022,  10399 => 5019,  10395 => 5017,  10391 => 5015,  10385 => 5013,  10382 => 5012,  10374 => 5010,  10372 => 5009,  10368 => 5007,  10366 => 5006,  10358 => 5001,  10347 => 4993,  10322 => 4971,  10315 => 4966,  10313 => 4965,  10308 => 4962,  10304 => 4960,  10300 => 4958,  10294 => 4956,  10291 => 4955,  10283 => 4953,  10281 => 4952,  10277 => 4950,  10275 => 4949,  10267 => 4944,  10256 => 4936,  10231 => 4914,  10224 => 4909,  10222 => 4908,  10217 => 4905,  10213 => 4903,  10209 => 4901,  10203 => 4899,  10200 => 4898,  10192 => 4896,  10190 => 4895,  10186 => 4893,  10184 => 4892,  10176 => 4887,  10165 => 4879,  10140 => 4857,  10133 => 4852,  10131 => 4851,  10126 => 4848,  10122 => 4846,  10118 => 4844,  10112 => 4842,  10109 => 4841,  10101 => 4839,  10099 => 4838,  10095 => 4836,  10093 => 4835,  10085 => 4830,  10074 => 4822,  10049 => 4800,  10042 => 4795,  10040 => 4794,  10035 => 4791,  10031 => 4789,  10027 => 4787,  10021 => 4785,  10018 => 4784,  10010 => 4782,  10008 => 4781,  10004 => 4779,  10002 => 4778,  9994 => 4773,  9983 => 4765,  9958 => 4743,  9950 => 4737,  9948 => 4736,  9943 => 4733,  9939 => 4731,  9935 => 4729,  9929 => 4727,  9926 => 4726,  9918 => 4724,  9916 => 4723,  9912 => 4721,  9910 => 4720,  9902 => 4715,  9891 => 4707,  9866 => 4685,  9859 => 4680,  9857 => 4679,  9852 => 4676,  9848 => 4674,  9844 => 4672,  9838 => 4670,  9835 => 4669,  9827 => 4667,  9825 => 4666,  9821 => 4664,  9819 => 4663,  9811 => 4658,  9800 => 4650,  9790 => 4643,  9765 => 4621,  9758 => 4616,  9756 => 4615,  9751 => 4612,  9747 => 4610,  9743 => 4608,  9737 => 4606,  9734 => 4605,  9726 => 4603,  9724 => 4602,  9720 => 4600,  9718 => 4599,  9710 => 4594,  9697 => 4584,  9690 => 4580,  9683 => 4576,  9671 => 4567,  9660 => 4559,  9653 => 4555,  9646 => 4551,  9634 => 4542,  9624 => 4535,  9614 => 4528,  9589 => 4506,  9582 => 4501,  9580 => 4500,  9575 => 4497,  9571 => 4495,  9567 => 4493,  9561 => 4491,  9559 => 4490,  9555 => 4488,  9553 => 4487,  9545 => 4482,  9532 => 4472,  9525 => 4468,  9518 => 4464,  9506 => 4455,  9495 => 4447,  9488 => 4443,  9481 => 4439,  9469 => 4430,  9459 => 4423,  9449 => 4416,  9424 => 4394,  9417 => 4389,  9415 => 4388,  9381 => 4367,  9375 => 4364,  9371 => 4363,  9367 => 4362,  9363 => 4361,  9359 => 4360,  9355 => 4359,  9351 => 4358,  9342 => 4352,  9338 => 4351,  9302 => 4318,  9260 => 4278,  9254 => 4276,  9252 => 4275,  9248 => 4274,  9243 => 4273,  9241 => 4272,  9239 => 4271,  9237 => 4253,  9226 => 4261,  9224 => 4260,  9217 => 4255,  9214 => 4254,  9212 => 4253,  9201 => 4246,  9193 => 4240,  9191 => 4239,  9184 => 4234,  9175 => 4232,  9171 => 4231,  9164 => 4226,  9162 => 4225,  9155 => 4220,  9153 => 4219,  9146 => 4214,  9144 => 4213,  9137 => 4208,  9135 => 4207,  9128 => 4202,  9126 => 4201,  9119 => 4197,  9109 => 4190,  9104 => 4188,  9097 => 4184,  9092 => 4182,  9079 => 4176,  9070 => 4170,  9065 => 4168,  9055 => 4163,  9049 => 4162,  9041 => 4157,  9034 => 4153,  9029 => 4151,  9022 => 4149,  9015 => 4145,  9010 => 4143,  9003 => 4141,  8994 => 4137,  8988 => 4136,  8982 => 4135,  8976 => 4134,  8969 => 4130,  8962 => 4126,  8957 => 4124,  8950 => 4120,  8945 => 4118,  8939 => 4115,  8933 => 4111,  8931 => 4110,  8924 => 4106,  8908 => 4092,  8902 => 4090,  8896 => 4087,  8893 => 4086,  8891 => 4085,  8886 => 4083,  8879 => 4079,  8872 => 4075,  8866 => 4071,  8864 => 4070,  8857 => 4066,  8835 => 4051,  8820 => 4045,  8805 => 4039,  8799 => 4035,  8784 => 4033,  8780 => 4032,  8775 => 4030,  8769 => 4029,  8758 => 4025,  8752 => 4021,  8737 => 4019,  8733 => 4018,  8728 => 4016,  8722 => 4015,  8711 => 4011,  8698 => 4005,  8685 => 3999,  8672 => 3993,  8665 => 3989,  8651 => 3982,  8636 => 3976,  8621 => 3970,  8615 => 3966,  8600 => 3964,  8596 => 3963,  8591 => 3961,  8585 => 3960,  8574 => 3956,  8568 => 3952,  8553 => 3950,  8549 => 3949,  8544 => 3947,  8538 => 3946,  8527 => 3942,  8514 => 3936,  8501 => 3930,  8488 => 3924,  8481 => 3920,  8467 => 3913,  8452 => 3907,  8437 => 3901,  8431 => 3897,  8416 => 3895,  8412 => 3894,  8407 => 3892,  8401 => 3891,  8390 => 3887,  8384 => 3883,  8369 => 3881,  8365 => 3880,  8360 => 3878,  8354 => 3877,  8343 => 3873,  8330 => 3867,  8317 => 3861,  8304 => 3855,  8297 => 3851,  8283 => 3844,  8268 => 3838,  8253 => 3832,  8247 => 3828,  8232 => 3826,  8228 => 3825,  8223 => 3823,  8217 => 3822,  8206 => 3818,  8200 => 3814,  8185 => 3812,  8181 => 3811,  8176 => 3809,  8170 => 3808,  8159 => 3804,  8146 => 3798,  8133 => 3792,  8120 => 3786,  8113 => 3782,  8099 => 3775,  8084 => 3769,  8069 => 3763,  8063 => 3759,  8048 => 3757,  8044 => 3756,  8039 => 3754,  8033 => 3753,  8022 => 3749,  8016 => 3745,  8001 => 3743,  7997 => 3742,  7992 => 3740,  7986 => 3739,  7975 => 3735,  7962 => 3729,  7949 => 3723,  7936 => 3717,  7929 => 3713,  7915 => 3706,  7900 => 3700,  7885 => 3694,  7879 => 3690,  7864 => 3688,  7860 => 3687,  7855 => 3685,  7849 => 3684,  7838 => 3680,  7832 => 3676,  7817 => 3674,  7813 => 3673,  7808 => 3671,  7802 => 3670,  7791 => 3666,  7778 => 3660,  7765 => 3654,  7752 => 3648,  7745 => 3644,  7731 => 3637,  7716 => 3631,  7701 => 3625,  7695 => 3621,  7680 => 3619,  7676 => 3618,  7671 => 3616,  7665 => 3615,  7654 => 3611,  7648 => 3607,  7633 => 3605,  7629 => 3604,  7624 => 3602,  7618 => 3601,  7607 => 3597,  7594 => 3591,  7581 => 3585,  7568 => 3579,  7561 => 3575,  7547 => 3568,  7532 => 3562,  7517 => 3556,  7511 => 3552,  7496 => 3550,  7492 => 3549,  7487 => 3547,  7481 => 3546,  7470 => 3542,  7464 => 3538,  7449 => 3536,  7445 => 3535,  7440 => 3533,  7434 => 3532,  7423 => 3528,  7410 => 3522,  7397 => 3516,  7384 => 3510,  7377 => 3506,  7363 => 3499,  7348 => 3493,  7333 => 3487,  7327 => 3483,  7312 => 3481,  7308 => 3480,  7303 => 3478,  7297 => 3477,  7286 => 3473,  7280 => 3469,  7265 => 3467,  7261 => 3466,  7256 => 3464,  7250 => 3463,  7239 => 3459,  7226 => 3453,  7213 => 3447,  7200 => 3441,  7193 => 3437,  7179 => 3430,  7164 => 3424,  7149 => 3418,  7143 => 3414,  7128 => 3412,  7124 => 3411,  7119 => 3409,  7113 => 3408,  7102 => 3404,  7096 => 3400,  7081 => 3398,  7077 => 3397,  7072 => 3395,  7066 => 3394,  7055 => 3390,  7042 => 3384,  7029 => 3378,  7016 => 3372,  7009 => 3368,  6995 => 3361,  6980 => 3355,  6965 => 3349,  6959 => 3345,  6944 => 3343,  6940 => 3342,  6935 => 3340,  6929 => 3339,  6918 => 3335,  6912 => 3331,  6897 => 3329,  6893 => 3328,  6888 => 3326,  6882 => 3325,  6871 => 3321,  6858 => 3315,  6845 => 3309,  6832 => 3303,  6825 => 3299,  6809 => 3292,  6794 => 3286,  6788 => 3282,  6773 => 3280,  6769 => 3279,  6764 => 3277,  6758 => 3276,  6747 => 3272,  6741 => 3268,  6726 => 3266,  6722 => 3265,  6717 => 3263,  6711 => 3262,  6700 => 3258,  6687 => 3252,  6674 => 3246,  6661 => 3240,  6654 => 3236,  6638 => 3229,  6623 => 3223,  6617 => 3219,  6602 => 3217,  6598 => 3216,  6593 => 3214,  6587 => 3213,  6576 => 3209,  6570 => 3205,  6555 => 3203,  6551 => 3202,  6546 => 3200,  6540 => 3199,  6529 => 3195,  6516 => 3189,  6503 => 3183,  6490 => 3177,  6483 => 3173,  6467 => 3166,  6452 => 3160,  6446 => 3156,  6431 => 3154,  6427 => 3153,  6422 => 3151,  6416 => 3150,  6405 => 3146,  6399 => 3142,  6384 => 3140,  6380 => 3139,  6375 => 3137,  6369 => 3136,  6358 => 3132,  6345 => 3126,  6332 => 3120,  6319 => 3114,  6312 => 3110,  6298 => 3103,  6283 => 3097,  6268 => 3091,  6262 => 3087,  6247 => 3085,  6243 => 3084,  6238 => 3082,  6232 => 3081,  6221 => 3077,  6215 => 3073,  6200 => 3071,  6196 => 3070,  6191 => 3068,  6185 => 3067,  6174 => 3063,  6161 => 3057,  6148 => 3051,  6135 => 3045,  6128 => 3041,  6112 => 3034,  6097 => 3028,  6091 => 3024,  6076 => 3022,  6072 => 3021,  6067 => 3019,  6061 => 3018,  6050 => 3014,  6044 => 3010,  6029 => 3008,  6025 => 3007,  6020 => 3005,  6014 => 3004,  6003 => 3000,  5990 => 2994,  5977 => 2988,  5964 => 2982,  5957 => 2978,  5951 => 2975,  5938 => 2964,  5932 => 2962,  5926 => 2959,  5923 => 2958,  5921 => 2957,  5916 => 2955,  5911 => 2952,  5905 => 2950,  5899 => 2947,  5896 => 2946,  5894 => 2945,  5889 => 2943,  5882 => 2941,  5873 => 2937,  5866 => 2933,  5859 => 2931,  5846 => 2925,  5839 => 2921,  5833 => 2918,  5822 => 2909,  5814 => 2906,  5808 => 2905,  5802 => 2904,  5796 => 2903,  5790 => 2902,  5784 => 2901,  5778 => 2900,  5772 => 2899,  5768 => 2897,  5762 => 2894,  5759 => 2893,  5757 => 2892,  5752 => 2890,  5747 => 2887,  5741 => 2885,  5735 => 2882,  5732 => 2881,  5730 => 2880,  5725 => 2878,  5720 => 2875,  5714 => 2873,  5708 => 2870,  5705 => 2869,  5703 => 2868,  5698 => 2866,  5693 => 2863,  5687 => 2861,  5681 => 2858,  5678 => 2857,  5676 => 2856,  5671 => 2854,  5664 => 2852,  5655 => 2848,  5648 => 2844,  5641 => 2842,  5628 => 2836,  5621 => 2832,  5613 => 2827,  5607 => 2823,  5605 => 2822,  5598 => 2818,  5577 => 2802,  5571 => 2801,  5564 => 2797,  5557 => 2795,  5548 => 2788,  5542 => 2786,  5536 => 2783,  5533 => 2782,  5531 => 2781,  5526 => 2779,  5521 => 2776,  5515 => 2774,  5509 => 2771,  5506 => 2770,  5504 => 2769,  5499 => 2767,  5490 => 2761,  5480 => 2756,  5467 => 2750,  5460 => 2746,  5451 => 2739,  5445 => 2737,  5439 => 2734,  5436 => 2733,  5434 => 2732,  5429 => 2730,  5424 => 2727,  5418 => 2725,  5412 => 2722,  5409 => 2721,  5407 => 2720,  5402 => 2718,  5393 => 2712,  5383 => 2707,  5370 => 2701,  5363 => 2697,  5354 => 2690,  5348 => 2688,  5342 => 2685,  5339 => 2684,  5337 => 2683,  5332 => 2681,  5323 => 2675,  5313 => 2670,  5300 => 2664,  5293 => 2660,  5279 => 2653,  5272 => 2649,  5266 => 2646,  5260 => 2642,  5258 => 2641,  5251 => 2637,  5234 => 2623,  5229 => 2621,  5219 => 2616,  5213 => 2615,  5206 => 2611,  5196 => 2606,  5190 => 2605,  5183 => 2601,  5176 => 2597,  5171 => 2595,  5164 => 2591,  5159 => 2589,  5152 => 2587,  5145 => 2583,  5140 => 2581,  5133 => 2577,  5128 => 2575,  5121 => 2571,  5116 => 2569,  5109 => 2567,  5102 => 2563,  5097 => 2561,  5090 => 2557,  5085 => 2555,  5078 => 2553,  5067 => 2547,  5061 => 2546,  5054 => 2542,  5047 => 2538,  5042 => 2536,  5035 => 2532,  5030 => 2530,  5020 => 2525,  5014 => 2524,  5007 => 2520,  5000 => 2516,  4995 => 2514,  4988 => 2510,  4983 => 2508,  4976 => 2504,  4971 => 2502,  4964 => 2500,  4955 => 2496,  4949 => 2495,  4943 => 2494,  4937 => 2493,  4930 => 2489,  4923 => 2487,  4910 => 2481,  4903 => 2477,  4897 => 2474,  4891 => 2470,  4889 => 2469,  4882 => 2464,  4880 => 2463,  4873 => 2458,  4871 => 2457,  4864 => 2452,  4862 => 2451,  4855 => 2446,  4853 => 2445,  4846 => 2440,  4844 => 2439,  4837 => 2434,  4835 => 2433,  4828 => 2428,  4826 => 2427,  4819 => 2422,  4817 => 2421,  4810 => 2416,  4808 => 2415,  4801 => 2410,  4799 => 2409,  4792 => 2404,  4790 => 2403,  4783 => 2398,  4781 => 2397,  4774 => 2392,  4772 => 2391,  4765 => 2386,  4763 => 2385,  4756 => 2380,  4754 => 2379,  4747 => 2374,  4745 => 2373,  4738 => 2368,  4736 => 2367,  4729 => 2362,  4727 => 2361,  4720 => 2356,  4718 => 2355,  4711 => 2350,  4709 => 2349,  4702 => 2344,  4700 => 2343,  4693 => 2338,  4691 => 2337,  4684 => 2332,  4682 => 2331,  4675 => 2327,  4657 => 2312,  4653 => 2311,  4647 => 2308,  4643 => 2307,  4635 => 2302,  4631 => 2301,  4623 => 2296,  4612 => 2288,  4603 => 2286,  4595 => 2285,  4587 => 2284,  4579 => 2283,  4573 => 2280,  4566 => 2275,  4551 => 2273,  4547 => 2272,  4541 => 2269,  4536 => 2266,  4521 => 2264,  4517 => 2263,  4511 => 2260,  4502 => 2254,  4498 => 2253,  4494 => 2252,  4488 => 2249,  4484 => 2248,  4475 => 2242,  4471 => 2241,  4467 => 2240,  4461 => 2237,  4457 => 2236,  4449 => 2231,  4442 => 2227,  4436 => 2223,  4434 => 2222,  4427 => 2218,  4410 => 2203,  4395 => 2201,  4391 => 2200,  4384 => 2196,  4370 => 2189,  4363 => 2185,  4356 => 2181,  4345 => 2172,  4328 => 2170,  4324 => 2169,  4317 => 2165,  4303 => 2158,  4296 => 2154,  4289 => 2150,  4278 => 2141,  4263 => 2139,  4259 => 2138,  4252 => 2134,  4238 => 2127,  4231 => 2123,  4224 => 2119,  4213 => 2110,  4198 => 2108,  4194 => 2107,  4187 => 2103,  4173 => 2096,  4166 => 2092,  4159 => 2088,  4148 => 2079,  4133 => 2077,  4129 => 2076,  4122 => 2072,  4108 => 2065,  4101 => 2061,  4094 => 2057,  4079 => 2045,  4074 => 2043,  4060 => 2036,  4053 => 2032,  4046 => 2028,  4035 => 2020,  4029 => 2017,  4015 => 2010,  4008 => 2006,  4001 => 2002,  3989 => 1993,  3983 => 1990,  3976 => 1986,  3970 => 1983,  3961 => 1977,  3953 => 1974,  3947 => 1971,  3934 => 1965,  3927 => 1961,  3920 => 1957,  3906 => 1946,  3897 => 1940,  3888 => 1934,  3880 => 1929,  3866 => 1922,  3859 => 1918,  3844 => 1914,  3833 => 1906,  3829 => 1905,  3824 => 1903,  3810 => 1896,  3803 => 1892,  3796 => 1888,  3785 => 1880,  3780 => 1878,  3766 => 1871,  3759 => 1867,  3752 => 1863,  3741 => 1855,  3736 => 1853,  3722 => 1846,  3715 => 1842,  3708 => 1838,  3698 => 1830,  3683 => 1828,  3679 => 1827,  3672 => 1823,  3658 => 1816,  3651 => 1812,  3644 => 1808,  3626 => 1797,  3615 => 1793,  3606 => 1787,  3591 => 1779,  3584 => 1775,  3577 => 1771,  3561 => 1762,  3553 => 1761,  3545 => 1760,  3537 => 1759,  3530 => 1755,  3516 => 1748,  3509 => 1744,  3502 => 1740,  3486 => 1731,  3478 => 1730,  3471 => 1726,  3457 => 1719,  3450 => 1715,  3443 => 1711,  3427 => 1698,  3422 => 1696,  3408 => 1689,  3401 => 1685,  3394 => 1681,  3384 => 1673,  3369 => 1671,  3365 => 1670,  3358 => 1666,  3344 => 1659,  3337 => 1655,  3330 => 1651,  3320 => 1643,  3305 => 1641,  3301 => 1640,  3294 => 1636,  3280 => 1629,  3273 => 1625,  3266 => 1621,  3248 => 1610,  3237 => 1606,  3228 => 1600,  3213 => 1592,  3206 => 1588,  3199 => 1584,  3189 => 1576,  3187 => 1575,  3180 => 1571,  3153 => 1553,  3144 => 1547,  3129 => 1539,  3122 => 1535,  3115 => 1531,  3104 => 1522,  3083 => 1520,  3079 => 1519,  3070 => 1513,  3055 => 1505,  3048 => 1501,  3041 => 1497,  3029 => 1488,  3022 => 1484,  3007 => 1476,  3000 => 1472,  2993 => 1468,  2982 => 1459,  2961 => 1457,  2957 => 1456,  2948 => 1450,  2933 => 1442,  2926 => 1438,  2919 => 1434,  2907 => 1425,  2900 => 1421,  2885 => 1413,  2878 => 1409,  2871 => 1405,  2859 => 1396,  2852 => 1392,  2837 => 1384,  2830 => 1380,  2823 => 1376,  2804 => 1364,  2793 => 1360,  2784 => 1354,  2769 => 1346,  2762 => 1342,  2755 => 1338,  2734 => 1324,  2723 => 1320,  2714 => 1314,  2699 => 1306,  2692 => 1302,  2685 => 1298,  2666 => 1286,  2655 => 1282,  2646 => 1276,  2631 => 1268,  2624 => 1264,  2617 => 1260,  2598 => 1248,  2587 => 1244,  2578 => 1238,  2563 => 1230,  2556 => 1226,  2549 => 1222,  2538 => 1213,  2536 => 1212,  2521 => 1202,  2516 => 1200,  2502 => 1189,  2480 => 1170,  2474 => 1166,  2454 => 1160,  2440 => 1148,  2434 => 1146,  2432 => 1145,  2427 => 1144,  2421 => 1142,  2419 => 1141,  2412 => 1137,  2400 => 1128,  2396 => 1127,  2389 => 1123,  2379 => 1117,  2362 => 1116,  2354 => 1111,  2340 => 1099,  2334 => 1097,  2332 => 1096,  2327 => 1095,  2321 => 1093,  2319 => 1092,  2312 => 1088,  2299 => 1078,  2292 => 1074,  2278 => 1063,  2271 => 1061,  2258 => 1055,  2246 => 1045,  2238 => 1042,  2232 => 1040,  2230 => 1039,  2223 => 1038,  2217 => 1036,  2215 => 1035,  2210 => 1033,  2207 => 1032,  2203 => 1031,  2196 => 1027,  2189 => 1025,  2176 => 1019,  2162 => 1008,  2159 => 1007,  2153 => 1005,  2151 => 1004,  2146 => 1003,  2140 => 1001,  2138 => 1000,  2133 => 998,  2127 => 995,  2124 => 994,  2118 => 992,  2116 => 991,  2111 => 990,  2105 => 988,  2103 => 987,  2098 => 985,  2090 => 980,  2087 => 979,  2081 => 977,  2079 => 976,  2074 => 975,  2068 => 973,  2066 => 972,  2061 => 970,  2055 => 967,  2052 => 966,  2046 => 964,  2044 => 963,  2039 => 962,  2033 => 960,  2031 => 959,  2026 => 957,  2018 => 952,  2006 => 943,  2000 => 940,  1993 => 936,  1987 => 933,  1981 => 932,  1975 => 929,  1969 => 926,  1963 => 925,  1957 => 922,  1951 => 919,  1945 => 918,  1931 => 911,  1920 => 907,  1911 => 901,  1903 => 896,  1896 => 892,  1890 => 888,  1888 => 887,  1878 => 880,  1860 => 865,  1854 => 861,  1842 => 855,  1830 => 846,  1824 => 843,  1812 => 834,  1806 => 831,  1799 => 826,  1795 => 825,  1787 => 820,  1772 => 808,  1757 => 796,  1744 => 786,  1730 => 775,  1726 => 774,  1718 => 769,  1702 => 756,  1696 => 752,  1684 => 746,  1669 => 734,  1657 => 725,  1651 => 722,  1639 => 713,  1633 => 710,  1626 => 705,  1622 => 704,  1614 => 699,  1599 => 687,  1584 => 675,  1569 => 663,  1556 => 653,  1540 => 640,  1534 => 636,  1522 => 630,  1507 => 618,  1495 => 609,  1489 => 606,  1477 => 597,  1471 => 594,  1459 => 585,  1453 => 582,  1446 => 577,  1442 => 576,  1434 => 571,  1419 => 559,  1407 => 550,  1401 => 547,  1389 => 538,  1383 => 535,  1371 => 526,  1365 => 523,  1352 => 513,  1343 => 506,  1341 => 505,  1334 => 501,  1325 => 494,  1315 => 488,  1312 => 487,  1307 => 486,  1304 => 485,  1299 => 484,  1297 => 483,  1292 => 481,  1284 => 477,  1281 => 476,  1276 => 475,  1273 => 474,  1268 => 473,  1266 => 472,  1261 => 470,  1253 => 466,  1250 => 465,  1245 => 464,  1242 => 463,  1237 => 462,  1235 => 461,  1230 => 459,  1225 => 456,  1216 => 450,  1210 => 447,  1204 => 444,  1197 => 440,  1191 => 437,  1185 => 434,  1178 => 430,  1172 => 427,  1165 => 423,  1160 => 420,  1158 => 419,  1146 => 412,  1141 => 410,  1132 => 406,  1127 => 404,  1118 => 400,  1113 => 398,  1104 => 394,  1099 => 392,  1090 => 388,  1085 => 386,  1078 => 382,  1072 => 379,  1065 => 375,  1061 => 374,  1055 => 373,  1050 => 371,  1042 => 366,  1037 => 364,  1030 => 360,  1025 => 358,  1018 => 354,  1013 => 352,  1003 => 347,  996 => 343,  986 => 338,  979 => 334,  969 => 329,  962 => 325,  955 => 321,  950 => 319,  943 => 315,  936 => 313,  929 => 309,  922 => 305,  916 => 304,  911 => 302,  904 => 298,  899 => 296,  892 => 292,  887 => 290,  880 => 286,  875 => 284,  869 => 281,  863 => 277,  861 => 276,  854 => 272,  838 => 258,  832 => 256,  830 => 255,  822 => 254,  815 => 249,  809 => 247,  807 => 246,  799 => 245,  792 => 241,  783 => 234,  777 => 232,  775 => 231,  767 => 230,  760 => 225,  754 => 223,  752 => 222,  744 => 221,  737 => 217,  720 => 207,  707 => 201,  700 => 197,  690 => 189,  684 => 187,  682 => 186,  672 => 185,  665 => 180,  659 => 178,  657 => 177,  647 => 176,  640 => 171,  634 => 169,  632 => 168,  622 => 167,  615 => 163,  607 => 158,  602 => 156,  595 => 152,  591 => 151,  586 => 149,  579 => 145,  575 => 144,  570 => 142,  556 => 135,  543 => 129,  533 => 121,  518 => 119,  514 => 118,  507 => 114,  495 => 109,  487 => 108,  479 => 107,  471 => 106,  464 => 102,  452 => 97,  444 => 96,  436 => 95,  428 => 94,  420 => 93,  412 => 92,  404 => 91,  396 => 90,  388 => 89,  380 => 88,  372 => 87,  364 => 86,  356 => 85,  348 => 84,  340 => 83,  332 => 82,  324 => 81,  316 => 80,  308 => 79,  300 => 78,  292 => 77,  284 => 76,  276 => 75,  268 => 74,  262 => 73,  254 => 72,  246 => 71,  238 => 70,  230 => 69,  222 => 68,  214 => 67,  206 => 66,  198 => 65,  190 => 64,  182 => 63,  174 => 62,  166 => 61,  158 => 60,  150 => 59,  142 => 58,  135 => 54,  129 => 50,  114 => 48,  110 => 47,  103 => 43,  97 => 40,  91 => 36,  89 => 35,  81 => 30,  73 => 25,  66 => 20,  62 => 19,  52 => 11,  48 => 10,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -18637,6 +18755,84 @@ var KTAppUserListDatatable = function () {
                         },
                     }
                 ]
+        {% elseif this.param.page == 'vehicle' %}
+        // datasource definition
+        dd('dasdasd');
+        data: {
+            type: 'remote',
+                source: {
+                read: {
+                    url: '{{url(\"api/vehicle\")}}',
+                },
+            },
+            pageSize: 10, // display 20 records per page
+                serverPaging: true,
+                serverFiltering: true,
+                serverSorting: true,
+        },
+        // columns definition
+        columns: [
+            {
+                field: 'id',
+                title: '#',
+                sortable: false,
+                width: 20,
+                selector: {
+                    class: 'kt-checkbox--solid'
+                },
+                textAlign: 'center',
+            },
+            {
+                field: \"name\",
+                title: \"{{'name'|__}}\",
+                autoHide: false,
+                sortable: false,
+                width: 'auto',
+            },
+            {
+                field: \"decription\",
+                title: \"{{'decription'|__}}\",
+                autoHide: false,
+                sortable: false,
+                width: 100,
+                template: function(row) {
+                    return row.destination.name;
+                },
+            },
+            {
+                field: \"capacity\",
+                title: \"{{'capacity'|__}}\",
+                autoHide: false,
+                sortable: false,
+                width: 'auto',
+                template: function(row) {
+                    return row.transport.name;
+                },
+            },
+            {
+                field: \"Actions\",
+                width: 100,
+                title: \"{{'Actions'|__}}\",
+                sortable: false,
+                autoHide: false,
+                overflow: 'visible',
+                template: function (data) {
+                    {% if (user.hasUserPermission('vehicle', 'u') or user.hasUserPermission('packaging', 'd')) %}
+                    return '' +
+                        '<div class=\"btn-group btn-group\" role=\"group\" aria-label=\"...\">'+
+                        {% if user.hasUserPermission('vehicle', 'u') %}
+                    '<a href=\"{{url(\"dashboard/settings/vehicle\")}}/'+data.id+'/edit\" class=\"btn btn-info btn-sm btn-icon\" data-placement=\"top\" title=\"{{\"Edit\"|__}}\"><i class=\"flaticon-edit\"></i>&nbsp;</a>'+
+                    {% endif %}
+                    {% if user.hasUserPermission('vehicle', 'd') %}
+                    '<a href=\"javascript:void(0);\" class=\"btn btn-danger btn-sm delete_record kt-font-light btn-icon\" rel=\"'+data.id+'\" data-type=\"cars\" data-placement=\"top\" title=\"{{\"Delete\"|__}}\"><i class=\"flaticon2-delete\"></i>&nbsp;</a>'+
+                    {% endif %}
+                    '</div>';
+                    {% else %}
+                    return '-';
+                    {% endif %}
+                },
+            }
+        ]
             {% elseif this.param.page == 'statuses' %}
                 // datasource definition
                 data: {
