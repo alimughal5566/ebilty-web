@@ -227,7 +227,6 @@ class UserManager extends StaticFactory
                 'email'    => 'required|email|between:6,255|unique:users,email',
                 'password' => UserExtendedSettings::get('validation_password', 'required|between:4,255|confirmed'),
             ];
-
             /*
              * Better utilization of email vs username
              */

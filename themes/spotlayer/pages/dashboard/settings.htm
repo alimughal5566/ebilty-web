@@ -1219,6 +1219,19 @@ function onDelete()
                 }
                 return Redirect::back();
             }
+        case 'vehicle':
+            if(!Auth::getUser()->hasUserPermission(["vehicle"],'d')) {
+            return Response::json(['error' => $this['theme_lang']['not_allowed']], 401);
+            }
+
+            if(null !== post('id')){
+            if(is_array(post('id'))){
+            \Spot\Shipment\Models\Vehicles::whereIn('id',post('id'))->delete();
+            }else{
+            \Spot\Shipment\Models\Vehicles::find($data['id'])->delete();
+            }
+            return Redirect::back();
+            }
         case 'destination':
             if(!Auth::getUser()->hasUserPermission(["destination"],'d')) {
                 return Response::json(['error' => $this['theme_lang']['not_allowed']], 401);
@@ -3867,6 +3880,12 @@ function onDelete()
                                 <div class="kt-datatable"></div>
                             </div>
                         </div>
+    {% elseif this.param.page == 'vehicle' %}
+    <div class="kt-section kt-section--first">
+        <div class="kt-section__body">
+            <div class="kt-datatable"></div>
+        </div>
+    </div>
                     {% elseif this.param.page == 'destination' %}
                         <div class="kt-section kt-section--first">
                             <div class="kt-section__body">
@@ -5799,7 +5818,7 @@ function onDelete()
 {% if this.param.page == 'company' %}
     <script src="{{ 'assets/admin/vendors/custom/geocomplete/jquery.geocomplete.js'|theme }}" type="text/javascript"></script>
     <script src="//maps.googleapis.com/maps/api/js?libraries=places&key={{settings.google.map}}"></script>
-{% elseif (this.param.page == 'translate' or this.param.page == 'backup' or this.param.page == 'languages' or this.param.page == 'currencies' or this.param.page == 'departments' or this.param.page == 'branches' or this.param.page == 'branches' or this.param.page == 'cars' or this.param.page == 'cars' or this.param.page == 'packaging' or this.param.page == 'countries' or this.param.page == 'states' or this.param.page == 'cities' or this.param.page == 'areas' or this.param.page == 'fees' or this.param.page == 'destination' or this.param.page == 'location' or this.param.page == 'statuscontainer' or this.param.page == 'reasonarrival' or this.param.page == 'size' or this.param.page == 'labels' or this.param.page == 'handler' or this.param.page == 'break' ) %}
+{% elseif (this.param.page == 'translate' or this.param.page == 'backup' or this.param.page == 'languages' or this.param.page == 'currencies' or this.param.page == 'departments' or this.param.page == 'branches' or this.param.page == 'branches' or this.param.page == 'cars' or this.param.page == 'cars' or this.param.page == 'vehicle' or this.param.page == 'packaging' or this.param.page == 'countries' or this.param.page == 'states' or this.param.page == 'cities' or this.param.page == 'areas' or this.param.page == 'fees' or this.param.page == 'destination' or this.param.page == 'location' or this.param.page == 'statuscontainer' or this.param.page == 'reasonarrival' or this.param.page == 'size' or this.param.page == 'labels' or this.param.page == 'handler' or this.param.page == 'break' ) %}
     <script src="{{ 'assets/admin/vendors/custom/datatables/datatables.bundle.js'|theme }}" type="text/javascript"></script>
 {% endif %}
 
@@ -5864,7 +5883,6 @@ $('.bootstrap-touchspin-vertical-btn').TouchSpin({
     verticalup: '<i class="la la-plus"></i>',
     verticaldown: '<i class="la la-minus"></i>'
 });
-
 
 var KTAppUserListDatatable = function () {
     // variables
@@ -6671,14 +6689,12 @@ var KTAppUserListDatatable = function () {
                 width: 'auto',
             },
             {
-                field: "decription",
-                title: "{{'decription'|__}}",
+                field: "description",
+                title: "{{'description'|__}}",
                 autoHide: false,
                 sortable: false,
                 width: 100,
-                template: function(row) {
-                    return row.destination.name;
-                },
+
             },
             {
                 field: "capacity",
@@ -6686,9 +6702,6 @@ var KTAppUserListDatatable = function () {
                 autoHide: false,
                 sortable: false,
                 width: 'auto',
-                template: function(row) {
-                    return row.transport.name;
-                },
             },
             {
                 field: "Actions",
@@ -6698,19 +6711,12 @@ var KTAppUserListDatatable = function () {
                 autoHide: false,
                 overflow: 'visible',
                 template: function (data) {
-                    {% if (user.hasUserPermission('vehicle', 'u') or user.hasUserPermission('packaging', 'd')) %}
                     return '' +
                         '<div class="btn-group btn-group" role="group" aria-label="...">'+
-                        {% if user.hasUserPermission('vehicle', 'u') %}
-                    '<a href="{{url("dashboard/settings/vehicle")}}/'+data.id+'/edit" class="btn btn-info btn-sm btn-icon" data-placement="top" title="{{"Edit"|__}}"><i class="flaticon-edit"></i>&nbsp;</a>'+
-                    {% endif %}
-                    {% if user.hasUserPermission('vehicle', 'd') %}
+                        '<a href="{{url("dashboard/settings/vehicle")}}/'+data.id+'/edit" class="btn btn-info btn-sm btn-icon" data-placement="top" title="{{"Edit"|__}}"><i class="flaticon-edit"></i>&nbsp;</a>'+
                     '<a href="javascript:void(0);" class="btn btn-danger btn-sm delete_record kt-font-light btn-icon" rel="'+data.id+'" data-type="cars" data-placement="top" title="{{"Delete"|__}}"><i class="flaticon2-delete"></i>&nbsp;</a>'+
-                    {% endif %}
                     '</div>';
-                    {% else %}
                     return '-';
-                    {% endif %}
                 },
             }
         ]
@@ -8673,7 +8679,7 @@ KTUtil.ready(function() {
             element.replaceWith(element.val());
         });
      KTDatatablesExtensions.init();
-    {% elseif this.param.page == 'statuses' or this.param.page == 'Stockstatuses' or this.param.page == 'Customstatuses' or this.param.page == 'treasury'  or this.param.page == 'categories' or this.param.page == 'couriers' or this.param.page == 'deliverytimes' or this.param.page == 'shipping' or this.param.page == 'branches' or this.param.page == 'cars' or this.param.page == 'destination' or this.param.page == 'location' or this.param.page == 'statuscontainer'
+    {% elseif this.param.page == 'statuses' or this.param.page == 'Stockstatuses' or this.param.page == 'Customstatuses' or this.param.page == 'treasury'  or this.param.page == 'categories' or this.param.page == 'couriers' or this.param.page == 'deliverytimes' or this.param.page == 'shipping' or this.param.page == 'branches' or this.param.page == 'cars' or this.param.page == 'vehicle' or this.param.page == 'destination' or this.param.page == 'location' or this.param.page == 'statuscontainer'
         or this.param.page == 'reasonarrival' or this.param.page == 'size' or this.param.page == 'labels' or this.param.page == 'handler' or this.param.page == 'break' %}
         KTAppUserListDatatable.init();
     {% elseif this.param.page == 'areas' or this.param.page == 'cities' or this.param.page == 'states' or this.param.page == 'countries' %}
