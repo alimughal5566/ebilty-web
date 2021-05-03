@@ -233,21 +233,6 @@ elseif($this->param('page') == 'cars'){
 
     }
 
-elseif($this->param('page') == 'cars'){
-if(!Auth::getUser()->hasUserPermission(["cars"],'r')) {
-\Flash::error($this['theme_lang']['not_allowed']);
-return Redirect::to('dashboard/settings');
-}
-$this->page->settings_breadcrumb       =   'definitions';
-$this->page->listing        = true;
-if(Auth::getUser()->hasUserPermission(["cars"],'c')){
-$this->page->actions   = array(
-'add'   =>  url('dashboard/settings/cars/create')
-);
-}
-}
-
-
 elseif($this->param('page') == 'destination'){
         if(!Auth::getUser()->hasUserPermission(["destination"],'r')) {
             \Flash::error($this['theme_lang']['not_allowed']);
@@ -1220,9 +1205,6 @@ function onDelete()
                 return Redirect::back();
             }
         case 'vehicle':
-            if(!Auth::getUser()->hasUserPermission(["vehicle"],'d')) {
-            return Response::json(['error' => $this['theme_lang']['not_allowed']], 401);
-            }
 
             if(null !== post('id')){
             if(is_array(post('id'))){
@@ -6589,22 +6571,13 @@ var KTAppUserListDatatable = function () {
                             class: 'kt-checkbox--solid'
                         },
                         textAlign: 'center',
-                    },
-                    // {
-                    //     field: "name",
-                    //     title: "{{'Name'|__}}",
-                    //     autoHide: false,
-                    //     sortable: false,
-                    //     width: 'auto',
-                    // },
-                    {
+                    },{
                         field: "license_plate",
                         title: "{{'License Plate'|__}}",
                         autoHide: false,
                         sortable: false,
                         width: 'auto',
-                    },
-                    {
+                    },{
                         field: "destination",
                         title: "{{'Destination'|__}}",
                         autoHide: false,
@@ -6714,7 +6687,7 @@ var KTAppUserListDatatable = function () {
                     return '' +
                         '<div class="btn-group btn-group" role="group" aria-label="...">'+
                         '<a href="{{url("dashboard/settings/vehicle")}}/'+data.id+'/edit" class="btn btn-info btn-sm btn-icon" data-placement="top" title="{{"Edit"|__}}"><i class="flaticon-edit"></i>&nbsp;</a>'+
-                    '<a href="javascript:void(0);" class="btn btn-danger btn-sm delete_record kt-font-light btn-icon" rel="'+data.id+'" data-type="cars" data-placement="top" title="{{"Delete"|__}}"><i class="flaticon2-delete"></i>&nbsp;</a>'+
+                    '<a href="javascript:void(0);" class="btn btn-danger btn-sm delete_record kt-font-light btn-icon" rel="'+data.id+'" data-type="vehicle" data-placement="top" title="{{"Delete"|__}}"><i class="flaticon2-delete"></i>&nbsp;</a>'+
                     '</div>';
                     return '-';
                 },

@@ -39,7 +39,6 @@ return false;
     throw new ApplicationException($this['theme_lang']['not_allowed']);
     }
 $data = post();
-dd($data);
 $item                       = new \Spot\Shipment\Models\Vehicles;
 $item->name                 = $data['name'];
 $item->description          = $data['description'];
@@ -113,6 +112,18 @@ return Redirect::to('dashboard/settings/'.$this->page->child_of_page);
                 </div>
             </div>
             <div class="kt-padding-l-20 kt-padding-r-20">
+                <div class="form-group row">
+                    <label class="col-xl-3 col-lg-3 col-form-label">{{'Name'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
+                    <div class="col-lg-9 col-xl-6 input-group">
+                        <input type="text" class="form-control" name="name"  required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-xl-3 col-lg-3 col-form-label">{{'Description'|__}}</label>
+                    <div class="col-lg-9 col-xl-6">
+                        <textarea class="form-control" name="description"></textarea>
+                    </div>
+                </div>
                 <div class="form-group row">
                     <label class="col-xl-3 col-lg-3 col-form-label">{{'Capacity'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
                     <div class="col-lg-9 col-xl-6 input-group">

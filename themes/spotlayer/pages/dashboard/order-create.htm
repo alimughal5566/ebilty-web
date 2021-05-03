@@ -18,6 +18,11 @@ crumb_disabled = 0
 use \Spot\Shipment\Models\Settings;
 function onStart() {
     if(!Auth::getUser()->hasUserPermission(["order"],'c')) {
+
+
+
+
+
         \Flash::error($this['theme_lang']['not_allowed']);
         return Redirect::to('dashboard/settings');
     }
@@ -40,6 +45,8 @@ function onStart() {
     //$this['cities']         =   \Spot\Shipment\Models\City::select('id','name')->get();
     //$this['areas']          =   \Spot\Shipment\Models\Area::select('id','name')->get();
     $this['statuses']       =   \Spot\Shipment\Models\Status::select('id','name','equal')->get();
+    $this['categories_crud']=    \Spot\Shipment\Models\Categories::select('id','title')->get();
+    $this['vehcile_crud']=    \Spot\Shipment\Models\Vehicles::all();
     $this['max']    =$max        =   \Spot\Shipment\Models\Order::max('number')+1;
     $this['languages']      =   \RainLab\Translate\Models\Locale::select('id', 'name','code')->get();
     $this['addShipmentForm']      =   Settings::get('addShipmentForm',true);
@@ -3126,7 +3133,9 @@ function onChangefees(){
                     <div class="form-group col-lg-8">
                         <select class="form-control vehicle_category"  name="vehicle_category" id="vehicle_category" >
                             <option data-hidden="true"></option>
-                            <option value="Category A">Category A</option>
+                            {% for categories_cru in categories_crud %}
+                            <option value="Category A">sdasd</option>
+                            {% endfor%}
                         </select>
                     </div>
                 </div>
@@ -3136,46 +3145,18 @@ function onChangefees(){
                     </div>
                     <div class="form-group col-lg-12" id="vehicle_type">
                         <div id="vehicleTypeCarousel" class="vehicleTypeCarousel">
+                            {% for vehcile_cru in vehcile_crud %}
                             <div class="card card-body mx-3 px-0 border-0">
                                 <div class="content-inner mx-3 text-center d-block">
-                                    <img alt="" class="img-fluid mx-auto" src="http://placehold.it/300?text=1">
+                                    <img alt="" class="img-fluid mx-auto" src="./admin/media/images/vehicle 2.jpg">
                                     <div class="vehicle-detail text-center mx-2 mx-lg-4 mt-4">
-                                        <h4 class="font-weight-bold">Flat Bed</h4>
-                                        <p class="mb-0">Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum
-                                            Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum</p>
+                                        <h4 class="font-weight-bold">Name : {{vehcile_cru.name}}</h4>
+                                        <p class="mb-0">{{vehcile_cru.description}}</p>
+                                        <p class="mb-0">Capacity : {{vehcile_cru.capacity}}</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="card card-body mx-3 px-0 border-0">
-                                <div class="content-inner mx-3 text-center d-block">
-                                    <img alt="" class="img-fluid mx-auto" src="http://placehold.it/300?text=1">
-                                    <div class="vehicle-detail text-center mx-2 mx-lg-4 mt-4">
-                                        <h4 class="font-weight-bold">Flat Bed</h4>
-                                        <p class="mb-0">Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum
-                                            Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card card-body mx-3 px-0 border-0">
-                                <div class="content-inner mx-3 text-center d-block">
-                                    <img alt="" class="img-fluid mx-auto" src="http://placehold.it/300?text=1">
-                                    <div class="vehicle-detail text-center mx-2 mx-lg-4 mt-4">
-                                        <h4 class="font-weight-bold">Flat Bed</h4>
-                                        <p class="mb-0">Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum
-                                            Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card card-body mx-3 px-0 border-0">
-                                <div class="content-inner mx-3 text-center d-block">
-                                    <img alt="" class="img-fluid mx-auto" src="http://placehold.it/300?text=1">
-                                    <div class="vehicle-detail text-center mx-2 mx-lg-4 mt-4">
-                                        <h4 class="font-weight-bold">Flat Bed</h4>
-                                        <p class="mb-0">Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum
-                                            Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum</p>
-                                    </div>
-                                </div>
-                            </div>
+                            {% endfor%}
                         </div>
 
                     </div>

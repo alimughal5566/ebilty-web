@@ -449,9 +449,9 @@ body {
     margin-top: 20px;
     text-align: center;
 }
-
+/* .kt-subheader .kt-subheader__toolbar */
 .vehicleTypeCarousel.slick-slider .slick-list .slick-track .slick-slide .vehicle-detail,
-.kt-subheader .kt-subheader__main .kt-subheader__separator, .kt-subheader .kt-subheader__toolbar {
+.kt-subheader .kt-subheader__main .kt-subheader__separator {
     display: none !important;
 }
 
