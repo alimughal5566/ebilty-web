@@ -3993,7 +3993,6 @@ Route::group(['prefix' => 'api'], function() {
     Route::any('vehicle', function(Request $req) {
 
         $request = post();
-        dd($request);
         $page                       =   $request['pagination']['page'];
         $perpage                    =   $request['pagination']['perpage'];
         $sort                       =   ((isset($request['sort']['sort']))? $request['sort']['sort'] : 'desc');
