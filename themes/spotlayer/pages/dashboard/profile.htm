@@ -486,7 +486,7 @@ function onPlaces()
                 </div>
             {% endif %}
             <div class="row">
-                <div class="col-xl-6">
+                <div class="col-12">
                     <!--begin:: Widgets/Last Updates-->
                     <div class="kt-portlet kt-portlet--height-fluid">
                         <div class="kt-portlet__head">
@@ -531,7 +531,7 @@ function onPlaces()
                     </div>
                     <!--end:: Widgets/Last Updates-->
                 </div>
-                <div class="col-xl-6">
+                <div class="col-12">
                     <!--begin:: Widgets/Last Updates-->
                     <div class="kt-portlet kt-portlet--height-fluid">
                         <div class="kt-portlet__head">
@@ -546,7 +546,7 @@ function onPlaces()
                                     <!--begin::widget 12-->
                                     <div class="kt-notification">
                                         {%if notification.type == 'new_account'%}
-                                        <a href="javascript:;" class="kt-notification__item">
+                                        <a href="javascript:void(0);" class="kt-notification__item">
                                         {% else %}
                                         <a href="{{url('dashboard/notifications')}}/{{notification.id}}" class="kt-notification__item">
                                         {% endif %} 
@@ -603,7 +603,7 @@ function onPlaces()
         {% endif %}
         {% if this.param.page == 'edit' %}
             <div class="row">
-                <div class="col-xl-12">
+                <div class="col-12">
                     <div class="kt-portlet">
                         <div class="kt-portlet__head">
                             <div class="kt-portlet__head-label">
@@ -824,7 +824,7 @@ function onPlaces()
         {% endif %}
         {% if this.param.page == 'password' %}
             <div class="row">
-                <div class="col-xl-12">
+                <div class="col-12">
                     <div class="kt-portlet kt-portlet--height-fluid">
                         <div class="kt-portlet__head">
                             <div class="kt-portlet__head-label">
@@ -891,7 +891,7 @@ function onPlaces()
         {% endif %}
         {% if this.param.page == 'addresses' %}
             <div class="row">
-                <div class="col-xl-12">
+                <div class="col-12">
                     <div class="kt-portlet kt-portlet--height-fluid">
                         <div class="kt-portlet__head">
                             <div class="kt-portlet__head-label">
@@ -922,6 +922,25 @@ function onPlaces()
                                                     <div data-repeater-list="addresses" class="col-lg-12">
                                                         <div data-repeater-item class="align-items-center first-child">
                                                             <div class="location">
+                                                                <div class="row">
+                                                                    <div class="form-group col-lg-6">
+                                                                        <label>{{'Name'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
+                                                                        <input type="text" class="form-control" name="name" value="{{address.name}}" required/>
+                                                                    </div>
+                                                                    <div class="form-group col-lg-6">
+                                                                        <label>{{'Default Address'|__}}</label>
+                                                                        <div class="kt-radio-inline">
+                                                                            <label class="kt-radio">
+                                                                                <input type="radio" name="default" value="1" {% if address.default == 1 %}checked{% endif %}> {{'Yes'|__}}
+                                                                                <span></span>
+                                                                            </label>
+                                                                            <label class="kt-radio">
+                                                                                <input type="radio" name="default" value="0" {% if address.default == 0 %}checked{% endif %}> {{'No'|__}}
+                                                                                <span></span>
+                                                                            </label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
                                                                 <div class="row">
                                                                     <div class="form-group col-lg-5">
                                                                         <label>{{'Address'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
@@ -984,7 +1003,7 @@ function onPlaces()
 
                                                             <div class="form-group row">
                                                                 <div class="col-md-3">
-                                                                    <a href="javascript:;" data-repeater-delete="" class="btn-sm btn btn-label-danger btn-bold kt-margin-t-25 delete_btn">
+                                                                    <a href="javascript:void(0);" data-repeater-delete="" class="btn-sm btn btn-label-danger btn-bold kt-margin-t-25 delete_btn">
                                                                         <i class="la la-trash-o"></i>
                                                                         {{'Delete'|__}}
                                                                     </a>
@@ -1007,15 +1026,15 @@ function onPlaces()
                                                                         <div class="form-group col-lg-6">
                                                                             <label>{{'Default Address'|__}}</label>
                                                                             <div class="kt-radio-inline">
-                                                           <label class="kt-radio">
-                                                            <input type="radio" name="default" value="1" {% if address.default == 1 %}checked{% endif %}> {{'Yes'|__}}
-                                                            <span></span>
-                                                           </label>
-                                                           <label class="kt-radio">
-                                                            <input type="radio" name="default" value="0" {% if address.default == 0 %}checked{% endif %}> {{'No'|__}}
-                                                            <span></span>
-                                                           </label>
-                                                          </div>
+                                                                               <label class="kt-radio">
+                                                                                <input type="radio" name="default" value="1" {% if address.default == 1 %}checked{% endif %}> {{'Yes'|__}}
+                                                                                <span></span>
+                                                                               </label>
+                                                                               <label class="kt-radio">
+                                                                                <input type="radio" name="default" value="0" {% if address.default == 0 %}checked{% endif %}> {{'No'|__}}
+                                                                                <span></span>
+                                                                               </label>
+                                                                              </div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="row">
@@ -1078,7 +1097,7 @@ function onPlaces()
 
                                                                 <div class="form-group row">
                                                                     <div class="col-md-3">
-                                                                        <a href="javascript:;" data-repeater-delete="" class="btn-sm btn btn-label-danger btn-bold kt-margin-t-25 delete_btn">
+                                                                        <a href="javascript:void(0);" data-repeater-delete="" class="btn-sm btn btn-label-danger btn-bold kt-margin-t-25 delete_btn">
                                                                             <i class="la la-trash-o"></i>
                                                                             {{'Delete'|__}}
                                                                         </a>
@@ -1090,7 +1109,7 @@ function onPlaces()
                                                  </div>
                                                  <div class="form-group form-group-last row">
                                                      <label class="col-xl-12 col-form-label kt-align-right">
-                                                         <a href="javascript:;" data-repeater-create="" class="btn btn-bold btn-sm btn-label-brand">
+                                                         <a href="javascript:void(0);" data-repeater-create="" class="btn btn-bold btn-sm btn-label-brand">
                                                              <i class="la la-plus"></i> {{'Add Another Address'|__}}
                                                          </a>
                                                      </label>
@@ -1134,7 +1153,7 @@ function onPlaces()
                                                                             <input type="radio" name="type" class="place_type" value="4" required> {{"Areas"|__}}
                                                                             <span></span>
                                                                         </label>
-                                                  </div>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                             <div class="row type_1 type_container">
@@ -1175,7 +1194,7 @@ function onPlaces()
 
                                                             <div class="form-group row">
                                                                 <div class="col-md-3">
-                                                                    <a href="javascript:;" data-repeater-delete="" class="btn-sm btn btn-label-danger btn-bold kt-margin-t-25 delete_btn">
+                                                                    <a href="javascript:void(0);" data-repeater-delete="" class="btn-sm btn btn-label-danger btn-bold kt-margin-t-25 delete_btn">
                                                                         <i class="la la-trash-o"></i>
                                                                         {{'Delete'|__}}
                                                                     </a>
@@ -1204,7 +1223,7 @@ function onPlaces()
                                                                                 <input type="radio" name="type" class="place_type" value="4" {% if address.type == 4 %}checked{% endif %} required> {{"Areas"|__}}
                                                                                 <span></span>
                                                                             </label>
-                                                      </div>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="row type_1 type_container">
@@ -1257,7 +1276,7 @@ function onPlaces()
 
                                                                 <div class="form-group row">
                                                                     <div class="col-md-3">
-                                                                        <a href="javascript:;" data-repeater-delete="" class="btn-sm btn btn-label-danger btn-bold kt-margin-t-25 delete_btn">
+                                                                        <a href="javascript:void(0);" data-repeater-delete="" class="btn-sm btn btn-label-danger btn-bold kt-margin-t-25 delete_btn">
                                                                             <i class="la la-trash-o"></i>
                                                                             {{'Delete'|__}}
                                                                         </a>
@@ -1269,7 +1288,7 @@ function onPlaces()
                                                  </div>
                                                  <div class="form-group form-group-last row">
                                                      <label class="col-xl-12 col-lg-12 col-form-label kt-align-right">
-                                                         <a href="javascript:;" data-repeater-create="" class="btn btn-bold btn-sm btn-label-brand">
+                                                         <a href="javascript:void(0);" data-repeater-create="" class="btn btn-bold btn-sm btn-label-brand">
                                                              <i class="la la-plus"></i> {{'Add Another Place'|__}}
                                                          </a>
                                                      </label>
@@ -1298,7 +1317,7 @@ function onPlaces()
         {% endif %}
         {% if this.param.page == 'settings' %}
             <div class="row">
-                <div class="col-xl-12">
+                <div class="col-12">
                     <div class="kt-portlet kt-portlet--height-fluid">
                         <div class="kt-portlet__head">
                             <div class="kt-portlet__head-label">

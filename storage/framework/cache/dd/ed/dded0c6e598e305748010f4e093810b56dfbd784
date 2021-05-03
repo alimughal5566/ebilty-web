@@ -1,0 +1,299 @@
+1620035417a:1:{s:15:"profilemenu.htm";a:6:{s:8:"fileName";s:15:"profilemenu.htm";s:7:"content";s:10197:"[viewBag]
+==
+
+<!--Begin:: App Aside Mobile Toggle-->
+<button class="kt-app__aside-close" id="kt_user_profile_aside_close">
+    <i class="la la-close"></i>
+</button>
+<!--End:: App Aside Mobile Toggle-->
+
+<!--Begin:: App Aside-->
+<div class="kt-grid__item kt-app__toggle kt-app__aside kt_user_profile_aside" id="kt_user_profile_aside">
+    <!--begin:: Widgets/Applications/User/Profile1-->
+    <div class="kt-portlet kt-portlet--height-fluid-">
+        <div class="kt-portlet__head  kt-portlet__head--noborder">
+            <div class="kt-portlet__head-label">
+                <h3 class="kt-portlet__head-title">
+                </h3>
+            </div>
+        </div>
+        <div class="kt-portlet__body kt-portlet__body--fit-y">
+            <!--begin::Widget -->
+            <div class="kt-widget kt-widget--user-profile-1">
+                <div class="kt-widget__head">
+                    <div class="kt-widget__media">
+                        {% if user.avatar %}
+                             <img alt="Pic" src="{{user.avatar.thumb(100, 100,'crop')}}" />
+                        {% else %}
+                            <span class="kt-badge kt-badge--username kt-badge--unified-success kt-badge--xl kt-badge--rounded kt-badge--bold">{{user.name|capitalize|slice(0,2)}}</span>
+                         {% endif %}
+                    </div>
+                    <div class="kt-widget__content">
+                        <div class="kt-widget__section">
+                            <a href="javascript:void(0);" class="kt-widget__username">
+                                {{user.name}}
+                                {% if item.userverify_dateverified %}
+                                    <i class="flaticon2-correct kt-font-success"></i>
+                                {% endif %}
+                            </a>
+                            <span class="kt-widget__subtitle">
+                                {{user.role.name}}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="kt-widget__body kt-margin-t-20">
+                    <div class="kt-widget__content">
+                        {% if user.email %}
+                            <div class="kt-widget__info">
+                                <span class="kt-widget__label">{{'Email'|__}}:</span>
+                                <a href="javascript:void(0);" class="kt-widget__data">{{user.email}}</a>
+                            </div>
+                        {% endif %}
+                        {% if user.phone %}
+                            <div class="kt-widget__info">
+                                <span class="kt-widget__label">{{'Phone'|__}}:</span>
+                                <a href="javascript:void(0);" class="kt-widget__data">{{user.phone}}</a>
+                            </div>
+                        {% endif %}
+                        {% if user.mobile %}
+                            <div class="kt-widget__info">
+                                <span class="kt-widget__label">{{'Mobile'|__}}:</span>
+                                <span class="kt-widget__data">{{user.mobile}}</span>
+                            </div>
+                        {% endif %}
+                        {% if user.role_id != 1 %}
+                            <div class="kt-widget__info">
+                                <span class="kt-widget__label">{{'ًWallet'|__}}:</span>
+                                <span class="kt-widget__data">{{user.payments.sum('amount')|currency}}</span>
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="kt-widget__items kt-margin-t-20">
+
+                        <a href="{{url('dashboard/account')}}" class="kt-widget__item {% if this.param.page is empty %}kt-widget__item--active{% endif %}">
+                            <span class="kt-widget__section">
+                                <span class="kt-widget__icon">
+                                    <i class="fa fa-user-circle"></i>
+                                </span>
+                                <span  class="kt-widget__desc">
+                                    {{'Profile Overview'|__}}
+                                </span>
+                            </span>
+                        </a>
+                        <a  href="{{url('dashboard/account/edit')}}" class="kt-widget__item {% if this.param.page == 'edit' %}kt-widget__item--active{% endif %}">
+                            <span class="kt-widget__section">
+                                <span class="kt-widget__icon">
+                                    <i class="fa fa-info-circle"></i>
+                                </span>
+                                <span class="kt-widget__desc">
+                                    {{'Personal Information'|__}}
+                                </span>
+                            </span>
+                        </a>
+                        {% if user.role_id ==  5 %}
+                            <a href="{{url('dashboard/account/addresses')}}" class="kt-widget__item {% if this.param.page == 'addresses' %}kt-widget__item--active{% endif %}">
+                                <span class="kt-widget__section">
+                                    <span class="kt-widget__icon">
+                                        <i class="fa fa-address-card"></i>
+                                    </span>
+                                    <span class="kt-widget__desc">
+                                        {{'Addresses'|__}}
+                                    </span>
+                                </span>
+                            </a>
+                        {% elseif user.role_id in [3,4,6]%}
+                            <a href="{{url('dashboard/account/addresses')}}" class="kt-widget__item {% if this.param.page == 'addresses' %}kt-widget__item--active{% endif %}">
+                                <span class="kt-widget__section">
+                                    <span class="kt-widget__icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
+                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                            <rect x="0" y="0" width="24" height="24"/>
+                                            <path d="M2.56066017,10.6819805 L4.68198052,8.56066017 C5.26776695,7.97487373 6.21751442,7.97487373 6.80330086,8.56066017 L8.9246212,10.6819805 C9.51040764,11.267767 9.51040764,12.2175144 8.9246212,12.8033009 L6.80330086,14.9246212 C6.21751442,15.5104076 5.26776695,15.5104076 4.68198052,14.9246212 L2.56066017,12.8033009 C1.97487373,12.2175144 1.97487373,11.267767 2.56066017,10.6819805 Z M14.5606602,10.6819805 L16.6819805,8.56066017 C17.267767,7.97487373 18.2175144,7.97487373 18.8033009,8.56066017 L20.9246212,10.6819805 C21.5104076,11.267767 21.5104076,12.2175144 20.9246212,12.8033009 L18.8033009,14.9246212 C18.2175144,15.5104076 17.267767,15.5104076 16.6819805,14.9246212 L14.5606602,12.8033009 C13.9748737,12.2175144 13.9748737,11.267767 14.5606602,10.6819805 Z" fill="#000000" opacity="0.3"/>
+                                            <path d="M8.56066017,16.6819805 L10.6819805,14.5606602 C11.267767,13.9748737 12.2175144,13.9748737 12.8033009,14.5606602 L14.9246212,16.6819805 C15.5104076,17.267767 15.5104076,18.2175144 14.9246212,18.8033009 L12.8033009,20.9246212 C12.2175144,21.5104076 11.267767,21.5104076 10.6819805,20.9246212 L8.56066017,18.8033009 C7.97487373,18.2175144 7.97487373,17.267767 8.56066017,16.6819805 Z M8.56066017,4.68198052 L10.6819805,2.56066017 C11.267767,1.97487373 12.2175144,1.97487373 12.8033009,2.56066017 L14.9246212,4.68198052 C15.5104076,5.26776695 15.5104076,6.21751442 14.9246212,6.80330086 L12.8033009,8.9246212 C12.2175144,9.51040764 11.267767,9.51040764 10.6819805,8.9246212 L8.56066017,6.80330086 C7.97487373,6.21751442 7.97487373,5.26776695 8.56066017,4.68198052 Z" fill="#000000"/>
+                                            </g>
+                                        </svg>
+                                    </span>
+                                    <span class="kt-widget__desc">
+                                        {{'Covered Areas'|__}}
+                                    </span>
+                                </span>
+                            </a>
+                        {% endif %}
+                        <a href="{{url('dashboard/account/password')}}" class="kt-hidden kt-widget__item {% if this.param.page == 'password' %}kt-widget__item--active{% endif %}">
+                            <span class="kt-widget__section">
+                                <span class="kt-widget__icon">
+                                    <i class="fa fa-user-lock"></i>
+                                </span>
+                                <span  class="kt-widget__desc">
+                                    {{'Change Password'|__}}
+                                </span>
+                            </span>
+                        </a>
+                        <a href="{{url('dashboard/account/settings')}}"  class="kt-hidden kt-widget__item {% if this.param.page == 'settings' %}kt-widget__item--active{% endif %}">
+                            <span class="kt-widget__section">
+                                <span class="kt-widget__icon">
+                                    <i class="fa fa-cog"></i>
+                                </span>
+                                <span class="kt-widget__desc">
+                                    {{'Settings'|__}}
+                                </span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!--end::Widget -->
+        </div>
+    </div>
+    <!--end:: Widgets/Applications/User/Profile1-->
+</div>
+<!--End:: App Aside-->
+";s:5:"mtime";i:1620033158;s:6:"markup";s:10178:"<!--Begin:: App Aside Mobile Toggle-->
+<button class="kt-app__aside-close" id="kt_user_profile_aside_close">
+    <i class="la la-close"></i>
+</button>
+<!--End:: App Aside Mobile Toggle-->
+
+<!--Begin:: App Aside-->
+<div class="kt-grid__item kt-app__toggle kt-app__aside kt_user_profile_aside" id="kt_user_profile_aside">
+    <!--begin:: Widgets/Applications/User/Profile1-->
+    <div class="kt-portlet kt-portlet--height-fluid-">
+        <div class="kt-portlet__head  kt-portlet__head--noborder">
+            <div class="kt-portlet__head-label">
+                <h3 class="kt-portlet__head-title">
+                </h3>
+            </div>
+        </div>
+        <div class="kt-portlet__body kt-portlet__body--fit-y">
+            <!--begin::Widget -->
+            <div class="kt-widget kt-widget--user-profile-1">
+                <div class="kt-widget__head">
+                    <div class="kt-widget__media">
+                        {% if user.avatar %}
+                             <img alt="Pic" src="{{user.avatar.thumb(100, 100,'crop')}}" />
+                        {% else %}
+                            <span class="kt-badge kt-badge--username kt-badge--unified-success kt-badge--xl kt-badge--rounded kt-badge--bold">{{user.name|capitalize|slice(0,2)}}</span>
+                         {% endif %}
+                    </div>
+                    <div class="kt-widget__content">
+                        <div class="kt-widget__section">
+                            <a href="javascript:void(0);" class="kt-widget__username">
+                                {{user.name}}
+                                {% if item.userverify_dateverified %}
+                                    <i class="flaticon2-correct kt-font-success"></i>
+                                {% endif %}
+                            </a>
+                            <span class="kt-widget__subtitle">
+                                {{user.role.name}}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="kt-widget__body kt-margin-t-20">
+                    <div class="kt-widget__content">
+                        {% if user.email %}
+                            <div class="kt-widget__info">
+                                <span class="kt-widget__label">{{'Email'|__}}:</span>
+                                <a href="javascript:void(0);" class="kt-widget__data">{{user.email}}</a>
+                            </div>
+                        {% endif %}
+                        {% if user.phone %}
+                            <div class="kt-widget__info">
+                                <span class="kt-widget__label">{{'Phone'|__}}:</span>
+                                <a href="javascript:void(0);" class="kt-widget__data">{{user.phone}}</a>
+                            </div>
+                        {% endif %}
+                        {% if user.mobile %}
+                            <div class="kt-widget__info">
+                                <span class="kt-widget__label">{{'Mobile'|__}}:</span>
+                                <span class="kt-widget__data">{{user.mobile}}</span>
+                            </div>
+                        {% endif %}
+                        {% if user.role_id != 1 %}
+                            <div class="kt-widget__info">
+                                <span class="kt-widget__label">{{'ًWallet'|__}}:</span>
+                                <span class="kt-widget__data">{{user.payments.sum('amount')|currency}}</span>
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="kt-widget__items kt-margin-t-20">
+
+                        <a href="{{url('dashboard/account')}}" class="kt-widget__item {% if this.param.page is empty %}kt-widget__item--active{% endif %}">
+                            <span class="kt-widget__section">
+                                <span class="kt-widget__icon">
+                                    <i class="fa fa-user-circle"></i>
+                                </span>
+                                <span  class="kt-widget__desc">
+                                    {{'Profile Overview'|__}}
+                                </span>
+                            </span>
+                        </a>
+                        <a  href="{{url('dashboard/account/edit')}}" class="kt-widget__item {% if this.param.page == 'edit' %}kt-widget__item--active{% endif %}">
+                            <span class="kt-widget__section">
+                                <span class="kt-widget__icon">
+                                    <i class="fa fa-info-circle"></i>
+                                </span>
+                                <span class="kt-widget__desc">
+                                    {{'Personal Information'|__}}
+                                </span>
+                            </span>
+                        </a>
+                        {% if user.role_id ==  5 %}
+                            <a href="{{url('dashboard/account/addresses')}}" class="kt-widget__item {% if this.param.page == 'addresses' %}kt-widget__item--active{% endif %}">
+                                <span class="kt-widget__section">
+                                    <span class="kt-widget__icon">
+                                        <i class="fa fa-address-card"></i>
+                                    </span>
+                                    <span class="kt-widget__desc">
+                                        {{'Addresses'|__}}
+                                    </span>
+                                </span>
+                            </a>
+                        {% elseif user.role_id in [3,4,6]%}
+                            <a href="{{url('dashboard/account/addresses')}}" class="kt-widget__item {% if this.param.page == 'addresses' %}kt-widget__item--active{% endif %}">
+                                <span class="kt-widget__section">
+                                    <span class="kt-widget__icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
+                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                            <rect x="0" y="0" width="24" height="24"/>
+                                            <path d="M2.56066017,10.6819805 L4.68198052,8.56066017 C5.26776695,7.97487373 6.21751442,7.97487373 6.80330086,8.56066017 L8.9246212,10.6819805 C9.51040764,11.267767 9.51040764,12.2175144 8.9246212,12.8033009 L6.80330086,14.9246212 C6.21751442,15.5104076 5.26776695,15.5104076 4.68198052,14.9246212 L2.56066017,12.8033009 C1.97487373,12.2175144 1.97487373,11.267767 2.56066017,10.6819805 Z M14.5606602,10.6819805 L16.6819805,8.56066017 C17.267767,7.97487373 18.2175144,7.97487373 18.8033009,8.56066017 L20.9246212,10.6819805 C21.5104076,11.267767 21.5104076,12.2175144 20.9246212,12.8033009 L18.8033009,14.9246212 C18.2175144,15.5104076 17.267767,15.5104076 16.6819805,14.9246212 L14.5606602,12.8033009 C13.9748737,12.2175144 13.9748737,11.267767 14.5606602,10.6819805 Z" fill="#000000" opacity="0.3"/>
+                                            <path d="M8.56066017,16.6819805 L10.6819805,14.5606602 C11.267767,13.9748737 12.2175144,13.9748737 12.8033009,14.5606602 L14.9246212,16.6819805 C15.5104076,17.267767 15.5104076,18.2175144 14.9246212,18.8033009 L12.8033009,20.9246212 C12.2175144,21.5104076 11.267767,21.5104076 10.6819805,20.9246212 L8.56066017,18.8033009 C7.97487373,18.2175144 7.97487373,17.267767 8.56066017,16.6819805 Z M8.56066017,4.68198052 L10.6819805,2.56066017 C11.267767,1.97487373 12.2175144,1.97487373 12.8033009,2.56066017 L14.9246212,4.68198052 C15.5104076,5.26776695 15.5104076,6.21751442 14.9246212,6.80330086 L12.8033009,8.9246212 C12.2175144,9.51040764 11.267767,9.51040764 10.6819805,8.9246212 L8.56066017,6.80330086 C7.97487373,6.21751442 7.97487373,5.26776695 8.56066017,4.68198052 Z" fill="#000000"/>
+                                            </g>
+                                        </svg>
+                                    </span>
+                                    <span class="kt-widget__desc">
+                                        {{'Covered Areas'|__}}
+                                    </span>
+                                </span>
+                            </a>
+                        {% endif %}
+                        <a href="{{url('dashboard/account/password')}}" class="kt-hidden kt-widget__item {% if this.param.page == 'password' %}kt-widget__item--active{% endif %}">
+                            <span class="kt-widget__section">
+                                <span class="kt-widget__icon">
+                                    <i class="fa fa-user-lock"></i>
+                                </span>
+                                <span  class="kt-widget__desc">
+                                    {{'Change Password'|__}}
+                                </span>
+                            </span>
+                        </a>
+                        <a href="{{url('dashboard/account/settings')}}"  class="kt-hidden kt-widget__item {% if this.param.page == 'settings' %}kt-widget__item--active{% endif %}">
+                            <span class="kt-widget__section">
+                                <span class="kt-widget__icon">
+                                    <i class="fa fa-cog"></i>
+                                </span>
+                                <span class="kt-widget__desc">
+                                    {{'Settings'|__}}
+                                </span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!--end::Widget -->
+        </div>
+    </div>
+    <!--end:: Widgets/Applications/User/Profile1-->
+</div>
+<!--End:: App Aside-->";s:4:"code";N;s:7:"viewBag";a:0:{}}}

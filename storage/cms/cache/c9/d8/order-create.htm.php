@@ -1,5 +1,5 @@
 <?php 
-use \Spot\Shipment\Models\Settings;class Cms608df99b51fd0231736328_aca0b49fdc888dfc14f280be3fbb31e7Class extends Cms\Classes\PageCode
+use \Spot\Shipment\Models\Settings;class Cms608fc5593f32f331944730_6599cf5ced9234329d683023be26dbafClass extends Cms\Classes\PageCode
 {
 
 public function onStart() {
@@ -63,17 +63,17 @@ public function onSave()
                 $item->sender_id             = Auth::getUser()->id;
                 $address                     =\Spot\Shipment\Models\Address::where('user_id',Auth::getUser()->id)->first();
                 $item->sender_address_id     = (($address) ? $address->id : null);
-               
+
             }else{
                 $item->sender_id                    = htmlspecialchars($data['sender_id']);
                 $address      =   \Spot\Shipment\Models\Address::find($data['sender_address_id']);
                 $item->sender_address_id     = (($address) ? $address->id : null);
-                
+
             }
 
             $item->number                = $number;//htmlspecialchars($data['number']);
             $item->barcode                = $number;//htmlspecialchars($data['number']);
-            
+
             $item->airWayBill                = htmlspecialchars($data['airwaybill']);
             $item->location                = htmlspecialchars($data['location']);
             if(isset($data['cc'])){
@@ -95,7 +95,7 @@ public function onSave()
             $item->handler_id                = htmlspecialchars($data['handler_id']);
             if(isset($data['breakdown_id'])){
                 $item->breakdown_id                = htmlspecialchars($data['breakdown_id']);
-            }    
+            }
 
 
             $item->remarks                = htmlspecialchars($data['remarks']);
@@ -124,11 +124,11 @@ public function onSave()
                 $item->cost_24                      = htmlspecialchars($data['cost_24']);
                 $item->cost_48                      = htmlspecialchars($data['cost_48']);
             }
-            else 
-                $item->storage_fee              = 2;  
+            else
+                $item->storage_fee              = 2;
             $item->created_at            = \Carbon\Carbon::now();
             $item->updated_at            = \Carbon\Carbon::now();
-            
+
             if(isset($data['status_id']) && $data['status_id'] != ''){
                 $status = explode("_" , htmlspecialchars($data['status_id']) );
                 $item->status_id        = $status[0];
@@ -279,16 +279,16 @@ public function onSave()
         $activity->save();
     }
     else{
-       
+
         $number = '';
         for($x = 0; $x <= $this['settings']['tracking']['numbers_order']; $x++){
             $number .= '0';
         }
         //$next_num = \Spot\Shipment\Models\Order::withTrashed()->max('number')+1;
-        //dd($next_num); 
+        //dd($next_num);
         $number .= \Spot\Shipment\Models\Order::withTrashed()->max('number')+1;
         $number = substr($number, -$this['settings']['tracking']['numbers_order']);
-        
+
         if(Auth::getUser()->role_id == 5){
 
             //$number = '';
@@ -300,11 +300,11 @@ public function onSave()
 
             //$data['number']                 =   $number;
             if(isset($data['enable_anotherSender']) && $data['enable_anotherSender'] != ''){
-                $data['created_by'] = Auth::getUser()->id; 
+                $data['created_by'] = Auth::getUser()->id;
             }else{
                 $data['sender_id']              =   Auth::getUser()->id;
             }
-            
+
 
             if($this['settings']['shipments']['enable_type'] != 1)
                 $data['type'] = $this['settings']['shipments']['type'];
@@ -326,7 +326,7 @@ public function onSave()
                     if($package_fee ==  $data['packaging_id']){
                         $delivery_cost  +=   $value;
                     }
-                }   
+                }
             }
 
             if($this['settings']['enable_fees_weight'] ==1  && isset($data['total_weight']) && $data['total_weight'] != ''){
@@ -381,7 +381,7 @@ public function onSave()
                             }
                         }
                     }
-                    
+
                     if($fees->weight == 1 && isset($data['total_weight']) && $data['total_weight'] != ''){
 
                         foreach($fees->weight_fees as $weight_fee   =>  $value){
@@ -416,7 +416,7 @@ public function onSave()
         if($prev){
             throw new ApplicationException($this['theme_lang']['another_order_with_the_same_numbers']);
         }
-        
+
         $item                   = new \Spot\Shipment\Models\Order;
         if(isset($data['enable_anotherSender']) && $data['enable_anotherSender'] != ''){
             $item->sender_id        = htmlspecialchars($data['another_sender_id']);
@@ -488,9 +488,9 @@ public function onSave()
                 $item->status_id        = $status[0];
                 $item->requested        = $status[1];
                 //$item->status_id        = htmlspecialchars($data['status_id']);
-            }   
+            }
         }
-        
+
         if(isset($data['assigned_id']) && $data['assigned_id'] != ''){
             $item->assigned_id  = htmlspecialchars($data['assigned_id']);
         }
@@ -652,7 +652,7 @@ public function onSave()
             }
 
         }
-        
+
         if(isset($item->insurance) && $item->insurance != 0){
             $payment                    = new \Spot\Shipment\Models\Payment_v2;
             if($item->payment_type == 1){
@@ -721,7 +721,7 @@ public function onSave()
                 $payment->created_at        = \Carbon\Carbon::now();
                 $payment->updated_at        = \Carbon\Carbon::now();
                 $payment->save();
-            }  
+            }
         }
 
 
@@ -745,7 +745,7 @@ public function onSave()
 
         $total_payment +=$item->courier_fee;
 
-        
+
         if($item->payment_type == 1){
             if($item->return_package_fee == 1){
                 $total_payment += $return_cost_payment;
@@ -784,7 +784,7 @@ public function onSave()
                 $transaction->date              = \Carbon\Carbon::parse($item->ship_date);
                 $transaction->created_at        = \Carbon\Carbon::now();
                 $transaction->updated_at        = \Carbon\Carbon::now();
-                $transaction->save();   
+                $transaction->save();
             }
 
         }else{
@@ -828,7 +828,7 @@ public function onSave()
                 $transaction->save();
             }
         }
-        
+
 
 
     /*
@@ -923,7 +923,7 @@ public function onSave()
                     $payment->created_at        = \Carbon\Carbon::now();
                     $payment->updated_at        = \Carbon\Carbon::now();
                     $payment->save();
-                }  
+                }
             }
 
 
@@ -1253,7 +1253,7 @@ public function onNewclient(){
         $password                           = \Hash::make(123);
         $item->password                     = $password;
         $item->password_confirmation        = $password;
-        
+
         $item->vat_number                   = htmlspecialchars($data['vat']);
         $item->mobile                       = htmlspecialchars($data['num']);
         $item->box                          = htmlspecialchars($data['box']);
@@ -1268,8 +1268,8 @@ public function onNewclient(){
             $item->cost_24                      = htmlspecialchars($data['cost_24']);
             $item->cost_48                      = htmlspecialchars($data['cost_48']);
         }
-        else 
-            $item->storage_fee              = 2;   
+        else
+            $item->storage_fee              = 2;
 
         $item->role_id                      = 5;
         $item->created_at                   = \Carbon\Carbon::now();
@@ -1305,9 +1305,9 @@ public function onNewclient(){
         $resultArr = array(
                 "id"=>$item->id, "name"=>$item->name, 'address_id' => $subitem->id, 'address_name' => $subitem->name,
                 "clearance"=>$item->custom_clearance,"fiscal"=>$item->fiscal_representation,"payment_term"=>$item->payment_term,"price_kg"=>$item->price_kg,"storage_fee"=>$item->storage_fee,"cost_24"=>$item->cost_24,"cost_48"=>$item->cost_48  );
-        
+
         return $resultArr;
-        
+
 
     }else{
         if(isset($data['connect'])){
@@ -1387,7 +1387,7 @@ public function onNewclient(){
         return array("id"=>$item->id, "name"=>$item->name, 'address_id' => $subitem->id, 'address_name' => $subitem->name);
     }
 
-    
+
 }
 public function onNewclientaddress(){
     $addShipmentForm  = Settings::get('addShipmentForm',true);
@@ -1512,9 +1512,9 @@ public function onListareas(){
 }
 public function onChangefees(){
     $addShipmentForm  = Settings::get('addShipmentForm',true);
-            
+
     $data = post();
-    
+
     if( $addShipmentForm == "add_form_normal")
     {
         $data['type'] =2;
@@ -1539,7 +1539,7 @@ public function onChangefees(){
             if($package_fee ==  $data['packaging_id']){
                 $delivery_cost  +=   $value;
             }
-        }   
+        }
     }
 
     if($this['settings']['enable_fees_weight'] ==1  && isset($data['total_weight']) && $data['total_weight'] != ''){
@@ -1600,7 +1600,7 @@ public function onChangefees(){
                     }
                 }
             }
-            
+
             if(isset($data['return_defray']) && $data['return_defray'] != ''){
                 if($data['return_package_fee']  ==  1){
                     $return_courier_fee  =   $fees->delivery_cost_back_receiver;

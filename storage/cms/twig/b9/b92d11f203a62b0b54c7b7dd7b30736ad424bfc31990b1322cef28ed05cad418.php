@@ -604,7 +604,7 @@ class __TwigTemplate_d52297eafffa371bec4152cd08d1553c23ef917ce753ba1f8d7661a6886
                         </div>
                     </div>
                 </div>
-                
+
                 <div class=\"kt-separator kt-separator--border-dashed kt-separator--space-lg kt-separator--portlet-fit kt-margin-t-0\"></div>
                 ";
             }
@@ -818,7 +818,7 @@ class __TwigTemplate_d52297eafffa371bec4152cd08d1553c23ef917ce753ba1f8d7661a6886
                 }
                 // line 407
                 echo "                    </div>
-                    
+
                     <div class=\"another_sender ";
                 // line 409
                 if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "customers", [], "any", false, false, false, 409), "anotherCustomer", [], "any", false, false, false, 409) != 1)) {
@@ -861,16 +861,16 @@ class __TwigTemplate_d52297eafffa371bec4152cd08d1553c23ef917ce753ba1f8d7661a6886
                 echo "/";
                 echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Client"]);
                 echo "&nbsp;<span class=\"kt-badge kt-badge--danger kt-badge--dot\"></span></label>
-                                    
+
                                 <option value=\"new\" data-icon=\"flaticon2-add\">";
                 // line 423
                 echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Add New"]);
                 echo "</option>
-                                
+
                             </select>
                         </div>
-                    </div>   
-                    
+                    </div>
+
                 ";
             }
             // line 430
@@ -985,7 +985,7 @@ class __TwigTemplate_d52297eafffa371bec4152cd08d1553c23ef917ce753ba1f8d7661a6886
             echo "                        </select>
                     </div>
                 </div>
-                
+
                     <div class=\"row kt-hidden\" id=\"addnewsender\">
                         <div class=\"kt-portlet kt-portlet--bordered kt-portlet--head--noborder kt-margin-b-0\">
             \t\t\t\t<div class=\"kt-portlet__head\">
@@ -1160,7 +1160,7 @@ class __TwigTemplate_d52297eafffa371bec4152cd08d1553c23ef917ce753ba1f8d7661a6886
                                         ";
             }
             // line 530
-            echo "                                    
+            echo "
                                         ";
             // line 531
             if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "customers", [], "any", false, false, false, 531), "enable_state", [], "any", false, false, false, 531) == 1)) {
@@ -1236,7 +1236,7 @@ class __TwigTemplate_d52297eafffa371bec4152cd08d1553c23ef917ce753ba1f8d7661a6886
             // line 549
             echo "                                            </select>
                                         </div>
-                                    
+
                                         ";
             // line 552
             if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "customers", [], "any", false, false, false, 552), "enable_county", [], "any", false, false, false, 552) == 1)) {
@@ -1410,7 +1410,7 @@ class __TwigTemplate_d52297eafffa371bec4152cd08d1553c23ef917ce753ba1f8d7661a6886
                 \t\t\t</div>
             \t\t\t</div>
         \t\t\t</div>
-               
+
                 <div class=\"row kt-hidden\" id=\"addnewsenderaddress\">
                     <div class=\"kt-portlet kt-portlet--bordered kt-portlet--head--noborder kt-margin-b-0\">
         \t\t\t\t<div class=\"kt-portlet__head\">
@@ -2682,7 +2682,7 @@ class __TwigTemplate_d52297eafffa371bec4152cd08d1553c23ef917ce753ba1f8d7661a6886
                                         ";
             }
             // line 1203
-            echo "                                    
+            echo "
                                         ";
             // line 1204
             if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "shipments", [], "any", false, false, false, 1204), "enable_quantity", [], "any", false, false, false, 1204) == 1)) {
@@ -2734,7 +2734,7 @@ class __TwigTemplate_d52297eafffa371bec4152cd08d1553c23ef917ce753ba1f8d7661a6886
                                         ";
             }
             // line 1231
-            echo "                                    
+            echo "
                                         ";
             // line 1232
             if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "shipments", [], "any", false, false, false, 1232), "enable_dimensions", [], "any", false, false, false, 1232) == 1)) {
@@ -2868,7 +2868,7 @@ class __TwigTemplate_d52297eafffa371bec4152cd08d1553c23ef917ce753ba1f8d7661a6886
                 echo "                                    </div>
                                 </div>
 
-                                <div class=\"form-group col-lg-6\">                                    
+                                <div class=\"form-group col-lg-6\">
                                     <label>";
                 // line 1311
                 echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Total Weight"]);
@@ -3195,7 +3195,7 @@ class __TwigTemplate_d52297eafffa371bec4152cd08d1553c23ef917ce753ba1f8d7661a6886
                 echo "                                    </div>
                                 </div>
 
-                                <div class=\"form-group col-lg-6\">                                    
+                                <div class=\"form-group col-lg-6\">
                                     <label>";
                 // line 1446
                 echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Total Weight"]);
@@ -3255,8 +3255,8 @@ class __TwigTemplate_d52297eafffa371bec4152cd08d1553c23ef917ce753ba1f8d7661a6886
                     // line 1469
                     echo "                            ";
                 }
-                echo "    
-                        </div>
+                // line 1470
+                echo "                        </div>
                     </div>
                 ";
             }
@@ -3305,54 +3305,49 @@ class __TwigTemplate_d52297eafffa371bec4152cd08d1553c23ef917ce753ba1f8d7661a6886
         echo "&nbsp;<span class=\"kt-badge kt-badge--danger kt-badge--dot\"></span></label>
                     </div>
                     <div class=\"form-group col-lg-12\" id=\"vehicle_type\">
-                        <div id=\"vehicleTypeCarousel\" class=\"carousel slide w-100\" data-ride=\"carousel\">
-                            <div class=\"carousel-inner w-100\" role=\"listbox\">
-                                <div class=\"carousel-item active\">
-                                    <div class=\"col-md-4\">
-                                        <div class=\"card card-body px-0 border-0\">
-                                            <img alt=\"\" class=\"img-fluid\" src=\"http://placehold.it/300?text=1\">
-                                            <div class=\"vehicle-detail\">
-                                                <h4 class=\"font-weight-bold\">Flat Bed</h4>
-                                                <p class=\"mb-0\">Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum
-                                                    Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class=\"carousel-item\">
-                                    <div class=\"col-md-4\">
-                                        <div class=\"card card-body px-0 border-0\">
-                                            <img alt=\"\" class=\"img-fluid\" src=\"http://placehold.it/300?text=1\">
-                                            <div class=\"vehicle-detail\">
-                                                <h4 class=\"font-weight-bold\">Flat Bed</h4>
-                                                <p class=\"mb-0\">Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum
-                                                    Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class=\"carousel-item\">
-                                    <div class=\"col-md-4\">
-                                        <div class=\"card card-body px-0 border-0\">
-                                            <img alt=\"\" class=\"img-fluid\" src=\"http://placehold.it/300?text=1\">
-                                            <div class=\"vehicle-detail\">
-                                                <h4 class=\"font-weight-bold\">Flat Bed</h4>
-                                                <p class=\"mb-0\">Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum
-                                                    Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum</p>
-                                            </div>
-                                        </div>
+                        <div id=\"vehicleTypeCarousel\" class=\"vehicleTypeCarousel\">
+                            <div class=\"card card-body mx-3 px-0 border-0\">
+                                <div class=\"content-inner mx-3 text-center d-block\">
+                                    <img alt=\"\" class=\"img-fluid mx-auto\" src=\"http://placehold.it/300?text=1\">
+                                    <div class=\"vehicle-detail text-center mx-2 mx-lg-4 mt-4\">
+                                        <h4 class=\"font-weight-bold\">Flat Bed</h4>
+                                        <p class=\"mb-0\">Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum
+                                            Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum</p>
                                     </div>
                                 </div>
                             </div>
-                            <a class=\"carousel-control-prev w-auto\" href=\"#vehicleTypeCarousel\" role=\"button\" data-slide=\"prev\">
-                                <span class=\"carousel-control-prev-icon rounded-circle\" aria-hidden=\"true\"></span>
-                                <span class=\"sr-only\">Previous</span>
-                            </a>
-                            <a class=\"carousel-control-next w-auto\" href=\"#vehicleTypeCarousel\" role=\"button\" data-slide=\"next\">
-                                <span class=\"carousel-control-next-icon rounded-circle\" aria-hidden=\"true\"></span>
-                                <span class=\"sr-only\">Next</span>
-                            </a>
+                            <div class=\"card card-body mx-3 px-0 border-0\">
+                                <div class=\"content-inner mx-3 text-center d-block\">
+                                    <img alt=\"\" class=\"img-fluid mx-auto\" src=\"http://placehold.it/300?text=1\">
+                                    <div class=\"vehicle-detail text-center mx-2 mx-lg-4 mt-4\">
+                                        <h4 class=\"font-weight-bold\">Flat Bed</h4>
+                                        <p class=\"mb-0\">Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum
+                                            Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=\"card card-body mx-3 px-0 border-0\">
+                                <div class=\"content-inner mx-3 text-center d-block\">
+                                    <img alt=\"\" class=\"img-fluid mx-auto\" src=\"http://placehold.it/300?text=1\">
+                                    <div class=\"vehicle-detail text-center mx-2 mx-lg-4 mt-4\">
+                                        <h4 class=\"font-weight-bold\">Flat Bed</h4>
+                                        <p class=\"mb-0\">Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum
+                                            Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=\"card card-body mx-3 px-0 border-0\">
+                                <div class=\"content-inner mx-3 text-center d-block\">
+                                    <img alt=\"\" class=\"img-fluid mx-auto\" src=\"http://placehold.it/300?text=1\">
+                                    <div class=\"vehicle-detail text-center mx-2 mx-lg-4 mt-4\">
+                                        <h4 class=\"font-weight-bold\">Flat Bed</h4>
+                                        <p class=\"mb-0\">Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum
+                                            Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -3366,9 +3361,9 @@ class __TwigTemplate_d52297eafffa371bec4152cd08d1553c23ef917ce753ba1f8d7661a6886
                 <div class=\"row\">
                     <div class=\"col-lg-12\">
                         ";
-        // line 1566
-        if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "role_id", [], "any", false, false, false, 1566) == 5)) {
-            // line 1567
+        // line 1561
+        if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "role_id", [], "any", false, false, false, 1561) == 5)) {
+            // line 1562
             echo "                            <button type=\"button\" class=\"btn btn-info save_draft\">";
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Save as draft"]);
             echo "</button> <span class=\"kt-margin-left-10\">";
@@ -3376,15 +3371,15 @@ class __TwigTemplate_d52297eafffa371bec4152cd08d1553c23ef917ce753ba1f8d7661a6886
             echo "
                         ";
         }
-        // line 1569
+        // line 1564
         echo "                        <button type=\"submit\" class=\"btn btn-success save\">";
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Send"]);
         echo "</button>
                         <span class=\"kt-margin-left-10\">";
-        // line 1570
+        // line 1565
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["or"]);
         echo " <a href=\"";
-        echo $this->extensions['Cms\Twig\Extension']->pageFilter(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, false, false, 1570), "child_of", [], "any", false, false, false, 1570));
+        echo $this->extensions['Cms\Twig\Extension']->pageFilter(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, false, false, 1565), "child_of", [], "any", false, false, false, 1565));
         echo "\" class=\"kt-link\">";
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Cancel"]);
         echo "</a></span>
@@ -3395,14 +3390,14 @@ class __TwigTemplate_d52297eafffa371bec4152cd08d1553c23ef917ce753ba1f8d7661a6886
     </div>
 </div>
 ";
-        // line 1577
+        // line 1572
         echo call_user_func_array($this->env->getFunction('form_close')->getCallable(), ["close"]);
         echo "
 
 ";
-        // line 1579
+        // line 1574
         echo $this->env->getExtension('Cms\Twig\Extension')->startBlock('styles'        );
-        // line 1580
+        // line 1575
         echo "    <style>
         .readonly .input-group-prepend span {
             background: none;
@@ -3436,17 +3431,17 @@ class __TwigTemplate_d52297eafffa371bec4152cd08d1553c23ef917ce753ba1f8d7661a6886
         }
     </style>
 ";
-        // line 1579
+        // line 1574
         echo $this->env->getExtension('Cms\Twig\Extension')->endBlock(true        );
-        // line 1613
+        // line 1608
         echo $this->env->getExtension('Cms\Twig\Extension')->startBlock('scripts'        );
-        // line 1614
+        // line 1609
         echo "<script src=\"";
         echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/admin/vendors/custom/geocomplete/jquery.geocomplete.js");
         echo "\" type=\"text/javascript\"></script>
 <script src=\"//maps.googleapis.com/maps/api/js?libraries=places&key=";
-        // line 1615
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "google", [], "any", false, false, false, 1615), "map", [], "any", false, false, false, 1615), "html", null, true);
+        // line 1610
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "google", [], "any", false, false, false, 1610), "map", [], "any", false, false, false, 1610), "html", null, true);
         echo "\"></script>
 <script type=\"text/javascript\">
 KTUtil.ready(function () {
@@ -3492,8 +3487,8 @@ KTUtil.ready(function () {
             \$('.base_sender').removeClass('kt-hidden');
             \$('.another_sender').addClass('kt-hidden');
         }
-        
-        
+
+
     });
 
 
@@ -3520,9 +3515,9 @@ KTUtil.ready(function () {
          var total_weight = \$('.total_weight').val();
          var return_defray = \$('.return_defray:checked').val();
          var return_package_fee = \$('.return_package_fee:checked').val();
-         
+
          if(selected != '' && selected != 'new'){
-            
+
              \$.request('onChangefees', {
                   data: {sender_address_id: sender_address_id, type: selected, packaging_id:packaging_id, receiver_address_id: receiver_address_id, return_defray: return_defray, return_package_fee: return_package_fee,show_receiver_info:show_receiver_info,total_weight:total_weight},
                   success: function(response, status, xhr, \$form) {
@@ -3538,27 +3533,26 @@ KTUtil.ready(function () {
     \$('body').on('change', '.total_weight', function(e){
         var total_weight = \$(this).val();
         ";
-        // line 1705
-        if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "shipments", [], "any", false, false, false, 1705), "enable_type", [], "any", false, false, false, 1705) != 1)) {
-            // line 1706
+        // line 1700
+        if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "shipments", [], "any", false, false, false, 1700), "enable_type", [], "any", false, false, false, 1700) != 1)) {
+            // line 1701
             echo "            var type = ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "shipments", [], "any", false, false, false, 1706), "type", [], "any", false, false, false, 1706), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "shipments", [], "any", false, false, false, 1701), "type", [], "any", false, false, false, 1701), "html", null, true);
             echo ";
         ";
         } else {
-            // line 1707
-            echo "        
-            var type = \$('.type:checked').val();
+            // line 1703
+            echo "            var type = \$('.type:checked').val();
         ";
         }
-        // line 1710
+        // line 1705
         echo "        var show_receiver_info = \$('.show_receiver_info:checked').val();
         var sender_address_id = \$('#sender_address_id').val();
         var receiver_address_id = \$('#receiver_address_id').val();
         var packaging_id = \$('#packaging_id').val();
         var return_defray = \$('.return_defray:checked').val();
         var return_package_fee = \$('.return_package_fee:checked').val();
-        
+
         \$.request('onChangefees', {
                   data: {sender_address_id: sender_address_id, type: type, packaging_id:packaging_id, receiver_address_id: receiver_address_id, return_defray: return_defray, return_package_fee: return_package_fee,show_receiver_info:show_receiver_info,total_weight:total_weight},
                   success: function(response, status, xhr, \$form) {
@@ -3576,20 +3570,19 @@ KTUtil.ready(function () {
 
         var show_receiver_info = \$('.show_receiver_info:checked').val();
         ";
-        // line 1733
-        if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "shipments", [], "any", false, false, false, 1733), "enable_type", [], "any", false, false, false, 1733) != 1)) {
-            // line 1734
+        // line 1728
+        if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "shipments", [], "any", false, false, false, 1728), "enable_type", [], "any", false, false, false, 1728) != 1)) {
+            // line 1729
             echo "            var type = ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "shipments", [], "any", false, false, false, 1734), "type", [], "any", false, false, false, 1734), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "shipments", [], "any", false, false, false, 1729), "type", [], "any", false, false, false, 1729), "html", null, true);
             echo ";
         ";
         } else {
-            // line 1735
-            echo "        
-            var type = \$('.type:checked').val();
+            // line 1731
+            echo "            var type = \$('.type:checked').val();
         ";
         }
-        // line 1738
+        // line 1733
         echo "         var sender_address_id = \$('#sender_address_id').val();
          var receiver_address_id = \$('#receiver_address_id').val();
          var packaging_id = \$('#packaging_id').val();
@@ -3608,20 +3601,19 @@ KTUtil.ready(function () {
 
         var show_receiver_info = \$('.show_receiver_info:checked').val();
         ";
-        // line 1755
-        if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "shipments", [], "any", false, false, false, 1755), "enable_type", [], "any", false, false, false, 1755) != 1)) {
-            // line 1756
+        // line 1750
+        if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "shipments", [], "any", false, false, false, 1750), "enable_type", [], "any", false, false, false, 1750) != 1)) {
+            // line 1751
             echo "            var type = ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "shipments", [], "any", false, false, false, 1756), "type", [], "any", false, false, false, 1756), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "shipments", [], "any", false, false, false, 1751), "type", [], "any", false, false, false, 1751), "html", null, true);
             echo ";
         ";
         } else {
-            // line 1757
-            echo "        
-            var type = \$('.type:checked').val();
+            // line 1753
+            echo "            var type = \$('.type:checked').val();
         ";
         }
-        // line 1760
+        // line 1755
         echo "         var sender_address_id = \$('#sender_address_id').val();
          var receiver_address_id = \$('#receiver_address_id').val();
          var packaging_id = \$('#packaging_id').val();
@@ -3651,9 +3643,9 @@ KTUtil.ready(function () {
                      \$('select.sender_address_id').html(response.html).selectpicker('refresh');
                      \$('select.sender_address_id').val(response.default).selectpicker('refresh');
                      ";
-        // line 1788
+        // line 1783
         if ((($context["addShipmentForm"] ?? null) == "add_form_normal")) {
-            // line 1789
+            // line 1784
             echo "                     \$('#clearance').val(response.clearance);
                      \$('#fiscal').val(response.fiscal);
                      \$('#payment_term').val(response.payment_term);
@@ -3662,7 +3654,7 @@ KTUtil.ready(function () {
                         \$('#storage_yes').prop('checked',true);
                         \$('#cost_24').val(response.cost_24);
                         \$('#cost_48').val(response.cost_48);
-                        \$('#ccost').removeClass('kt-hidden');   
+                        \$('#ccost').removeClass('kt-hidden');
                      }else{
                         \$('#storage_no').prop('checked',true);
                         \$('#ccost').addClass('kt-hidden');
@@ -3670,7 +3662,7 @@ KTUtil.ready(function () {
                      \$('.payment').removeClass('kt-hidden');
                      ";
         }
-        // line 1804
+        // line 1799
         echo "                     if(response.default == 'new'){
                          \$('#addnewsenderaddress').removeClass('kt-hidden');
                      }else if(selected != ''){
@@ -3679,20 +3671,19 @@ KTUtil.ready(function () {
 
                      var selected = response.default;
                      ";
-        // line 1811
-        if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "shipments", [], "any", false, false, false, 1811), "enable_type", [], "any", false, false, false, 1811) != 1)) {
-            // line 1812
+        // line 1806
+        if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "shipments", [], "any", false, false, false, 1806), "enable_type", [], "any", false, false, false, 1806) != 1)) {
+            // line 1807
             echo "                        var type = ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "shipments", [], "any", false, false, false, 1812), "type", [], "any", false, false, false, 1812), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "shipments", [], "any", false, false, false, 1807), "type", [], "any", false, false, false, 1807), "html", null, true);
             echo ";
                     ";
         } else {
-            // line 1813
-            echo "        
-                        var type = \$('.type:checked').val();
+            // line 1809
+            echo "                        var type = \$('.type:checked').val();
                     ";
         }
-        // line 1816
+        // line 1811
         echo "                     var receiver_address_id = \$('#receiver_address_id').val();
                      var packaging_id = \$('#packaging_id').val();
                      var return_defray = \$('.return_defray:checked').val();
@@ -3716,20 +3707,20 @@ KTUtil.ready(function () {
         swal.fire({
             buttonsStyling: false,
             html: \"<div class='alert alert-warning' role='alert'><div class='alert-text'>";
-        // line 1838
+        // line 1833
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["This mean that your shipment request will not be sent to the company, it will be just saved in your account as a draft so you can edit it or give you the ability to add all your shipments and then send them all to the company at once"]);
         echo "</div></div>\",
             type: \"warning\",
 
             confirmButtonText: \"";
-        // line 1841
+        // line 1836
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Yes, Just save it as a draft"]);
         echo "!\",
             confirmButtonClass: \"btn btn-sm btn-bold btn-brand\",
 
             showCancelButton: true,
             cancelButtonText: \"";
-        // line 1845
+        // line 1840
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["No, cancel"]);
         echo "\",
             cancelButtonClass: \"btn btn-sm btn-bold btn-default\"
@@ -3762,34 +3753,34 @@ KTUtil.ready(function () {
                 type: 'v2',
                 state: 'primary',
                 message: '";
-        // line 1875
+        // line 1870
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Processing, please wait"]);
         echo "...'
             });
             \$.request('onNewclient', {
                  ";
-        // line 1878
+        // line 1873
         if ((($context["addShipmentForm"] ?? null) == "add_form_normal")) {
-            // line 1879
+            // line 1874
             echo "                 data: {name: parent.find('.name').val(),email: parent.find('.email').val(), vat: parent.find('.vat').val(),budget: parent.find('.budget').val() ,street_addr: parent.find('.street').val(), num: parent.find('.num').val(), box: parent.find('.box').val(), city_id: parent.find('.city_id').find(\"option:selected\").val(), postal_code: parent.find('.postal_code').val(),  country_id: parent.find('.country_id').find(\"option:selected\").val(), lang: parent.find('.lang').find(\"option:selected\").val(), clearance: parent.find('.clearance').val(), fiscal: parent.find('.fiscal').val(),payment_term: parent.find('.payment_term').val(),price_kg: parent.find('.price_kg').val(),storage_fee: parent.find('.feeRadio:checked').val(),cost_24: parent.find('.cost_24').val(),cost_48: parent.find('.cost_48').val()},
                  ";
         } else {
-            // line 1881
+            // line 1876
             echo "                 data: { name: parent.find('.name').val(), mobile: parent.find('.mobile').val(), email: parent.find('.email').val(), gender: parent.find('.gender:checked').val(), street_addr: parent.find('.street_addr').val(), lat: parent.find('.lat').val(), lng: parent.find('.lng').val(), url: parent.find('.url').val(), area_id: parent.find('.area_id').find(\"option:selected\").val(), city_id: parent.find('.city_id').find(\"option:selected\").val(), postal_code: parent.find('.postal_code').val(), state_id: parent.find('.state_id').find(\"option:selected\").val(), country_id: parent.find('.country_id').find(\"option:selected\").val(), connect: parent.find('.connect:checked').val(), username: parent.find('.username').val(), password: parent.find('.password').val()},
                  ";
         }
-        // line 1883
+        // line 1878
         echo "                 error: function(response, status, xhr, \$form) {
                      swal.fire({
                          title: '";
-        // line 1885
+        // line 1880
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Error!"]);
         echo "',
                          text: response.responseText,
                          type: 'error',
                          buttonsStyling: false,
                          confirmButtonText: '";
-        // line 1889
+        // line 1884
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["OK"]);
         echo "',
                          confirmButtonClass: \"btn btn-sm btn-bold btn-brand\",
@@ -3802,9 +3793,9 @@ KTUtil.ready(function () {
                      \$('select.sender_address_id').html('<option value=\"'+response.address_id+'\">'+response.address_name+'</option>').selectpicker('refresh');
                      \$('select.sender_address_id').val(response.address_id).selectpicker('refresh');
                      ";
-        // line 1899
+        // line 1894
         if ((($context["addShipmentForm"] ?? null) == "add_form_normal")) {
-            // line 1900
+            // line 1895
             echo "                     \$('#clearance').val(response.clearance);
                      \$('#fiscal').val(response.fiscal);
                      \$('#payment_term').val(response.payment_term);
@@ -3813,7 +3804,7 @@ KTUtil.ready(function () {
                         \$('#storage_yes').prop('checked',true);
                         \$('#cost_24').val(response.cost_24);
                         \$('#cost_48').val(response.cost_48);
-                        \$('#ccost').removeClass('kt-hidden');   
+                        \$('#ccost').removeClass('kt-hidden');
                      }else{
                         \$('#storage_no').prop('checked',true);
                         \$('#ccost').addClass('kt-hidden');
@@ -3821,7 +3812,7 @@ KTUtil.ready(function () {
                      \$('.payment').removeClass('kt-hidden');
                      ";
         }
-        // line 1915
+        // line 1910
         echo "                     KTApp.unblockPage();
                      parent.find('input,select').each(function(){
                          \$(this).val('');
@@ -3855,20 +3846,19 @@ KTUtil.ready(function () {
         var selected = \$(e.currentTarget).val();
 
         ";
-        // line 1947
-        if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "shipments", [], "any", false, false, false, 1947), "enable_type", [], "any", false, false, false, 1947) != 1)) {
-            // line 1948
+        // line 1942
+        if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "shipments", [], "any", false, false, false, 1942), "enable_type", [], "any", false, false, false, 1942) != 1)) {
+            // line 1943
             echo "            var type = ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "shipments", [], "any", false, false, false, 1948), "type", [], "any", false, false, false, 1948), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "shipments", [], "any", false, false, false, 1943), "type", [], "any", false, false, false, 1943), "html", null, true);
             echo ";
         ";
         } else {
-            // line 1949
-            echo "        
-            var type = \$('.type:checked').val();
+            // line 1945
+            echo "            var type = \$('.type:checked').val();
         ";
         }
-        // line 1952
+        // line 1947
         echo "         var sender_address_id = \$('#sender_address_id').val();
          var receiver_address_id = \$('#receiver_address_id').val();
          var packaging_id = selected;
@@ -3905,35 +3895,34 @@ KTUtil.ready(function () {
                 type: 'v2',
                 state: 'primary',
                 message: '";
-        // line 1987
+        // line 1982
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Processing, please wait"]);
         echo "...'
             });
             \$.request('onNewclientaddress', {
                  ";
-        // line 1990
+        // line 1985
         if ((($context["addShipmentForm"] ?? null) == "add_form_normal")) {
-            // line 1991
+            // line 1986
             echo "                 data: {client_id: \$('#sender_id').val(),street_addr: parent.find('.street_addr').val(), city_id: parent.find('.city_id').find(\"option:selected\").val(), postal_code: parent.find('.postal_code').val(),  country_id: parent.find('.country_id').find(\"option:selected\").val()},
                  ";
         } else {
-            // line 1993
+            // line 1988
             echo "                 data: {client_id: \$('#sender_id').val(), street_addr: parent.find('.street_addr').val(), lat: parent.find('.lat').val(), lng: parent.find('.lng').val(), url: parent.find('.url').val(), area_id: parent.find('.area_id').find(\"option:selected\").val(), city_id: parent.find('.city_id').find(\"option:selected\").val(), postal_code: parent.find('.postal_code').val(), state_id: parent.find('.state_id').find(\"option:selected\").val(), country_id: parent.find('.country_id').find(\"option:selected\").val()},
                  ";
         }
-        // line 1994
-        echo "   
-                 error: function(response, status, xhr, \$form) {
+        // line 1990
+        echo "                 error: function(response, status, xhr, \$form) {
                      swal.fire({
                          title: '";
-        // line 1997
+        // line 1992
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Error!"]);
         echo "',
                          text: response.responseText,
                          type: 'error',
                          buttonsStyling: false,
                          confirmButtonText: '";
-        // line 2001
+        // line 1996
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["OK"]);
         echo "',
                          confirmButtonClass: \"btn btn-sm btn-bold btn-brand\",
@@ -3948,20 +3937,19 @@ KTUtil.ready(function () {
 
                       var selected = response.default;
                       ";
-        // line 2013
-        if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "shipments", [], "any", false, false, false, 2013), "enable_type", [], "any", false, false, false, 2013) != 1)) {
-            // line 2014
+        // line 2008
+        if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "shipments", [], "any", false, false, false, 2008), "enable_type", [], "any", false, false, false, 2008) != 1)) {
+            // line 2009
             echo "                            var type = ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "shipments", [], "any", false, false, false, 2014), "type", [], "any", false, false, false, 2014), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "shipments", [], "any", false, false, false, 2009), "type", [], "any", false, false, false, 2009), "html", null, true);
             echo ";
                         ";
         } else {
-            // line 2015
-            echo "        
-                            var type = \$('.type:checked').val();
+            // line 2011
+            echo "                            var type = \$('.type:checked').val();
                         ";
         }
-        // line 2018
+        // line 2013
         echo "                      var receiver_address_id = \$('#receiver_address_id').val();
                       var packaging_id = \$('#packaging_id').val();
                       var return_defray = \$('.return_defray:checked').val();
@@ -4022,20 +4010,19 @@ KTUtil.ready(function () {
 
                      var selected = response.default;
                      ";
-        // line 2077
-        if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "shipments", [], "any", false, false, false, 2077), "enable_type", [], "any", false, false, false, 2077) != 1)) {
-            // line 2078
+        // line 2072
+        if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "shipments", [], "any", false, false, false, 2072), "enable_type", [], "any", false, false, false, 2072) != 1)) {
+            // line 2073
             echo "                        var type = ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "shipments", [], "any", false, false, false, 2078), "type", [], "any", false, false, false, 2078), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "shipments", [], "any", false, false, false, 2073), "type", [], "any", false, false, false, 2073), "html", null, true);
             echo ";
                     ";
         } else {
-            // line 2079
-            echo "        
-                        var type = \$('.type:checked').val();
+            // line 2075
+            echo "                        var type = \$('.type:checked').val();
                     ";
         }
-        // line 2082
+        // line 2077
         echo "                     var sender_address_id = \$('#sender_address_id').val();
                      var packaging_id = \$('#packaging_id').val();
                      var return_defray = \$('.return_defray:checked').val();
@@ -4074,7 +4061,7 @@ KTUtil.ready(function () {
                 type: 'v2',
                 state: 'primary',
                 message: '";
-        // line 2119
+        // line 2114
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Processing, please wait"]);
         echo "...'
             });
@@ -4083,14 +4070,14 @@ KTUtil.ready(function () {
                  error: function(response, status, xhr, \$form) {
                      swal.fire({
                          title: '";
-        // line 2125
+        // line 2120
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Error!"]);
         echo "',
                          text: response.responseText,
                          type: 'error',
                          buttonsStyling: false,
                          confirmButtonText: '";
-        // line 2129
+        // line 2124
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["OK"]);
         echo "',
                          confirmButtonClass: \"btn btn-sm btn-bold btn-brand\",
@@ -4106,20 +4093,19 @@ KTUtil.ready(function () {
 
                       var selected = response.address_id;
                       ";
-        // line 2142
-        if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "shipments", [], "any", false, false, false, 2142), "enable_type", [], "any", false, false, false, 2142) != 1)) {
-            // line 2143
+        // line 2137
+        if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "shipments", [], "any", false, false, false, 2137), "enable_type", [], "any", false, false, false, 2137) != 1)) {
+            // line 2138
             echo "                            var type = ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "shipments", [], "any", false, false, false, 2143), "type", [], "any", false, false, false, 2143), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "shipments", [], "any", false, false, false, 2138), "type", [], "any", false, false, false, 2138), "html", null, true);
             echo ";
                         ";
         } else {
-            // line 2144
-            echo "        
-                            var type = \$('.type:checked').val();
+            // line 2140
+            echo "                            var type = \$('.type:checked').val();
                         ";
         }
-        // line 2147
+        // line 2142
         echo "                      var sender_address_id = \$('#sender_address_id').val();
                       var packaging_id = \$('#packaging_id').val();
                       var return_defray = \$('.return_defray:checked').val();
@@ -4183,7 +4169,7 @@ KTUtil.ready(function () {
                 type: 'v2',
                 state: 'primary',
                 message: '";
-        // line 2209
+        // line 2204
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Processing, please wait"]);
         echo "...'
             });
@@ -4192,14 +4178,14 @@ KTUtil.ready(function () {
                  error: function(response, status, xhr, \$form) {
                      swal.fire({
                          title: '";
-        // line 2215
+        // line 2210
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Error!"]);
         echo "',
                          text: response.responseText,
                          type: 'error',
                          buttonsStyling: false,
                          confirmButtonText: '";
-        // line 2219
+        // line 2214
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["OK"]);
         echo "',
                          confirmButtonClass: \"btn btn-sm btn-bold btn-brand\",
@@ -4215,20 +4201,19 @@ KTUtil.ready(function () {
 
                        var selected = response.default;
                        ";
-        // line 2232
-        if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "shipments", [], "any", false, false, false, 2232), "enable_type", [], "any", false, false, false, 2232) != 1)) {
-            // line 2233
+        // line 2227
+        if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "shipments", [], "any", false, false, false, 2227), "enable_type", [], "any", false, false, false, 2227) != 1)) {
+            // line 2228
             echo "                            var type = ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "shipments", [], "any", false, false, false, 2233), "type", [], "any", false, false, false, 2233), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "shipments", [], "any", false, false, false, 2228), "type", [], "any", false, false, false, 2228), "html", null, true);
             echo ";
                         ";
         } else {
-            // line 2234
-            echo "        
-                            var type = \$('.type:checked').val();
+            // line 2230
+            echo "                            var type = \$('.type:checked').val();
                         ";
         }
-        // line 2237
+        // line 2232
         echo "                       var sender_address_id = \$('#sender_address_id').val();
                        var packaging_id = \$('#packaging_id').val();
                        var return_defray = \$('.return_defray:checked').val();
@@ -4269,14 +4254,14 @@ KTUtil.ready(function () {
         var parent = \$(e.currentTarget).parent().parent().parent().parent();
         if(selected != ''){
             ";
-        // line 2276
+        // line 2271
         if ((($context["addShipmentForm"] ?? null) == "add_form_normal")) {
-            // line 2277
+            // line 2272
             echo "            \$.request('onListcities', {
                  data: {id: selected},
                  success: function(response, status, xhr, \$form) {
                       parent.find('select.city_id').selectpicker({title: '";
-            // line 2280
+            // line 2275
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Select"]);
             echo "'}).selectpicker('refresh');
                       parent.find('select.city_id').html(response.html).selectpicker('refresh');
@@ -4284,12 +4269,12 @@ KTUtil.ready(function () {
             });
             ";
         } else {
-            // line 2285
+            // line 2280
             echo "            \$.request('onListstates', {
                  data: {id: selected},
                  success: function(response, status, xhr, \$form) {
                       parent.find('select.state_id').selectpicker({title: '";
-            // line 2288
+            // line 2283
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Select"]);
             echo "'}).selectpicker('refresh');
                       parent.find('select.state_id').html(response.html).selectpicker('refresh');
@@ -4297,7 +4282,7 @@ KTUtil.ready(function () {
             });
             ";
         }
-        // line 2293
+        // line 2288
         echo "       }
     });
     \$('body').on('changed.bs.select', '.state_id', function(e, clickedIndex, newValue, oldValue){
@@ -4308,7 +4293,7 @@ KTUtil.ready(function () {
                  data: {id: selected},
                  success: function(response, status, xhr, \$form) {
                       parent.find('select.city_id').selectpicker({title: '";
-        // line 2302
+        // line 2297
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Select"]);
         echo "'}).selectpicker('refresh');
                       parent.find('select.city_id').html(response.html).selectpicker('refresh');
@@ -4324,7 +4309,7 @@ KTUtil.ready(function () {
                  data: {id: selected},
                  success: function(response, status, xhr, \$form) {
                       parent.find('select.area_id').selectpicker({title: '";
-        // line 2315
+        // line 2310
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Select"]);
         echo "'}).selectpicker('refresh');
                       parent.find('select.area_id').html(response.html).selectpicker('refresh');
@@ -4336,20 +4321,19 @@ KTUtil.ready(function () {
     \$('body').on('change', '#sender_address_id', function(e, clickedIndex, newValue, oldValue){
         var selected = \$(e.currentTarget).val();
         ";
-        // line 2324
-        if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "shipments", [], "any", false, false, false, 2324), "enable_type", [], "any", false, false, false, 2324) != 1)) {
-            // line 2325
+        // line 2319
+        if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "shipments", [], "any", false, false, false, 2319), "enable_type", [], "any", false, false, false, 2319) != 1)) {
+            // line 2320
             echo "            var type = ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "shipments", [], "any", false, false, false, 2325), "type", [], "any", false, false, false, 2325), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "shipments", [], "any", false, false, false, 2320), "type", [], "any", false, false, false, 2320), "html", null, true);
             echo ";
         ";
         } else {
-            // line 2326
-            echo "        
-            var type = \$('.type:checked').val();
+            // line 2322
+            echo "            var type = \$('.type:checked').val();
         ";
         }
-        // line 2329
+        // line 2324
         echo "        var receiver_address_id = \$('#receiver_address_id').val();
         var packaging_id = \$('#packaging_id').val();
         var return_defray = \$('.return_defray:checked').val();
@@ -4370,20 +4354,19 @@ KTUtil.ready(function () {
     \$('body').on('change', '#receiver_address_id', function(e, clickedIndex, newValue, oldValue){
         var selected = \$(e.currentTarget).val();
          ";
-        // line 2348
-        if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "shipments", [], "any", false, false, false, 2348), "enable_type", [], "any", false, false, false, 2348) != 1)) {
-            // line 2349
+        // line 2343
+        if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "shipments", [], "any", false, false, false, 2343), "enable_type", [], "any", false, false, false, 2343) != 1)) {
+            // line 2344
             echo "            var type = ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "shipments", [], "any", false, false, false, 2349), "type", [], "any", false, false, false, 2349), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "shipments", [], "any", false, false, false, 2344), "type", [], "any", false, false, false, 2344), "html", null, true);
             echo ";
         ";
         } else {
-            // line 2350
-            echo "        
-            var type = \$('.type:checked').val();
+            // line 2346
+            echo "            var type = \$('.type:checked').val();
         ";
         }
-        // line 2353
+        // line 2348
         echo "         var sender_address_id = \$('#sender_address_id').val();
          var packaging_id = \$('#packaging_id').val();
          var return_defray = \$('.return_defray:checked').val();
@@ -4404,59 +4387,59 @@ KTUtil.ready(function () {
 
     \$(\".clients\").select2({
         ";
-        // line 2372
+        // line 2367
         if ((($context["currentLang"] ?? null) == "ar")) {
-            // line 2373
+            // line 2368
             echo "            dir: \"rtl\",
         ";
         }
-        // line 2375
+        // line 2370
         echo "        language: {
             errorLoading: function () {
                 return \"";
-        // line 2377
+        // line 2372
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["There is an error while searching"]);
         echo "...\";
             },
             inputTooLong: function (args) {
                 return \"";
-        // line 2380
+        // line 2375
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["You must enter less characters"]);
         echo "...\";
             },
             inputTooShort: function (args) {
                 return \"";
-        // line 2383
+        // line 2378
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["You must enter more characters"]);
         echo "...\";
             },
             loadingMore: function () {
                 return \"";
-        // line 2386
+        // line 2381
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Loading More"]);
         echo "...\";
             },
             maximumSelected: function (args) {
                 return \"";
-        // line 2389
+        // line 2384
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Maximum element has been selected"]);
         echo "...\";
             },
             noResults: function () {
                 return \"";
-        // line 2392
+        // line 2387
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["No result found"]);
         echo "...\";
             },
             searching: function () {
                 return \"";
-        // line 2395
+        // line 2390
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Searching"]);
         echo "...\";
             }
         },
         placeholder: \"";
-        // line 2398
+        // line 2393
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Search for client"]);
         echo "\",
         allowClear: true,
@@ -4491,7 +4474,7 @@ KTUtil.ready(function () {
             \$(this).slideDown();
             \$('.selectpicker').selectpicker({
                 noneSelectedText: '";
-        // line 2430
+        // line 2425
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Nothing selected"]);
         echo "',
             });
@@ -4520,20 +4503,19 @@ KTUtil.ready(function () {
                  var receiver_address_id = \$('#receiver_address_id').val();
                  var packaging_id = \$('#packaging_id').val();
                  ";
-        // line 2456
-        if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "shipments", [], "any", false, false, false, 2456), "enable_type", [], "any", false, false, false, 2456) != 1)) {
-            // line 2457
+        // line 2451
+        if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "shipments", [], "any", false, false, false, 2451), "enable_type", [], "any", false, false, false, 2451) != 1)) {
+            // line 2452
             echo "                    var type = ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "shipments", [], "any", false, false, false, 2457), "type", [], "any", false, false, false, 2457), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "shipments", [], "any", false, false, false, 2452), "type", [], "any", false, false, false, 2452), "html", null, true);
             echo ";
                 ";
         } else {
-            // line 2458
-            echo "        
-                    var type = \$('.type:checked').val();
+            // line 2454
+            echo "                    var type = \$('.type:checked').val();
                 ";
         }
-        // line 2461
+        // line 2456
         echo "                 var return_defray = \$('.return_defray:checked').val();
                  var return_package_fee = \$('.return_package_fee:checked').val();
                  var show_receiver_info = \$('.show_receiver_info:checked').val();
@@ -4621,12 +4603,12 @@ KTUtil.ready(function () {
     //     alert(\$('.sub_weight').val());
     //     var sub_weight = Number ( \$(this).val() );
     //     var total_weight =  Number ( \$('.total_weight').val() );
-    //     total_weight += sub_weight ; 
+    //     total_weight += sub_weight ;
     //     \$('.total_weight').val(total_weight);
     //     alert(\$('.total_weight').val());
-        
+
     // });
-    
+
     \$('body').on('click', '.return_defray', function(){
         if(\$(this).val() == 1){
             \$('.package_fee').removeClass('kt-hidden');
@@ -4636,20 +4618,19 @@ KTUtil.ready(function () {
              var receiver_address_id = \$('#receiver_address_id').val();
              var packaging_id = \$('#packaging_id').val();
              ";
-        // line 2562
-        if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "shipments", [], "any", false, false, false, 2562), "enable_type", [], "any", false, false, false, 2562) != 1)) {
-            // line 2563
+        // line 2557
+        if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "shipments", [], "any", false, false, false, 2557), "enable_type", [], "any", false, false, false, 2557) != 1)) {
+            // line 2558
             echo "                var type = ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "shipments", [], "any", false, false, false, 2563), "type", [], "any", false, false, false, 2563), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "shipments", [], "any", false, false, false, 2558), "type", [], "any", false, false, false, 2558), "html", null, true);
             echo ";
             ";
         } else {
-            // line 2564
-            echo "        
-                var type = \$('.type:checked').val();
+            // line 2560
+            echo "                var type = \$('.type:checked').val();
             ";
         }
-        // line 2567
+        // line 2562
         echo "             var return_defray = \$('.return_defray:checked').val();
              var return_package_fee = \$('.return_package_fee:checked').val();
              var show_receiver_info = \$('.show_receiver_info:checked').val();
@@ -4665,15 +4646,16 @@ KTUtil.ready(function () {
             \$('.package_fee').addClass('kt-hidden');
         }
     });
+
     \$(\".fees\").inputmask('999";
-        // line 2582
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["primary_currency"] ?? null), "thousand_separator", [], "any", false, false, false, 2582), "html", null, true);
+        // line 2578
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["primary_currency"] ?? null), "thousand_separator", [], "any", false, false, false, 2578), "html", null, true);
         echo "999";
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["primary_currency"] ?? null), "thousand_separator", [], "any", false, false, false, 2582), "html", null, true);
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["primary_currency"] ?? null), "thousand_separator", [], "any", false, false, false, 2578), "html", null, true);
         echo "999";
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["primary_currency"] ?? null), "decimal_point", [], "any", false, false, false, 2582), "html", null, true);
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["primary_currency"] ?? null), "decimal_point", [], "any", false, false, false, 2578), "html", null, true);
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(range("1", twig_get_attribute($this->env, $this->source, ($context["primary_currency"] ?? null), "initbiz_money_fraction_digits", [], "any", false, false, false, 2582)));
+        $context['_seq'] = twig_ensure_traversable(range("1", twig_get_attribute($this->env, $this->source, ($context["primary_currency"] ?? null), "initbiz_money_fraction_digits", [], "any", false, false, false, 2578)));
         foreach ($context['_seq'] as $context["_key"] => $context["i"]) {
             echo "9";
         }
@@ -4683,10 +4665,11 @@ KTUtil.ready(function () {
         echo "', {
         numericInput: true
     });
+
     \$('.mask').val(('";
-        // line 2585
+        // line 2582
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(range("1", twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "tracking", [], "any", false, false, false, 2585), "numbers_order", [], "any", false, false, false, 2585)));
+        $context['_seq'] = twig_ensure_traversable(range("1", twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "tracking", [], "any", false, false, false, 2582), "numbers_order", [], "any", false, false, false, 2582)));
         foreach ($context['_seq'] as $context["_key"] => $context["i"]) {
             echo "0";
         }
@@ -4696,13 +4679,14 @@ KTUtil.ready(function () {
         echo "' + ";
         echo twig_escape_filter($this->env, ($context["max"] ?? null), "html", null, true);
         echo ").slice(-";
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "tracking", [], "any", false, false, false, 2585), "numbers_order", [], "any", false, false, false, 2585), "html", null, true);
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "tracking", [], "any", false, false, false, 2582), "numbers_order", [], "any", false, false, false, 2582), "html", null, true);
         echo "));
+
     \$(\"body\").on('keyup', '.mask', function(e){
         \$(this).val(('";
-        // line 2587
+        // line 2585
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(range("1", twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "tracking", [], "any", false, false, false, 2587), "numbers_order", [], "any", false, false, false, 2587)));
+        $context['_seq'] = twig_ensure_traversable(range("1", twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "tracking", [], "any", false, false, false, 2585), "numbers_order", [], "any", false, false, false, 2585)));
         foreach ($context['_seq'] as $context["_key"] => $context["i"]) {
             echo "0";
         }
@@ -4710,36 +4694,13 @@ KTUtil.ready(function () {
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['i'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
         echo "' + \$(this).val()).slice(-";
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "tracking", [], "any", false, false, false, 2587), "numbers_order", [], "any", false, false, false, 2587), "html", null, true);
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "tracking", [], "any", false, false, false, 2585), "numbers_order", [], "any", false, false, false, 2585), "html", null, true);
         echo "));
     });
-
-    \$('#vehicleTypeCarousel').carousel({
-        interval: 5000
-    })
-
-    \$('.carousel .carousel-item').each(function(){
-        var minPerSlide = 3;
-        var next = \$(this).next();
-        if (!next.length) {
-            next = \$(this).siblings(':first');
-        }
-        next.children(':first-child').clone().appendTo(\$(this));
-
-        for (var i=0;i<minPerSlide;i++) {
-            next=next.next();
-            if (!next.length) {
-                next = \$(this).siblings(':first');
-            }
-
-            next.children(':first-child').clone().appendTo(\$(this));
-        }
-    });
-
 });
 </script>
 ";
-        // line 1613
+        // line 1608
         echo $this->env->getExtension('Cms\Twig\Extension')->endBlock(true        );
     }
 
@@ -4755,7 +4716,7 @@ KTUtil.ready(function () {
 
     public function getDebugInfo()
     {
-        return array (  4743 => 1613,  4704 => 2587,  4688 => 2585,  4670 => 2582,  4653 => 2567,  4648 => 2564,  4642 => 2563,  4640 => 2562,  4537 => 2461,  4532 => 2458,  4526 => 2457,  4524 => 2456,  4495 => 2430,  4460 => 2398,  4454 => 2395,  4448 => 2392,  4442 => 2389,  4436 => 2386,  4430 => 2383,  4424 => 2380,  4418 => 2377,  4414 => 2375,  4410 => 2373,  4408 => 2372,  4387 => 2353,  4382 => 2350,  4376 => 2349,  4374 => 2348,  4353 => 2329,  4348 => 2326,  4342 => 2325,  4340 => 2324,  4328 => 2315,  4312 => 2302,  4301 => 2293,  4293 => 2288,  4288 => 2285,  4280 => 2280,  4275 => 2277,  4273 => 2276,  4232 => 2237,  4227 => 2234,  4221 => 2233,  4219 => 2232,  4203 => 2219,  4196 => 2215,  4187 => 2209,  4123 => 2147,  4118 => 2144,  4112 => 2143,  4110 => 2142,  4094 => 2129,  4087 => 2125,  4078 => 2119,  4039 => 2082,  4034 => 2079,  4028 => 2078,  4026 => 2077,  3965 => 2018,  3960 => 2015,  3954 => 2014,  3952 => 2013,  3937 => 2001,  3930 => 1997,  3925 => 1994,  3921 => 1993,  3917 => 1991,  3915 => 1990,  3909 => 1987,  3872 => 1952,  3867 => 1949,  3861 => 1948,  3859 => 1947,  3825 => 1915,  3808 => 1900,  3806 => 1899,  3793 => 1889,  3786 => 1885,  3782 => 1883,  3778 => 1881,  3774 => 1879,  3772 => 1878,  3766 => 1875,  3733 => 1845,  3726 => 1841,  3720 => 1838,  3696 => 1816,  3691 => 1813,  3685 => 1812,  3683 => 1811,  3674 => 1804,  3657 => 1789,  3655 => 1788,  3625 => 1760,  3620 => 1757,  3614 => 1756,  3612 => 1755,  3593 => 1738,  3588 => 1735,  3582 => 1734,  3580 => 1733,  3555 => 1710,  3550 => 1707,  3544 => 1706,  3542 => 1705,  3449 => 1615,  3444 => 1614,  3442 => 1613,  3440 => 1579,  3406 => 1580,  3404 => 1579,  3399 => 1577,  3385 => 1570,  3380 => 1569,  3372 => 1567,  3370 => 1566,  3304 => 1503,  3290 => 1492,  3280 => 1485,  3271 => 1478,  3264 => 1473,  3256 => 1469,  3250 => 1465,  3235 => 1463,  3231 => 1462,  3223 => 1457,  3220 => 1456,  3217 => 1455,  3215 => 1454,  3206 => 1448,  3201 => 1446,  3195 => 1442,  3188 => 1438,  3184 => 1436,  3182 => 1435,  3177 => 1434,  3170 => 1430,  3166 => 1428,  3164 => 1427,  3159 => 1425,  3154 => 1422,  3149 => 1419,  3132 => 1417,  3128 => 1416,  3122 => 1413,  3119 => 1412,  3116 => 1411,  3111 => 1408,  3096 => 1406,  3092 => 1405,  3086 => 1402,  3083 => 1401,  3081 => 1400,  3077 => 1398,  3072 => 1395,  3057 => 1393,  3053 => 1392,  3047 => 1389,  3044 => 1388,  3041 => 1387,  3035 => 1384,  3031 => 1383,  3028 => 1382,  3025 => 1381,  3020 => 1378,  3005 => 1376,  3001 => 1375,  2995 => 1372,  2992 => 1371,  2990 => 1370,  2986 => 1368,  2979 => 1364,  2973 => 1361,  2970 => 1360,  2967 => 1359,  2964 => 1358,  2957 => 1354,  2951 => 1351,  2944 => 1347,  2938 => 1344,  2935 => 1343,  2928 => 1339,  2920 => 1336,  2917 => 1335,  2914 => 1334,  2912 => 1333,  2905 => 1329,  2900 => 1327,  2893 => 1322,  2890 => 1321,  2879 => 1313,  2874 => 1311,  2868 => 1307,  2861 => 1303,  2857 => 1301,  2855 => 1300,  2850 => 1299,  2843 => 1295,  2839 => 1293,  2837 => 1292,  2832 => 1290,  2825 => 1285,  2823 => 1284,  2813 => 1277,  2801 => 1268,  2794 => 1263,  2782 => 1254,  2773 => 1248,  2764 => 1242,  2747 => 1236,  2742 => 1233,  2740 => 1232,  2737 => 1231,  2728 => 1225,  2724 => 1224,  2717 => 1220,  2712 => 1217,  2709 => 1216,  2701 => 1211,  2695 => 1208,  2690 => 1205,  2688 => 1204,  2685 => 1203,  2677 => 1198,  2671 => 1195,  2666 => 1192,  2664 => 1191,  2658 => 1187,  2647 => 1185,  2643 => 1184,  2635 => 1179,  2625 => 1176,  2615 => 1169,  2601 => 1158,  2589 => 1149,  2569 => 1132,  2562 => 1128,  2555 => 1124,  2552 => 1123,  2546 => 1119,  2539 => 1115,  2535 => 1113,  2533 => 1112,  2528 => 1111,  2521 => 1107,  2517 => 1105,  2515 => 1104,  2509 => 1101,  2506 => 1100,  2504 => 1099,  2499 => 1096,  2492 => 1092,  2488 => 1090,  2486 => 1089,  2483 => 1088,  2476 => 1084,  2472 => 1082,  2470 => 1081,  2463 => 1077,  2459 => 1076,  2456 => 1075,  2442 => 1068,  2431 => 1064,  2423 => 1059,  2419 => 1058,  2414 => 1055,  2412 => 1054,  2403 => 1048,  2399 => 1047,  2388 => 1039,  2383 => 1037,  2376 => 1032,  2359 => 1030,  2355 => 1029,  2350 => 1027,  2346 => 1026,  2341 => 1023,  2330 => 1021,  2326 => 1020,  2321 => 1018,  2317 => 1017,  2312 => 1014,  2295 => 1012,  2291 => 1011,  2286 => 1009,  2282 => 1008,  2273 => 1002,  2268 => 999,  2251 => 997,  2247 => 996,  2241 => 993,  2231 => 986,  2218 => 978,  2201 => 964,  2197 => 963,  2190 => 958,  2187 => 957,  2174 => 947,  2160 => 936,  2146 => 925,  2127 => 915,  2120 => 910,  2117 => 909,  2114 => 908,  2107 => 904,  2102 => 902,  2098 => 900,  2096 => 899,  2093 => 898,  2088 => 895,  2073 => 893,  2069 => 892,  2064 => 890,  2060 => 889,  2051 => 888,  2049 => 887,  2045 => 885,  2034 => 883,  2030 => 882,  2025 => 880,  2021 => 879,  2012 => 878,  2007 => 875,  1986 => 873,  1982 => 872,  1977 => 870,  1973 => 869,  1964 => 868,  1961 => 867,  1955 => 864,  1951 => 863,  1942 => 862,  1940 => 861,  1936 => 859,  1919 => 857,  1915 => 856,  1909 => 853,  1900 => 852,  1891 => 846,  1887 => 845,  1878 => 844,  1876 => 843,  1871 => 840,  1858 => 834,  1847 => 830,  1841 => 827,  1838 => 826,  1836 => 825,  1830 => 822,  1822 => 821,  1816 => 818,  1808 => 817,  1797 => 811,  1782 => 799,  1776 => 798,  1770 => 795,  1765 => 793,  1757 => 790,  1748 => 784,  1732 => 771,  1725 => 767,  1718 => 763,  1715 => 762,  1709 => 758,  1699 => 756,  1696 => 755,  1686 => 753,  1683 => 752,  1673 => 750,  1670 => 749,  1660 => 747,  1658 => 746,  1651 => 742,  1648 => 741,  1645 => 740,  1633 => 735,  1625 => 734,  1618 => 730,  1615 => 729,  1613 => 728,  1603 => 721,  1599 => 720,  1588 => 712,  1583 => 710,  1576 => 705,  1565 => 703,  1561 => 702,  1556 => 700,  1552 => 699,  1547 => 696,  1536 => 694,  1532 => 693,  1527 => 691,  1523 => 690,  1518 => 687,  1501 => 685,  1497 => 684,  1492 => 682,  1488 => 681,  1479 => 675,  1474 => 672,  1457 => 670,  1453 => 669,  1447 => 666,  1437 => 659,  1424 => 651,  1406 => 636,  1402 => 635,  1395 => 630,  1392 => 629,  1379 => 619,  1365 => 608,  1351 => 597,  1332 => 587,  1325 => 582,  1322 => 581,  1320 => 580,  1317 => 579,  1310 => 575,  1305 => 573,  1301 => 571,  1299 => 570,  1296 => 569,  1290 => 566,  1286 => 565,  1283 => 564,  1280 => 563,  1275 => 560,  1260 => 558,  1256 => 557,  1251 => 555,  1247 => 554,  1244 => 553,  1242 => 552,  1237 => 549,  1226 => 547,  1222 => 546,  1217 => 544,  1213 => 543,  1210 => 542,  1205 => 539,  1184 => 537,  1180 => 536,  1175 => 534,  1171 => 533,  1168 => 532,  1166 => 531,  1163 => 530,  1157 => 527,  1153 => 526,  1144 => 525,  1142 => 524,  1138 => 522,  1121 => 520,  1117 => 519,  1111 => 516,  1102 => 515,  1093 => 509,  1089 => 508,  1080 => 507,  1078 => 506,  1073 => 503,  1060 => 497,  1049 => 493,  1043 => 490,  1040 => 489,  1038 => 488,  1032 => 485,  1024 => 484,  1018 => 481,  1010 => 480,  999 => 474,  985 => 462,  979 => 460,  964 => 458,  959 => 457,  957 => 456,  951 => 455,  947 => 454,  941 => 453,  938 => 452,  935 => 451,  928 => 447,  925 => 446,  922 => 445,  920 => 444,  917 => 443,  912 => 441,  907 => 439,  903 => 437,  898 => 435,  893 => 434,  891 => 433,  885 => 432,  877 => 430,  867 => 423,  860 => 421,  856 => 420,  850 => 419,  844 => 416,  839 => 414,  831 => 411,  824 => 409,  820 => 407,  806 => 400,  799 => 396,  796 => 395,  793 => 394,  779 => 387,  772 => 383,  769 => 382,  767 => 381,  764 => 380,  762 => 379,  750 => 370,  738 => 361,  727 => 352,  715 => 343,  710 => 341,  701 => 340,  698 => 339,  693 => 336,  678 => 334,  674 => 333,  668 => 330,  659 => 329,  656 => 328,  651 => 325,  636 => 323,  632 => 322,  626 => 319,  617 => 318,  615 => 317,  612 => 316,  596 => 303,  588 => 298,  576 => 291,  564 => 282,  556 => 277,  544 => 270,  532 => 261,  528 => 259,  526 => 258,  514 => 249,  502 => 240,  493 => 233,  489 => 231,  485 => 230,  482 => 229,  480 => 228,  473 => 223,  467 => 219,  456 => 217,  452 => 216,  444 => 211,  441 => 210,  439 => 209,  428 => 201,  419 => 195,  412 => 190,  401 => 188,  397 => 187,  391 => 184,  386 => 181,  375 => 179,  371 => 178,  365 => 175,  356 => 169,  349 => 165,  345 => 164,  331 => 153,  326 => 151,  321 => 148,  314 => 144,  310 => 142,  308 => 141,  303 => 140,  296 => 136,  292 => 134,  290 => 133,  285 => 131,  280 => 128,  265 => 126,  261 => 125,  255 => 122,  244 => 114,  238 => 111,  229 => 105,  224 => 102,  213 => 100,  209 => 99,  200 => 93,  191 => 87,  186 => 85,  171 => 73,  159 => 64,  151 => 58,  138 => 48,  131 => 43,  120 => 41,  116 => 40,  110 => 37,  105 => 34,  94 => 32,  90 => 31,  84 => 28,  75 => 22,  68 => 18,  64 => 17,  54 => 10,  46 => 4,  43 => 3,  41 => 2,  37 => 1,);
+        return array (  4704 => 1608,  4688 => 2585,  4671 => 2582,  4652 => 2578,  4634 => 2562,  4630 => 2560,  4624 => 2558,  4622 => 2557,  4519 => 2456,  4515 => 2454,  4509 => 2452,  4507 => 2451,  4478 => 2425,  4443 => 2393,  4437 => 2390,  4431 => 2387,  4425 => 2384,  4419 => 2381,  4413 => 2378,  4407 => 2375,  4401 => 2372,  4397 => 2370,  4393 => 2368,  4391 => 2367,  4370 => 2348,  4366 => 2346,  4360 => 2344,  4358 => 2343,  4337 => 2324,  4333 => 2322,  4327 => 2320,  4325 => 2319,  4313 => 2310,  4297 => 2297,  4286 => 2288,  4278 => 2283,  4273 => 2280,  4265 => 2275,  4260 => 2272,  4258 => 2271,  4217 => 2232,  4213 => 2230,  4207 => 2228,  4205 => 2227,  4189 => 2214,  4182 => 2210,  4173 => 2204,  4109 => 2142,  4105 => 2140,  4099 => 2138,  4097 => 2137,  4081 => 2124,  4074 => 2120,  4065 => 2114,  4026 => 2077,  4022 => 2075,  4016 => 2073,  4014 => 2072,  3953 => 2013,  3949 => 2011,  3943 => 2009,  3941 => 2008,  3926 => 1996,  3919 => 1992,  3915 => 1990,  3911 => 1988,  3907 => 1986,  3905 => 1985,  3899 => 1982,  3862 => 1947,  3858 => 1945,  3852 => 1943,  3850 => 1942,  3816 => 1910,  3799 => 1895,  3797 => 1894,  3784 => 1884,  3777 => 1880,  3773 => 1878,  3769 => 1876,  3765 => 1874,  3763 => 1873,  3757 => 1870,  3724 => 1840,  3717 => 1836,  3711 => 1833,  3687 => 1811,  3683 => 1809,  3677 => 1807,  3675 => 1806,  3666 => 1799,  3649 => 1784,  3647 => 1783,  3617 => 1755,  3613 => 1753,  3607 => 1751,  3605 => 1750,  3586 => 1733,  3582 => 1731,  3576 => 1729,  3574 => 1728,  3549 => 1705,  3545 => 1703,  3539 => 1701,  3537 => 1700,  3444 => 1610,  3439 => 1609,  3437 => 1608,  3435 => 1574,  3401 => 1575,  3399 => 1574,  3394 => 1572,  3380 => 1565,  3375 => 1564,  3367 => 1562,  3365 => 1561,  3304 => 1503,  3290 => 1492,  3280 => 1485,  3271 => 1478,  3264 => 1473,  3259 => 1470,  3256 => 1469,  3250 => 1465,  3235 => 1463,  3231 => 1462,  3223 => 1457,  3220 => 1456,  3217 => 1455,  3215 => 1454,  3206 => 1448,  3201 => 1446,  3195 => 1442,  3188 => 1438,  3184 => 1436,  3182 => 1435,  3177 => 1434,  3170 => 1430,  3166 => 1428,  3164 => 1427,  3159 => 1425,  3154 => 1422,  3149 => 1419,  3132 => 1417,  3128 => 1416,  3122 => 1413,  3119 => 1412,  3116 => 1411,  3111 => 1408,  3096 => 1406,  3092 => 1405,  3086 => 1402,  3083 => 1401,  3081 => 1400,  3077 => 1398,  3072 => 1395,  3057 => 1393,  3053 => 1392,  3047 => 1389,  3044 => 1388,  3041 => 1387,  3035 => 1384,  3031 => 1383,  3028 => 1382,  3025 => 1381,  3020 => 1378,  3005 => 1376,  3001 => 1375,  2995 => 1372,  2992 => 1371,  2990 => 1370,  2986 => 1368,  2979 => 1364,  2973 => 1361,  2970 => 1360,  2967 => 1359,  2964 => 1358,  2957 => 1354,  2951 => 1351,  2944 => 1347,  2938 => 1344,  2935 => 1343,  2928 => 1339,  2920 => 1336,  2917 => 1335,  2914 => 1334,  2912 => 1333,  2905 => 1329,  2900 => 1327,  2893 => 1322,  2890 => 1321,  2879 => 1313,  2874 => 1311,  2868 => 1307,  2861 => 1303,  2857 => 1301,  2855 => 1300,  2850 => 1299,  2843 => 1295,  2839 => 1293,  2837 => 1292,  2832 => 1290,  2825 => 1285,  2823 => 1284,  2813 => 1277,  2801 => 1268,  2794 => 1263,  2782 => 1254,  2773 => 1248,  2764 => 1242,  2747 => 1236,  2742 => 1233,  2740 => 1232,  2737 => 1231,  2728 => 1225,  2724 => 1224,  2717 => 1220,  2712 => 1217,  2709 => 1216,  2701 => 1211,  2695 => 1208,  2690 => 1205,  2688 => 1204,  2685 => 1203,  2677 => 1198,  2671 => 1195,  2666 => 1192,  2664 => 1191,  2658 => 1187,  2647 => 1185,  2643 => 1184,  2635 => 1179,  2625 => 1176,  2615 => 1169,  2601 => 1158,  2589 => 1149,  2569 => 1132,  2562 => 1128,  2555 => 1124,  2552 => 1123,  2546 => 1119,  2539 => 1115,  2535 => 1113,  2533 => 1112,  2528 => 1111,  2521 => 1107,  2517 => 1105,  2515 => 1104,  2509 => 1101,  2506 => 1100,  2504 => 1099,  2499 => 1096,  2492 => 1092,  2488 => 1090,  2486 => 1089,  2483 => 1088,  2476 => 1084,  2472 => 1082,  2470 => 1081,  2463 => 1077,  2459 => 1076,  2456 => 1075,  2442 => 1068,  2431 => 1064,  2423 => 1059,  2419 => 1058,  2414 => 1055,  2412 => 1054,  2403 => 1048,  2399 => 1047,  2388 => 1039,  2383 => 1037,  2376 => 1032,  2359 => 1030,  2355 => 1029,  2350 => 1027,  2346 => 1026,  2341 => 1023,  2330 => 1021,  2326 => 1020,  2321 => 1018,  2317 => 1017,  2312 => 1014,  2295 => 1012,  2291 => 1011,  2286 => 1009,  2282 => 1008,  2273 => 1002,  2268 => 999,  2251 => 997,  2247 => 996,  2241 => 993,  2231 => 986,  2218 => 978,  2201 => 964,  2197 => 963,  2190 => 958,  2187 => 957,  2174 => 947,  2160 => 936,  2146 => 925,  2127 => 915,  2120 => 910,  2117 => 909,  2114 => 908,  2107 => 904,  2102 => 902,  2098 => 900,  2096 => 899,  2093 => 898,  2088 => 895,  2073 => 893,  2069 => 892,  2064 => 890,  2060 => 889,  2051 => 888,  2049 => 887,  2045 => 885,  2034 => 883,  2030 => 882,  2025 => 880,  2021 => 879,  2012 => 878,  2007 => 875,  1986 => 873,  1982 => 872,  1977 => 870,  1973 => 869,  1964 => 868,  1961 => 867,  1955 => 864,  1951 => 863,  1942 => 862,  1940 => 861,  1936 => 859,  1919 => 857,  1915 => 856,  1909 => 853,  1900 => 852,  1891 => 846,  1887 => 845,  1878 => 844,  1876 => 843,  1871 => 840,  1858 => 834,  1847 => 830,  1841 => 827,  1838 => 826,  1836 => 825,  1830 => 822,  1822 => 821,  1816 => 818,  1808 => 817,  1797 => 811,  1782 => 799,  1776 => 798,  1770 => 795,  1765 => 793,  1757 => 790,  1748 => 784,  1732 => 771,  1725 => 767,  1718 => 763,  1715 => 762,  1709 => 758,  1699 => 756,  1696 => 755,  1686 => 753,  1683 => 752,  1673 => 750,  1670 => 749,  1660 => 747,  1658 => 746,  1651 => 742,  1648 => 741,  1645 => 740,  1633 => 735,  1625 => 734,  1618 => 730,  1615 => 729,  1613 => 728,  1603 => 721,  1599 => 720,  1588 => 712,  1583 => 710,  1576 => 705,  1565 => 703,  1561 => 702,  1556 => 700,  1552 => 699,  1547 => 696,  1536 => 694,  1532 => 693,  1527 => 691,  1523 => 690,  1518 => 687,  1501 => 685,  1497 => 684,  1492 => 682,  1488 => 681,  1479 => 675,  1474 => 672,  1457 => 670,  1453 => 669,  1447 => 666,  1437 => 659,  1424 => 651,  1406 => 636,  1402 => 635,  1395 => 630,  1392 => 629,  1379 => 619,  1365 => 608,  1351 => 597,  1332 => 587,  1325 => 582,  1322 => 581,  1320 => 580,  1317 => 579,  1310 => 575,  1305 => 573,  1301 => 571,  1299 => 570,  1296 => 569,  1290 => 566,  1286 => 565,  1283 => 564,  1280 => 563,  1275 => 560,  1260 => 558,  1256 => 557,  1251 => 555,  1247 => 554,  1244 => 553,  1242 => 552,  1237 => 549,  1226 => 547,  1222 => 546,  1217 => 544,  1213 => 543,  1210 => 542,  1205 => 539,  1184 => 537,  1180 => 536,  1175 => 534,  1171 => 533,  1168 => 532,  1166 => 531,  1163 => 530,  1157 => 527,  1153 => 526,  1144 => 525,  1142 => 524,  1138 => 522,  1121 => 520,  1117 => 519,  1111 => 516,  1102 => 515,  1093 => 509,  1089 => 508,  1080 => 507,  1078 => 506,  1073 => 503,  1060 => 497,  1049 => 493,  1043 => 490,  1040 => 489,  1038 => 488,  1032 => 485,  1024 => 484,  1018 => 481,  1010 => 480,  999 => 474,  985 => 462,  979 => 460,  964 => 458,  959 => 457,  957 => 456,  951 => 455,  947 => 454,  941 => 453,  938 => 452,  935 => 451,  928 => 447,  925 => 446,  922 => 445,  920 => 444,  917 => 443,  912 => 441,  907 => 439,  903 => 437,  898 => 435,  893 => 434,  891 => 433,  885 => 432,  877 => 430,  867 => 423,  860 => 421,  856 => 420,  850 => 419,  844 => 416,  839 => 414,  831 => 411,  824 => 409,  820 => 407,  806 => 400,  799 => 396,  796 => 395,  793 => 394,  779 => 387,  772 => 383,  769 => 382,  767 => 381,  764 => 380,  762 => 379,  750 => 370,  738 => 361,  727 => 352,  715 => 343,  710 => 341,  701 => 340,  698 => 339,  693 => 336,  678 => 334,  674 => 333,  668 => 330,  659 => 329,  656 => 328,  651 => 325,  636 => 323,  632 => 322,  626 => 319,  617 => 318,  615 => 317,  612 => 316,  596 => 303,  588 => 298,  576 => 291,  564 => 282,  556 => 277,  544 => 270,  532 => 261,  528 => 259,  526 => 258,  514 => 249,  502 => 240,  493 => 233,  489 => 231,  485 => 230,  482 => 229,  480 => 228,  473 => 223,  467 => 219,  456 => 217,  452 => 216,  444 => 211,  441 => 210,  439 => 209,  428 => 201,  419 => 195,  412 => 190,  401 => 188,  397 => 187,  391 => 184,  386 => 181,  375 => 179,  371 => 178,  365 => 175,  356 => 169,  349 => 165,  345 => 164,  331 => 153,  326 => 151,  321 => 148,  314 => 144,  310 => 142,  308 => 141,  303 => 140,  296 => 136,  292 => 134,  290 => 133,  285 => 131,  280 => 128,  265 => 126,  261 => 125,  255 => 122,  244 => 114,  238 => 111,  229 => 105,  224 => 102,  213 => 100,  209 => 99,  200 => 93,  191 => 87,  186 => 85,  171 => 73,  159 => 64,  151 => 58,  138 => 48,  131 => 43,  120 => 41,  116 => 40,  110 => 37,  105 => 34,  94 => 32,  90 => 31,  84 => 28,  75 => 22,  68 => 18,  64 => 17,  54 => 10,  46 => 4,  43 => 3,  41 => 2,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -5072,7 +5033,7 @@ KTUtil.ready(function () {
                         </div>
                     </div>
                 </div>
-                
+
                 <div class=\"kt-separator kt-separator--border-dashed kt-separator--space-lg kt-separator--portlet-fit kt-margin-t-0\"></div>
                 {% endif %}
                 <div class=\"row\">
@@ -5167,7 +5128,7 @@ KTUtil.ready(function () {
                         </div> -->
                         {% endif %}
                     </div>
-                    
+
                     <div class=\"another_sender {%if settings.customers.anotherCustomer != 1%}kt-hidden{%endif%}\">
                         <div class=\" form-group row\">
                             <label>{{'Sender'|__}}/{{'Client'|__}}&nbsp;<span class=\"kt-badge kt-badge--danger kt-badge--dot\"></span></label>
@@ -5181,13 +5142,13 @@ KTUtil.ready(function () {
                             <label>{{'Sender Address'|__}}/{{'Client Address'|__}}&nbsp;<span class=\"kt-badge kt-badge--danger kt-badge--dot\"></span></label>
                             <select class=\"form-control sender_address_id\" name=\"sender_address_id\" id=\"sender_address_id\" data-live-search=\"true\" title=\"{{'Please select sender first'|__}}\" required>
                                 <option data-hidden=\"true\"></option><label>{{'Sender'|__}}/{{'Client'|__}}&nbsp;<span class=\"kt-badge kt-badge--danger kt-badge--dot\"></span></label>
-                                    
+
                                 <option value=\"new\" data-icon=\"flaticon2-add\">{{'Add New'|__}}</option>
-                                
+
                             </select>
                         </div>
-                    </div>   
-                    
+                    </div>
+
                 {% endif %}
                 <div class=\"base_sender {%if user.role_id == 5 and settings.customers.anotherCustomer == 1%}kt-hidden{% endif %}\">
                     <div class=\"form-group row\">
@@ -5224,7 +5185,7 @@ KTUtil.ready(function () {
                         </select>
                     </div>
                 </div>
-                
+
                     <div class=\"row kt-hidden\" id=\"addnewsender\">
                         <div class=\"kt-portlet kt-portlet--bordered kt-portlet--head--noborder kt-margin-b-0\">
             \t\t\t\t<div class=\"kt-portlet__head\">
@@ -5289,7 +5250,7 @@ KTUtil.ready(function () {
                                             <input class=\"form-control postal_code\" type=\"text\" data-sender=\"postal_code\" name=\"sender[postal_code]\" value=\"{{settings.customers.postal_code}}\">
                                         </div>
                                         {% endif %}
-                                    
+
                                         {% if settings.customers.enable_state == 1 %}
                                         <div class=\"form-group col-lg-6\">
                                             <label>{{'State / Region'|__}}&nbsp;<span class=\"kt-badge kt-badge--danger kt-badge--dot\"></span></label>
@@ -5310,7 +5271,7 @@ KTUtil.ready(function () {
                                                 {% endfor %}
                                             </select>
                                         </div>
-                                    
+
                                         {% if settings.customers.enable_county == 1 %}
                                         <div class=\"form-group col-lg-6\">
                                             <label>{{'Area'|__}}</label>
@@ -5401,7 +5362,7 @@ KTUtil.ready(function () {
                 \t\t\t</div>
             \t\t\t</div>
         \t\t\t</div>
-               
+
                 <div class=\"row kt-hidden\" id=\"addnewsenderaddress\">
                     <div class=\"kt-portlet kt-portlet--bordered kt-portlet--head--noborder kt-margin-b-0\">
         \t\t\t\t<div class=\"kt-portlet__head\">
@@ -5962,7 +5923,7 @@ KTUtil.ready(function () {
                                             </div>
                                         </div>
                                         {% endif %}
-                                    
+
                                         {%if settings.shipments.enable_quantity == 1 %}
                                         <div class=\"col-md-6\">
                                             <div class=\"kt-form__group--inline\">
@@ -5990,7 +5951,7 @@ KTUtil.ready(function () {
                                             </div>
                                         </div>
                                         {% endif %}
-                                    
+
                                         {%if settings.shipments.enable_dimensions == 1 %}
                                         <div class=\"col-md-12\">
                                             <div class=\"kt-form__group--inline\">
@@ -6069,7 +6030,7 @@ KTUtil.ready(function () {
                                     </div>
                                 </div>
 
-                                <div class=\"form-group col-lg-6\">                                    
+                                <div class=\"form-group col-lg-6\">
                                     <label>{{'Total Weight'|__}}&nbsp;<span class=\"kt-badge kt-badge--danger kt-badge--dot\"></span></label>
                                     <div class=\"input-group\">
                                         <div class=\"input-group-prepend\"><span class=\"input-group-text\">{{'Kg'|__}}</span></div>
@@ -6204,7 +6165,7 @@ KTUtil.ready(function () {
                                     </div>
                                 </div>
 
-                                <div class=\"form-group col-lg-6\">                                    
+                                <div class=\"form-group col-lg-6\">
                                     <label>{{'Total Weight'|__}}&nbsp;<span class=\"kt-badge kt-badge--danger kt-badge--dot\"></span></label>
                                     <div class=\"input-group\">
                                         <div class=\"input-group-prepend\"><span class=\"input-group-text\">{{'Kg'|__}}</span></div>
@@ -6228,7 +6189,7 @@ KTUtil.ready(function () {
                                         </div>
                                     </div>
                                 {% endif %}
-                            {% endif %}    
+                            {% endif %}
                         </div>
                     </div>
                 {% endif %}
@@ -6265,54 +6226,49 @@ KTUtil.ready(function () {
                         <label for=\"vehicle_type\">{{'Choose your vehicle type'|__}}&nbsp;<span class=\"kt-badge kt-badge--danger kt-badge--dot\"></span></label>
                     </div>
                     <div class=\"form-group col-lg-12\" id=\"vehicle_type\">
-                        <div id=\"vehicleTypeCarousel\" class=\"carousel slide w-100\" data-ride=\"carousel\">
-                            <div class=\"carousel-inner w-100\" role=\"listbox\">
-                                <div class=\"carousel-item active\">
-                                    <div class=\"col-md-4\">
-                                        <div class=\"card card-body px-0 border-0\">
-                                            <img alt=\"\" class=\"img-fluid\" src=\"http://placehold.it/300?text=1\">
-                                            <div class=\"vehicle-detail\">
-                                                <h4 class=\"font-weight-bold\">Flat Bed</h4>
-                                                <p class=\"mb-0\">Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum
-                                                    Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class=\"carousel-item\">
-                                    <div class=\"col-md-4\">
-                                        <div class=\"card card-body px-0 border-0\">
-                                            <img alt=\"\" class=\"img-fluid\" src=\"http://placehold.it/300?text=1\">
-                                            <div class=\"vehicle-detail\">
-                                                <h4 class=\"font-weight-bold\">Flat Bed</h4>
-                                                <p class=\"mb-0\">Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum
-                                                    Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class=\"carousel-item\">
-                                    <div class=\"col-md-4\">
-                                        <div class=\"card card-body px-0 border-0\">
-                                            <img alt=\"\" class=\"img-fluid\" src=\"http://placehold.it/300?text=1\">
-                                            <div class=\"vehicle-detail\">
-                                                <h4 class=\"font-weight-bold\">Flat Bed</h4>
-                                                <p class=\"mb-0\">Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum
-                                                    Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum</p>
-                                            </div>
-                                        </div>
+                        <div id=\"vehicleTypeCarousel\" class=\"vehicleTypeCarousel\">
+                            <div class=\"card card-body mx-3 px-0 border-0\">
+                                <div class=\"content-inner mx-3 text-center d-block\">
+                                    <img alt=\"\" class=\"img-fluid mx-auto\" src=\"http://placehold.it/300?text=1\">
+                                    <div class=\"vehicle-detail text-center mx-2 mx-lg-4 mt-4\">
+                                        <h4 class=\"font-weight-bold\">Flat Bed</h4>
+                                        <p class=\"mb-0\">Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum
+                                            Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum</p>
                                     </div>
                                 </div>
                             </div>
-                            <a class=\"carousel-control-prev w-auto\" href=\"#vehicleTypeCarousel\" role=\"button\" data-slide=\"prev\">
-                                <span class=\"carousel-control-prev-icon rounded-circle\" aria-hidden=\"true\"></span>
-                                <span class=\"sr-only\">Previous</span>
-                            </a>
-                            <a class=\"carousel-control-next w-auto\" href=\"#vehicleTypeCarousel\" role=\"button\" data-slide=\"next\">
-                                <span class=\"carousel-control-next-icon rounded-circle\" aria-hidden=\"true\"></span>
-                                <span class=\"sr-only\">Next</span>
-                            </a>
+                            <div class=\"card card-body mx-3 px-0 border-0\">
+                                <div class=\"content-inner mx-3 text-center d-block\">
+                                    <img alt=\"\" class=\"img-fluid mx-auto\" src=\"http://placehold.it/300?text=1\">
+                                    <div class=\"vehicle-detail text-center mx-2 mx-lg-4 mt-4\">
+                                        <h4 class=\"font-weight-bold\">Flat Bed</h4>
+                                        <p class=\"mb-0\">Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum
+                                            Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=\"card card-body mx-3 px-0 border-0\">
+                                <div class=\"content-inner mx-3 text-center d-block\">
+                                    <img alt=\"\" class=\"img-fluid mx-auto\" src=\"http://placehold.it/300?text=1\">
+                                    <div class=\"vehicle-detail text-center mx-2 mx-lg-4 mt-4\">
+                                        <h4 class=\"font-weight-bold\">Flat Bed</h4>
+                                        <p class=\"mb-0\">Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum
+                                            Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=\"card card-body mx-3 px-0 border-0\">
+                                <div class=\"content-inner mx-3 text-center d-block\">
+                                    <img alt=\"\" class=\"img-fluid mx-auto\" src=\"http://placehold.it/300?text=1\">
+                                    <div class=\"vehicle-detail text-center mx-2 mx-lg-4 mt-4\">
+                                        <h4 class=\"font-weight-bold\">Flat Bed</h4>
+                                        <p class=\"mb-0\">Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum
+                                            Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum Lorem ipsum lorem ipsum</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -6419,8 +6375,8 @@ KTUtil.ready(function () {
             \$('.base_sender').removeClass('kt-hidden');
             \$('.another_sender').addClass('kt-hidden');
         }
-        
-        
+
+
     });
 
 
@@ -6447,9 +6403,9 @@ KTUtil.ready(function () {
          var total_weight = \$('.total_weight').val();
          var return_defray = \$('.return_defray:checked').val();
          var return_package_fee = \$('.return_package_fee:checked').val();
-         
+
          if(selected != '' && selected != 'new'){
-            
+
              \$.request('onChangefees', {
                   data: {sender_address_id: sender_address_id, type: selected, packaging_id:packaging_id, receiver_address_id: receiver_address_id, return_defray: return_defray, return_package_fee: return_package_fee,show_receiver_info:show_receiver_info,total_weight:total_weight},
                   success: function(response, status, xhr, \$form) {
@@ -6466,7 +6422,7 @@ KTUtil.ready(function () {
         var total_weight = \$(this).val();
         {% if settings.shipments.enable_type != 1 %}
             var type = {{settings.shipments.type}};
-        {% else %}        
+        {% else %}
             var type = \$('.type:checked').val();
         {% endif %}
         var show_receiver_info = \$('.show_receiver_info:checked').val();
@@ -6475,7 +6431,7 @@ KTUtil.ready(function () {
         var packaging_id = \$('#packaging_id').val();
         var return_defray = \$('.return_defray:checked').val();
         var return_package_fee = \$('.return_package_fee:checked').val();
-        
+
         \$.request('onChangefees', {
                   data: {sender_address_id: sender_address_id, type: type, packaging_id:packaging_id, receiver_address_id: receiver_address_id, return_defray: return_defray, return_package_fee: return_package_fee,show_receiver_info:show_receiver_info,total_weight:total_weight},
                   success: function(response, status, xhr, \$form) {
@@ -6494,7 +6450,7 @@ KTUtil.ready(function () {
         var show_receiver_info = \$('.show_receiver_info:checked').val();
         {% if settings.shipments.enable_type != 1 %}
             var type = {{settings.shipments.type}};
-        {% else %}        
+        {% else %}
             var type = \$('.type:checked').val();
         {% endif %}
          var sender_address_id = \$('#sender_address_id').val();
@@ -6516,7 +6472,7 @@ KTUtil.ready(function () {
         var show_receiver_info = \$('.show_receiver_info:checked').val();
         {% if settings.shipments.enable_type != 1 %}
             var type = {{settings.shipments.type}};
-        {% else %}        
+        {% else %}
             var type = \$('.type:checked').val();
         {% endif %}
          var sender_address_id = \$('#sender_address_id').val();
@@ -6556,7 +6512,7 @@ KTUtil.ready(function () {
                         \$('#storage_yes').prop('checked',true);
                         \$('#cost_24').val(response.cost_24);
                         \$('#cost_48').val(response.cost_48);
-                        \$('#ccost').removeClass('kt-hidden');   
+                        \$('#ccost').removeClass('kt-hidden');
                      }else{
                         \$('#storage_no').prop('checked',true);
                         \$('#ccost').addClass('kt-hidden');
@@ -6572,7 +6528,7 @@ KTUtil.ready(function () {
                      var selected = response.default;
                      {% if settings.shipments.enable_type != 1 %}
                         var type = {{settings.shipments.type}};
-                    {% else %}        
+                    {% else %}
                         var type = \$('.type:checked').val();
                     {% endif %}
                      var receiver_address_id = \$('#receiver_address_id').val();
@@ -6667,7 +6623,7 @@ KTUtil.ready(function () {
                         \$('#storage_yes').prop('checked',true);
                         \$('#cost_24').val(response.cost_24);
                         \$('#cost_48').val(response.cost_48);
-                        \$('#ccost').removeClass('kt-hidden');   
+                        \$('#ccost').removeClass('kt-hidden');
                      }else{
                         \$('#storage_no').prop('checked',true);
                         \$('#ccost').addClass('kt-hidden');
@@ -6708,7 +6664,7 @@ KTUtil.ready(function () {
 
         {% if settings.shipments.enable_type != 1 %}
             var type = {{settings.shipments.type}};
-        {% else %}        
+        {% else %}
             var type = \$('.type:checked').val();
         {% endif %}
          var sender_address_id = \$('#sender_address_id').val();
@@ -6753,7 +6709,7 @@ KTUtil.ready(function () {
                  data: {client_id: \$('#sender_id').val(),street_addr: parent.find('.street_addr').val(), city_id: parent.find('.city_id').find(\"option:selected\").val(), postal_code: parent.find('.postal_code').val(),  country_id: parent.find('.country_id').find(\"option:selected\").val()},
                  {% else %}
                  data: {client_id: \$('#sender_id').val(), street_addr: parent.find('.street_addr').val(), lat: parent.find('.lat').val(), lng: parent.find('.lng').val(), url: parent.find('.url').val(), area_id: parent.find('.area_id').find(\"option:selected\").val(), city_id: parent.find('.city_id').find(\"option:selected\").val(), postal_code: parent.find('.postal_code').val(), state_id: parent.find('.state_id').find(\"option:selected\").val(), country_id: parent.find('.country_id').find(\"option:selected\").val()},
-                 {% endif %}   
+                 {% endif %}
                  error: function(response, status, xhr, \$form) {
                      swal.fire({
                          title: '{{\"Error!\"|__}}',
@@ -6774,7 +6730,7 @@ KTUtil.ready(function () {
                       var selected = response.default;
                       {% if settings.shipments.enable_type != 1 %}
                             var type = {{settings.shipments.type}};
-                        {% else %}        
+                        {% else %}
                             var type = \$('.type:checked').val();
                         {% endif %}
                       var receiver_address_id = \$('#receiver_address_id').val();
@@ -6838,7 +6794,7 @@ KTUtil.ready(function () {
                      var selected = response.default;
                      {% if settings.shipments.enable_type != 1 %}
                         var type = {{settings.shipments.type}};
-                    {% else %}        
+                    {% else %}
                         var type = \$('.type:checked').val();
                     {% endif %}
                      var sender_address_id = \$('#sender_address_id').val();
@@ -6903,7 +6859,7 @@ KTUtil.ready(function () {
                       var selected = response.address_id;
                       {% if settings.shipments.enable_type != 1 %}
                             var type = {{settings.shipments.type}};
-                        {% else %}        
+                        {% else %}
                             var type = \$('.type:checked').val();
                         {% endif %}
                       var sender_address_id = \$('#sender_address_id').val();
@@ -6993,7 +6949,7 @@ KTUtil.ready(function () {
                        var selected = response.default;
                        {% if settings.shipments.enable_type != 1 %}
                             var type = {{settings.shipments.type}};
-                        {% else %}        
+                        {% else %}
                             var type = \$('.type:checked').val();
                         {% endif %}
                        var sender_address_id = \$('#sender_address_id').val();
@@ -7085,7 +7041,7 @@ KTUtil.ready(function () {
         var selected = \$(e.currentTarget).val();
         {% if settings.shipments.enable_type != 1 %}
             var type = {{settings.shipments.type}};
-        {% else %}        
+        {% else %}
             var type = \$('.type:checked').val();
         {% endif %}
         var receiver_address_id = \$('#receiver_address_id').val();
@@ -7109,7 +7065,7 @@ KTUtil.ready(function () {
         var selected = \$(e.currentTarget).val();
          {% if settings.shipments.enable_type != 1 %}
             var type = {{settings.shipments.type}};
-        {% else %}        
+        {% else %}
             var type = \$('.type:checked').val();
         {% endif %}
          var sender_address_id = \$('#sender_address_id').val();
@@ -7217,7 +7173,7 @@ KTUtil.ready(function () {
                  var packaging_id = \$('#packaging_id').val();
                  {% if settings.shipments.enable_type != 1 %}
                     var type = {{settings.shipments.type}};
-                {% else %}        
+                {% else %}
                     var type = \$('.type:checked').val();
                 {% endif %}
                  var return_defray = \$('.return_defray:checked').val();
@@ -7307,12 +7263,12 @@ KTUtil.ready(function () {
     //     alert(\$('.sub_weight').val());
     //     var sub_weight = Number ( \$(this).val() );
     //     var total_weight =  Number ( \$('.total_weight').val() );
-    //     total_weight += sub_weight ; 
+    //     total_weight += sub_weight ;
     //     \$('.total_weight').val(total_weight);
     //     alert(\$('.total_weight').val());
-        
+
     // });
-    
+
     \$('body').on('click', '.return_defray', function(){
         if(\$(this).val() == 1){
             \$('.package_fee').removeClass('kt-hidden');
@@ -7323,7 +7279,7 @@ KTUtil.ready(function () {
              var packaging_id = \$('#packaging_id').val();
              {% if settings.shipments.enable_type != 1 %}
                 var type = {{settings.shipments.type}};
-            {% else %}        
+            {% else %}
                 var type = \$('.type:checked').val();
             {% endif %}
              var return_defray = \$('.return_defray:checked').val();
@@ -7341,36 +7297,16 @@ KTUtil.ready(function () {
             \$('.package_fee').addClass('kt-hidden');
         }
     });
+
     \$(\".fees\").inputmask('999{{primary_currency.thousand_separator}}999{{primary_currency.thousand_separator}}999{{primary_currency.decimal_point}}{% for i in '1'..primary_currency.initbiz_money_fraction_digits %}9{% endfor %}', {
         numericInput: true
     });
+
     \$('.mask').val(('{% for i in '1'..settings.tracking.numbers_order %}0{% endfor %}' + {{max}}).slice(-{{settings.tracking.numbers_order}}));
+
     \$(\"body\").on('keyup', '.mask', function(e){
         \$(this).val(('{% for i in '1'..settings.tracking.numbers_order %}0{% endfor %}' + \$(this).val()).slice(-{{settings.tracking.numbers_order}}));
     });
-
-    \$('#vehicleTypeCarousel').carousel({
-        interval: 5000
-    })
-
-    \$('.carousel .carousel-item').each(function(){
-        var minPerSlide = 3;
-        var next = \$(this).next();
-        if (!next.length) {
-            next = \$(this).siblings(':first');
-        }
-        next.children(':first-child').clone().appendTo(\$(this));
-
-        for (var i=0;i<minPerSlide;i++) {
-            next=next.next();
-            if (!next.length) {
-                next = \$(this).siblings(':first');
-            }
-
-            next.children(':first-child').clone().appendTo(\$(this));
-        }
-    });
-
 });
 </script>
 {% endput %}", "F:\\xampp\\htdocs\\ebilty-web/themes/spotlayer/pages/dashboard/order-create.htm", "");
