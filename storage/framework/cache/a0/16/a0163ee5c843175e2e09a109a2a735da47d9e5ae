@@ -1,4 +1,4 @@
-1620075656a:1:{s:9:"admin.htm";a:13:{s:8:"fileName";s:9:"admin.htm";s:7:"content";s:93620:"description = "Admin layout"
+1620287747a:1:{s:9:"admin.htm";a:13:{s:8:"fileName";s:9:"admin.htm";s:7:"content";s:93627:"description = "Admin layout"
 
 [localePicker]
 forceUrl = 1
@@ -924,10 +924,10 @@ function onRefreshTime(){
                     <div class="kt-footer  kt-grid__item kt-grid kt-grid--desktop kt-grid--ver-desktop" id="kt_footer">
                      <div class="kt-container  kt-container--fluid ">
                       <div class="kt-footer__copyright">
-                       {{ "now"|date("Y") }}&nbsp;&copy;&nbsp;<a href="//spotlayer.com" target="_blank" class="kt-link">{{'Powered By Spotlayer'|__}}</a>.
+<!--                       {{ "now"|date("Y") }}&nbsp;&copy;&nbsp;<a href="//spotlayer.com" target="_blank" class="kt-link">{{'Powered By ivylabtech'|__}}</a>.-->
                       </div>
                       <div class="kt-footer__menu">
-                       <a href="//spotlayer.com/#contact" target="_blank" class="kt-link">{{ 'Support'|__ }}</a>
+<!--                       <a href="//ivylabtech.com" target="_blank" class="kt-link">{{ 'Support'|__ }}</a>-->
                       </div>
                      </div>
                     </div>
@@ -1395,7 +1395,7 @@ function onRefreshTime(){
     </body>
     <!-- end::Body -->
 </html>
-";s:5:"mtime";i:1620041084;s:6:"markup";s:81689:"<!DOCTYPE html>
+";s:5:"mtime";i:1620119954;s:6:"markup";s:81696:"<!DOCTYPE html>
 <html lang="{{currentLang}}" {% if currentLang == 'ar'%}direction="rtl" dir="rtl" style="direction: rtl"{% endif %} >
 
     <!-- begin::Head -->
@@ -2049,10 +2049,10 @@ function onRefreshTime(){
                     <div class="kt-footer  kt-grid__item kt-grid kt-grid--desktop kt-grid--ver-desktop" id="kt_footer">
                      <div class="kt-container  kt-container--fluid ">
                       <div class="kt-footer__copyright">
-                       {{ "now"|date("Y") }}&nbsp;&copy;&nbsp;<a href="//spotlayer.com" target="_blank" class="kt-link">{{'Powered By Spotlayer'|__}}</a>.
+<!--                       {{ "now"|date("Y") }}&nbsp;&copy;&nbsp;<a href="//spotlayer.com" target="_blank" class="kt-link">{{'Powered By ivylabtech'|__}}</a>.-->
                       </div>
                       <div class="kt-footer__menu">
-                       <a href="//spotlayer.com/#contact" target="_blank" class="kt-link">{{ 'Support'|__ }}</a>
+<!--                       <a href="//ivylabtech.com" target="_blank" class="kt-link">{{ 'Support'|__ }}</a>-->
                       </div>
                      </div>
                     </div>

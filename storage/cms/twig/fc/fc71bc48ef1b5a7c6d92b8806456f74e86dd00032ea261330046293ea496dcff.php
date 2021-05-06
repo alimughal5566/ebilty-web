@@ -1413,18 +1413,18 @@ class __TwigTemplate_ec4c8615aa4f88c386affbc38bac22809438612aac9c65131d1bdfda2f5
                     <div class=\"kt-footer  kt-grid__item kt-grid kt-grid--desktop kt-grid--ver-desktop\" id=\"kt_footer\">
                      <div class=\"kt-container  kt-container--fluid \">
                       <div class=\"kt-footer__copyright\">
-                       ";
+<!--                       ";
         // line 655
         echo twig_escape_filter($this->env, twig_date_format_filter($this->env, "now", "Y"), "html", null, true);
         echo "&nbsp;&copy;&nbsp;<a href=\"//spotlayer.com\" target=\"_blank\" class=\"kt-link\">";
-        echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Powered By Spotlayer"]);
-        echo "</a>.
+        echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Powered By ivylabtech"]);
+        echo "</a>.-->
                       </div>
                       <div class=\"kt-footer__menu\">
-                       <a href=\"//spotlayer.com/#contact\" target=\"_blank\" class=\"kt-link\">";
+<!--                       <a href=\"//ivylabtech.com\" target=\"_blank\" class=\"kt-link\">";
         // line 658
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Support"]);
-        echo "</a>
+        echo "</a>-->
                       </div>
                      </div>
                     </div>
@@ -2768,10 +2768,10 @@ class __TwigTemplate_ec4c8615aa4f88c386affbc38bac22809438612aac9c65131d1bdfda2f5
                     <div class=\"kt-footer  kt-grid__item kt-grid kt-grid--desktop kt-grid--ver-desktop\" id=\"kt_footer\">
                      <div class=\"kt-container  kt-container--fluid \">
                       <div class=\"kt-footer__copyright\">
-                       {{ \"now\"|date(\"Y\") }}&nbsp;&copy;&nbsp;<a href=\"//spotlayer.com\" target=\"_blank\" class=\"kt-link\">{{'Powered By Spotlayer'|__}}</a>.
+<!--                       {{ \"now\"|date(\"Y\") }}&nbsp;&copy;&nbsp;<a href=\"//spotlayer.com\" target=\"_blank\" class=\"kt-link\">{{'Powered By ivylabtech'|__}}</a>.-->
                       </div>
                       <div class=\"kt-footer__menu\">
-                       <a href=\"//spotlayer.com/#contact\" target=\"_blank\" class=\"kt-link\">{{ 'Support'|__ }}</a>
+<!--                       <a href=\"//ivylabtech.com\" target=\"_blank\" class=\"kt-link\">{{ 'Support'|__ }}</a>-->
                       </div>
                      </div>
                     </div>

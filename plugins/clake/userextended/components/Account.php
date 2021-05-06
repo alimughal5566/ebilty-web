@@ -117,7 +117,7 @@ class Account extends ComponentBase
     public function onRegister()
     {
         $data = post();
-//var_dump('dsd');
+
         /*
          * Preforms user registration
          */

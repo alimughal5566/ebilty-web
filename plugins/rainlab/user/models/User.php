@@ -67,7 +67,9 @@ class User extends UserBase
         'password',
         'password_confirmation',
         'mobile',
-        'phone',
+        'role_id',
+        'cnic',
+        'postal_code',
 
     ];
 

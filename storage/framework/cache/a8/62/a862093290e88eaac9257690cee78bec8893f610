@@ -1,4 +1,4 @@
-1620075655a:1:{s:23:"dashboard/dashboard.htm";a:20:{s:8:"fileName";s:23:"dashboard/dashboard.htm";s:7:"content";s:59876:"title = "Dashboard"
+1620288011a:1:{s:23:"dashboard/dashboard.htm";a:20:{s:8:"fileName";s:23:"dashboard/dashboard.htm";s:7:"content";s:60104:"title = "Dashboard"
 daterange = 1
 url = "/dashboard"
 layout = "admin"
@@ -390,7 +390,15 @@ crumb_disabled = 0
                         $q->orWhere('receiver_id', Auth::getUser()->id);
                     });
                 });
-                break;
+            break;
+            case 12:
+$records    =   $records->where(function($q){
+$q->whereHas('order', function($q){
+$q->where('sender_id', Auth::getUser()->id);
+$q->orWhere('receiver_id', Auth::getUser()->id);
+});
+});
+            break;
             case 4:
                 if(Auth::getUser()->is_superuser){
                     $records    =   $records->where(function($q){
@@ -1219,7 +1227,7 @@ jQuery(document).ready(function() {
 });
 </script>
 {% endput %}
-";s:5:"mtime";i:1619930591;s:6:"markup";s:32005:"<!--Begin::Section-->
+";s:5:"mtime";i:1620287394;s:6:"markup";s:32005:"<!--Begin::Section-->
 
 <div class="row">
 
@@ -1909,7 +1917,7 @@ jQuery(document).ready(function() {
     KTDashboard.init();
 });
 </script>
-{% endput %}";s:4:"code";s:27554:"    function onStart(){
+{% endput %}";s:4:"code";s:27782:"    function onStart(){
         $value                      =   50;
         if($this->user->mobile){
             $value                  +=  10;
@@ -2283,7 +2291,15 @@ jQuery(document).ready(function() {
                         $q->orWhere('receiver_id', Auth::getUser()->id);
                     });
                 });
-                break;
+            break;
+            case 12:
+$records    =   $records->where(function($q){
+$q->whereHas('order', function($q){
+$q->where('sender_id', Auth::getUser()->id);
+$q->orWhere('receiver_id', Auth::getUser()->id);
+});
+});
+            break;
             case 4:
                 if(Auth::getUser()->is_superuser){
                     $records    =   $records->where(function($q){

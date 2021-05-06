@@ -1,4 +1,4 @@
-1620075772a:1:{s:26:"dashboard/order-create.htm";a:19:{s:8:"fileName";s:26:"dashboard/order-create.htm";s:7:"content";s:251179:"title = "Create New Shipment"
+1620287735a:1:{s:26:"dashboard/order-create.htm";a:19:{s:8:"fileName";s:26:"dashboard/order-create.htm";s:7:"content";s:251179:"title = "Create New Shipment"
 url = "/dashboard/shipments/create"
 layout = "admin"
 is_hidden = 0
@@ -4200,7 +4200,7 @@ KTUtil.ready(function () {
 });
 </script>
 {% endput %}
-";s:5:"mtime";i:1620075169;s:6:"markup";s:163126:"{{ form_ajax('onSave', { success: 'created successfully!', flash: true, class: 'kt_form' }) }}
+";s:5:"mtime";i:1620157791;s:6:"markup";s:163126:"{{ form_ajax('onSave', { success: 'created successfully!', flash: true, class: 'kt_form' }) }}
  {% if addShipmentForm == "add_form_simple" %}
  {% if user.role_id != 5 %}
  <div class="row">

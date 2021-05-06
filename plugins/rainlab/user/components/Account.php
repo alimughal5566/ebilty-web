@@ -282,12 +282,25 @@ class Account extends ComponentBase
              */
             $data = post();
 
+            if($data['cnic']){
+                $image_64 = $data['cnic']; //your base64 encoded data
+                $extension = explode('/', explode(':', substr($image_64, 0, strpos($image_64, ';')))[1])[1];   // .jpg .png .pdf
+                $replace = substr($image_64, 0, strpos($image_64, ',')+1);
+            // find substring fro replace here eg: data:image/png;base64,
+                $image = str_replace($replace, '', $image_64);
+                $image = str_replace(' ', '+', $image);
+                $imageName = rand().'.'.$extension;
+
+                \Storage::disk('app/uploads/public/images')->put($imageName, base64_decode($image));
+
+            }
+
+            $data['cnic']=$imageName??'';
             if (!array_key_exists('password_confirmation', $data)) {
                 $data['password_confirmation'] = post('password');
             }
 
             $rules = (new UserModel)->rules;
-
             if ($this->loginAttribute() !== UserSettings::LOGIN_USERNAME) {
                 unset($rules['username']);
             }
@@ -307,12 +320,15 @@ class Account extends ComponentBase
             /*
              * Register user
              */
+            $data['role_id']=$data['user_role_id'];
             Event::fire('rainlab.user.beforeRegister', [&$data]);
-
             $requireActivation = UserSettings::get('require_activation', true);
             $automaticActivation = UserSettings::get('activate_mode') == UserSettings::ACTIVATE_AUTO;
             $userActivation = UserSettings::get('activate_mode') == UserSettings::ACTIVATE_USER;
+
+
             $user = Auth::register($data, $automaticActivation);
+
 
             Event::fire('rainlab.user.register', [$user, $data]);
 

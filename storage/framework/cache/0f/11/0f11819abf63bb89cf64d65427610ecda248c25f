@@ -1,4 +1,4 @@
-1620075656a:1:{s:9:"login.htm";a:21:{s:8:"fileName";s:9:"login.htm";s:7:"content";s:40177:"title = "Login"
+1620287735a:1:{s:9:"login.htm";a:21:{s:8:"fileName";s:9:"login.htm";s:7:"content";s:40373:"title = "Login"
 url = "/login/:code?"
 layout = "blank"
 is_hidden = 0
@@ -33,6 +33,8 @@ function onStart(){
     }
 
 
+
+
     if(isset($_GET['login'])){
         $data = $_GET;
 
@@ -79,7 +81,9 @@ function onStart(){
 function onMyRegister()
 {
 
+
     $data['role_id']         = 5;
+
 
     $this['account']->onRegister();
 }
@@ -87,6 +91,9 @@ function onMyRegister()
 ==
 
 <style>
+    /*$this['departments']=\Spot\Shipment\Models\UsersGroups::where('id','!=',1)->get();*/
+    /*<!--dd($this['departments']);-->*/
+
     body{
         background-image: linear-gradient(to right, #EE8335, #FDC90E);
     }
@@ -172,15 +179,15 @@ function onMyRegister()
                                  </div>
 
                                  <div class="login-item-type d-flex flex-wrap justify-content-between">
-                                     <a href="#" class="btn btn-gradient flex-column half">
+                                     <a href="/login" class="btn btn-gradient flex-column half">
                                          <i class="fa fa-industry fa-2x"></i>
                                          <span>VENDOR</span>
                                      </a>
-                                     <a href="#" class="btn btn-gradient flex-column half">
+                                     <a href="/login" class="btn btn-gradient flex-column half">
                                          <i class="fa fa-truck-loading fa-2x"></i>
                                          <span>SERVICE PROVIDER</span>
                                      </a>
-                                     <a href="#" class="btn btn-gradient flex-column full">
+                                     <a href="/login/admin" class="btn btn-gradient flex-column full">
                                          <i class="fa fa-user-circle fa-2x"></i>
                                          <span>ADMIN</span>
                                      </a>
@@ -239,15 +246,14 @@ function onMyRegister()
                                     <i class="fa fa-user-cog field-icon"></i>
                                 </div>
                                 <div class="input-group">
-                                    <label for="user_type" class="sr-only"></label>
-                                    <select  name="user_type" class="form-control selectpicker" data-dropup-auto="false"  id="user_type" autocomplete="off" required>
-                                        <option value="" selected disabled>Register As</option>
-                                        <option class="individual">Individual</option>
-                                        <option class="company">Company</option>
-                                        <option class="organization">Organization</option>
+                                    <label for="user_role_id" class="sr-only"></label>
+                                    <select  name="user_role_id" class="form-control selectpicker" data-dropup-auto="false"  id="user_role_id" autocomplete="off" required>
+                                        <option  value="" selected disabled>Register As</option>
+                                        <option  value="5" class="individual">Vendor</option>
+                                        <option  value="12" class="company">Service Provider</option>
+
                                     </select>
                                 </div>
-
         						<div class="input-group">
                                     <label for="registerPassword" class="sr-only"></label>
         							<input class="form-control" type="password" placeholder="{{'Password'|__}}" id="registerPassword" name="password" required>
@@ -269,7 +275,6 @@ function onMyRegister()
                                     <button id="kt_login_signup_cancel" class="btn btn-gradient btn-gradient-default kt-login__btn-secondary mx-0">{{'Cancel'|__}}</button>
                                     <button id="kt_login_signup_submit" type="submit" class="btn btn-gradient btn-gradient-blue kt-login__btn-primary mx-0">{{'Sign Up'|__}}</button>
         						</div>
-
                                 <div class="kt-login__actions kt-margin-t-10 flex-column">
                   					<span class="kt-login__account-msg d-block w-100 text-white font-weight-bold">Already have an account? <a href="javascript:void(0);" id="kt_login_signin" class="kt-login__account-link ">{{"Login"|__}}</a> to your account</span>
                                 </div>
@@ -551,6 +556,7 @@ function onMyRegister()
 
         var handleSignUpFormSubmit = function() {
             $('#kt_login_signup_submit').click(function(e) {
+
                 e.preventDefault();
 
                 var btn = $(this);
@@ -576,7 +582,6 @@ function onMyRegister()
                         }
                     }
                 });
-
                 if (!form.valid()) {
                     return;
                 }
@@ -584,10 +589,15 @@ function onMyRegister()
                 btn.addClass('kt-spinner kt-spinner--right kt-spinner--sm kt-spinner--light').attr('disabled', true);
                 $.request('onRegister', {
                     {% if loginAttribute == "username" %}
-                        data: {name: $('#registerName').val(), email: $('#registerEmail').val(), username: $('#registerUsername').val(), password: $('#registerPassword').val(), password_confirmation: $('#rpassword').val(), phone: $('#mobile').val(), postal_code: $('#postal_code').val(), cnic: $('#cnic_image').val(), bussiness_type: $('#bussiness_type').val()},
+
+                        data: {name: $('#registerName').val(), email: $('#registerEmail').val(), username: $('#registerUsername').val(), password: $('#registerPassword').val(), password_confirmation: $('#rpassword').val(), phone: $('#mobile').val(), postal_code: $('#postal_code').val(), cnic: $('#cnic_image').val(), bussiness_type: $('#bussiness_type').val(),user_role_id:$('#user_role_id').val()},
+
                     {% else %}
-                        data: {name: $('#registerName').val(), email: $('#registerEmail').val(), password: $('#registerPassword').val(), phone: $('#mobile').val(), postal_code: $('#postal_code').val(), cnic: $('#cnic_image').val(), bussiness_type: $('#bussiness_type').val()},
+
+                        data: {name: $('#registerName').val(), email: $('#registerEmail').val(), password: $('#registerPassword').val(), phone: $('#mobile').val(), postal_code: $('#postal_code').val(), cnic: $('#cnic_image').val(), bussiness_type: $('#bussiness_type').val(), user_role_id:$('#user_role_id').val()},
+
                     {% endif %}
+
                     error: function(e,response) {
                         btn.removeClass('kt-spinner kt-spinner--right kt-spinner--sm kt-spinner--light').attr('disabled', false);
                         if(typeof e.responseJSON !== 'undefined'){
@@ -725,7 +735,10 @@ function onMyRegister()
 
  </script>
  {% endput %}
-";s:5:"mtime";i:1619930591;s:6:"markup";s:38001:"<style>
+";s:5:"mtime";i:1620251096;s:6:"markup";s:38189:"<style>
+    /*$this['departments']=\Spot\Shipment\Models\UsersGroups::where('id','!=',1)->get();*/
+    /*<!--dd($this['departments']);-->*/
+
     body{
         background-image: linear-gradient(to right, #EE8335, #FDC90E);
     }
@@ -811,15 +824,15 @@ function onMyRegister()
                                  </div>
 
                                  <div class="login-item-type d-flex flex-wrap justify-content-between">
-                                     <a href="#" class="btn btn-gradient flex-column half">
+                                     <a href="/login" class="btn btn-gradient flex-column half">
                                          <i class="fa fa-industry fa-2x"></i>
                                          <span>VENDOR</span>
                                      </a>
-                                     <a href="#" class="btn btn-gradient flex-column half">
+                                     <a href="/login" class="btn btn-gradient flex-column half">
                                          <i class="fa fa-truck-loading fa-2x"></i>
                                          <span>SERVICE PROVIDER</span>
                                      </a>
-                                     <a href="#" class="btn btn-gradient flex-column full">
+                                     <a href="/login/admin" class="btn btn-gradient flex-column full">
                                          <i class="fa fa-user-circle fa-2x"></i>
                                          <span>ADMIN</span>
                                      </a>
@@ -878,15 +891,14 @@ function onMyRegister()
                                     <i class="fa fa-user-cog field-icon"></i>
                                 </div>
                                 <div class="input-group">
-                                    <label for="user_type" class="sr-only"></label>
-                                    <select  name="user_type" class="form-control selectpicker" data-dropup-auto="false"  id="user_type" autocomplete="off" required>
-                                        <option value="" selected disabled>Register As</option>
-                                        <option class="individual">Individual</option>
-                                        <option class="company">Company</option>
-                                        <option class="organization">Organization</option>
+                                    <label for="user_role_id" class="sr-only"></label>
+                                    <select  name="user_role_id" class="form-control selectpicker" data-dropup-auto="false"  id="user_role_id" autocomplete="off" required>
+                                        <option  value="" selected disabled>Register As</option>
+                                        <option  value="5" class="individual">Vendor</option>
+                                        <option  value="12" class="company">Service Provider</option>
+
                                     </select>
                                 </div>
-
         						<div class="input-group">
                                     <label for="registerPassword" class="sr-only"></label>
         							<input class="form-control" type="password" placeholder="{{'Password'|__}}" id="registerPassword" name="password" required>
@@ -908,7 +920,6 @@ function onMyRegister()
                                     <button id="kt_login_signup_cancel" class="btn btn-gradient btn-gradient-default kt-login__btn-secondary mx-0">{{'Cancel'|__}}</button>
                                     <button id="kt_login_signup_submit" type="submit" class="btn btn-gradient btn-gradient-blue kt-login__btn-primary mx-0">{{'Sign Up'|__}}</button>
         						</div>
-
                                 <div class="kt-login__actions kt-margin-t-10 flex-column">
                   					<span class="kt-login__account-msg d-block w-100 text-white font-weight-bold">Already have an account? <a href="javascript:void(0);" id="kt_login_signin" class="kt-login__account-link ">{{"Login"|__}}</a> to your account</span>
                                 </div>
@@ -1190,6 +1201,7 @@ function onMyRegister()
 
         var handleSignUpFormSubmit = function() {
             $('#kt_login_signup_submit').click(function(e) {
+
                 e.preventDefault();
 
                 var btn = $(this);
@@ -1215,7 +1227,6 @@ function onMyRegister()
                         }
                     }
                 });
-
                 if (!form.valid()) {
                     return;
                 }
@@ -1223,10 +1234,15 @@ function onMyRegister()
                 btn.addClass('kt-spinner kt-spinner--right kt-spinner--sm kt-spinner--light').attr('disabled', true);
                 $.request('onRegister', {
                     {% if loginAttribute == "username" %}
-                        data: {name: $('#registerName').val(), email: $('#registerEmail').val(), username: $('#registerUsername').val(), password: $('#registerPassword').val(), password_confirmation: $('#rpassword').val(), phone: $('#mobile').val(), postal_code: $('#postal_code').val(), cnic: $('#cnic_image').val(), bussiness_type: $('#bussiness_type').val()},
+
+                        data: {name: $('#registerName').val(), email: $('#registerEmail').val(), username: $('#registerUsername').val(), password: $('#registerPassword').val(), password_confirmation: $('#rpassword').val(), phone: $('#mobile').val(), postal_code: $('#postal_code').val(), cnic: $('#cnic_image').val(), bussiness_type: $('#bussiness_type').val(),user_role_id:$('#user_role_id').val()},
+
                     {% else %}
-                        data: {name: $('#registerName').val(), email: $('#registerEmail').val(), password: $('#registerPassword').val(), phone: $('#mobile').val(), postal_code: $('#postal_code').val(), cnic: $('#cnic_image').val(), bussiness_type: $('#bussiness_type').val()},
+
+                        data: {name: $('#registerName').val(), email: $('#registerEmail').val(), password: $('#registerPassword').val(), phone: $('#mobile').val(), postal_code: $('#postal_code').val(), cnic: $('#cnic_image').val(), bussiness_type: $('#bussiness_type').val(), user_role_id:$('#user_role_id').val()},
+
                     {% endif %}
+
                     error: function(e,response) {
                         btn.removeClass('kt-spinner kt-spinner--right kt-spinner--sm kt-spinner--light').attr('disabled', false);
                         if(typeof e.responseJSON !== 'undefined'){
@@ -1363,10 +1379,12 @@ function onMyRegister()
 
 
  </script>
- {% endput %}";s:4:"code";s:1682:"function onStart(){
+ {% endput %}";s:4:"code";s:1690:"function onStart(){
     if(Auth::getUser()){
         return Redirect::to('dashboard');
     }
+
+
 
 
     if(isset($_GET['login'])){
@@ -1415,7 +1433,9 @@ function onMyRegister()
 function onMyRegister()
 {
 
+
     $data['role_id']         = 5;
+
 
     $this['account']->onRegister();
 }";s:5:"title";s:5:"Login";s:3:"url";s:13:"/login/:code?";s:6:"layout";s:5:"blank";s:9:"is_hidden";s:1:"0";s:4:"role";s:1:"0";s:10:"permission";s:1:"0";s:14:"anonymous_only";s:1:"1";s:11:"logged_only";s:1:"0";s:8:"child_of";s:13:"mey_no_parent";s:10:"hide_crumb";s:1:"0";s:18:"remove_crumb_trail";s:1:"0";s:14:"crumb_disabled";s:1:"0";s:7:"viewBag";a:2:{s:11:"localeTitle";a:1:{s:2:"ar";s:23:"تسجيل الدخول";}s:9:"localeUrl";a:1:{s:2:"ar";s:13:"/login/:code?";}}s:7:"account";a:3:{s:8:"redirect";s:19:"dashboard/dashboard";s:9:"paramCode";s:4:"code";s:11:"forceSecure";s:1:"0";}s:13:"resetPassword";a:1:{s:9:"paramCode";s:4:"code";}s:7:"session";a:1:{s:8:"security";s:3:"all";}}}
