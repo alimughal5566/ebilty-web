@@ -191,70 +191,72 @@ class __TwigTemplate_88afd65f38214542940c5dfceea8c07bd17e620a8e2cd88b5ec2cd0c875
                                 <div class=\"kt-widget__desc\">
                                     ";
         // line 110
-        if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "role_id", [], "any", false, false, false, 110) == 5)) {
+        if (((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "role_id", [], "any", false, false, false, 110) == 5) || (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "role_id", [], "any", false, false, false, 110) == 12))) {
             // line 111
-            echo "                                        ";
-            if ( !twig_test_empty(twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "addresses", [], "any", false, false, false, 111))) {
-                // line 112
-                echo "                                        ";
-                $context["address"] = twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "addresses", [], "any", false, false, false, 112), "where", [0 => "default", 1 => 1], "method", false, false, false, 112), "first", [], "any", false, false, false, 112);
+            echo "
+                                        ";
+            // line 112
+            if ( !twig_test_empty(twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "addresses", [], "any", false, false, false, 112))) {
                 // line 113
                 echo "                                        ";
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["address"] ?? null), "street", [], "any", false, false, false, 113), "html", null, true);
+                $context["address"] = twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "addresses", [], "any", false, false, false, 113), "where", [0 => "default", 1 => 1], "method", false, false, false, 113), "first", [], "any", false, false, false, 113);
+                // line 114
+                echo "                                        ";
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["address"] ?? null), "street", [], "any", false, false, false, 114), "html", null, true);
                 echo ", ";
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["address"] ?? null), "thecity", [], "any", false, false, false, 113), "name", [], "any", false, false, false, 113), "html", null, true);
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["address"] ?? null), "thecity", [], "any", false, false, false, 114), "name", [], "any", false, false, false, 114), "html", null, true);
                 echo " ";
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["address"] ?? null), "zipcode", [], "any", false, false, false, 113), "html", null, true);
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["address"] ?? null), "zipcode", [], "any", false, false, false, 114), "html", null, true);
                 echo "
                                         <br> ";
-                // line 114
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["address"] ?? null), "thestate", [], "any", false, false, false, 114), "name", [], "any", false, false, false, 114), "html", null, true);
+                // line 115
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["address"] ?? null), "thestate", [], "any", false, false, false, 115), "name", [], "any", false, false, false, 115), "html", null, true);
                 echo ", ";
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["address"] ?? null), "thecountry", [], "any", false, false, false, 114), "name", [], "any", false, false, false, 114), "html", null, true);
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["address"] ?? null), "thecountry", [], "any", false, false, false, 115), "name", [], "any", false, false, false, 115), "html", null, true);
                 echo "
                                         ";
             }
-            // line 116
+            // line 117
             echo "                                    ";
         } else {
-            // line 117
+            // line 118
             echo "                                        ";
-            if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "street_addr", [], "any", false, false, false, 117)) {
-                // line 118
+            if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "street_addr", [], "any", false, false, false, 118)) {
+                // line 119
                 echo "                                            ";
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "street_addr", [], "any", false, false, false, 118), "html", null, true);
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "street_addr", [], "any", false, false, false, 119), "html", null, true);
                 echo ", ";
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "city", [], "any", false, false, false, 118), "name", [], "any", false, false, false, 118), "html", null, true);
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "city", [], "any", false, false, false, 119), "name", [], "any", false, false, false, 119), "html", null, true);
                 echo " ";
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "zip", [], "any", false, false, false, 118), "html", null, true);
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "zip", [], "any", false, false, false, 119), "html", null, true);
                 echo "
                                             <br> ";
-                // line 119
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "state", [], "any", false, false, false, 119), "name", [], "any", false, false, false, 119), "html", null, true);
+                // line 120
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "state", [], "any", false, false, false, 120), "name", [], "any", false, false, false, 120), "html", null, true);
                 echo ", ";
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "country", [], "any", false, false, false, 119), "name", [], "any", false, false, false, 119), "html", null, true);
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "country", [], "any", false, false, false, 120), "name", [], "any", false, false, false, 120), "html", null, true);
                 echo "
                                         ";
             }
-            // line 121
+            // line 122
             echo "                                    ";
         }
-        // line 122
+        // line 123
         echo "                                </div>
                                 ";
-        // line 123
-        if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "role_id", [], "any", false, false, false, 123) != 1)) {
-            // line 124
+        // line 124
+        if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "role_id", [], "any", false, false, false, 124) != 1)) {
+            // line 125
             echo "                                    <div class=\"kt-widget__progress\">
                                         <div class=\"kt-widget__text\">
                                             ";
-            // line 126
+            // line 127
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Progress"]);
             echo "
                                         </div>
                                         <div class=\"progress\" style=\"height: 5px;width: 100%;\">
                                             <div class=\"progress-bar kt-bg-";
-            // line 129
+            // line 130
             echo twig_escape_filter($this->env, ($context["progress_status"] ?? null), "html", null, true);
             echo "\" role=\"progressbar\" style=\"width: ";
             echo twig_escape_filter($this->env, ($context["progress_value"] ?? null), "html", null, true);
@@ -264,14 +266,14 @@ class __TwigTemplate_88afd65f38214542940c5dfceea8c07bd17e620a8e2cd88b5ec2cd0c875
                                         </div>
                                         <div class=\"kt-widget__stats\">
                                             ";
-            // line 132
+            // line 133
             echo twig_escape_filter($this->env, ($context["progress_value"] ?? null), "html", null, true);
             echo "%
                                         </div>
                                     </div>
                                 ";
         }
-        // line 136
+        // line 137
         echo "                            </div>
                         </div>
                     </div>
@@ -447,7 +449,7 @@ class __TwigTemplate_88afd65f38214542940c5dfceea8c07bd17e620a8e2cd88b5ec2cd0c875
 
 <!--                    <div class=\"kt-widget__bottom\">-->
 <!--                        <a href=\"";
-        // line 310
+        // line 311
         echo url("dashboard/shipments/approved");
         echo "\" class=\"kt-widget__item\">-->
 <!--                            <div class=\"kt-widget__icon\">-->
@@ -455,20 +457,20 @@ class __TwigTemplate_88afd65f38214542940c5dfceea8c07bd17e620a8e2cd88b5ec2cd0c875
 <!--                            </div>-->
 <!--                            <div class=\"kt-widget__details\">-->
 <!--                                <span class=\"kt-widget__title\">";
-        // line 315
+        // line 316
         echo twig_escape_filter($this->env, ($context["approved"] ?? null), "html", null, true);
         echo " ";
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["shipment"]);
         echo "</span>-->
 <!--                                <span class=\"kt-widget__value\">";
-        // line 316
+        // line 317
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Approved List"]);
         echo "</span>-->
 <!--                            </div>-->
 <!--                        </a>-->
 
 <!--                        <a href=\"";
-        // line 320
+        // line 321
         echo url("dashboard/shipments/stock");
         echo "\" class=\"kt-widget__item\">-->
 <!--                            <div class=\"kt-widget__icon\">-->
@@ -476,20 +478,20 @@ class __TwigTemplate_88afd65f38214542940c5dfceea8c07bd17e620a8e2cd88b5ec2cd0c875
 <!--                            </div>-->
 <!--                            <div class=\"kt-widget__details\">-->
 <!--                                <span class=\"kt-widget__title\">";
-        // line 325
+        // line 326
         echo twig_escape_filter($this->env, ($context["stocked"] ?? null), "html", null, true);
         echo " ";
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["shipment"]);
         echo "</span>-->
 <!--                                <span class=\"kt-widget__value\">";
-        // line 326
+        // line 327
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["In Stock List"]);
         echo "</span>-->
 <!--                            </div>-->
 <!--                        </a>-->
 
 <!--                        <a href=\"";
-        // line 330
+        // line 331
         echo url("dashboard/shipments/delivered");
         echo "\" class=\"kt-widget__item\">-->
 <!--                            <div class=\"kt-widget__icon\">-->
@@ -497,13 +499,13 @@ class __TwigTemplate_88afd65f38214542940c5dfceea8c07bd17e620a8e2cd88b5ec2cd0c875
 <!--                            </div>-->
 <!--                            <div class=\"kt-widget__details\">-->
 <!--                                <span class=\"kt-widget__title\">";
-        // line 335
+        // line 336
         echo twig_escape_filter($this->env, ($context["delivered"] ?? null), "html", null, true);
         echo " ";
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["shipment"]);
         echo "</span>-->
 <!--                                <span class=\"kt-widget__value\">";
-        // line 336
+        // line 337
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Delivered List"]);
         echo "</span>-->
 <!--                            </div>-->
@@ -515,40 +517,40 @@ class __TwigTemplate_88afd65f38214542940c5dfceea8c07bd17e620a8e2cd88b5ec2cd0c875
 <!--                            </div>-->
 <!--                            <div class=\"kt-widget__details\">-->
 <!--                                ";
-        // line 345
-        if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "role_id", [], "any", false, false, false, 345) == 5)) {
+        // line 346
+        if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "role_id", [], "any", false, false, false, 346) == 5)) {
             echo "-->
 <!--                                    <span class=\"kt-widget__title\">";
-            // line 346
+            // line 347
             echo twig_escape_filter($this->env, ($context["saved"] ?? null), "html", null, true);
             echo " ";
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Saved Shipments"]);
             echo "</span>-->
 <!--                                    <a href=\"";
-            // line 347
+            // line 348
             echo url("dashboard/shipments/saved");
             echo "\" class=\"kt-widget__value kt-font-brand\">";
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["View"]);
             echo "</a>-->
 <!--                                ";
         } else {
-            // line 348
+            // line 349
             echo "-->
 <!--                                    <span class=\"kt-widget__title\">";
-            // line 349
+            // line 350
             echo twig_escape_filter($this->env, ($context["new"] ?? null), "html", null, true);
             echo " ";
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["New Shipment Request"]);
             echo "</span>-->
 <!--                                    <a href=\"";
-            // line 350
+            // line 351
             echo url("dashboard/shipments/requests");
             echo "\" class=\"kt-widget__value kt-font-brand\">";
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["View"]);
             echo "</a>-->
 <!--                                ";
         }
-        // line 351
+        // line 352
         echo "-->
 <!--                            </div>-->
 <!--                        </div>-->
@@ -567,9 +569,9 @@ class __TwigTemplate_88afd65f38214542940c5dfceea8c07bd17e620a8e2cd88b5ec2cd0c875
 </div>
 <!--End::Section-->
 ";
-        // line 368
-        if (((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "role_id", [], "any", false, false, false, 368) == 1) || (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "role_id", [], "any", false, false, false, 368) == 6))) {
-            // line 369
+        // line 369
+        if (((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "role_id", [], "any", false, false, false, 369) == 1) || (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "role_id", [], "any", false, false, false, 369) == 6))) {
+            // line 370
             echo "    <div class=\"row\">
         <div class=\"col-lg-4\">
             <!--begin:: Widgets/Latest Updates-->
@@ -578,7 +580,7 @@ class __TwigTemplate_88afd65f38214542940c5dfceea8c07bd17e620a8e2cd88b5ec2cd0c875
             \t\t<div class=\"kt-portlet__head-label\">
             \t\t\t<h3 class=\"kt-portlet__head-title\">
             \t\t\t\t";
-            // line 376
+            // line 377
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Summary"]);
             echo " <small>";
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Statistical summary"]);
@@ -596,7 +598,7 @@ class __TwigTemplate_88afd65f38214542940c5dfceea8c07bd17e620a8e2cd88b5ec2cd0c875
                                         <a href=\"javascript:void(0);\" class=\"kt-nav__link\">
                                             <i class=\"kt-nav__link-icon flaticon2-drop\"></i>
                                             <span class=\"kt-nav__link-text\">";
-            // line 389
+            // line 390
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Last Month Summary"]);
             echo "</span>
                                         </a>
@@ -605,7 +607,7 @@ class __TwigTemplate_88afd65f38214542940c5dfceea8c07bd17e620a8e2cd88b5ec2cd0c875
                                         <a href=\"javascript:void(0);\" class=\"kt-nav__link\">
                                             <i class=\"kt-nav__link-icon flaticon2-calendar-8\"></i>
                                             <span class=\"kt-nav__link-text\">";
-            // line 395
+            // line 396
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Consolidated List"]);
             echo "</span>
                                         </a>
@@ -614,7 +616,7 @@ class __TwigTemplate_88afd65f38214542940c5dfceea8c07bd17e620a8e2cd88b5ec2cd0c875
                                         <a href=\"javascript:void(0);\" class=\"kt-nav__link\">
                                             <i class=\"kt-nav__link-icon flaticon2-telegram-logo\"></i>
                                             <span class=\"kt-nav__link-text\">";
-            // line 401
+            // line 402
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Delivered List"]);
             echo "</span>
                                         </a>
@@ -629,11 +631,11 @@ class __TwigTemplate_88afd65f38214542940c5dfceea8c07bd17e620a8e2cd88b5ec2cd0c875
             \t\t<div class=\"kt-widget4 kt-widget4--sticky\">
             \t\t\t<div class=\"kt-widget4__items kt-portlet__space-x kt-margin-t-15\" id=\"summary\">
                             ";
-            // line 413
+            // line 414
             $context['__cms_partial_params'] = [];
             echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("summarywidget"            , $context['__cms_partial_params']            , true            );
             unset($context['__cms_partial_params']);
-            // line 414
+            // line 415
             echo "                        </div>
             \t\t</div>
             \t</div>
@@ -644,18 +646,18 @@ class __TwigTemplate_88afd65f38214542940c5dfceea8c07bd17e620a8e2cd88b5ec2cd0c875
     \t\t<!--begin:: Widgets/Quick Stats-->
             <div class=\"row row-full-height\" id=\"charts\">
                 ";
-            // line 423
+            // line 424
             $context['__cms_partial_params'] = [];
             echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("chartswidget"            , $context['__cms_partial_params']            , true            );
             unset($context['__cms_partial_params']);
-            // line 424
+            // line 425
             echo "            </div>
             <!--end:: Widgets/Quick Stats-->
         </div>
     </div>
 ";
         }
-        // line 429
+        // line 430
         echo "
 <div class=\"row\">
     <div class=\"col-lg-12\">
@@ -664,7 +666,7 @@ class __TwigTemplate_88afd65f38214542940c5dfceea8c07bd17e620a8e2cd88b5ec2cd0c875
         \t\t<div class=\"kt-portlet__head-label\">
         \t\t\t<h3 class=\"kt-portlet__head-title\">
         \t\t\t\t";
-        // line 436
+        // line 437
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Latest shipments"]);
         echo "
         \t\t\t</h3>
@@ -674,15 +676,15 @@ class __TwigTemplate_88afd65f38214542940c5dfceea8c07bd17e620a8e2cd88b5ec2cd0c875
 \t\t\t\t<div class=\"kt-widget11\">
 \t\t\t\t\t<div class=\"table-responsive\" id=\"listing\">
                         ";
-        // line 443
+        // line 444
         $context['__cms_partial_params'] = [];
         echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("listingwidget"        , $context['__cms_partial_params']        , true        );
         unset($context['__cms_partial_params']);
-        // line 444
+        // line 445
         echo "\t\t\t\t\t</div>
 \t\t\t\t\t<div class=\"kt-widget11__action kt-align-right\">
 \t\t\t\t\t\t<a href=\"";
-        // line 446
+        // line 447
         echo url("dashboard/shipments/all");
         echo "\" class=\"btn background-primary text-white btn-sm btn-bold\">";
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["View All Shipments"]);
@@ -696,9 +698,9 @@ class __TwigTemplate_88afd65f38214542940c5dfceea8c07bd17e620a8e2cd88b5ec2cd0c875
 
 
 ";
-        // line 455
-        echo $this->env->getExtension('Cms\Twig\Extension')->startBlock('scripts'        );
         // line 456
+        echo $this->env->getExtension('Cms\Twig\Extension')->startBlock('scripts'        );
+        // line 457
         echo "<script>
 \"use strict\";
 
@@ -712,16 +714,16 @@ var KTDashboard = function() {
         }
 
         moment.locale('";
-        // line 468
+        // line 469
         echo twig_escape_filter($this->env, ($context["currentLang"] ?? null), "html", null, true);
         echo "');
         moment.updateLocale('";
-        // line 469
+        // line 470
         echo twig_escape_filter($this->env, ($context["currentLang"] ?? null), "html", null, true);
         echo "', {
             months : [
                 \"";
-        // line 471
+        // line 472
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["January"]);
         echo "\", \"";
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["February"]);
@@ -737,7 +739,7 @@ var KTDashboard = function() {
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["July"]);
         echo "\",
                 \"";
-        // line 472
+        // line 473
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["August"]);
         echo "\", \"";
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["September"]);
@@ -760,16 +762,16 @@ var KTDashboard = function() {
 
             if ((end - start) < 100 || label == 'Today') {
                 title = '";
-        // line 484
+        // line 485
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Today"]);
         echo ":';
                 range = start.format(KTAppOptions.daterangeformat);
             } else if (label == '";
-        // line 486
+        // line 487
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Yesterday"]);
         echo "') {
                 title = '";
-        // line 487
+        // line 488
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Yesterday"]);
         echo ":';
                 range = start.format(KTAppOptions.daterangeformat);
@@ -793,13 +795,13 @@ var KTDashboard = function() {
                     });
 
                     ";
-        // line 508
-        if (((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "role_id", [], "any", false, false, false, 508) == 1) || (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "role_id", [], "any", false, false, false, 508) == 6))) {
-            // line 509
+        // line 509
+        if (((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "role_id", [], "any", false, false, false, 509) == 1) || (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "role_id", [], "any", false, false, false, 509) == 6))) {
+            // line 510
             echo "                        quickStats();
                     ";
         }
-        // line 511
+        // line 512
         echo "                    listing();
                     KTApp.unblock('#summary_container');
                     KTApp.unblock('#listing_container');
@@ -813,152 +815,152 @@ var KTDashboard = function() {
                 \"format\": KTAppOptions.daterangeformat,
                 \"separator\": \" - \",
                 \"applyLabel\": \"";
-        // line 523
+        // line 524
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Apply"]);
         echo "\",
                 \"cancelLabel\": \"";
-        // line 524
+        // line 525
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Cancel"]);
         echo "\",
                 \"fromLabel\": \"";
-        // line 525
+        // line 526
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["From"]);
         echo "\",
                 \"toLabel\": \"";
-        // line 526
+        // line 527
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["To"]);
         echo "\",
                 \"customRangeLabel\": \"";
-        // line 527
+        // line 528
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Custom"]);
         echo "\",
                 \"daysOfWeek\": [
                     \"";
-        // line 529
+        // line 530
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Su"]);
         echo "\",
                     \"";
-        // line 530
+        // line 531
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Mo"]);
         echo "\",
                     \"";
-        // line 531
+        // line 532
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Tu"]);
         echo "\",
                     \"";
-        // line 532
+        // line 533
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["We"]);
         echo "\",
                     \"";
-        // line 533
+        // line 534
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Th"]);
         echo "\",
                     \"";
-        // line 534
+        // line 535
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Fr"]);
         echo "\",
                     \"";
-        // line 535
+        // line 536
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Sa"]);
         echo "\"
                 ],
                 \"monthNames\": [
                     \"";
-        // line 538
+        // line 539
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["January"]);
         echo "\",
                     \"";
-        // line 539
+        // line 540
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["February"]);
         echo "\",
                     \"";
-        // line 540
+        // line 541
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["March"]);
         echo "\",
                     \"";
-        // line 541
+        // line 542
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["April"]);
         echo "\",
                     \"";
-        // line 542
+        // line 543
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["May"]);
         echo "\",
                     \"";
-        // line 543
+        // line 544
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["June"]);
         echo "\",
                     \"";
-        // line 544
+        // line 545
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["July"]);
         echo "\",
                     \"";
-        // line 545
+        // line 546
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["August"]);
         echo "\",
                     \"";
-        // line 546
+        // line 547
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["September"]);
         echo "\",
                     \"";
-        // line 547
+        // line 548
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["October"]);
         echo "\",
                     \"";
-        // line 548
+        // line 549
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["November"]);
         echo "\",
                     \"";
-        // line 549
+        // line 550
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["December"]);
         echo "\"
                 ],
                 \"monthsShort\": [
                     \"";
-        // line 552
+        // line 553
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["January"]);
         echo "\",
                     \"";
-        // line 553
+        // line 554
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["February"]);
         echo "\",
                     \"";
-        // line 554
+        // line 555
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["March"]);
         echo "\",
                     \"";
-        // line 555
+        // line 556
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["April"]);
         echo "\",
                     \"";
-        // line 556
+        // line 557
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["May"]);
         echo "\",
                     \"";
-        // line 557
+        // line 558
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["June"]);
         echo "\",
                     \"";
-        // line 558
+        // line 559
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["July"]);
         echo "\",
                     \"";
-        // line 559
+        // line 560
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["August"]);
         echo "\",
                     \"";
-        // line 560
+        // line 561
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["September"]);
         echo "\",
                     \"";
-        // line 561
+        // line 562
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["October"]);
         echo "\",
                     \"";
-        // line 562
+        // line 563
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["November"]);
         echo "\",
                     \"";
-        // line 563
+        // line 564
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["December"]);
         echo "\"
                 ],
@@ -969,27 +971,27 @@ var KTDashboard = function() {
             opens: 'left',
             ranges: {
                 '";
-        // line 571
+        // line 572
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Today"]);
         echo "': [moment().utcOffset(KTAppOptions.timezone_offset), moment().utcOffset(KTAppOptions.timezone_offset)],
                 '";
-        // line 572
+        // line 573
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Yesterday"]);
         echo "': [moment().utcOffset(KTAppOptions.timezone_offset).subtract(1, 'days'), moment().utcOffset(KTAppOptions.timezone_offset).subtract(1, 'days')],
                 '";
-        // line 573
+        // line 574
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Last 7 Days"]);
         echo "': [moment().utcOffset(KTAppOptions.timezone_offset).subtract(6, 'days'), moment().utcOffset(KTAppOptions.timezone_offset)],
                 '";
-        // line 574
+        // line 575
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Last 30 Days"]);
         echo "': [moment().utcOffset(KTAppOptions.timezone_offset).subtract(29, 'days'), moment().utcOffset(KTAppOptions.timezone_offset)],
                 '";
-        // line 575
+        // line 576
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["This Month"]);
         echo "': [moment().utcOffset(KTAppOptions.timezone_offset).startOf('month'), moment().utcOffset(KTAppOptions.timezone_offset).endOf('month')],
                 '";
-        // line 576
+        // line 577
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Last Month"]);
         echo "': [moment().utcOffset(KTAppOptions.timezone_offset).subtract(1, 'month').startOf('month'), moment().utcOffset(KTAppOptions.timezone_offset).subtract(1, 'month').endOf('month')]
             }
@@ -1021,7 +1023,7 @@ function _initSparklineChart(src, data, color, border) {
         type: 'line',
         data: {
             labels: [\"";
-        // line 605
+        // line 606
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["January"]);
         echo "\", \"";
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["February"]);
@@ -1087,7 +1089,7 @@ function _initSparklineChart(src, data, color, border) {
                     scaleLabel: {
                         display: true,
                         labelString: '";
-        // line 650
+        // line 651
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Month"]);
         echo "'
                     }
@@ -1098,7 +1100,7 @@ function _initSparklineChart(src, data, color, border) {
                     scaleLabel: {
                         display: true,
                         labelString: '";
-        // line 658
+        // line 659
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Value"]);
         echo "'
                     },
@@ -1134,7 +1136,7 @@ jQuery(document).ready(function() {
 });
 </script>
 ";
-        // line 455
+        // line 456
         echo $this->env->getExtension('Cms\Twig\Extension')->endBlock(true        );
     }
 
@@ -1150,7 +1152,7 @@ jQuery(document).ready(function() {
 
     public function getDebugInfo()
     {
-        return array (  1138 => 455,  1102 => 658,  1091 => 650,  1025 => 605,  993 => 576,  989 => 575,  985 => 574,  981 => 573,  977 => 572,  973 => 571,  962 => 563,  958 => 562,  954 => 561,  950 => 560,  946 => 559,  942 => 558,  938 => 557,  934 => 556,  930 => 555,  926 => 554,  922 => 553,  918 => 552,  912 => 549,  908 => 548,  904 => 547,  900 => 546,  896 => 545,  892 => 544,  888 => 543,  884 => 542,  880 => 541,  876 => 540,  872 => 539,  868 => 538,  862 => 535,  858 => 534,  854 => 533,  850 => 532,  846 => 531,  842 => 530,  838 => 529,  833 => 527,  829 => 526,  825 => 525,  821 => 524,  817 => 523,  803 => 511,  799 => 509,  797 => 508,  773 => 487,  769 => 486,  764 => 484,  741 => 472,  725 => 471,  720 => 469,  716 => 468,  702 => 456,  700 => 455,  686 => 446,  682 => 444,  678 => 443,  668 => 436,  659 => 429,  652 => 424,  648 => 423,  637 => 414,  633 => 413,  618 => 401,  609 => 395,  600 => 389,  582 => 376,  573 => 369,  571 => 368,  552 => 351,  545 => 350,  539 => 349,  536 => 348,  529 => 347,  523 => 346,  519 => 345,  507 => 336,  501 => 335,  493 => 330,  486 => 326,  480 => 325,  472 => 320,  465 => 316,  459 => 315,  451 => 310,  275 => 136,  268 => 132,  258 => 129,  252 => 126,  248 => 124,  246 => 123,  243 => 122,  240 => 121,  233 => 119,  224 => 118,  221 => 117,  218 => 116,  211 => 114,  202 => 113,  199 => 112,  196 => 111,  194 => 110,  188 => 106,  182 => 104,  180 => 103,  175 => 102,  169 => 100,  163 => 98,  161 => 97,  156 => 96,  154 => 95,  144 => 90,  137 => 86,  132 => 83,  126 => 80,  123 => 79,  117 => 76,  114 => 75,  112 => 74,  37 => 1,);
+        return array (  1140 => 456,  1104 => 659,  1093 => 651,  1027 => 606,  995 => 577,  991 => 576,  987 => 575,  983 => 574,  979 => 573,  975 => 572,  964 => 564,  960 => 563,  956 => 562,  952 => 561,  948 => 560,  944 => 559,  940 => 558,  936 => 557,  932 => 556,  928 => 555,  924 => 554,  920 => 553,  914 => 550,  910 => 549,  906 => 548,  902 => 547,  898 => 546,  894 => 545,  890 => 544,  886 => 543,  882 => 542,  878 => 541,  874 => 540,  870 => 539,  864 => 536,  860 => 535,  856 => 534,  852 => 533,  848 => 532,  844 => 531,  840 => 530,  835 => 528,  831 => 527,  827 => 526,  823 => 525,  819 => 524,  805 => 512,  801 => 510,  799 => 509,  775 => 488,  771 => 487,  766 => 485,  743 => 473,  727 => 472,  722 => 470,  718 => 469,  704 => 457,  702 => 456,  688 => 447,  684 => 445,  680 => 444,  670 => 437,  661 => 430,  654 => 425,  650 => 424,  639 => 415,  635 => 414,  620 => 402,  611 => 396,  602 => 390,  584 => 377,  575 => 370,  573 => 369,  554 => 352,  547 => 351,  541 => 350,  538 => 349,  531 => 348,  525 => 347,  521 => 346,  509 => 337,  503 => 336,  495 => 331,  488 => 327,  482 => 326,  474 => 321,  467 => 317,  461 => 316,  453 => 311,  277 => 137,  270 => 133,  260 => 130,  254 => 127,  250 => 125,  248 => 124,  245 => 123,  242 => 122,  235 => 120,  226 => 119,  223 => 118,  220 => 117,  213 => 115,  204 => 114,  201 => 113,  199 => 112,  196 => 111,  194 => 110,  188 => 106,  182 => 104,  180 => 103,  175 => 102,  169 => 100,  163 => 98,  161 => 97,  156 => 96,  154 => 95,  144 => 90,  137 => 86,  132 => 83,  126 => 80,  123 => 79,  117 => 76,  114 => 75,  112 => 74,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -1264,7 +1266,8 @@ jQuery(document).ready(function() {
 
                             <div class=\"kt-widget__info\">
                                 <div class=\"kt-widget__desc\">
-                                    {% if user.role_id == 5 %}
+                                    {% if user.role_id == 5 or user.role_id == 12 %}
+
                                         {% if user.addresses is not empty %}
                                         {% set address = user.addresses.where('default', 1).first %}
                                         {{address.street}}, {{address.thecity.name}} {{address.zipcode}}

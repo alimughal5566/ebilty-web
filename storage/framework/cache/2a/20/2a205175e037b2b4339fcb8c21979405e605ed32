@@ -1,4 +1,4 @@
-1620287748a:1:{s:17:"listingwidget.htm";a:6:{s:8:"fileName";s:17:"listingwidget.htm";s:7:"content";s:19679:"[viewBag]
+1620359534a:1:{s:17:"listingwidget.htm";a:6:{s:8:"fileName";s:17:"listingwidget.htm";s:7:"content";s:21877:"[viewBag]
 ==
 <?php
     function onStart(){
@@ -187,6 +187,7 @@ function listing(){
                         }
                         if(row.delayed == 1){
                             output  += '&nbsp;<span class="btn btn-bold btn-sm btn-label-danger">{{"Delayed"|__}}</span>';
+
                         }
                         if(row.requested == 10 || row.requested == 11){
                             output  += '&nbsp;<span class="btn btn-bold btn-sm btn-label-warning">{{"Returning Discards"|__}}</span>';
@@ -206,9 +207,11 @@ function listing(){
                 sortable: false,
                 overflow: 'visible',
                 template: function (data) {
+                    {% if user.role_id != 12 %}
                         var output = '' +
                         '<div class="btn-group btn-group" role="group" aria-label="...">'+
                             '<a href="{{url("dashboard/shipments")}}/'+data.id+'/view" class="btn btn-brand btn-sm btn-icon" data-skin="dark" data-toggle="kt-tooltip" data-placement="top" title="{{"View Shipment"|__}}"><i class="la la-eye"></i></button>';
+
 
 
                             {% if user.role_id != 5 %}
@@ -282,6 +285,11 @@ function listing(){
                                     output += '<a href="javascript:void(0);" class="btn btn-danger btn-sm delete_record kt-font-light btn-icon" rel="'+data.id+'" data-skin="dark" data-toggle="kt-tooltip" data-placement="top" title="{{"Delete Shipment"|__}}"><i class="la la-remove"></i></a>';
                                 }
                             {% endif %}
+
+                    {% else %}
+                    var output = '' +
+                        '<button type="button" class=" btn btn-brand btn-sm btn-icon" data-toggle="modal" data-target="#exampleModal">bid</button>';
+                    {% endif %}
                         '</div>';
 
                         return output;
@@ -339,7 +347,44 @@ function listing(){
     });
 }
 </script>
-";s:5:"mtime";i:1619677385;s:6:"markup";s:18379:"<div class="kt-datatable"></div>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">place a bid</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>bid your truct</p>
+                <div class="row col-md-12">
+                    <lable for="truck_type">truck Type</lable>
+                    <input type="text" id="truck_type" name="truck_type" class="form-control">
+                </div>
+                <div>
+                    <lable for="route">Route
+                        <input type="text" id="route" name="route" class="form-control">
+                    </lable>
+                </div>
+                <div>
+                    <lable for="customer_budget">Customer's Total Budget
+                        <input type="text" id="customer_budget" name="customer_budget" class="form-control">
+                    </lable>
+                </div>
+                <div>
+                    <lable for="bid_price">What Is You Total Amount You'd Like To Bid For This Job
+                        <input type="text" id="bid_price" name="bid_price" class="form-control">
+                    </lable>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Place a Bid</button>
+            </div>
+        </div>
+    </div>
+</div>";s:5:"mtime";i:1620358819;s:6:"markup";s:20579:"<div class="kt-datatable"></div>
 
 <script>
 function listing(){
@@ -489,6 +534,7 @@ function listing(){
                         }
                         if(row.delayed == 1){
                             output  += '&nbsp;<span class="btn btn-bold btn-sm btn-label-danger">{{"Delayed"|__}}</span>';
+
                         }
                         if(row.requested == 10 || row.requested == 11){
                             output  += '&nbsp;<span class="btn btn-bold btn-sm btn-label-warning">{{"Returning Discards"|__}}</span>';
@@ -508,9 +554,11 @@ function listing(){
                 sortable: false,
                 overflow: 'visible',
                 template: function (data) {
+                    {% if user.role_id != 12 %}
                         var output = '' +
                         '<div class="btn-group btn-group" role="group" aria-label="...">'+
                             '<a href="{{url("dashboard/shipments")}}/'+data.id+'/view" class="btn btn-brand btn-sm btn-icon" data-skin="dark" data-toggle="kt-tooltip" data-placement="top" title="{{"View Shipment"|__}}"><i class="la la-eye"></i></button>';
+
 
 
                             {% if user.role_id != 5 %}
@@ -584,6 +632,11 @@ function listing(){
                                     output += '<a href="javascript:void(0);" class="btn btn-danger btn-sm delete_record kt-font-light btn-icon" rel="'+data.id+'" data-skin="dark" data-toggle="kt-tooltip" data-placement="top" title="{{"Delete Shipment"|__}}"><i class="la la-remove"></i></a>';
                                 }
                             {% endif %}
+
+                    {% else %}
+                    var output = '' +
+                        '<button type="button" class=" btn btn-brand btn-sm btn-icon" data-toggle="modal" data-target="#exampleModal">bid</button>';
+                    {% endif %}
                         '</div>';
 
                         return output;
@@ -640,7 +693,45 @@ function listing(){
         });
     });
 }
-</script>";s:4:"code";s:1264:"    function onStart(){
+</script>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">place a bid</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>bid your truct</p>
+                <div class="row col-md-12">
+                    <lable for="truck_type">truck Type</lable>
+                    <input type="text" id="truck_type" name="truck_type" class="form-control">
+                </div>
+                <div>
+                    <lable for="route">Route
+                        <input type="text" id="route" name="route" class="form-control">
+                    </lable>
+                </div>
+                <div>
+                    <lable for="customer_budget">Customer's Total Budget
+                        <input type="text" id="customer_budget" name="customer_budget" class="form-control">
+                    </lable>
+                </div>
+                <div>
+                    <lable for="bid_price">What Is You Total Amount You'd Like To Bid For This Job
+                        <input type="text" id="bid_price" name="bid_price" class="form-control">
+                    </lable>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Place a Bid</button>
+            </div>
+        </div>
+    </div>
+</div>";s:4:"code";s:1264:"    function onStart(){
         $data = post();
         $this['user']   =   Auth::getUser();
 

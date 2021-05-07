@@ -290,12 +290,12 @@ class Account extends ComponentBase
                 $image = str_replace($replace, '', $image_64);
                 $image = str_replace(' ', '+', $image);
                 $imageName = rand().'.'.$extension;
-
-                \Storage::disk('app/uploads/public/images')->put($imageName, base64_decode($image));
+//                dd($imageName);
+//                \Storage::disk('app/uploads/public/images')->put($imageName, base64_decode($image));
 
             }
-
             $data['cnic']=$imageName??'';
+//            dd($data['cnic']);
             if (!array_key_exists('password_confirmation', $data)) {
                 $data['password_confirmation'] = post('password');
             }

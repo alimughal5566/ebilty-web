@@ -1,5 +1,5 @@
 <?php 
-class Cms60939fb39d483425041462_a1fe5e809485c4c2eae388327089767dClass extends Cms\Classes\PageCode
+class Cms6094534a62886338475026_65d461652ebe9d6d9075d955b57a5152Class extends Cms\Classes\PageCode
 {
 public function onStart(){
         $value                      =   50;
@@ -375,15 +375,20 @@ public function onStart(){
                         $q->orWhere('receiver_id', Auth::getUser()->id);
                     });
                 });
-            break;
-            case 12:
+                break;
+
+
+case 12:
 $records    =   $records->where(function($q){
 $q->whereHas('order', function($q){
 $q->where('sender_id', Auth::getUser()->id);
 $q->orWhere('receiver_id', Auth::getUser()->id);
 });
 });
-            break;
+break;
+
+
+
             case 4:
                 if(Auth::getUser()->is_superuser){
                     $records    =   $records->where(function($q){
