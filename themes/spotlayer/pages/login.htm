@@ -32,8 +32,8 @@ function onStart(){
     if(Auth::getUser()){
         return Redirect::to('dashboard');
     }
-
-
+$this['categories']= \Spot\Shipment\Models\Category::select('id','name')->get();
+$this['cars']= \Spot\Shipment\Models\Car::select('id','name')->get();
 
 
     if(isset($_GET['login'])){
@@ -258,20 +258,19 @@ function onMyRegister()
                                 <div class="input-group vehicle_category"  style="display:none">
                                     <label for="vehicle_category" class="sr-only"></label>
                                     <select name="vehicle_category" requierd class="form-control selectpicker" data-dropup-auto="false" id="vehicle_category" autocomplete="off" >
-                                        <option  value="3" class="individual">ltv</option>
-                                        <option  value="4" class="company">htv</option>
-                                        <option  value="" selected disabled>Vehicle category</option>
 
                                         {% for category in categories %}
                                         <option value="{{category.id}}">{{category.name}}</option>
                                         {% endfor %}
+                                        <option  value="" selected disabled>Vehicle category</option>
                                     </select>
                                 </div>
                                 <div class="input-group vehicle_type" style="display:none">
                                     <label for="vehicle_category" class="sr-only"></label>
                                     <select  name="truck_used"  class="form-control selectpicker" data-dropup-auto="false"  id="truck_used" autocomplete="off" >
-                                        <option  value="6" alclass="individu">truck a</option>
-                                        <option  value="7" class="company">truck b </option>
+                                        {% for category in cars %}
+                                        <option value="{{category.id}}">{{category.name}}</option>
+                                        {% endfor %}
                                         <option  value="" selected disabled>Vehicle used</option>
                                     </select>
                                 </div>
