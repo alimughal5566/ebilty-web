@@ -258,9 +258,9 @@ function onMyRegister()
                                 <div class="input-group vehicle_category"  style="display:none">
                                     <label for="vehicle_category" class="sr-only"></label>
                                     <select name="vehicle_category" requierd class="form-control selectpicker" data-dropup-auto="false" id="vehicle_category" autocomplete="off" >
-                                        <option  value="" selected disabled>Vehicle category</option>
                                         <option  value="3" class="individual">ltv</option>
                                         <option  value="4" class="company">htv</option>
+                                        <option  value="" selected disabled>Vehicle category</option>
 
                                         {% for category in categories %}
                                         <option value="{{category.id}}">{{category.name}}</option>
