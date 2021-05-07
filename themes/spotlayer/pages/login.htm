@@ -622,6 +622,7 @@ function onMyRegister()
                 }
 
                 btn.addClass('kt-spinner kt-spinner--right kt-spinner--sm kt-spinner--light').attr('disabled', true);
+
                 $.request('onRegister', {
                     {% if loginAttribute == "username" %}
 
