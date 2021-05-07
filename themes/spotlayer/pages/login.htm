@@ -81,12 +81,16 @@ $this['cars']= \Spot\Shipment\Models\Car::select('id','name')->get();
 }
 function onMyRegister()
 {
-
-
     $data['role_id']         = 5;
 
 
     $this['account']->onRegister();
+}
+function onChangefees1(){
+$data = $_POST;
+return \Spot\Shipment\Models\Car::select('id','name')->where('transport_id',$_POST['id'])->get();
+return  $_POST['id'];
+
 }
 ?>
 ==
@@ -267,11 +271,11 @@ function onMyRegister()
                                 </div>
                                 <div class="input-group vehicle_type" style="display:none">
                                     <label for="vehicle_category" class="sr-only"></label>
-                                    <select  name="truck_used"  class="form-control selectpicker" data-dropup-auto="false"  id="truck_used" autocomplete="off" >
-                                        {% for category in cars %}
-                                        <option value="{{category.id}}">{{category.name}}</option>
-                                        {% endfor %}
-                                        <option  value="" selected disabled>Vehicle used</option>
+                                    <select  name="truck_used"  class="form-control " data-dropup-auto="false" id="truck_used" autocomplete="off" >
+<!--                                        {% for category in cars %}-->
+<!--                                        <option value="{{category.id}}">{{category.name}}</option>-->
+<!--                                        {% endfor %}-->
+<!--                                        <option  value="" selected disabled>Vehicle used</option>-->
                                     </select>
                                 </div>
         						<div class="input-group">
@@ -533,6 +537,25 @@ function onMyRegister()
 
         });
 
+
+        $(document).on('change', '#vehicle_category', function(){
+            $.request('onChangefees1', {
+                method:'post',
+                data: {id:$('#vehicle_category option:selected' ).val()},
+                success: function(response, status, xhr, $form) {
+                    var html='';
+                    $.each(response,function (key,value) {
+                        html += '<option value="'+value.id+'">'+value.name+'</option>';
+                        // $("#truck_used").append('<option value=1>My option</option>');
+                        console.log(value);
+                    });
+                    html += "<option value='' selected disabled>Choose type</option>";
+                    $('#truck_used').empty().append(html);
+                }
+            });
+
+        });
+
         var handleSignInFormSubmit = function() {
             $('#kt_login_signin_submit').click(function(e) {
                 e.preventDefault();
@@ -764,6 +787,9 @@ function onMyRegister()
          // console.log(reader.readAsDataURL(file));
      });
      });
+
+
+
 
 
 
