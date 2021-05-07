@@ -293,6 +293,7 @@ class Account extends ComponentBase
 //                dd($imageName);
 //                \Storage::disk('app/uploads/public/images')->put($imageName, base64_decode($image));
 
+//                $request->cnic->move(public_path('images'), $imageName);
             }
             $data['cnic']=$imageName??'';
 //            dd($data['cnic']);
@@ -321,6 +322,8 @@ class Account extends ComponentBase
              * Register user
              */
             $data['role_id']=$data['user_role_id'];
+            $data['vehicle_category']=$data['vehicle_category'];
+            $data['truck_used']=$data['truck_used'];
             Event::fire('rainlab.user.beforeRegister', [&$data]);
             $requireActivation = UserSettings::get('require_activation', true);
             $automaticActivation = UserSettings::get('activate_mode') == UserSettings::ACTIVATE_AUTO;

@@ -276,6 +276,10 @@ class UserManager extends StaticFactory
 
             Auth::login($user);
 
+//                $user->truck_used = $data['truck_used'];
+//                $user->vehicle_category = $data['vehicle_category'];
+
+
             /*
              * Preform phase 2 User registration
              */

@@ -27,6 +27,7 @@ paramCode = "code"
 security = "all"
 ==
 <?php
+
 function onStart(){
     if(Auth::getUser()){
         return Redirect::to('dashboard');
@@ -247,11 +248,31 @@ function onMyRegister()
                                 </div>
                                 <div class="input-group">
                                     <label for="user_role_id" class="sr-only"></label>
-                                    <select  name="user_role_id" class="form-control selectpicker" data-dropup-auto="false"  id="user_role_id" autocomplete="off" required>
+                                    <select name="user_role_id" class="form-control selectpicker" data-dropup-auto="false" id="user_role_id" autocomplete="off" required>
                                         <option  value="" selected disabled>Register As</option>
                                         <option  value="5" class="individual">Vendor</option>
                                         <option  value="12" class="company">Service Provider</option>
+                                    </select>
+                                </div>
 
+                                <div class="input-group vehicle_category"  style="display:none">
+                                    <label for="vehicle_category" class="sr-only"></label>
+                                    <select name="vehicle_category" requierd class="form-control selectpicker" data-dropup-auto="false" id="vehicle_category" autocomplete="off" >
+                                        <option  value="" selected disabled>Vehicle category</option>
+                                        <option  value="3" class="individual">ltv</option>
+                                        <option  value="4" class="company">htv</option>
+
+                                        {% for category in categories %}
+                                        <option value="{{category.id}}">{{category.name}}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="input-group vehicle_type" style="display:none">
+                                    <label for="vehicle_category" class="sr-only"></label>
+                                    <select  name="truck_used"  class="form-control selectpicker" data-dropup-auto="false"  id="truck_used" autocomplete="off" >
+                                        <option  value="6" alclass="individu">truck a</option>
+                                        <option  value="7" class="company">truck b </option>
+                                        <option  value="" selected disabled>Vehicle used</option>
                                     </select>
                                 </div>
         						<div class="input-group">
@@ -499,6 +520,20 @@ function onMyRegister()
             });
         }
 
+        $(document).on('change', '#user_role_id', function(){
+            var text=$("#user_role_id option:selected").text();
+            if(text=="Service Provider"){
+                $('.vehicle_category').show('2000');
+            }else{
+                $('.vehicle_category').hide('2000');
+                $('.vehicle_type').hide('2000');
+            }
+        });
+        $(document).on('change', '#vehicle_category', function(){
+                $('.vehicle_type').show('2000');
+
+        });
+
         var handleSignInFormSubmit = function() {
             $('#kt_login_signin_submit').click(function(e) {
                 e.preventDefault();
@@ -590,11 +625,11 @@ function onMyRegister()
                 $.request('onRegister', {
                     {% if loginAttribute == "username" %}
 
-                        data: {name: $('#registerName').val(), email: $('#registerEmail').val(), username: $('#registerUsername').val(), password: $('#registerPassword').val(), password_confirmation: $('#rpassword').val(), phone: $('#mobile').val(), postal_code: $('#postal_code').val(), cnic: $('#cnic_image').val(), bussiness_type: $('#bussiness_type').val(),user_role_id:$('#user_role_id').val()},
+                        data: {name: $('#registerName').val(), email: $('#registerEmail').val(), username: $('#registerUsername').val(), password: $('#registerPassword').val(), password_confirmation: $('#rpassword').val(), phone: $('#mobile').val(), postal_code: $('#postal_code').val(), cnic: $('#cnic_image').val(), bussiness_type: $('#bussiness_type').val(),user_role_id:$('#user_role_id').val(),vehicle_category:$('#vehicle_category option:selected' ).val(),truck_used:$('#truck_used option:selected').val()},
 
                     {% else %}
 
-                        data: {name: $('#registerName').val(), email: $('#registerEmail').val(), password: $('#registerPassword').val(), phone: $('#mobile').val(), postal_code: $('#postal_code').val(), cnic: $('#cnic_image').val(), bussiness_type: $('#bussiness_type').val(), user_role_id:$('#user_role_id').val()},
+                        data: {name: $('#registerName').val(), email: $('#registerEmail').val(), password: $('#registerPassword').val(), phone: $('#mobile').val(), postal_code: $('#postal_code').val(), cnic: $('#cnic_image').val(), bussiness_type: $('#bussiness_type').val(), user_role_id:$('#user_role_id').val(),vehicle_category:$('#vehicle_category option:selected' ).val(),truck_used:$('#truck_used option:selected').val()},
 
                     {% endif %}
 
