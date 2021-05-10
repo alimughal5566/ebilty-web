@@ -87,10 +87,7 @@ function onMyRegister()
     $this['account']->onRegister();
 }
 function onChangefees1(){
-$data = $_POST;
 return \Spot\Shipment\Models\Car::select('id','name')->where('transport_id',$_POST['id'])->get();
-return  $_POST['id'];
-
 }
 ?>
 ==
