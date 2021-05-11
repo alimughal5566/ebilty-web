@@ -1,5 +1,5 @@
 <?php 
-use \Spot\Shipment\Models\Settings;class Cms6093b394f1eaf181165651_6a61b924f345ef148492fe10a0e65279Class extends Cms\Classes\PageCode
+use \Spot\Shipment\Models\Settings;class Cms6094e9827fa9f859562375_a724730c221746b5ca1315492bb30b55Class extends Cms\Classes\PageCode
 {
 
 public function onStart() {
@@ -1053,7 +1053,7 @@ public function onDraft()
         throw new ApplicationException($this['theme_lang']['not_allowed']);
     }
     $data = post();
-
+dd($data);
     if(Auth::getUser()->role_id == 5){
         $number = '';
         for($x = 0; $x <= $this['settings']['tracking']['numbers_order']; $x++){
@@ -1137,8 +1137,10 @@ public function onDraft()
     if($prev){
         throw new ApplicationException($this['theme_lang']['another_order_with_the_same_numbers']);
     }
-
     $item                   = new \Spot\Shipment\Models\Order;
+
+    $item->vehicle_category = $data['vehicle_category'];
+    $item->truck_used       =$data['truck_used'];
     $item->sender_id        = htmlspecialchars($data['sender_id']);
     $item->sender_address_id= htmlspecialchars($data['sender_address_id']);
     $item->type             = htmlspecialchars($data['type']);

@@ -110,7 +110,7 @@ class Order extends Model
         }
         return $value;
     }
-
+    protected $guarded=[''];
     /**
      * @var array Relations
      */
@@ -194,7 +194,7 @@ class Order extends Model
             'key'   =>  'receiver_sector',
         ],
     ];
-   public $hasMany = [
+    public $hasMany = [
        'items' => [
            '\Spot\Shipment\Models\Item',
            'delete' => true

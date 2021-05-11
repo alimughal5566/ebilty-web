@@ -1,5 +1,5 @@
 <?php 
-class Cms609312305998a177849847_b7b5d917e542d610276c1c5ad6ef5c72Class extends Cms\Classes\PageCode
+class Cms6094eba946d55649240886_457393fa31cc47b6879d26c0404923c4Class extends Cms\Classes\PageCode
 {
 public function onStart(){
     if(!Auth::getUser()->hasUserPermission(["order"],'r')) {

@@ -1067,7 +1067,7 @@ function onDraft()
         throw new ApplicationException($this['theme_lang']['not_allowed']);
     }
     $data = post();
-
+dd($data);
     if(Auth::getUser()->role_id == 5){
         $number = '';
         for($x = 0; $x <= $this['settings']['tracking']['numbers_order']; $x++){
@@ -1151,8 +1151,10 @@ function onDraft()
     if($prev){
         throw new ApplicationException($this['theme_lang']['another_order_with_the_same_numbers']);
     }
-
     $item                   = new \Spot\Shipment\Models\Order;
+
+    $item->vehicle_category = $data['vehicle_category'];
+    $item->truck_used       =$data['truck_used'];
     $item->sender_id        = htmlspecialchars($data['sender_id']);
     $item->sender_address_id= htmlspecialchars($data['sender_address_id']);
     $item->type             = htmlspecialchars($data['type']);
@@ -3134,7 +3136,7 @@ function onChangefees(){
                         <select class="form-control vehicle_category"  name="vehicle_category" id="vehicle_category" >
                             <option data-hidden="true"></option>
                             {% for categories_cru in categories_crud %}
-                            <option value="Category A">sdasd</option>
+                            <option value="{{categories_cru.id}}">{{categories_cru.title}}</option>
                             {% endfor%}
                         </select>
                     </div>
@@ -3150,9 +3152,12 @@ function onChangefees(){
                                 <div class="content-inner mx-3 text-center d-block">
                                     <img alt="" class="img-fluid mx-auto" src="./admin/media/images/vehicle 2.jpg">
                                     <div class="vehicle-detail text-center mx-2 mx-lg-4 mt-4">
+                                        <input type="radio" name="truck_used" value="{{vehcile_cru.id}}" >
                                         <h4 class="font-weight-bold">Name : {{vehcile_cru.name}}</h4>
                                         <p class="mb-0">{{vehcile_cru.description}}</p>
                                         <p class="mb-0">Capacity : {{vehcile_cru.capacity}}</p>
+
+
                                     </div>
                                 </div>
                             </div>

@@ -293,9 +293,11 @@ class Account extends ComponentBase
 //                dd($imageName);
 //                \Storage::disk('app/uploads/public/images')->put($imageName, base64_decode($image));
 
+
             }
             $data['cnic']=$imageName??'';
-//            dd($data['cnic']);
+
+
             if (!array_key_exists('password_confirmation', $data)) {
                 $data['password_confirmation'] = post('password');
             }
