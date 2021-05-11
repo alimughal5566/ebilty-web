@@ -70,6 +70,8 @@ class User extends UserBase
         'role_id',
         'cnic',
         'postal_code',
+        'vehicle_category',
+        'truck_used'
 
     ];
 

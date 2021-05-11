@@ -1,5 +1,6 @@
 <?php namespace RainLab\User\Components;
 
+use Illuminate\Support\Facades\Storage;
 use Lang;
 use Auth;
 use Mail;
@@ -268,6 +269,8 @@ class Account extends ComponentBase
      */
     public function onRegister()
     {
+
+
         try {
             if (!$this->canRegister()) {
                 throw new ApplicationException(Lang::get(/*Registrations are currently disabled.*/'rainlab.user::lang.account.registration_disabled'));
@@ -283,24 +286,31 @@ class Account extends ComponentBase
             $data = post();
 
             if($data['cnic']){
-                $image_64 = $data['cnic']; //your base64 encoded data
-                $extension = explode('/', explode(':', substr($image_64, 0, strpos($image_64, ';')))[1])[1];   // .jpg .png .pdf
-                $replace = substr($image_64, 0, strpos($image_64, ',')+1);
-            // find substring fro replace here eg: data:image/png;base64,
-                $image = str_replace($replace, '', $image_64);
-                $image = str_replace(' ', '+', $image);
-                $imageName = rand().'.'.$extension;
+//                $image_64 = $data['cnic']; //your base64 encoded data
+//                $extension = explode('/', explode(':', substr($image_64, 0, strpos($image_64, ';')))[1])[1];   // .jpg .png .pdf
+//                $replace = substr($image_64, 0, strpos($image_64, ',')+1);
+//            // find substring fro replace here eg: data:image/png;base64,
+//                $image = str_replace($replace, '', $image_64);
+//                $image = str_replace(' ', '+', $image);
+//                $imageName = rand().'.'.$extension;
 //                dd($imageName);
 //                \Storage::disk('app/uploads/public/images')->put($imageName, base64_decode($image));
 
+//                $request->cnic->move(public_path('images'), $imageName);
 
+                $data = $data['cnic'];
+                $image_array_1 = explode(";", $data);
+                $image_array_2 = explode(",", $image_array_1[1]);
+                $data = base64_decode($image_array_2[1]);
+                $name=time() . '.png';
+
+                Storage::disk('app/uploads/public/images')->put($name, $data);
+                $data['cnic']=$name;
             }
-            $data['cnic']=$imageName??'';
-
-
             if (!array_key_exists('password_confirmation', $data)) {
                 $data['password_confirmation'] = post('password');
             }
+
 
             $rules = (new UserModel)->rules;
             if ($this->loginAttribute() !== UserSettings::LOGIN_USERNAME) {
@@ -319,10 +329,13 @@ class Account extends ComponentBase
                 $data['created_ip_address'] = $data['last_ip_address'] = $ipAddress;
             }
 
+
             /*
              * Register user
              */
             $data['role_id']=$data['user_role_id'];
+            $data['vehicle_category']=$data['vehicle_category'];
+            $data['truck_used']=$data['truck_used'];
             Event::fire('rainlab.user.beforeRegister', [&$data]);
             $requireActivation = UserSettings::get('require_activation', true);
             $automaticActivation = UserSettings::get('activate_mode') == UserSettings::ACTIVATE_AUTO;

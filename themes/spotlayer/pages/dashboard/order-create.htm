@@ -1067,7 +1067,7 @@ function onDraft()
         throw new ApplicationException($this['theme_lang']['not_allowed']);
     }
     $data = post();
-dd($data);
+
     if(Auth::getUser()->role_id == 5){
         $number = '';
         for($x = 0; $x <= $this['settings']['tracking']['numbers_order']; $x++){
@@ -1151,10 +1151,8 @@ dd($data);
     if($prev){
         throw new ApplicationException($this['theme_lang']['another_order_with_the_same_numbers']);
     }
-    $item                   = new \Spot\Shipment\Models\Order;
 
-    $item->vehicle_category = $data['vehicle_category'];
-    $item->truck_used       =$data['truck_used'];
+    $item                   = new \Spot\Shipment\Models\Order;
     $item->sender_id        = htmlspecialchars($data['sender_id']);
     $item->sender_address_id= htmlspecialchars($data['sender_address_id']);
     $item->type             = htmlspecialchars($data['type']);
@@ -1875,740 +1873,424 @@ function onChangefees(){
 <div class="row">
     <div class="col-lg-12">
         <div class="kt-portlet kt-portlet--mobile">
-            <div class="kt-portlet__head">
-                <div class="kt-portlet__head-label">
-                    <h3 class="kt-portlet__head-title">
-                        {{'Shipment information'|__}}
-                    </h3>
-                </div>
-            </div>
-            <div class="kt-portlet__body">
-                <div class="form-group form-group-last kt-hide">
-                    <div class="alert alert-danger kt_form_msg" role="alert">
-                        <div class="alert-icon"><i class="flaticon-warning"></i></div>
-                        <div class="alert-text">
-                            {{'Oh snap! Change a few things up and try submitting again'|__}}.
-                        </div>
-                        <div class="alert-close">
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true"><i class="la la-close"></i></span>
-                            </button>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="kt-portlet__head panel-title" data-toggle="collapse" data-target="#collapseOne">
+                        <div class="kt-portlet__head-label">
+                            <h3 class="kt-portlet__head-title">
+                            {{'Shipment information'|__}}
+                            </h3>
                         </div>
                     </div>
                 </div>
-                {% if settings.shipments.enable_type == 1 %}
-                <div class="kt-section">
-                    <h3 class="kt-section__title kt-margin-b-20">
-                        {{'Shipment Type'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span>
-                    </h3>
-                    <div class="kt-section__content">
-                        <div class="form-group form-group-last">
+                <div id="collapseOne" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <div class="kt-portlet__body">
+                            <div class="form-group form-group-last kt-hide">
+                                <div class="alert alert-danger kt_form_msg" role="alert">
+                                    <div class="alert-icon"><i class="flaticon-warning"></i></div>
+                                    <div class="alert-text">
+                                        {{'Oh snap! Change a few things up and try submitting again'|__}}.
+                                    </div>
+                                    <div class="alert-close">
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true"><i class="la la-close"></i></span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            {% if settings.shipments.enable_type == 1 %}
+                                <div class="kt-section">
+                                    <h3 class="kt-section__title kt-margin-b-20">
+                                    {{'Shipment Type'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span>
+                                    </h3>
+                                    <div class="kt-section__content">
+                                        <div class="form-group form-group-last">
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <label class="kt-option">
+                                                        <span class="kt-option__control">
+                                                            <span class="kt-radio kt-radio--state-brand">
+                                                                <input type="radio" name="type" class="type" value="1" {% if settings.shipments.type == 1 %}checked {% endif %} required>
+                                                                <span></span>
+                                                            </span>
+                                                        </span>
+                                                        <span class="kt-option__label">
+                                                            <span class="kt-option__head">
+                                                                <span class="kt-option__title">
+                                                                    {{'Pickup'|__}}
+                                                                </span>
+                                                                <span class="kt-option__focus"></span>
+                                                            </span>
+                                                            <span class="kt-option__body">
+                                                                {{'For door to door delivery'|__}}
+                                                            </span>
+                                                        </span>
+                                                    </label>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <label class="kt-option">
+                                                        <span class="kt-option__control">
+                                                            <span class="kt-radio kt-radio--state-brand">
+                                                                <input type="radio" name="type" class="type" value="2" {% if settings.shipments.type == 2 %}checked {% endif %} required>
+                                                                <span></span>
+                                                            </span>
+                                                        </span>
+                                                        <span class="kt-option__label">
+                                                            <span class="kt-option__head">
+                                                                <span class="kt-option__title">
+                                                                    {{'Drop off'|__}}
+                                                                </span>
+                                                                <span class="kt-option__focus"></span>
+                                                            </span>
+                                                            <span class="kt-option__body">
+                                                                {{'For delivery package from branch directly'|__}}
+                                                            </span>
+                                                        </span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="form-text text-muted"><!--must use this helper element to display error message for the options--></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="kt-separator kt-separator--border-dashed kt-separator--space-lg kt-separator--portlet-fit kt-margin-t-0"></div>
+                            {% endif %}
                             <div class="row">
-                                <div class="col-lg-6">
-                                    <label class="kt-option">
-                                        <span class="kt-option__control">
-                                            <span class="kt-radio kt-radio--state-brand">
-                                                <input type="radio" name="type" class="type" value="1" {% if settings.shipments.type == 1 %}checked {% endif %} required>
-                                                <span></span>
-                                            </span>
-                                        </span>
-                                        <span class="kt-option__label">
-                                            <span class="kt-option__head">
-                                                <span class="kt-option__title">
-                                                    {{'Pickup'|__}}
+                                {% if settings.shipments.enable_package_type == 1 %}
+                                    <div class="form-group {%if settings.shipments.enable_branch == 1 and settings.shipments.enable_shippingDate == 1%}col-lg-4{%else%}col-lg-6{%endif%}">
+                                        <label>{{'Package Type'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
+                                        <select class="form-control" name="packaging_id" id="packaging_id" data-live-search="true" required>
+                                            <option data-hidden="true"></option>
+                                            {% for package in packaging %}
+                                                <option value="{{package.id}}" {% if settings.shipments.packaging_id == package.id  %} selected {% endif %}>{{package.name}}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                {% endif %}
+                                {% if settings.shipments.enable_branch == 1 %}
+                                    <div class="form-group {%if settings.shipments.enable_package_type == 1 and settings.shipments.enable_shippingDate == 1%}col-lg-4{%else%}col-lg-6{%endif%}">
+                                        <label>{{'Branch'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
+                                        <select class="form-control" name="office_id" required>
+                                            <option data-hidden="true"></option>
+                                            {% for office in offices %}
+                                                <option value="{{office.id}}" {% if user.office == office.id or settings.shipments.office_id == office.id %}selected{% endif %}>{{office.name}}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                {% endif %}
+                                {% if settings.shipments.enable_shippingDate == 1 %}
+                                    <div class="form-group {%if settings.shipments.enable_package_type == 1 and settings.shipments.enable_branch == 1%}col-lg-4{%else%}col-lg-6{%endif%}">
+                                        <label>{{'Shipping Date'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
+                                        <div class="input-group date">
+                                            <input type="text" class="form-control date" readonly="" name="ship_date" value="{{now|date(settings.dateformat)}}" required>
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="la la-calendar"></i>
                                                 </span>
-                                                <span class="kt-option__focus"></span>
-                                            </span>
-                                            <span class="kt-option__body">
-                                                {{'For door to door delivery'|__}}
-                                            </span>
-                                        </span>
-                                    </label>
-                                </div>
-                                <div class="col-lg-6">
-                                    <label class="kt-option">
-                                        <span class="kt-option__control">
-                                            <span class="kt-radio kt-radio--state-brand">
-                                                <input type="radio" name="type" class="type" value="2" {% if settings.shipments.type == 2 %}checked {% endif %} required>
-                                                <span></span>
-                                            </span>
-                                        </span>
-                                        <span class="kt-option__label">
-                                            <span class="kt-option__head">
-                                                <span class="kt-option__title">
-                                                    {{'Drop off'|__}}
-                                                </span>
-                                                <span class="kt-option__focus"></span>
-                                            </span>
-                                            <span class="kt-option__body">
-                                                {{'For delivery package from branch directly'|__}}
-                                            </span>
-                                        </span>
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="form-text text-muted"><!--must use this helper element to display error message for the options--></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="kt-separator kt-separator--border-dashed kt-separator--space-lg kt-separator--portlet-fit kt-margin-t-0"></div>
-                {% endif %}
-                <div class="row">
-                    {% if settings.shipments.enable_package_type == 1 %}
-                    <div class="form-group {%if settings.shipments.enable_branch == 1 and settings.shipments.enable_shippingDate == 1%}col-lg-4{%else%}col-lg-6{%endif%}">
-                        <label>{{'Package Type'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
-                        <select class="form-control" name="packaging_id" id="packaging_id" data-live-search="true" required>
-                            <option data-hidden="true"></option>
-                            {% for package in packaging %}
-                                <option value="{{package.id}}" {% if settings.shipments.packaging_id == package.id  %} selected {% endif %}>{{package.name}}</option>
-                            {% endfor %}
-                        </select>
-                    </div>
-                    {% endif %}
-                    {% if settings.shipments.enable_branch == 1 %}
-                    <div class="form-group {%if settings.shipments.enable_package_type == 1 and settings.shipments.enable_shippingDate == 1%}col-lg-4{%else%}col-lg-6{%endif%}">
-                        <label>{{'Branch'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
-                        <select class="form-control" name="office_id" required>
-                            <option data-hidden="true"></option>
-                            {% for office in offices %}
-                                <option value="{{office.id}}" {% if user.office == office.id or settings.shipments.office_id == office.id %}selected{% endif %}>{{office.name}}</option>
-                            {% endfor %}
-                        </select>
-                    </div>
-                    {% endif %}
-                    {% if settings.shipments.enable_shippingDate == 1 %}
-                    <div class="form-group {%if settings.shipments.enable_package_type == 1 and settings.shipments.enable_branch == 1%}col-lg-4{%else%}col-lg-6{%endif%}">
-                        <label>{{'Shipping Date'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
-                        <div class="input-group date">
-                            <input type="text" class="form-control date" readonly="" name="ship_date" value="{{now|date(settings.dateformat)}}" required>
-                            <div class="input-group-append">
-                                <span class="input-group-text">
-                                    <i class="la la-calendar"></i>
-                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endif %}
                             </div>
                         </div>
                     </div>
-                    {% endif %}
                 </div>
             </div>
         </div>
     </div>
     <div class="col-lg-12">
-        <div class="kt-portlet kt-portlet--mobile">
-            <div class="kt-portlet__head">
-				<div class="kt-portlet__head-label">
-					<h3 class="kt-portlet__head-title">
-						{{'Sender information'|__}}
-					</h3>
-				</div>
-			</div>
-            <div class="kt-portlet__body">
-                <div class="form-group form-group-last kt-hide">
-    				<div class="alert alert-danger kt_form_msg" role="alert">
-    					<div class="alert-icon"><i class="flaticon-warning"></i></div>
-    				  	<div class="alert-text">
-                            {{'Oh snap! Change a few things up and try submitting again'|__}}.
-    					</div>
-    					<div class="alert-close">
-    						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    					    	<span aria-hidden="true"><i class="la la-close"></i></span>
-    					  	</button>
-    					</div>
-    				</div>
-    			</div>
-                {% if user.role_id == 5 %}
-                    <div class="form-group row">
-                        {% if settings.customers.enable_anotherCustomer == 1 %}
-                        <div class="form-group  col-lg-6">
-                            <label class="col-form-label">{{'Another Sender'|__}}</label>
-                            <div class="">
-                                <div class="kt-checkbox-single">
-                                    <label class="kt-checkbox">
-                                        <input type="checkbox" id="enable_anotherSender" name="enable_anotherSender" {% if settings.customers.anotherCustomer == 1 %}checked{% endif %}> {{'Yes'|__}}
-                                        <span></span>
-                                    </label>
+        <div class="panel panel-default">
+            <div class="kt-portlet kt-portlet--mobile">
+                <div class="panel-heading">
+                    <div class="kt-portlet__head panel-title" data-toggle="collapse" data-target="#collapseTwo">
+        				<div class="kt-portlet__head-label">
+        					<h3 class="kt-portlet__head-title">
+        						{{'Sender information'|__}}
+        					</h3>
+        				</div>
+        			</div>
+                </div>
+                <div id="collapseTwo" class="panel-collapse collapse">
+                    <div class="kt-portlet__body">
+                    <div class="form-group form-group-last kt-hide">
+        				<div class="alert alert-danger kt_form_msg" role="alert">
+        					<div class="alert-icon"><i class="flaticon-warning"></i></div>
+        				  	<div class="alert-text">
+                                {{'Oh snap! Change a few things up and try submitting again'|__}}.
+        					</div>
+        					<div class="alert-close">
+        						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        					    	<span aria-hidden="true"><i class="la la-close"></i></span>
+        					  	</button>
+        					</div>
+        				</div>
+        			</div>
+                    {% if user.role_id == 5 %}
+                        <div class="form-group row">
+                            {% if settings.customers.enable_anotherCustomer == 1 %}
+                            <div class="form-group  col-lg-6">
+                                <label class="col-form-label">{{'Another Sender'|__}}</label>
+                                <div class="">
+                                    <div class="kt-checkbox-single">
+                                        <label class="kt-checkbox">
+                                            <input type="checkbox" id="enable_anotherSender" name="enable_anotherSender" {% if settings.customers.anotherCustomer == 1 %}checked{% endif %}> {{'Yes'|__}}
+                                            <span></span>
+                                        </label>
+                                    </div>
                                 </div>
+                            </div>
+                            {% endif %}
+                            {% if settings.customers.enable_customerPublic == 1 %}
+                           <!--  <div class="form-group col-lg-6">
+                                <label class="col-form-label">{{'Show Sender Data'|__}}</label>
+                                <div class="">
+                                    <div class="kt-checkbox-single">
+                                        <label class="kt-checkbox">
+                                            <input type="checkbox" id="enable_showSender" name="enable_showSender" {% if settings.customers.customerPublic == 1 %}checked{% endif %}> {{'Yes'|__}}
+                                            <span></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div> -->
+                            {% endif %}
+                        </div>
+
+                        <div class="another_sender {%if settings.customers.anotherCustomer != 1%}kt-hidden{%endif%}">
+                            <div class=" form-group row">
+                                <label>{{'Sender'|__}}/{{'Client'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
+                                    <select class="form-control clients" name="another_sender_id" id="sender_id" required>
+                                        <option data-hidden="true"></option>
+                                        <option value="new" data-icon="flaticon2-add">{{'Add New'|__}}</option>
+                                    </select>
+                                    <span class="text-muted">{{'Choose or add a new client that will send the package'|__}}</span>
+                            </div>
+                            <div class="form-group row">
+                                <label>{{'Sender Address'|__}}/{{'Client Address'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
+                                <select class="form-control sender_address_id" name="sender_address_id" id="sender_address_id" data-live-search="true" title="{{'Please select sender first'|__}}" required>
+                                    <option data-hidden="true"></option><label>{{'Sender'|__}}/{{'Client'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
+
+                                    <option value="new" data-icon="flaticon2-add">{{'Add New'|__}}</option>
+
+                                </select>
                             </div>
                         </div>
-                        {% endif %}
-                        {% if settings.customers.enable_customerPublic == 1 %}
-                       <!--  <div class="form-group col-lg-6">
-                            <label class="col-form-label">{{'Show Sender Data'|__}}</label>
-                            <div class="">
-                                <div class="kt-checkbox-single">
-                                    <label class="kt-checkbox">
-                                        <input type="checkbox" id="enable_showSender" name="enable_showSender" {% if settings.customers.customerPublic == 1 %}checked{% endif %}> {{'Yes'|__}}
-                                        <span></span>
-                                    </label>
-                                </div>
-                            </div>
-                        </div> -->
-                        {% endif %}
-                    </div>
 
-                    <div class="another_sender {%if settings.customers.anotherCustomer != 1%}kt-hidden{%endif%}">
-                        <div class=" form-group row">
+                    {% endif %}
+                    <div class="base_sender {%if user.role_id == 5 and settings.customers.anotherCustomer == 1%}kt-hidden{% endif %}">
+                        <div class="form-group row">
                             <label>{{'Sender'|__}}/{{'Client'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
-                                <select class="form-control clients" name="another_sender_id" id="sender_id" required>
+                            {% if user.role_id == 5 %}
+                                <input name="sender_id" id="sender_id"  value="{{user.id}}" type="hidden" />
+                                <input value="{{user.name}}" type="text" class="form-control" disabled />
+                            {% else %}
+                                <select class="form-control clients" name="sender_id" id="sender_id" required>
                                     <option data-hidden="true"></option>
                                     <option value="new" data-icon="flaticon2-add">{{'Add New'|__}}</option>
                                 </select>
                                 <span class="text-muted">{{'Choose or add a new client that will send the package'|__}}</span>
+                            {% endif %}
                         </div>
+                        {% if user.role_id == 5 %}
+                            {% if user.mobile is null %}
+                                <div class="form-group row">
+                                    <label>{{'Mobile'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
+                                    <input type="text" class="form-control mobile" name="sender_mobile" required />
+                                </div>
+                            {% endif %}
+                        {% endif %}
                         <div class="form-group row">
                             <label>{{'Sender Address'|__}}/{{'Client Address'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
                             <select class="form-control sender_address_id" name="sender_address_id" id="sender_address_id" data-live-search="true" title="{{'Please select sender first'|__}}" required>
                                 <option data-hidden="true"></option><label>{{'Sender'|__}}/{{'Client'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
-
-                                <option value="new" data-icon="flaticon2-add">{{'Add New'|__}}</option>
-
+                                {% if user.role_id == 5 %}
+                                    {% for address in user.addresses %}
+                                        <option value="{{address.id}}" {% if address.default == 1 %}selected{% endif %}>{{address.name}}</option>
+                                    {% endfor %}
+                                    <option value="new" data-icon="flaticon2-add">{{'Add New'|__}}</option>
+                                {% endif %}
                             </select>
                         </div>
                     </div>
 
-                {% endif %}
-                <div class="base_sender {%if user.role_id == 5 and settings.customers.anotherCustomer == 1%}kt-hidden{% endif %}">
-                    <div class="form-group row">
-                        <label>{{'Sender'|__}}/{{'Client'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
-                        {% if user.role_id == 5 %}
-                            <input name="sender_id" id="sender_id"  value="{{user.id}}" type="hidden" />
-                            <input value="{{user.name}}" type="text" class="form-control" disabled />
-                        {% else %}
-                            <select class="form-control clients" name="sender_id" id="sender_id" required>
-                                <option data-hidden="true"></option>
-                                <option value="new" data-icon="flaticon2-add">{{'Add New'|__}}</option>
-                            </select>
-                            <span class="text-muted">{{'Choose or add a new client that will send the package'|__}}</span>
-                        {% endif %}
-                    </div>
-                    {% if user.role_id == 5 %}
-                        {% if user.mobile is null %}
-                            <div class="form-group row">
-                                <label>{{'Mobile'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
-                                <input type="text" class="form-control mobile" name="sender_mobile" required />
-                            </div>
-                        {% endif %}
-                    {% endif %}
-                    <div class="form-group row">
-                        <label>{{'Sender Address'|__}}/{{'Client Address'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
-                        <select class="form-control sender_address_id" name="sender_address_id" id="sender_address_id" data-live-search="true" title="{{'Please select sender first'|__}}" required>
-                            <option data-hidden="true"></option><label>{{'Sender'|__}}/{{'Client'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
-                            {% if user.role_id == 5 %}
-                                {% for address in user.addresses %}
-                                    <option value="{{address.id}}" {% if address.default == 1 %}selected{% endif %}>{{address.name}}</option>
-                                {% endfor %}
-                                <option value="new" data-icon="flaticon2-add">{{'Add New'|__}}</option>
-                            {% endif %}
-                        </select>
-                    </div>
-                </div>
-
-                    <div class="row kt-hidden" id="addnewsender">
-                        <div class="kt-portlet kt-portlet--bordered kt-portlet--head--noborder kt-margin-b-0">
-            				<div class="kt-portlet__head">
-                                <div class="kt-portlet__head-label">
-                                	<span class="kt-portlet__head-icon">
-                                		<i class="flaticon2-user"></i>
-                                	</span>
-                                	<h3 class="kt-portlet__head-title">
-                                		{{'Add a new client'|__}} <small>{{'Fill data and save it brefore you can continue'}}</small>
-                                	</h3>
-                                </div>
-            				</div>
-            				<div class="kt-portlet__body">
-                                <div class="row">
-                                    <div class="form-group {%if settings.customers.enable_gender == 1 %}col-lg-5{%else%}col-lg-7{%endif%}">
-                                        <label>{{'Client Name'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
-                                        <input type="text" class="form-control name" name="sender[name]" required />
+                        <div class="row kt-hidden" id="addnewsender">
+                            <div class="kt-portlet kt-portlet--bordered kt-portlet--head--noborder kt-margin-b-0">
+                				<div class="kt-portlet__head">
+                                    <div class="kt-portlet__head-label">
+                                    	<span class="kt-portlet__head-icon">
+                                    		<i class="flaticon2-user"></i>
+                                    	</span>
+                                    	<h3 class="kt-portlet__head-title">
+                                    		{{'Add a new client'|__}} <small>{{'Fill data and save it brefore you can continue'}}</small>
+                                    	</h3>
                                     </div>
-                                    <div class="form-group {%if settings.customers.enable_gender == 1 %}col-lg-4{%else%}col-lg-5{%endif%}">
-                                        <label>{{'Mobile'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
-                                        <input type="text" class="form-control mobile" name="sender[mobile]" required />
-                                    </div>
-                                    {% if settings.customers.enable_gender == 1 %}
-                                    <div class="form-group col-lg-3">
-                                        <label>{{'Gender'|__}}</label>
-                                        <div class="kt-radio-inline">
-                							<label class="kt-radio">
-                								<input type="radio" name="sender[gender]" class="gender" value="male" {% if settings.customers.gender == 'male' %}checked{%endif%} > {{'Male'|__}}
-                								<span></span>
-                							</label>
-                							<label class="kt-radio">
-                								<input type="radio" name="sender[gender]" class="gender" value="female" {% if settings.customers.gender == 'female' %}checked{%endif%} > {{'Female'|__}}
-                								<span></span>
-                							</label>
-                						</div>
-                                    </div>
-                                    {% endif %}
-                                </div>
-                                <div class="location-sender">
-                                    <div class="row">
-                                        {% if settings.customers.enable_mapAddress == 1 %}
-                                        <div class="form-group {%if settings.customers.enable_postalCode == 1 %}col-lg-5{%else%}col-lg-6{%endif%}">
-                                            <label>{{'Address'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
-                                            <input type="text" class="form-control address " name="sender[street_address_map]"  rel="sender" value="{{settings.customers.street_address_map}}" />
-                                            <input type="hidden" class="form-control lat" data-sender="lat" name="sender[lat]" />
-                                            <input type="hidden" class="form-control lng" data-sender="lng" name="sender[lng]" />
-                                            <input type="hidden" class="form-control url" data-sender="url" name="sender[url]" />
-                                        </div>
-                                        {% endif %}
-                                        <div class="form-group {%if settings.customers.enable_mapAddress == 1 and settings.customers.enable_postalCode == 1 %}col-lg-4{%else%}col-lg-6{%endif%}">
-                                            <label>{{'Country'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
-                                            <select class="form-control country_id" data-sender="country" data-live-search="true" name="sender[country]" required>
-                                                <option data-hidden="true"></option>
-                                                {% for country in countries %}
-                                                    <option value="{{country.id}}" {% if currentLang != 'en' %}data-subtext="{{country.lang(currentLang).name}}"{% endif %}>{{country.lang('en').name}}</option>
-                                                {% endfor %}
-                                            </select>
-                                        </div>
-                                        {% if settings.customers.enable_postalCode == 1 %}
-                                        <div class="form-group {%if settings.customers.enable_mapAddress == 1 %}col-lg-3{%else%}col-lg-6{%endif%}">
-                                            <label>{{'Postal Code'|__}}</label>
-                                            <input class="form-control postal_code" type="text" data-sender="postal_code" name="sender[postal_code]" value="{{settings.customers.postal_code}}">
-                                        </div>
-                                        {% endif %}
-
-                                        {% if settings.customers.enable_state == 1 %}
-                                        <div class="form-group col-lg-6">
-                                            <label>{{'State / Region'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
-                                            <select class="form-control state_id" data-sender="administrative_area_level_1" title="{{'Please select country first'|__}}" name="sender[state]" data-live-search="true" required>
-                                                <option data-hidden="true"></option>
-                                                {% for state in states %}
-                                                    <option value="{{state.id}}" {% if currentLang != 'en' %}data-subtext="{{state.lang(currentLang).name}}"{% endif %} {% if settings.customers.state == state.id  %} selected {% endif %}>{{state.lang('en').name}}</option>
-                                                {% endfor %}
-                                            </select>
-                                        </div>
-                                        {% endif %}
-                                        <div class="form-group col-lg-6">
-                                            <label>{{'City'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
-                                            <select class="form-control city_id" data-sender="locality" name="sender[city]" title="{{'Please select state first'|__}}" data-live-search="true" required>
-                                                <option data-hidden="true"></option>
-                                                {% for city in cities %}
-                                                    <option value="{{city.id}}">{{city.name}}</option>
-                                                {% endfor %}
-                                            </select>
-                                        </div>
-
-                                        {% if settings.customers.enable_county == 1 %}
-                                        <div class="form-group col-lg-6">
-                                            <label>{{'Area'|__}}</label>
-                                            <select class="form-control area_id" data-sender="sublocality" name="sender[county]" title="{{'Please select city first'|__}}" data-live-search="true">
-                                                <option data-hidden="true"></option>
-                                                {% for county in areas %}
-                                                    <option value="{{county.id}}" {% if settings.customers.county == county.id  %} selected {% endif %}>{{county.name}}</option>
-                                                {% endfor %}
-                                            </select>
-                                        </div>
-                                        {% endif %}
-                                        {% if settings.customers.enable_streetAddress == 1 %}
-                                        <div class="form-group col-lg-6">
-                                            <label>{{'Street Address'|__}}</label>
-                                            <input type="text" class="form-control street_addr" name="sender[street_address]" value="{{settings.customers.street_address}}"  required/>
-                                        </div>
-                                        {% endif %}
-                                    </div>
-                                    {% if settings.customers.enable_mapAddress == 1 %}
-                                    <div class="row">
-                                        <div class="form-group col-lg-12">
-                                            <label>{{'Google Map'|__}}</label>
-                                            <div class="col-sm-12 map_canvas map_sender"></div>
-                                            <span class="form-text text-muted">{{'Change the pin to select the right location'|__}}</span>
-                                        </div>
-                                    </div>
-                                    {% endif %}
-
-                                    {% if settings.customers.enable_createAccount == 1 %}
-                                        {% if user.hasUserPermission('client', 'c') %}
-                                            <div class="form-group row">
-                                                <label class="col-xl-3 col-lg-3 col-form-label"></label>
-                                                <div class="col-lg-9 col-xl-6">
-                                                    <div class="kt-checkbox-single">
-                                                        <label class="kt-checkbox">
-                                                            <input type="checkbox" name="connect" class="connect" value="sender" {%if settings.customers.connect ==1 %}checked{% endif %}> {{'Connect client'|__}}: {{'create an account for the client'|__}}
-                                                            <span></span>
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row align-items-center kt-hidden" id="connect_sender">
-                                                <div class="col-md-4">
-                                                    <div class="form-group kt-form__group--inline">
-                                                        <div class="kt-form__label">
-                                                            <label class="col-form-label">{{'Email'|__}}:&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
-                                                        </div>
-                                                        <div class="kt-form__control">
-                                                            <input type="text" class="form-control email" name="sender[email]" required/>
-                                                        </div>
-                                                    </div>
-                                                    <div class="d-md-none kt-margin-b-10"></div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="form-group kt-form__group--inline">
-                                                        <div class="kt-form__label">
-                                                            <label class="col-form-label">{{'Username'|__}}:&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
-                                                        </div>
-                                                        <div class="kt-form__control">
-                                                            <input type="text" class="form-control username" name="sender[username]" required>
-                                                        </div>
-                                                    </div>
-                                                    <div class="d-md-none kt-margin-b-10"></div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="form-group kt-form__group--inline">
-                                                        <div class="kt-form__label">
-                                                            <label class="col-form-label">{{'Password'|__}}:&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
-                                                        </div>
-                                                        <div class="kt-form__control">
-                                                            <input type="password" class="form-control password" name="sender[password]" required>
-                                                        </div>
-                                                    </div>
-                                                    <div class="d-md-none kt-margin-b-10"></div>
-                                                </div>
-                                            </div>
-                                        {% endif %}
-                                    {% endif %}
-                                </div>
-            				</div>
-                            <div class="kt-portlet__foot">
-                				<div class="row align-items-center">
-                					<div class="col-lg-12">
-                						<button type="button" class="btn btn-success save">{{'Save'|__}}</button>
-                						<button type="button" class="btn btn-secondary cancel">{{'Cancel'|__}}</button>
-                					</div>
                 				</div>
+                				<div class="kt-portlet__body">
+                                    <div class="row">
+                                        <div class="form-group {%if settings.customers.enable_gender == 1 %}col-lg-5{%else%}col-lg-7{%endif%}">
+                                            <label>{{'Client Name'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
+                                            <input type="text" class="form-control name" name="sender[name]" required />
+                                        </div>
+                                        <div class="form-group {%if settings.customers.enable_gender == 1 %}col-lg-4{%else%}col-lg-5{%endif%}">
+                                            <label>{{'Mobile'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
+                                            <input type="text" class="form-control mobile" name="sender[mobile]" required />
+                                        </div>
+                                        {% if settings.customers.enable_gender == 1 %}
+                                        <div class="form-group col-lg-3">
+                                            <label>{{'Gender'|__}}</label>
+                                            <div class="kt-radio-inline">
+                    							<label class="kt-radio">
+                    								<input type="radio" name="sender[gender]" class="gender" value="male" {% if settings.customers.gender == 'male' %}checked{%endif%} > {{'Male'|__}}
+                    								<span></span>
+                    							</label>
+                    							<label class="kt-radio">
+                    								<input type="radio" name="sender[gender]" class="gender" value="female" {% if settings.customers.gender == 'female' %}checked{%endif%} > {{'Female'|__}}
+                    								<span></span>
+                    							</label>
+                    						</div>
+                                        </div>
+                                        {% endif %}
+                                    </div>
+                                    <div class="location-sender">
+                                        <div class="row">
+                                            {% if settings.customers.enable_mapAddress == 1 %}
+                                            <div class="form-group {%if settings.customers.enable_postalCode == 1 %}col-lg-5{%else%}col-lg-6{%endif%}">
+                                                <label>{{'Address'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
+                                                <input type="text" class="form-control address " name="sender[street_address_map]"  rel="sender" value="{{settings.customers.street_address_map}}" />
+                                                <input type="hidden" class="form-control lat" data-sender="lat" name="sender[lat]" />
+                                                <input type="hidden" class="form-control lng" data-sender="lng" name="sender[lng]" />
+                                                <input type="hidden" class="form-control url" data-sender="url" name="sender[url]" />
+                                            </div>
+                                            {% endif %}
+                                            <div class="form-group {%if settings.customers.enable_mapAddress == 1 and settings.customers.enable_postalCode == 1 %}col-lg-4{%else%}col-lg-6{%endif%}">
+                                                <label>{{'Country'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
+                                                <select class="form-control country_id" data-sender="country" data-live-search="true" name="sender[country]" required>
+                                                    <option data-hidden="true"></option>
+                                                    {% for country in countries %}
+                                                        <option value="{{country.id}}" {% if currentLang != 'en' %}data-subtext="{{country.lang(currentLang).name}}"{% endif %}>{{country.lang('en').name}}</option>
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
+                                            {% if settings.customers.enable_postalCode == 1 %}
+                                            <div class="form-group {%if settings.customers.enable_mapAddress == 1 %}col-lg-3{%else%}col-lg-6{%endif%}">
+                                                <label>{{'Postal Code'|__}}</label>
+                                                <input class="form-control postal_code" type="text" data-sender="postal_code" name="sender[postal_code]" value="{{settings.customers.postal_code}}">
+                                            </div>
+                                            {% endif %}
+
+                                            {% if settings.customers.enable_state == 1 %}
+                                            <div class="form-group col-lg-6">
+                                                <label>{{'State / Region'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
+                                                <select class="form-control state_id" data-sender="administrative_area_level_1" title="{{'Please select country first'|__}}" name="sender[state]" data-live-search="true" required>
+                                                    <option data-hidden="true"></option>
+                                                    {% for state in states %}
+                                                        <option value="{{state.id}}" {% if currentLang != 'en' %}data-subtext="{{state.lang(currentLang).name}}"{% endif %} {% if settings.customers.state == state.id  %} selected {% endif %}>{{state.lang('en').name}}</option>
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
+                                            {% endif %}
+                                            <div class="form-group col-lg-6">
+                                                <label>{{'City'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
+                                                <select class="form-control city_id" data-sender="locality" name="sender[city]" title="{{'Please select state first'|__}}" data-live-search="true" required>
+                                                    <option data-hidden="true"></option>
+                                                    {% for city in cities %}
+                                                        <option value="{{city.id}}">{{city.name}}</option>
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
+
+                                            {% if settings.customers.enable_county == 1 %}
+                                            <div class="form-group col-lg-6">
+                                                <label>{{'Area'|__}}</label>
+                                                <select class="form-control area_id" data-sender="sublocality" name="sender[county]" title="{{'Please select city first'|__}}" data-live-search="true">
+                                                    <option data-hidden="true"></option>
+                                                    {% for county in areas %}
+                                                        <option value="{{county.id}}" {% if settings.customers.county == county.id  %} selected {% endif %}>{{county.name}}</option>
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
+                                            {% endif %}
+                                            {% if settings.customers.enable_streetAddress == 1 %}
+                                            <div class="form-group col-lg-6">
+                                                <label>{{'Street Address'|__}}</label>
+                                                <input type="text" class="form-control street_addr" name="sender[street_address]" value="{{settings.customers.street_address}}"  required/>
+                                            </div>
+                                            {% endif %}
+                                        </div>
+                                        {% if settings.customers.enable_mapAddress == 1 %}
+                                        <div class="row">
+                                            <div class="form-group col-lg-12">
+                                                <label>{{'Google Map'|__}}</label>
+                                                <div class="col-sm-12 map_canvas map_sender"></div>
+                                                <span class="form-text text-muted">{{'Change the pin to select the right location'|__}}</span>
+                                            </div>
+                                        </div>
+                                        {% endif %}
+
+                                        {% if settings.customers.enable_createAccount == 1 %}
+                                            {% if user.hasUserPermission('client', 'c') %}
+                                                <div class="form-group row">
+                                                    <label class="col-xl-3 col-lg-3 col-form-label"></label>
+                                                    <div class="col-lg-9 col-xl-6">
+                                                        <div class="kt-checkbox-single">
+                                                            <label class="kt-checkbox">
+                                                                <input type="checkbox" name="connect" class="connect" value="sender" {%if settings.customers.connect ==1 %}checked{% endif %}> {{'Connect client'|__}}: {{'create an account for the client'|__}}
+                                                                <span></span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row align-items-center kt-hidden" id="connect_sender">
+                                                    <div class="col-md-4">
+                                                        <div class="form-group kt-form__group--inline">
+                                                            <div class="kt-form__label">
+                                                                <label class="col-form-label">{{'Email'|__}}:&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
+                                                            </div>
+                                                            <div class="kt-form__control">
+                                                                <input type="text" class="form-control email" name="sender[email]" required/>
+                                                            </div>
+                                                        </div>
+                                                        <div class="d-md-none kt-margin-b-10"></div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group kt-form__group--inline">
+                                                            <div class="kt-form__label">
+                                                                <label class="col-form-label">{{'Username'|__}}:&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
+                                                            </div>
+                                                            <div class="kt-form__control">
+                                                                <input type="text" class="form-control username" name="sender[username]" required>
+                                                            </div>
+                                                        </div>
+                                                        <div class="d-md-none kt-margin-b-10"></div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group kt-form__group--inline">
+                                                            <div class="kt-form__label">
+                                                                <label class="col-form-label">{{'Password'|__}}:&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
+                                                            </div>
+                                                            <div class="kt-form__control">
+                                                                <input type="password" class="form-control password" name="sender[password]" required>
+                                                            </div>
+                                                        </div>
+                                                        <div class="d-md-none kt-margin-b-10"></div>
+                                                    </div>
+                                                </div>
+                                            {% endif %}
+                                        {% endif %}
+                                    </div>
+                				</div>
+                                <div class="kt-portlet__foot">
+                    				<div class="row align-items-center">
+                    					<div class="col-lg-12">
+                    						<button type="button" class="btn btn-success save">{{'Save'|__}}</button>
+                    						<button type="button" class="btn btn-secondary cancel">{{'Cancel'|__}}</button>
+                    					</div>
+                    				</div>
+                    			</div>
                 			</div>
             			</div>
-        			</div>
 
-                <div class="row kt-hidden" id="addnewsenderaddress">
-                    <div class="kt-portlet kt-portlet--bordered kt-portlet--head--noborder kt-margin-b-0">
-        				<div class="kt-portlet__head">
-                            <div class="kt-portlet__head-label">
-                                <span class="kt-portlet__head-icon">
-                                    <i class="flaticon2-user"></i>
-                                </span>
-                                <h3 class="kt-portlet__head-title">
-                                    {{'Add a new client address'|__}} <small>{{'Fill data and save it brefore you can continue'}}</small>
-                                </h3>
-                            </div>
-        				</div>
-        				<div class="kt-portlet__body">
-                            <div class="location-senderaddress">
-                                <div class="row">
-                                    <div class="form-group col-lg-5">
-                                        <label>{{'Address'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
-                                        <input type="text" class="form-control address street_addr" name="senderaddress[street_address]"  rel="senderaddress" required/>
-                                        <input type="hidden" class="form-control lat" data-senderaddress="lat" name="senderaddress[lat]" />
-                                        <input type="hidden" class="form-control lng" data-senderaddress="lng" name="senderaddress[lng]" />
-                                        <input type="hidden" class="form-control url" data-senderaddress="url" name="senderaddress[url]" />
-                                    </div>
-                                    <div class="form-group col-lg-4">
-                                        <label>{{'Country'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
-                                        <select class="form-control country_id" data-senderaddress="country" data-live-search="true" name="senderaddress[country]" required>
-                                            <option data-hidden="true"></option>
-                                            {% for country in countries %}
-                                                <option value="{{country.id}}" {% if currentLang != 'en' %}data-subtext="{{country.lang(currentLang).name}}"{% endif %}>{{country.lang('en').name}}</option>
-                                            {% endfor %}
-                                        </select>
-                                    </div>
-                                    <div class="form-group col-lg-3">
-                                        <label>{{'Postal Code'|__}}</label>
-                                        <input class="form-control postal_code" type="text" data-sendsenderaddresser="postal_code" name="senderaddress[postal_code]" >
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="form-group col-lg-4">
-                                        <label>{{'State / Region'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
-                                        <select class="form-control state_id" data-senderaddress="administrative_area_level_1" title="{{'Please select country first'|__}}" name="senderaddress[state]" data-live-search="true" required>
-                                            <option data-hidden="true"></option>
-                                            {% for state in states %}
-                                                <option value="{{state.id}}" {% if currentLang != 'en' %}data-subtext="{{state.lang(currentLang).name}}"{% endif %}>{{state.lang('en').name}}</option>
-                                            {% endfor %}
-                                        </select>
-                                    </div>
-                                    <div class="form-group col-lg-4">
-                                        <label>{{'City'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
-                                        <select class="form-control city_id" data-senderaddress="locality" name="senderaddress[city]" title="{{'Please select state first'|__}}" data-live-search="true" required>
-                                            <option data-hidden="true"></option>
-                                            {% for city in cities %}
-                                                <option value="{{city.id}}">{{city.name}}</option>
-                                            {% endfor %}
-                                        </select>
-                                    </div>
-                                    <div class="form-group col-lg-4">
-                                        <label>{{'Area'|__}}</label>
-                                        <select class="form-control area_id" data-senderaddress="sublocality" name="senderaddress[county]" title="{{'Please select city first'|__}}" data-live-search="true" >
-                                            <option data-hidden="true"></option>
-                                            {% for county in areas %}
-                                                <option value="{{county.id}}">{{county.name}}</option>
-                                            {% endfor %}
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="form-group col-lg-12">
-                                        <label>{{'Google Map'|__}}</label>
-                                        <div class="col-sm-12 map_canvas map_senderaddress"></div>
-                                        <span class="form-text text-muted">{{'Change the pin to select the right location'|__}}</span>
-                                    </div>
-                                </div>
-                            </div>
-        				</div>
-                        <div class="kt-portlet__foot">
-            				<div class="row align-items-center">
-            					<div class="col-lg-12">
-            						<button type="button" class="btn btn-success save">{{'Save'|__}}</button>
-            						<button type="button" class="btn btn-secondary cancel">{{'Cancel'|__}}</button>
-            					</div>
-            				</div>
-            			</div>
-        			</div>
-    			</div>
-                <div class="kt-separator kt-separator--border-dashed kt-separator--space-lg kt-separator--portlet-fit"></div>
-                {% if settings.shipments.enable_payment_type == 1 %}
-                <div class="form-group row">
-                    <label class="col-xl-3 col-lg-3 col-form-label">{{'Payment Type'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
-                    <div class="col-lg-9 col-xl-6">
-                        <select class="form-control" name="payment_type" id="payment_type" required>
-                            <option data-hidden="true"></option>
-                            <option value="1" {%if settings.shipments.payment_type == 1 %}selected{% endif %}>{{'Postpaid'|__}} </option>
-                            <option value="2" {%if settings.shipments.payment_type == 2 %}selected{% endif %}>{{'Prepaid'|__}} </option>
-                        </select>
-                    </div>
-                </div>
-                {% endif %}
-                {% if settings.shipments.enable_payment_method == 1 %}
-                <div class="form-group row">
-                    <label class="col-xl-3 col-lg-3 col-form-label">{{'Payment Method'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
-                    <div class="col-lg-9 col-xl-6">
-                        <select class="form-control" name="payment_method" id="payment_method" required>
-                            <option data-hidden="true"></option>
-                            {% if payment['enable_cash'] == 1 %}
-                            <option value="cash" {%if settings.shipments.payment_method == 'cash' %}selected{% endif %}>{{'Cash'|__}} </option>
-                            {% endif %}
-                            {% if payment['enable_transfer'] == 1 %}
-                            <option value="transfer" {%if settings.shipments.payment_method == 'transfer' %}selected{% endif %}>{{'Wire Transfer'|__}} </option>
-                            {% endif %}
-                            {% if payment['enable_paystack'] == 1 %}
-                            <option value="paystack" {%if settings.shipments.payment_method == 'paystack' %}selected{% endif %}>{{'Paystack'|__}} </option>
-                            {% endif %}
-                            {% if payment['enable_paypal'] == 1 %}
-                            <option value="paypal" {%if settings.shipments.payment_method == 'paypal' %}selected{% endif %}>{{'Paypal'|__}} </option>
-                            {% endif %}
-                        </select>
-                    </div>
-                </div>
-                {% endif %}
-                <div class="form-group row type_1">
-                    <label class="col-xl-3 col-lg-3 col-form-label">{{'Record receiver information ?'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
-                    <div class="col-lg-9 col-xl-6">
-                        <div class="kt-radio-inline">
-                            <label class="kt-radio">
-                                <input type="radio" name="show_receiver_info" class="show_receiver_info" value="1" checked required> {{'Yes'|__}}
-                                <span></span>
-                            </label>
-                            <label class="kt-radio">
-                                <input type="radio" name="show_receiver_info" class="show_receiver_info" value="2" required> {{'No'|__}}
-                                <span></span>
-                            </label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="type_2 receiver_information">
-            <div class="kt-portlet kt-portlet--mobile">
-                <div class="kt-portlet__head">
-    				<div class="kt-portlet__head-label">
-    					<h3 class="kt-portlet__head-title">
-    						{{'Receiver information'|__}}
-    					</h3>
-    				</div>
-    			</div>
-                <div class="kt-portlet__body">
-                    <div class="form-group row">
-                        <label>{{'Receiver'|__}}/{{'Client'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
-                        <select class="form-control clients" name="receiver_id" id="receiver_id" equired>
-                            <option data-hidden="true"></option>
-                            <option value="new" data-icon="flaticon2-add">{{'Add New'|__}}</option>
-                        </select>
-                        <span class="text-muted">{{'Choose or add a new client that will receive the package'|__}}</span>
-                    </div>
-                    <div class="form-group row">
-                        <label>{{'Receiver Address'|__}}/{{'Client Address'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
-                        <select class="form-control receiver_address_id" name="receiver_address_id" id="receiver_address_id" data-live-search="true" title="{{'Please select receiver first'|__}}" required>
-                            <option data-hidden="true"></option>
-                        </select>
-                    </div>
-                    <div class="row kt-hidden" id="addnewreceiver">
-                        <div class="kt-portlet kt-portlet--bordered kt-portlet--head--noborder kt-margin-b-0">
-            				<div class="kt-portlet__head">
-                                <div class="kt-portlet__head-label">
-                                    <span class="kt-portlet__head-icon">
-                                        <i class="flaticon2-user"></i>
-                                    </span>
-                                    <h3 class="kt-portlet__head-title">
-                                        {{'Add a new client'|__}} <small>{{'Fill data and save it brefore you can continue'}}</small>
-                                    </h3>
-                                </div>
-            				</div>
-            				<div class="kt-portlet__body">
-                                <div class="row">
-                                    <div class="form-group {%if settings.customers.enable_gender == 1 %}col-lg-5{%else%}col-lg-7{%endif%}">
-                                        <label>{{'Client Name'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
-                                        <input type="text" class="form-control name" name="receiver[name]" required />
-                                    </div>
-                                    <div class="form-group {%if settings.customers.enable_gender == 1 %}col-lg-4{%else%}col-lg-5{%endif%}">
-                                        <label>{{'Mobile'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
-                                        <input type="text" class="form-control mobile" name="receiver[mobile]" required />
-                                    </div>
-                                    {% if settings.customers.enable_gender == 1 %}
-                                    <div class="form-group col-lg-3">
-                                        <label>{{'Gender'|__}}</label>
-                                        <div class="kt-radio-inline">
-                							<label class="kt-radio">
-                								<input type="radio" name="receiver[gender]" class="gender" value="male" {% if settings.customers.gender == 'male' %}checked{%endif%}> {{'Male'|__}}
-                								<span></span>
-                							</label>
-                							<label class="kt-radio">
-                								<input type="radio" name="receiver[gender]" class="gender" value="female" {% if settings.customers.gender == 'female' %}checked{%endif%}> {{'Female'|__}}
-                								<span></span>
-                							</label>
-                						</div>
-                                    </div>
-                                    {% endif %}
-                                </div>
-                                <div class="location-receiver">
-                                    <div class="row">
-                                        {% if settings.customers.enable_mapAddress == 1 %}
-                                        <div class="form-group {%if settings.customers.enable_postalCode == 1 %}col-lg-5{%else%}col-lg-6{%endif%}">
-                                            <label>{{'Address'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
-                                            <input type="text" class="form-control address street_addr"  name="receiver[street_address]"  rel="receiver" value="{{settings.customers.street_address_map}}" required/>
-                                            <input type="hidden" class="form-control lat" data-receiver="lat" name="receiver[lat]" />
-                                            <input type="hidden" class="form-control lng" data-receiver="lng" name="receiver[lng]" />
-                                            <input type="hidden" class="form-control url" data-receiver="url" name="receiver[url]" />
-                                        </div>
-                                        {% endif %}
-                                        <div class="form-group {%if settings.customers.enable_mapAddress == 1 and settings.customers.enable_postalCode == 1 %}col-lg-4{%else%}col-lg-6{%endif%}">
-                                            <label>{{'Country'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
-                                            <select class="form-control country_id" data-receiver="country" data-live-search="true" name="receiver[country]" required>
-                                                <option data-hidden="true"></option>
-                                                {% for country in countries %}
-                                                    <option value="{{country.id}}" {% if currentLang != 'en' %}data-subtext="{{country.lang(currentLang).name}}"{% endif %}>{{country.lang('en').name}}</option>
-                                                {% endfor %}
-                                            </select>
-                                        </div>
-                                        {% if settings.customers.enable_postalCode == 1 %}
-                                        <div class="form-group {%if settings.customers.enable_mapAddress == 1 %}col-lg-3{%else%}col-lg-6{%endif%}">
-                                            <label>{{'Postal Code'|__}}</label>
-                                            <input class="form-control postal_code" type="text" data-receiver="postal_code" name="receiver[postal_code]"  value="{{settings.customers.postal_code}}">
-                                        </div>
-                                        {% endif %}
-                                        {% if settings.customers.enable_state == 1 %}
-                                        <div class="form-group {%if settings.customers.enable_county == 1 %}col-lg-4{%else%}col-lg-6{%endif%}">
-                                            <label>{{'State / Region'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
-                                            <select class="form-control state_id" data-receiver="administrative_area_level_1" title="{{'Please select country first'|__}}" name="receiver[state]" data-live-search="true" required>
-                                                <option data-hidden="true"></option>
-                                                {% for state in states %}
-                                                    <option value="{{state.id}}" {% if currentLang != 'en' %}data-subtext="{{state.lang(currentLang).name}}"{% endif %} {% if settings.customers.state == state.id  %} selected {% endif %}>{{state.lang('en').name}}</option>
-                                                {% endfor %}
-                                            </select>
-                                        </div>
-                                        {% endif %}
-                                        <div class="form-group {%if settings.customers.enable_county == 1 and settings.customers.enable_state == 1 %}col-lg-4{%else%}col-lg-6{%endif%}">
-                                            <label>{{'City'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
-                                            <select class="form-control city_id" data-receiver="locality" name="receiver[city]" title="{{'Please select state first'|__}}" data-live-search="true" required>
-                                                <option data-hidden="true"></option>
-                                                {% for city in cities %}
-                                                    <option value="{{city.id}}">{{city.name}}</option>
-                                                {% endfor %}
-                                            </select>
-                                        </div>
-                                        {% if settings.customers.enable_county == 1 %}
-                                        <div class="form-group {%if settings.customers.enable_state == 1 %}col-lg-4{%else%}col-lg-6{%endif%}">
-                                            <label>{{'Area'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
-                                            <select class="form-control area_id" data-receiver="sublocality" name="receiver[county]" title="{{'Please select city first'|__}}" data-live-search="true">
-                                                <option data-hidden="true"></option>
-                                                {% for county in areas %}
-                                                    <option value="{{county.id}}" {% if settings.customers.county == county.id  %} selected {% endif %}>{{county.name}}</option>
-                                                {% endfor %}
-                                            </select>
-                                        </div>
-                                        {% endif %}
-                                    </div>
-                                    {% if settings.customers.enable_mapAddress == 1 %}
-                                    <div class="row">
-                                        <div class="form-group col-lg-12">
-                                            <label>{{'Google Map'|__}}</label>
-                                            <div class="col-sm-12 map_canvas map_receiver"></div>
-                                            <span class="form-text text-muted">{{'Change the pin to select the right location'|__}}</span>
-                                        </div>
-                                    </div>
-                                    {% endif %}
-                                    {% if settings.customers.enable_createAccount == 1 %}
-                                        {% if user.hasUserPermission('client', 'c') %}
-                                            <div class="form-group row">
-                                                <label class="col-xl-3 col-lg-3 col-form-label"></label>
-                                                <div class="col-lg-9 col-xl-6">
-                                                    <div class="kt-checkbox-single">
-                                                        <label class="kt-checkbox">
-                                                            <input type="checkbox" name="connect" class="connect" value="receiver" {%if settings.customers.connect ==1 %}checked{% endif %}> {{'Connect client'|__}}: {{'create an account for the client'|__}}
-                                                            <span></span>
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row align-items-center kt-hidden" id="connect_receiver">
-                                                <div class="col-md-4">
-                                                    <div class="form-group kt-form__group--inline">
-                                                        <div class="kt-form__label">
-                                                            <label class="col-form-label">{{'Email'|__}}:&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
-                                                        </div>
-                                                        <div class="kt-form__control">
-                                                            <input type="text" class="form-control email" name="receiver[email]" required/>
-                                                        </div>
-                                                    </div>
-                                                    <div class="d-md-none kt-margin-b-10"></div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="form-group kt-form__group--inline">
-                                                        <div class="kt-form__label">
-                                                            <label class="col-form-label">{{'Username'|__}}:&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
-                                                        </div>
-                                                        <div class="kt-form__control">
-                                                            <input type="text" class="form-control username" name="receiver[username]" required>
-                                                        </div>
-                                                    </div>
-                                                    <div class="d-md-none kt-margin-b-10"></div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="form-group kt-form__group--inline">
-                                                        <div class="kt-form__label">
-                                                            <label class="col-form-label">{{'Password'|__}}:&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
-                                                        </div>
-                                                        <div class="kt-form__control">
-                                                            <input type="password" class="form-control password" name="receiver[password]" required>
-                                                        </div>
-                                                    </div>
-                                                    <div class="d-md-none kt-margin-b-10"></div>
-                                                </div>
-                                            </div>
-                                        {% endif %}
-                                    {% endif %}
-                                </div>
-            				</div>
-                            <div class="kt-portlet__foot">
-                				<div class="row align-items-center">
-                					<div class="col-lg-12">
-                						<button type="button" class="btn btn-success save">{{'Save'|__}}</button>
-                						<button type="button" class="btn btn-secondary cancel">{{'Cancel'|__}}</button>
-                					</div>
-                				</div>
-                			</div>
-            			</div>
-        			</div>
-                    <div class="row kt-hidden" id="addnewreceiveraddress">
+                    <div class="row kt-hidden" id="addnewsenderaddress">
                         <div class="kt-portlet kt-portlet--bordered kt-portlet--head--noborder kt-margin-b-0">
             				<div class="kt-portlet__head">
                                 <div class="kt-portlet__head-label">
@@ -2621,18 +2303,18 @@ function onChangefees(){
                                 </div>
             				</div>
             				<div class="kt-portlet__body">
-                                <div class="location-receiveraddress">
+                                <div class="location-senderaddress">
                                     <div class="row">
                                         <div class="form-group col-lg-5">
                                             <label>{{'Address'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
-                                            <input type="text" class="form-control address street_addr" name="receiveraddress[street_address]"  rel="receiveraddress" required/>
-                                            <input type="hidden" class="form-control lat" data-receiveraddress="lat" name="receiveraddress[lat]" />
-                                            <input type="hidden" class="form-control lng" data-receiveraddress="lng" name="receiveraddress[lng]" />
-                                            <input type="hidden" class="form-control url" data-receiveraddress="url" name="receiveraddress[url]" />
+                                            <input type="text" class="form-control address street_addr" name="senderaddress[street_address]"  rel="senderaddress" required/>
+                                            <input type="hidden" class="form-control lat" data-senderaddress="lat" name="senderaddress[lat]" />
+                                            <input type="hidden" class="form-control lng" data-senderaddress="lng" name="senderaddress[lng]" />
+                                            <input type="hidden" class="form-control url" data-senderaddress="url" name="senderaddress[url]" />
                                         </div>
                                         <div class="form-group col-lg-4">
                                             <label>{{'Country'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
-                                            <select class="form-control country_id" data-receiveraddress="country" data-live-search="true" name="receiveraddress[country]" required>
+                                            <select class="form-control country_id" data-senderaddress="country" data-live-search="true" name="senderaddress[country]" required>
                                                 <option data-hidden="true"></option>
                                                 {% for country in countries %}
                                                     <option value="{{country.id}}" {% if currentLang != 'en' %}data-subtext="{{country.lang(currentLang).name}}"{% endif %}>{{country.lang('en').name}}</option>
@@ -2641,13 +2323,13 @@ function onChangefees(){
                                         </div>
                                         <div class="form-group col-lg-3">
                                             <label>{{'Postal Code'|__}}</label>
-                                            <input class="form-control postal_code" type="text" data-sendreceiveraddresser="postal_code" name="receiveraddress[postal_code]" >
+                                            <input class="form-control postal_code" type="text" data-sendsenderaddresser="postal_code" name="senderaddress[postal_code]" >
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="form-group col-lg-4">
                                             <label>{{'State / Region'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
-                                            <select class="form-control state_id" data-receiveraddress="administrative_area_level_1" title="{{'Please select country first'|__}}" name="receiveraddress[state]" data-live-search="true" required>
+                                            <select class="form-control state_id" data-senderaddress="administrative_area_level_1" title="{{'Please select country first'|__}}" name="senderaddress[state]" data-live-search="true" required>
                                                 <option data-hidden="true"></option>
                                                 {% for state in states %}
                                                     <option value="{{state.id}}" {% if currentLang != 'en' %}data-subtext="{{state.lang(currentLang).name}}"{% endif %}>{{state.lang('en').name}}</option>
@@ -2656,7 +2338,7 @@ function onChangefees(){
                                         </div>
                                         <div class="form-group col-lg-4">
                                             <label>{{'City'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
-                                            <select class="form-control city_id" data-receiveraddress="locality" name="receiveraddress[city]" title="{{'Please select state first'|__}}" data-live-search="true" required>
+                                            <select class="form-control city_id" data-senderaddress="locality" name="senderaddress[city]" title="{{'Please select state first'|__}}" data-live-search="true" required>
                                                 <option data-hidden="true"></option>
                                                 {% for city in cities %}
                                                     <option value="{{city.id}}">{{city.name}}</option>
@@ -2665,10 +2347,10 @@ function onChangefees(){
                                         </div>
                                         <div class="form-group col-lg-4">
                                             <label>{{'Area'|__}}</label>
-                                            <select class="form-control area_id" data-receiveraddress="sublocality" name="receiveraddress[county]" title="{{'Please select city first'|__}}" data-live-search="true">
+                                            <select class="form-control area_id" data-senderaddress="sublocality" name="senderaddress[county]" title="{{'Please select city first'|__}}" data-live-search="true" >
                                                 <option data-hidden="true"></option>
                                                 {% for county in areas %}
-                                                    <option value="{{county.id}}" {% if currentLang != 'en' %}data-subtext="{{county.lang(currentLang).name}}"{% endif %}>{{county.lang('en').name}}</option>
+                                                    <option value="{{county.id}}">{{county.name}}</option>
                                                 {% endfor %}
                                             </select>
                                         </div>
@@ -2676,7 +2358,7 @@ function onChangefees(){
                                     <div class="row">
                                         <div class="form-group col-lg-12">
                                             <label>{{'Google Map'|__}}</label>
-                                            <div class="col-sm-12 map_canvas map_receiveraddress"></div>
+                                            <div class="col-sm-12 map_canvas map_senderaddress"></div>
                                             <span class="form-text text-muted">{{'Change the pin to select the right location'|__}}</span>
                                         </div>
                                     </div>
@@ -2692,87 +2374,422 @@ function onChangefees(){
                 			</div>
             			</div>
         			</div>
-                    {%if settings.shipments.enable_return_package == 1 %}
                     <div class="kt-separator kt-separator--border-dashed kt-separator--space-lg kt-separator--portlet-fit"></div>
+                    {% if settings.shipments.enable_payment_type == 1 %}
                     <div class="form-group row">
-                        <label class="col-xl-3 col-lg-3 col-form-label">
-                        {{'Return package cost'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span>
-                        <br /><span class="text-muted">{{'Yes if you need to return money from the receiver to sender after delivery'|__}}</span>
-                        </label>
+                        <label class="col-xl-3 col-lg-3 col-form-label">{{'Payment Type'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
                         <div class="col-lg-9 col-xl-6">
-                            <div class="kt-radio-inline">
-                                <label class="kt-radio">
-                                    <input type="radio" name="return_defray" class="return_defray" value="1" {% if settings.shipments.return_package == 1 %}checked{% endif %} required> {{'Yes'|__}}
-                                    <span></span>
-                                </label>
-                                <label class="kt-radio">
-                                    <input type="radio" name="return_defray" class="return_defray" value="2" {% if settings.shipments.return_package == 2 %}checked{% endif %} required> {{'No'|__}}
-                                    <span></span>
-                                </label>
-                            </div>
+                            <select class="form-control" name="payment_type" id="payment_type" required>
+                                <option data-hidden="true"></option>
+                                <option value="1" {%if settings.shipments.payment_type == 1 %}selected{% endif %}>{{'Postpaid'|__}} </option>
+                                <option value="2" {%if settings.shipments.payment_type == 2 %}selected{% endif %}>{{'Prepaid'|__}} </option>
+                            </select>
                         </div>
                     </div>
                     {% endif %}
-                    <div class="form-group row kt-hidden package_fee">
-                        <label class="col-xl-3 col-lg-3 col-form-label">{{'Package Cost'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span>
-                        <br /><span class="text-muted">{{'Amount that will be returned to the sender from the receiver'|__}}</span>
-                        </label>
+                    {% if settings.shipments.enable_payment_method == 1 %}
+                    <div class="form-group row">
+                        <label class="col-xl-3 col-lg-3 col-form-label">{{'Payment Method'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
                         <div class="col-lg-9 col-xl-6">
-                            <div class="input-group">
-                                {% if primary_currency.place_symbol_before == 1 %}
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">
-                                            {{primary_currency.currency_symbol}}
-                                        </span>
-                                    </div>
+                            <select class="form-control" name="payment_method" id="payment_method" required>
+                                <option data-hidden="true"></option>
+                                {% if payment['enable_cash'] == 1 %}
+                                <option value="cash" {%if settings.shipments.payment_method == 'cash' %}selected{% endif %}>{{'Cash'|__}} </option>
                                 {% endif %}
-                					<input type="text" class="form-control decimal" data-type='currency' name="package_fee" required />
-                                {% if primary_currency.place_symbol_before == 0 %}
-                                    <div class="input-group-append">
-                                        <span class="input-group-text">
-                                            {{primary_currency.currency_symbol}}
-                                        </span>
-                                    </div>
+                                {% if payment['enable_transfer'] == 1 %}
+                                <option value="transfer" {%if settings.shipments.payment_method == 'transfer' %}selected{% endif %}>{{'Wire Transfer'|__}} </option>
                                 {% endif %}
+                                {% if payment['enable_paystack'] == 1 %}
+                                <option value="paystack" {%if settings.shipments.payment_method == 'paystack' %}selected{% endif %}>{{'Paystack'|__}} </option>
+                                {% endif %}
+                                {% if payment['enable_paypal'] == 1 %}
+                                <option value="paypal" {%if settings.shipments.payment_method == 'paypal' %}selected{% endif %}>{{'Paypal'|__}} </option>
+                                {% endif %}
+                            </select>
+                        </div>
+                    </div>
+                    {% endif %}
+                    <div class="form-group row type_1">
+                        <label class="col-xl-3 col-lg-3 col-form-label">{{'Record receiver information ?'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
+                        <div class="col-lg-9 col-xl-6">
+                            <div class="kt-radio-inline">
+                                <label class="kt-radio">
+                                    <input type="radio" name="show_receiver_info" class="show_receiver_info" value="1" checked required> {{'Yes'|__}}
+                                    <span></span>
+                                </label>
+                                <label class="kt-radio">
+                                    <input type="radio" name="show_receiver_info" class="show_receiver_info" value="2" required> {{'No'|__}}
+                                    <span></span>
+                                </label>
                             </div>
                         </div>
                     </div>
-                    {% if user.role_id != 5 %}
-                        <div class="form-group row kt-hidden package_fee">
-                            <label class="col-xl-3 col-lg-3 col-form-label">{{'Return Shipment Cost'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
-                            <div class="col-lg-9 col-xl-6">
-                                <div class="input-group">
-                                    {% if primary_currency.place_symbol_before == 1 %}
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text">
-                                                {{primary_currency.currency_symbol}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="type_2 receiver_information">
+                <div class="kt-portlet kt-portlet--mobile">
+                    <div class="panel panel-heading">
+                        <div class="kt-portlet__head panel-title" data-toggle="collapse" data-target="#collapseThree">
+            				<div class="kt-portlet__head-label">
+            					<h3 class="kt-portlet__head-title">
+            						{{'Receiver information'|__}}
+            					</h3>
+            				</div>
+            			</div>
+                    </div>
+                    <div id="collapseThree" class="panel-collapse collapse">
+                        <div class="kt-portlet__body">
+                            <div class="form-group row">
+                                <label>{{'Receiver'|__}}/{{'Client'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
+                                <select class="form-control clients" name="receiver_id" id="receiver_id" equired>
+                                    <option data-hidden="true"></option>
+                                    <option value="new" data-icon="flaticon2-add">{{'Add New'|__}}</option>
+                                </select>
+                                <span class="text-muted">{{'Choose or add a new client that will receive the package'|__}}</span>
+                            </div>
+                            <div class="form-group row">
+                                <label>{{'Receiver Address'|__}}/{{'Client Address'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
+                                <select class="form-control receiver_address_id" name="receiver_address_id" id="receiver_address_id" data-live-search="true" title="{{'Please select receiver first'|__}}" required>
+                                    <option data-hidden="true"></option>
+                                </select>
+                            </div>
+                            <div class="row kt-hidden" id="addnewreceiver">
+                                <div class="kt-portlet kt-portlet--bordered kt-portlet--head--noborder kt-margin-b-0">
+                    				<div class="kt-portlet__head">
+                                        <div class="kt-portlet__head-label">
+                                            <span class="kt-portlet__head-icon">
+                                                <i class="flaticon2-user"></i>
                                             </span>
+                                            <h3 class="kt-portlet__head-title">
+                                                {{'Add a new client'|__}} <small>{{'Fill data and save it brefore you can continue'}}</small>
+                                            </h3>
                                         </div>
-                                    {% endif %}
-                    					<input type="text" class="form-control decimal" data-type='currency' name="return_courier_fee" id="return_courier_fee" value="{{settings.fees.delivery_cost_back_receiver}}" required />
-                                    {% if primary_currency.place_symbol_before == 0 %}
-                                        <div class="input-group-append">
-                                            <span class="input-group-text">
-                                                {{primary_currency.currency_symbol}}
+                    				</div>
+                    				<div class="kt-portlet__body">
+                                        <div class="row">
+                                            <div class="form-group {%if settings.customers.enable_gender == 1 %}col-lg-5{%else%}col-lg-7{%endif%}">
+                                                <label>{{'Client Name'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
+                                                <input type="text" class="form-control name" name="receiver[name]" required />
+                                            </div>
+                                            <div class="form-group {%if settings.customers.enable_gender == 1 %}col-lg-4{%else%}col-lg-5{%endif%}">
+                                                <label>{{'Mobile'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
+                                                <input type="text" class="form-control mobile" name="receiver[mobile]" required />
+                                            </div>
+                                            {% if settings.customers.enable_gender == 1 %}
+                                            <div class="form-group col-lg-3">
+                                                <label>{{'Gender'|__}}</label>
+                                                <div class="kt-radio-inline">
+                        							<label class="kt-radio">
+                        								<input type="radio" name="receiver[gender]" class="gender" value="male" {% if settings.customers.gender == 'male' %}checked{%endif%}> {{'Male'|__}}
+                        								<span></span>
+                        							</label>
+                        							<label class="kt-radio">
+                        								<input type="radio" name="receiver[gender]" class="gender" value="female" {% if settings.customers.gender == 'female' %}checked{%endif%}> {{'Female'|__}}
+                        								<span></span>
+                        							</label>
+                        						</div>
+                                            </div>
+                                            {% endif %}
+                                        </div>
+                                        <div class="location-receiver">
+                                            <div class="row">
+                                                {% if settings.customers.enable_mapAddress == 1 %}
+                                                <div class="form-group {%if settings.customers.enable_postalCode == 1 %}col-lg-5{%else%}col-lg-6{%endif%}">
+                                                    <label>{{'Address'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
+                                                    <input type="text" class="form-control address street_addr"  name="receiver[street_address]"  rel="receiver" value="{{settings.customers.street_address_map}}" required/>
+                                                    <input type="hidden" class="form-control lat" data-receiver="lat" name="receiver[lat]" />
+                                                    <input type="hidden" class="form-control lng" data-receiver="lng" name="receiver[lng]" />
+                                                    <input type="hidden" class="form-control url" data-receiver="url" name="receiver[url]" />
+                                                </div>
+                                                {% endif %}
+                                                <div class="form-group {%if settings.customers.enable_mapAddress == 1 and settings.customers.enable_postalCode == 1 %}col-lg-4{%else%}col-lg-6{%endif%}">
+                                                    <label>{{'Country'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
+                                                    <select class="form-control country_id" data-receiver="country" data-live-search="true" name="receiver[country]" required>
+                                                        <option data-hidden="true"></option>
+                                                        {% for country in countries %}
+                                                            <option value="{{country.id}}" {% if currentLang != 'en' %}data-subtext="{{country.lang(currentLang).name}}"{% endif %}>{{country.lang('en').name}}</option>
+                                                        {% endfor %}
+                                                    </select>
+                                                </div>
+                                                {% if settings.customers.enable_postalCode == 1 %}
+                                                <div class="form-group {%if settings.customers.enable_mapAddress == 1 %}col-lg-3{%else%}col-lg-6{%endif%}">
+                                                    <label>{{'Postal Code'|__}}</label>
+                                                    <input class="form-control postal_code" type="text" data-receiver="postal_code" name="receiver[postal_code]"  value="{{settings.customers.postal_code}}">
+                                                </div>
+                                                {% endif %}
+                                                {% if settings.customers.enable_state == 1 %}
+                                                <div class="form-group {%if settings.customers.enable_county == 1 %}col-lg-4{%else%}col-lg-6{%endif%}">
+                                                    <label>{{'State / Region'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
+                                                    <select class="form-control state_id" data-receiver="administrative_area_level_1" title="{{'Please select country first'|__}}" name="receiver[state]" data-live-search="true" required>
+                                                        <option data-hidden="true"></option>
+                                                        {% for state in states %}
+                                                            <option value="{{state.id}}" {% if currentLang != 'en' %}data-subtext="{{state.lang(currentLang).name}}"{% endif %} {% if settings.customers.state == state.id  %} selected {% endif %}>{{state.lang('en').name}}</option>
+                                                        {% endfor %}
+                                                    </select>
+                                                </div>
+                                                {% endif %}
+                                                <div class="form-group {%if settings.customers.enable_county == 1 and settings.customers.enable_state == 1 %}col-lg-4{%else%}col-lg-6{%endif%}">
+                                                    <label>{{'City'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
+                                                    <select class="form-control city_id" data-receiver="locality" name="receiver[city]" title="{{'Please select state first'|__}}" data-live-search="true" required>
+                                                        <option data-hidden="true"></option>
+                                                        {% for city in cities %}
+                                                            <option value="{{city.id}}">{{city.name}}</option>
+                                                        {% endfor %}
+                                                    </select>
+                                                </div>
+                                                {% if settings.customers.enable_county == 1 %}
+                                                <div class="form-group {%if settings.customers.enable_state == 1 %}col-lg-4{%else%}col-lg-6{%endif%}">
+                                                    <label>{{'Area'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
+                                                    <select class="form-control area_id" data-receiver="sublocality" name="receiver[county]" title="{{'Please select city first'|__}}" data-live-search="true">
+                                                        <option data-hidden="true"></option>
+                                                        {% for county in areas %}
+                                                            <option value="{{county.id}}" {% if settings.customers.county == county.id  %} selected {% endif %}>{{county.name}}</option>
+                                                        {% endfor %}
+                                                    </select>
+                                                </div>
+                                                {% endif %}
+                                            </div>
+                                            {% if settings.customers.enable_mapAddress == 1 %}
+                                            <div class="row">
+                                                <div class="form-group col-lg-12">
+                                                    <label>{{'Google Map'|__}}</label>
+                                                    <div class="col-sm-12 map_canvas map_receiver"></div>
+                                                    <span class="form-text text-muted">{{'Change the pin to select the right location'|__}}</span>
+                                                </div>
+                                            </div>
+                                            {% endif %}
+                                            {% if settings.customers.enable_createAccount == 1 %}
+                                                {% if user.hasUserPermission('client', 'c') %}
+                                                    <div class="form-group row">
+                                                        <label class="col-xl-3 col-lg-3 col-form-label"></label>
+                                                        <div class="col-lg-9 col-xl-6">
+                                                            <div class="kt-checkbox-single">
+                                                                <label class="kt-checkbox">
+                                                                    <input type="checkbox" name="connect" class="connect" value="receiver" {%if settings.customers.connect ==1 %}checked{% endif %}> {{'Connect client'|__}}: {{'create an account for the client'|__}}
+                                                                    <span></span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row align-items-center kt-hidden" id="connect_receiver">
+                                                        <div class="col-md-4">
+                                                            <div class="form-group kt-form__group--inline">
+                                                                <div class="kt-form__label">
+                                                                    <label class="col-form-label">{{'Email'|__}}:&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
+                                                                </div>
+                                                                <div class="kt-form__control">
+                                                                    <input type="text" class="form-control email" name="receiver[email]" required/>
+                                                                </div>
+                                                            </div>
+                                                            <div class="d-md-none kt-margin-b-10"></div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group kt-form__group--inline">
+                                                                <div class="kt-form__label">
+                                                                    <label class="col-form-label">{{'Username'|__}}:&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
+                                                                </div>
+                                                                <div class="kt-form__control">
+                                                                    <input type="text" class="form-control username" name="receiver[username]" required>
+                                                                </div>
+                                                            </div>
+                                                            <div class="d-md-none kt-margin-b-10"></div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group kt-form__group--inline">
+                                                                <div class="kt-form__label">
+                                                                    <label class="col-form-label">{{'Password'|__}}:&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
+                                                                </div>
+                                                                <div class="kt-form__control">
+                                                                    <input type="password" class="form-control password" name="receiver[password]" required>
+                                                                </div>
+                                                            </div>
+                                                            <div class="d-md-none kt-margin-b-10"></div>
+                                                        </div>
+                                                    </div>
+                                                {% endif %}
+                                            {% endif %}
+                                        </div>
+                    				</div>
+                                    <div class="kt-portlet__foot">
+                        				<div class="row align-items-center">
+                        					<div class="col-lg-12">
+                        						<button type="button" class="btn btn-success save">{{'Save'|__}}</button>
+                        						<button type="button" class="btn btn-secondary cancel">{{'Cancel'|__}}</button>
+                        					</div>
+                        				</div>
+                        			</div>
+                    			</div>
+                			</div>
+                            <div class="row kt-hidden" id="addnewreceiveraddress">
+                                <div class="kt-portlet kt-portlet--bordered kt-portlet--head--noborder kt-margin-b-0">
+                    				<div class="kt-portlet__head">
+                                        <div class="kt-portlet__head-label">
+                                            <span class="kt-portlet__head-icon">
+                                                <i class="flaticon2-user"></i>
                                             </span>
+                                            <h3 class="kt-portlet__head-title">
+                                                {{'Add a new client address'|__}} <small>{{'Fill data and save it brefore you can continue'}}</small>
+                                            </h3>
                                         </div>
-                                    {% endif %}
+                    				</div>
+                    				<div class="kt-portlet__body">
+                                        <div class="location-receiveraddress">
+                                            <div class="row">
+                                                <div class="form-group col-lg-5">
+                                                    <label>{{'Address'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
+                                                    <input type="text" class="form-control address street_addr" name="receiveraddress[street_address]"  rel="receiveraddress" required/>
+                                                    <input type="hidden" class="form-control lat" data-receiveraddress="lat" name="receiveraddress[lat]" />
+                                                    <input type="hidden" class="form-control lng" data-receiveraddress="lng" name="receiveraddress[lng]" />
+                                                    <input type="hidden" class="form-control url" data-receiveraddress="url" name="receiveraddress[url]" />
+                                                </div>
+                                                <div class="form-group col-lg-4">
+                                                    <label>{{'Country'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
+                                                    <select class="form-control country_id" data-receiveraddress="country" data-live-search="true" name="receiveraddress[country]" required>
+                                                        <option data-hidden="true"></option>
+                                                        {% for country in countries %}
+                                                            <option value="{{country.id}}" {% if currentLang != 'en' %}data-subtext="{{country.lang(currentLang).name}}"{% endif %}>{{country.lang('en').name}}</option>
+                                                        {% endfor %}
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-lg-3">
+                                                    <label>{{'Postal Code'|__}}</label>
+                                                    <input class="form-control postal_code" type="text" data-sendreceiveraddresser="postal_code" name="receiveraddress[postal_code]" >
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="form-group col-lg-4">
+                                                    <label>{{'State / Region'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
+                                                    <select class="form-control state_id" data-receiveraddress="administrative_area_level_1" title="{{'Please select country first'|__}}" name="receiveraddress[state]" data-live-search="true" required>
+                                                        <option data-hidden="true"></option>
+                                                        {% for state in states %}
+                                                            <option value="{{state.id}}" {% if currentLang != 'en' %}data-subtext="{{state.lang(currentLang).name}}"{% endif %}>{{state.lang('en').name}}</option>
+                                                        {% endfor %}
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-lg-4">
+                                                    <label>{{'City'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
+                                                    <select class="form-control city_id" data-receiveraddress="locality" name="receiveraddress[city]" title="{{'Please select state first'|__}}" data-live-search="true" required>
+                                                        <option data-hidden="true"></option>
+                                                        {% for city in cities %}
+                                                            <option value="{{city.id}}">{{city.name}}</option>
+                                                        {% endfor %}
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-lg-4">
+                                                    <label>{{'Area'|__}}</label>
+                                                    <select class="form-control area_id" data-receiveraddress="sublocality" name="receiveraddress[county]" title="{{'Please select city first'|__}}" data-live-search="true">
+                                                        <option data-hidden="true"></option>
+                                                        {% for county in areas %}
+                                                            <option value="{{county.id}}" {% if currentLang != 'en' %}data-subtext="{{county.lang(currentLang).name}}"{% endif %}>{{county.lang('en').name}}</option>
+                                                        {% endfor %}
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="form-group col-lg-12">
+                                                    <label>{{'Google Map'|__}}</label>
+                                                    <div class="col-sm-12 map_canvas map_receiveraddress"></div>
+                                                    <span class="form-text text-muted">{{'Change the pin to select the right location'|__}}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                    				</div>
+                                    <div class="kt-portlet__foot">
+                        				<div class="row align-items-center">
+                        					<div class="col-lg-12">
+                        						<button type="button" class="btn btn-success save">{{'Save'|__}}</button>
+                        						<button type="button" class="btn btn-secondary cancel">{{'Cancel'|__}}</button>
+                        					</div>
+                        				</div>
+                        			</div>
+                    			</div>
+                			</div>
+                            {%if settings.shipments.enable_return_package == 1 %}
+                            <div class="kt-separator kt-separator--border-dashed kt-separator--space-lg kt-separator--portlet-fit"></div>
+                            <div class="form-group row">
+                                <label class="col-xl-3 col-lg-3 col-form-label">
+                                {{'Return package cost'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span>
+                                <br /><span class="text-muted">{{'Yes if you need to return money from the receiver to sender after delivery'|__}}</span>
+                                </label>
+                                <div class="col-lg-9 col-xl-6">
+                                    <div class="kt-radio-inline">
+                                        <label class="kt-radio">
+                                            <input type="radio" name="return_defray" class="return_defray" value="1" {% if settings.shipments.return_package == 1 %}checked{% endif %} required> {{'Yes'|__}}
+                                            <span></span>
+                                        </label>
+                                        <label class="kt-radio">
+                                            <input type="radio" name="return_defray" class="return_defray" value="2" {% if settings.shipments.return_package == 2 %}checked{% endif %} required> {{'No'|__}}
+                                            <span></span>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    {% endif %}
-                    <div class="form-group row kt-hidden package_fee">
-                        <label class="col-xl-3 col-lg-3 col-form-label">{{'Return package fees responsiable'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
-                        <div class="col-lg-9 col-xl-6">
-                            <div class="kt-radio-inline">
-                                <label class="kt-radio">
-                                    <input type="radio" name="return_package_fee" class="return_package_fee" value="1" checked required> {{'Receiver'|__}}
-                                    <span></span>
+                            {% endif %}
+                            <div class="form-group row kt-hidden package_fee">
+                                <label class="col-xl-3 col-lg-3 col-form-label">{{'Package Cost'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span>
+                                <br /><span class="text-muted">{{'Amount that will be returned to the sender from the receiver'|__}}</span>
                                 </label>
-                                <label class="kt-radio">
-                                    <input type="radio" name="return_package_fee" class="return_package_fee" value="2" required> {{'Sender'|__}}
-                                    <span></span>
-                                </label>
+                                <div class="col-lg-9 col-xl-6">
+                                    <div class="input-group">
+                                        {% if primary_currency.place_symbol_before == 1 %}
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">
+                                                    {{primary_currency.currency_symbol}}
+                                                </span>
+                                            </div>
+                                        {% endif %}
+                        					<input type="text" class="form-control decimal" data-type='currency' name="package_fee" required />
+                                        {% if primary_currency.place_symbol_before == 0 %}
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    {{primary_currency.currency_symbol}}
+                                                </span>
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                            {% if user.role_id != 5 %}
+                                <div class="form-group row kt-hidden package_fee">
+                                    <label class="col-xl-3 col-lg-3 col-form-label">{{'Return Shipment Cost'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
+                                    <div class="col-lg-9 col-xl-6">
+                                        <div class="input-group">
+                                            {% if primary_currency.place_symbol_before == 1 %}
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">
+                                                        {{primary_currency.currency_symbol}}
+                                                    </span>
+                                                </div>
+                                            {% endif %}
+                            					<input type="text" class="form-control decimal" data-type='currency' name="return_courier_fee" id="return_courier_fee" value="{{settings.fees.delivery_cost_back_receiver}}" required />
+                                            {% if primary_currency.place_symbol_before == 0 %}
+                                                <div class="input-group-append">
+                                                    <span class="input-group-text">
+                                                        {{primary_currency.currency_symbol}}
+                                                    </span>
+                                                </div>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                            <div class="form-group row kt-hidden package_fee">
+                                <label class="col-xl-3 col-lg-3 col-form-label">{{'Return package fees responsiable'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
+                                <div class="col-lg-9 col-xl-6">
+                                    <div class="kt-radio-inline">
+                                        <label class="kt-radio">
+                                            <input type="radio" name="return_package_fee" class="return_package_fee" value="1" checked required> {{'Receiver'|__}}
+                                            <span></span>
+                                        </label>
+                                        <label class="kt-radio">
+                                            <input type="radio" name="return_package_fee" class="return_package_fee" value="2" required> {{'Sender'|__}}
+                                            <span></span>
+                                        </label>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -2783,334 +2800,340 @@ function onChangefees(){
 </div>
 <div class="row">
     <div class="col-lg-12">
-        <div class="kt-portlet">
-            <div class="kt-portlet__head">
-				<div class="kt-portlet__head-label">
-					<h3 class="kt-portlet__head-title">
-						{{'Shipment Details'|__}}
-					</h3>
-				</div>
-			</div>
-            <div class="kt-portlet__body">
-                <div class="form-group form-group-last kt-hide">
-    				<div class="alert alert-danger kt_form_msg" role="alert">
-    					<div class="alert-icon"><i class="flaticon-warning"></i></div>
-    				  	<div class="alert-text">
-                            {{'Oh snap! Change a few things up and try submitting again'|__}}.
-    					</div>
-    					<div class="alert-close">
-    						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    					    	<span aria-hidden="true"><i class="la la-close"></i></span>
-    					  	</button>
-    					</div>
-    				</div>
-    			</div>
-                <div class="kt-section">
-					<h3 class="kt-section__title kt-margin-b-20">
-						{{'Package Content'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span>
-					</h3>
-					<div class="kt-section__content">
-                        <div class="form-group form-group-last row" id="package_repeater">
-                            <div data-repeater-list="items" class="col-lg-12">
-                                <div data-repeater-item class="align-items-center">
-                                    <div class="form-group row">
-                                        <div class="{%if settings.shipments.enable_description == 1 %}col-md-4{%else%}col-md-6{%endif%}">
-                                            <div class="kt-form__group--inline">
-                                                <div class="kt-form__label">
-                                                    <label>{{'Category'|__}}:</label>
+        <div class="panel panel-default">
+            <div class="kt-portlet">
+                <div class="panel panel-heading">
+                    <div class="kt-portlet__head panel-title" data-toggle="collapse" data-target="#collapseTFour">
+        				<div class="kt-portlet__head-label">
+        					<h3 class="kt-portlet__head-title">
+        						{{'Shipment Details'|__}}
+        					</h3>
+        				</div>
+        			</div>
+                </div>
+                <div id="collapseTFour" class="panel-collapse collapse">
+                    <div class="kt-portlet__body">
+                        <div class="form-group form-group-last kt-hide">
+            				<div class="alert alert-danger kt_form_msg" role="alert">
+            					<div class="alert-icon"><i class="flaticon-warning"></i></div>
+            				  	<div class="alert-text">
+                                    {{'Oh snap! Change a few things up and try submitting again'|__}}.
+            					</div>
+            					<div class="alert-close">
+            						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            					    	<span aria-hidden="true"><i class="la la-close"></i></span>
+            					  	</button>
+            					</div>
+            				</div>
+            			</div>
+                        <div class="kt-section">
+        					<h3 class="kt-section__title kt-margin-b-20">
+        						{{'Package Content'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span>
+        					</h3>
+        					<div class="kt-section__content">
+                                <div class="form-group form-group-last row" id="package_repeater">
+                                    <div data-repeater-list="items" class="col-lg-12">
+                                        <div data-repeater-item class="align-items-center">
+                                            <div class="form-group row">
+                                                <div class="{%if settings.shipments.enable_description == 1 %}col-md-4{%else%}col-md-6{%endif%}">
+                                                    <div class="kt-form__group--inline">
+                                                        <div class="kt-form__label">
+                                                            <label>{{'Category'|__}}:</label>
+                                                        </div>
+                                                        <div class="kt-form__control">
+                                                            <select class="form-control selectpicker" data-live-search="true" name="category_id" required>
+                                                                <option data-hidden="true"></option>
+                                                                {% for category in categories %}
+                                                                    <option value="{{category.id}}">{{category.name}}</option>
+                                                                {% endfor %}
+                                                            </select>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <div class="kt-form__control">
-                                                    <select class="form-control selectpicker" data-live-search="true" name="category_id" required>
+                                                {%if settings.shipments.enable_description == 1 %}
+                                                <div class="col-md-8">
+                                                    <div class="kt-form__group--inline">
+                                                        <div class="kt-form__label">
+                                                            <label class="kt-label m-label--single">{{'Description'|__}}:</label>
+                                                        </div>
+                                                        <div class="kt-form__control">
+                                                            <input type="text" class="form-control" name="description" value="{{ settings.shipments.description}}">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                {% endif %}
+
+                                                {%if settings.shipments.enable_quantity == 1 %}
+                                                <div class="col-md-6">
+                                                    <div class="kt-form__group--inline">
+                                                        <div class="kt-form__label">
+                                                            <label class="kt-label m-label--single">{{'Quantity'|__}}:</label>
+                                                        </div>
+                                                        <div class="kt-form__control">
+                                                            <input type="text" class="form-control bootstrap-touchspin-vertical-btn" name="quantity"  value="{{ settings.shipments.quantity}}">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                {% endif %}
+                                                {%if settings.shipments.enable_weight == 1 %}
+                                                <div class="col-md-6">
+                                                    <div class="kt-form__group--inline">
+                                                        <div class="kt-form__label">
+                                                            <label class="kt-label m-label--single">{{'Weight'|__}}:</label>
+                                                        </div>
+                                                        <div class="kt-form__control">
+                                                            <div class="input-group">
+                                        						<div class="input-group-prepend"><span class="input-group-text">{{'Kg'|__}}</span></div>
+                                								<input type="text" class="form-control bootstrap-touchspin-vertical-btn sub_weight" name="weight" value="{{ settings.shipments.weight}}" >
+                                        					</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                {% endif %}
+
+                                                {%if settings.shipments.enable_dimensions == 1 %}
+                                                <div class="col-md-12">
+                                                    <div class="kt-form__group--inline">
+                                                        <div class="kt-form__label">
+                                                            <label class="kt-label m-label--single">{{'Dimensions'|__}}&nbsp;<i class="flaticon2-delivery-package"></i>&nbsp;[{{'Length'|__}}&nbsp;x&nbsp;{{'Width'|__}}&nbsp;x&nbsp;{{'Height'|__}}] ({{'cm'|__}}):</label>
+                                                        </div>
+                                                        <div class="kt-form__control">
+                                                            <div class="input-group">
+                                								<div class="input-group-prepend">
+                                                                    <span class="input-group-text">
+                                                                        <input type="text" class="form-control form-control-sm bootstrap-touchspin-vertical-btn" name="length" style="max-width: 100px;" name="weight" value="{{ settings.shipments.length}}">
+                                                                    </span>
+                                                                </div>
+                                								<div class="input-group-prepend"><span class="input-group-text">x</span></div>
+                                								<div class="input-group-prepend">
+                                                                    <span class="input-group-text">
+                                                                        <input type="text" class="form-control form-control-sm bootstrap-touchspin-vertical-btn" name="width" style="max-width: 100px;" name="weight" value="{{ settings.shipments.width}}">
+                                                                    </span>
+                                                                </div>
+                                								<div class="input-group-prepend"><span class="input-group-text">x</span></div>
+                                								<div class="input-group-append">
+                                                                    <span class="input-group-text">
+                                                                        <input type="text" class="form-control form-control-sm bootstrap-touchspin-vertical-btn" name="height" style="max-width: 100px;" name="weight" value="{{ settings.shipments.height}}">
+                                                                    </span>
+                                                                </div>
+                                							</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="d-md-none kt-margin-b-10"></div>
+                                                </div>
+                                                {% endif %}
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-md-3">
+                                                    <a href="javascript:;" data-repeater-delete="" class="btn-sm btn btn-label-danger btn-bold kt-margin-t-25">
+                                                        <i class="la la-trash-o"></i>
+                                                        {{'Delete'|__}}
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group form-group-last row">
+                                        <label class="col-xl-12 col-form-label kt-align-right">
+                                            <a href="javascript:;" data-repeater-create="" class="btn btn-bold btn-sm btn-label-brand">
+                                                <i class="la la-plus"></i> {{'Add Item'|__}}
+                                            </a>
+                                        </label>
+                                   </div>
+                                 </div>
+                            </div>
+                        </div>
+                        {% if user.role_id == 5 %}
+                        <div class="kt-separator kt-separator--border-dashed kt-separator--space-lg kt-separator--portlet-fit"></div>
+                            <div class="kt-section">
+                                <div class="kt-section__content">
+                                    <div class="row">
+                                        <div class="form-group readonly col-lg-6">
+                                            <label>{{'Shipping Fee'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
+                                            <div class="input-group">
+                                                {% if primary_currency.place_symbol_before == 1 %}
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">
+                                                            {{primary_currency.currency_symbol}}
+                                                        </span>
+                                                    </div>
+                                                {% endif %}
+                                                <input type="text" class="form-control decimal" data-type='currency' name="courier_fee" id="delivery_cost" value="{{settings.fees.delivery_cost}}" required readonly>
+                                                {% if primary_currency.place_symbol_before == 0 %}
+                                                    <div class="input-group-append">
+                                                        <span class="input-group-text">
+                                                            {{primary_currency.currency_symbol}}
+                                                        </span>
+                                                    </div>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group col-lg-6">
+                                            <label>{{'Total Weight'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend"><span class="input-group-text">{{'Kg'|__}}</span></div>
+                                                <input  type="text" class="form-control decimal total_weight" name="total_weight" readonly />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                        {% if user.role_id != 5 %}
+                            <div class="kt-separator kt-separator--border-dashed kt-separator--space-lg kt-separator--portlet-fit"></div>
+                            <div class="kt-section">
+            					<div class="kt-section__content">
+                                    <div class="row">
+                                        <!-- <div class="form-group col-lg-4">
+                                            <label>{{'Order Number'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
+                                            <div class="input-group">
+                        						<div class="input-group-prepend"><span class="input-group-text">{{settings.tracking.prefix_order}}</span></div>
+                        						<input type="text" class="form-control mask" name="number" aria-describedby="basic-addon1">
+                        					</div>
+                                        </div> -->
+                                        {%if settings.shipments.enable_tax == 1 %}
+                                            {% if settings.taxes.type == 1 %}
+                                            <div class="form-group col-lg-6">
+                                                <label>{{'Tax'|__}} & {{'Duty'|__}}</label>
+                                                <div class="input-group">
+                            						<div class="input-group-prepend"><span class="input-group-text">%</span></div>
+                            						<input type="text" class="form-control bootstrap-touchspin-vertical-btn" name="tax" value="{{settings.taxes.percent}}">
+                            					</div>
+                                            </div>
+                                            {% else %}
+                                            <div class="form-group col-lg-3">
+                                                <label>{{'SGST'|__}}</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend"><span class="input-group-text">%</span></div>
+                                                    <input type="text" class="form-control bootstrap-touchspin-vertical-btn" name="sgst" value="{{settings.taxes.SGST}}">
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-lg-3">
+                                                <label>{{'CGST'|__}}</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend"><span class="input-group-text">%</span></div>
+                                                    <input type="text" class="form-control bootstrap-touchspin-vertical-btn" name="cgst" value="{{settings.taxes.CGST}}">
+                                                </div>
+                                            </div>
+                                            {% endif %}
+                                        {% endif %}
+                                        {%if settings.shipments.enable_insurance == 1 %}
+                                        <div class="form-group col-lg-6">
+                                            <label>{{'Insurance'|__}}</label>
+                                            <div class="input-group">
+                        						<div class="input-group-prepend"><span class="input-group-text">%</span></div>
+                        						<input type="text" class="form-control bootstrap-touchspin-vertical-btn" name="insurance" value="{{settings.taxes.insurance}}">
+                        					</div>
+                                        </div>
+                                        {% endif %}
+                                    </div>
+                                    <div class="row">
+                                        {%if settings.shipments.enable_shippingMode == 1 %}
+                                        <div class="form-group col-lg-4">
+                                            <label>{{'Shipping Mode'|__}}</label>
+                                            <select class="form-control" data-live-search="true" name="mode_id">
+                                                <option data-hidden="true"></option>
+                                                {% for mode in modes %}
+                                                    <option value="{{mode.id}}" {% if settings.shipments.mode_id == mode.id  %} selected {% endif %}>{{mode.name}}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                        {% endif %}
+                                        {%if settings.shipments.enable_customsValue == 1 %}
+                                        <div class="form-group col-lg-4">
+                                            <label>{{'Customs Value'|__}}</label>
+                                            <input type="text" class="form-control" name="customs_value" value="{{settings.shipments.customsValue}}" aria-describedby="basic-addon1">
+                                        </div>
+                                        {% endif %}
+                                        {%if settings.shipments.enable_courierCompany == 1 %}
+                                        <div class="form-group col-lg-4">
+                                            <label>{{'Courier Company'|__}}</label>
+                                            <select class="form-control" data-live-search="true" name="courier_id">
+                                                <option data-hidden="true"></option>
+                                                {% for courier in couriers %}
+                                                    <option value="{{courier.id}}" {% if settings.shipments.courier_id == courier.id  %} selected {% endif %}>{{courier.name}}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                        {% endif %}
+                                    </div>
+                                    <div class="row">
+                                        {%if settings.shipments.enable_deliveryTime == 1 %}
+                                        <div class="form-group col-lg-6">
+                                            <label>{{'Delivery Time'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
+                                            <select class="form-control" data-live-search="true" name="delivery_time_id" required>
+                                                <option data-hidden="true"></option>
+                                                {% for deliverytime in deliverytimes %}
+                                                    <option value="{{deliverytime.id}}" {% if settings.tracking.default_deliverytime == deliverytime.id %}selected{% endif %}>{{deliverytime.name}}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                        {% endif %}
+                                        {%if settings.shipments.enable_deliveryStatus == 1 %}
+                                        <div class="form-group col-lg-6">
+                                            <label>{{'Delivery Status'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
+                                            <select class="form-control" data-live-search="true" name="status_id" required>
+                                                <option data-hidden="true"></option>
+                                                {% for status in statuses %}
+                                                    <option value="{{status.id}}_{{status.equal}}" {% if settings.tracking.default_status == status.id %}selected{% endif %}>{{status.name}}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                        {% endif %}
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-lg-6">
+                                            <label>{{'Shipping Fee'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
+                                            <div class="input-group">
+                                                {% if primary_currency.place_symbol_before == 1 %}
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">
+                                                            {{primary_currency.currency_symbol}}
+                                                        </span>
+                                                    </div>
+                                                {% endif %}
+                                                <input type="text" class="form-control decimal" data-type='currency' name="courier_fee" id="delivery_cost" value="{{settings.fees.delivery_cost}}" required>
+                                                {% if primary_currency.place_symbol_before == 0 %}
+                                                    <div class="input-group-append">
+                                                        <span class="input-group-text">
+                                                            {{primary_currency.currency_symbol}}
+                                                        </span>
+                                                    </div>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group col-lg-6">
+                                            <label>{{'Total Weight'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend"><span class="input-group-text">{{'Kg'|__}}</span></div>
+                                                <input readonly="" type="text" class="form-control  total_weight" name="total_weight" value="0">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    {%if settings.shipments.enable_assignEmployee == 1 %}
+                                        {% if (user.hasUserPermission('assign', 'c')) %}
+                                            <div class="form-group row kt-margin-t-20">
+                                                <label class="col-xl-3 col-lg-3 col-form-label">{{'Assign Employee'|__}}</label>
+                                                <div class="col-lg-9 col-xl-6">
+                                                    <select class="form-control" data-live-search="true" name="assigned_id">
                                                         <option data-hidden="true"></option>
-                                                        {% for category in categories %}
-                                                            <option value="{{category.id}}">{{category.name}}</option>
+                                                        <option value=""></option>
+                                                        {% for employee in employees %}
+                                                            <option value="{{employee.id}}" {% if settings.shipments.assigned_id == employee.id  %} selected {% endif %}>{{employee.name}}</option>
                                                         {% endfor %}
                                                     </select>
                                                 </div>
                                             </div>
-                                        </div>
-                                        {%if settings.shipments.enable_description == 1 %}
-                                        <div class="col-md-8">
-                                            <div class="kt-form__group--inline">
-                                                <div class="kt-form__label">
-                                                    <label class="kt-label m-label--single">{{'Description'|__}}:</label>
-                                                </div>
-                                                <div class="kt-form__control">
-                                                    <input type="text" class="form-control" name="description" value="{{ settings.shipments.description}}">
-                                                </div>
-                                            </div>
-                                        </div>
                                         {% endif %}
-
-                                        {%if settings.shipments.enable_quantity == 1 %}
-                                        <div class="col-md-6">
-                                            <div class="kt-form__group--inline">
-                                                <div class="kt-form__label">
-                                                    <label class="kt-label m-label--single">{{'Quantity'|__}}:</label>
-                                                </div>
-                                                <div class="kt-form__control">
-                                                    <input type="text" class="form-control bootstrap-touchspin-vertical-btn" name="quantity"  value="{{ settings.shipments.quantity}}">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        {% endif %}
-                                        {%if settings.shipments.enable_weight == 1 %}
-                                        <div class="col-md-6">
-                                            <div class="kt-form__group--inline">
-                                                <div class="kt-form__label">
-                                                    <label class="kt-label m-label--single">{{'Weight'|__}}:</label>
-                                                </div>
-                                                <div class="kt-form__control">
-                                                    <div class="input-group">
-                                						<div class="input-group-prepend"><span class="input-group-text">{{'Kg'|__}}</span></div>
-                        								<input type="text" class="form-control bootstrap-touchspin-vertical-btn sub_weight" name="weight" value="{{ settings.shipments.weight}}" >
-                                					</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        {% endif %}
-
-                                        {%if settings.shipments.enable_dimensions == 1 %}
-                                        <div class="col-md-12">
-                                            <div class="kt-form__group--inline">
-                                                <div class="kt-form__label">
-                                                    <label class="kt-label m-label--single">{{'Dimensions'|__}}&nbsp;<i class="flaticon2-delivery-package"></i>&nbsp;[{{'Length'|__}}&nbsp;x&nbsp;{{'Width'|__}}&nbsp;x&nbsp;{{'Height'|__}}] ({{'cm'|__}}):</label>
-                                                </div>
-                                                <div class="kt-form__control">
-                                                    <div class="input-group">
-                        								<div class="input-group-prepend">
-                                                            <span class="input-group-text">
-                                                                <input type="text" class="form-control form-control-sm bootstrap-touchspin-vertical-btn" name="length" style="max-width: 100px;" name="weight" value="{{ settings.shipments.length}}">
-                                                            </span>
-                                                        </div>
-                        								<div class="input-group-prepend"><span class="input-group-text">x</span></div>
-                        								<div class="input-group-prepend">
-                                                            <span class="input-group-text">
-                                                                <input type="text" class="form-control form-control-sm bootstrap-touchspin-vertical-btn" name="width" style="max-width: 100px;" name="weight" value="{{ settings.shipments.width}}">
-                                                            </span>
-                                                        </div>
-                        								<div class="input-group-prepend"><span class="input-group-text">x</span></div>
-                        								<div class="input-group-append">
-                                                            <span class="input-group-text">
-                                                                <input type="text" class="form-control form-control-sm bootstrap-touchspin-vertical-btn" name="height" style="max-width: 100px;" name="weight" value="{{ settings.shipments.height}}">
-                                                            </span>
-                                                        </div>
-                        							</div>
-                                                </div>
-                                            </div>
-                                            <div class="d-md-none kt-margin-b-10"></div>
-                                        </div>
-                                        {% endif %}
-                                    </div>
-                                    <div class="form-group row">
-                                        <div class="col-md-3">
-                                            <a href="javascript:;" data-repeater-delete="" class="btn-sm btn btn-label-danger btn-bold kt-margin-t-25">
-                                                <i class="la la-trash-o"></i>
-                                                {{'Delete'|__}}
-                                            </a>
-                                        </div>
-                                    </div>
+                                    {% endif %}
                                 </div>
                             </div>
-                            <div class="form-group form-group-last row">
-                                <label class="col-xl-12 col-form-label kt-align-right">
-                                    <a href="javascript:;" data-repeater-create="" class="btn btn-bold btn-sm btn-label-brand">
-                                        <i class="la la-plus"></i> {{'Add Item'|__}}
-                                    </a>
-                                </label>
-                           </div>
-                         </div>
+                        {% endif %}
                     </div>
                 </div>
-                {% if user.role_id == 5 %}
-                <div class="kt-separator kt-separator--border-dashed kt-separator--space-lg kt-separator--portlet-fit"></div>
-                    <div class="kt-section">
-                        <div class="kt-section__content">
-                            <div class="row">
-                                <div class="form-group readonly col-lg-6">
-                                    <label>{{'Shipping Fee'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
-                                    <div class="input-group">
-                                        {% if primary_currency.place_symbol_before == 1 %}
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text">
-                                                    {{primary_currency.currency_symbol}}
-                                                </span>
-                                            </div>
-                                        {% endif %}
-                                        <input type="text" class="form-control decimal" data-type='currency' name="courier_fee" id="delivery_cost" value="{{settings.fees.delivery_cost}}" required readonly>
-                                        {% if primary_currency.place_symbol_before == 0 %}
-                                            <div class="input-group-append">
-                                                <span class="input-group-text">
-                                                    {{primary_currency.currency_symbol}}
-                                                </span>
-                                            </div>
-                                        {% endif %}
-                                    </div>
-                                </div>
-
-                                <div class="form-group col-lg-6">
-                                    <label>{{'Total Weight'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
-                                    <div class="input-group">
-                                        <div class="input-group-prepend"><span class="input-group-text">{{'Kg'|__}}</span></div>
-                                        <input  type="text" class="form-control decimal total_weight" name="total_weight" readonly />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                {% endif %}
-                {% if user.role_id != 5 %}
-                    <div class="kt-separator kt-separator--border-dashed kt-separator--space-lg kt-separator--portlet-fit"></div>
-                    <div class="kt-section">
-    					<div class="kt-section__content">
-                            <div class="row">
-                                <!-- <div class="form-group col-lg-4">
-                                    <label>{{'Order Number'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
-                                    <div class="input-group">
-                						<div class="input-group-prepend"><span class="input-group-text">{{settings.tracking.prefix_order}}</span></div>
-                						<input type="text" class="form-control mask" name="number" aria-describedby="basic-addon1">
-                					</div>
-                                </div> -->
-                                {%if settings.shipments.enable_tax == 1 %}
-                                    {% if settings.taxes.type == 1 %}
-                                    <div class="form-group col-lg-6">
-                                        <label>{{'Tax'|__}} & {{'Duty'|__}}</label>
-                                        <div class="input-group">
-                    						<div class="input-group-prepend"><span class="input-group-text">%</span></div>
-                    						<input type="text" class="form-control bootstrap-touchspin-vertical-btn" name="tax" value="{{settings.taxes.percent}}">
-                    					</div>
-                                    </div>
-                                    {% else %}
-                                    <div class="form-group col-lg-3">
-                                        <label>{{'SGST'|__}}</label>
-                                        <div class="input-group">
-                                            <div class="input-group-prepend"><span class="input-group-text">%</span></div>
-                                            <input type="text" class="form-control bootstrap-touchspin-vertical-btn" name="sgst" value="{{settings.taxes.SGST}}">
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-lg-3">
-                                        <label>{{'CGST'|__}}</label>
-                                        <div class="input-group">
-                                            <div class="input-group-prepend"><span class="input-group-text">%</span></div>
-                                            <input type="text" class="form-control bootstrap-touchspin-vertical-btn" name="cgst" value="{{settings.taxes.CGST}}">
-                                        </div>
-                                    </div>
-                                    {% endif %}
-                                {% endif %}
-                                {%if settings.shipments.enable_insurance == 1 %}
-                                <div class="form-group col-lg-6">
-                                    <label>{{'Insurance'|__}}</label>
-                                    <div class="input-group">
-                						<div class="input-group-prepend"><span class="input-group-text">%</span></div>
-                						<input type="text" class="form-control bootstrap-touchspin-vertical-btn" name="insurance" value="{{settings.taxes.insurance}}">
-                					</div>
-                                </div>
-                                {% endif %}
-                            </div>
-                            <div class="row">
-                                {%if settings.shipments.enable_shippingMode == 1 %}
-                                <div class="form-group col-lg-4">
-                                    <label>{{'Shipping Mode'|__}}</label>
-                                    <select class="form-control" data-live-search="true" name="mode_id">
-                                        <option data-hidden="true"></option>
-                                        {% for mode in modes %}
-                                            <option value="{{mode.id}}" {% if settings.shipments.mode_id == mode.id  %} selected {% endif %}>{{mode.name}}</option>
-                                        {% endfor %}
-                                    </select>
-                                </div>
-                                {% endif %}
-                                {%if settings.shipments.enable_customsValue == 1 %}
-                                <div class="form-group col-lg-4">
-                                    <label>{{'Customs Value'|__}}</label>
-                                    <input type="text" class="form-control" name="customs_value" value="{{settings.shipments.customsValue}}" aria-describedby="basic-addon1">
-                                </div>
-                                {% endif %}
-                                {%if settings.shipments.enable_courierCompany == 1 %}
-                                <div class="form-group col-lg-4">
-                                    <label>{{'Courier Company'|__}}</label>
-                                    <select class="form-control" data-live-search="true" name="courier_id">
-                                        <option data-hidden="true"></option>
-                                        {% for courier in couriers %}
-                                            <option value="{{courier.id}}" {% if settings.shipments.courier_id == courier.id  %} selected {% endif %}>{{courier.name}}</option>
-                                        {% endfor %}
-                                    </select>
-                                </div>
-                                {% endif %}
-                            </div>
-                            <div class="row">
-                                {%if settings.shipments.enable_deliveryTime == 1 %}
-                                <div class="form-group col-lg-6">
-                                    <label>{{'Delivery Time'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
-                                    <select class="form-control" data-live-search="true" name="delivery_time_id" required>
-                                        <option data-hidden="true"></option>
-                                        {% for deliverytime in deliverytimes %}
-                                            <option value="{{deliverytime.id}}" {% if settings.tracking.default_deliverytime == deliverytime.id %}selected{% endif %}>{{deliverytime.name}}</option>
-                                        {% endfor %}
-                                    </select>
-                                </div>
-                                {% endif %}
-                                {%if settings.shipments.enable_deliveryStatus == 1 %}
-                                <div class="form-group col-lg-6">
-                                    <label>{{'Delivery Status'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
-                                    <select class="form-control" data-live-search="true" name="status_id" required>
-                                        <option data-hidden="true"></option>
-                                        {% for status in statuses %}
-                                            <option value="{{status.id}}_{{status.equal}}" {% if settings.tracking.default_status == status.id %}selected{% endif %}>{{status.name}}</option>
-                                        {% endfor %}
-                                    </select>
-                                </div>
-                                {% endif %}
-                            </div>
-                            <div class="row">
-                                <div class="form-group col-lg-6">
-                                    <label>{{'Shipping Fee'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
-                                    <div class="input-group">
-                                        {% if primary_currency.place_symbol_before == 1 %}
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text">
-                                                    {{primary_currency.currency_symbol}}
-                                                </span>
-                                            </div>
-                                        {% endif %}
-                                        <input type="text" class="form-control decimal" data-type='currency' name="courier_fee" id="delivery_cost" value="{{settings.fees.delivery_cost}}" required>
-                                        {% if primary_currency.place_symbol_before == 0 %}
-                                            <div class="input-group-append">
-                                                <span class="input-group-text">
-                                                    {{primary_currency.currency_symbol}}
-                                                </span>
-                                            </div>
-                                        {% endif %}
-                                    </div>
-                                </div>
-
-                                <div class="form-group col-lg-6">
-                                    <label>{{'Total Weight'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
-                                    <div class="input-group">
-                                        <div class="input-group-prepend"><span class="input-group-text">{{'Kg'|__}}</span></div>
-                                        <input readonly="" type="text" class="form-control  total_weight" name="total_weight" value="0">
-                                    </div>
-                                </div>
-
-                            </div>
-                            {%if settings.shipments.enable_assignEmployee == 1 %}
-                                {% if (user.hasUserPermission('assign', 'c')) %}
-                                    <div class="form-group row kt-margin-t-20">
-                                        <label class="col-xl-3 col-lg-3 col-form-label">{{'Assign Employee'|__}}</label>
-                                        <div class="col-lg-9 col-xl-6">
-                                            <select class="form-control" data-live-search="true" name="assigned_id">
-                                                <option data-hidden="true"></option>
-                                                <option value=""></option>
-                                                {% for employee in employees %}
-                                                    <option value="{{employee.id}}" {% if settings.shipments.assigned_id == employee.id  %} selected {% endif %}>{{employee.name}}</option>
-                                                {% endfor %}
-                                            </select>
-                                        </div>
-                                    </div>
-                                {% endif %}
-                            {% endif %}
-                        </div>
-                    </div>
-                {% endif %}
             </div>
         </div>
     </div>
@@ -3119,51 +3142,55 @@ function onChangefees(){
 
 <div class="row">
     <div class="col-lg-12">
-        <div class="kt-portlet kt-portlet--mobile">
-            <div class="kt-portlet__head">
-                <div class="kt-portlet__head-label">
-                    <h3 class="kt-portlet__head-title">
-                        {{'Choose your truck'|__}}
-                    </h3>
-                </div>
-            </div>
-            <div class="kt-portlet__body">
-                <div class="row">
-                    <div class="form-group col-lg-4">
-                        <label for="vehicle_category">{{'Choose your vehicle category'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
-                    </div>
-                    <div class="form-group col-lg-8">
-                        <select class="form-control vehicle_category"  name="vehicle_category" id="vehicle_category" >
-                            <option data-hidden="true"></option>
-                            {% for categories_cru in categories_crud %}
-                            <option value="{{categories_cru.id}}">{{categories_cru.title}}</option>
-                            {% endfor%}
-                        </select>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="form-group col-lg-12">
-                        <label for="vehicle_type">{{'Choose your vehicle type'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
-                    </div>
-                    <div class="form-group col-lg-12" id="vehicle_type">
-                        <div id="vehicleTypeCarousel" class="vehicleTypeCarousel">
-                            {% for vehcile_cru in vehcile_crud %}
-                            <div class="card card-body mx-3 px-0 border-0">
-                                <div class="content-inner mx-3 text-center d-block">
-                                    <img alt="" class="img-fluid mx-auto" src="./admin/media/images/vehicle 2.jpg">
-                                    <div class="vehicle-detail text-center mx-2 mx-lg-4 mt-4">
-                                        <input type="radio" name="truck_used" value="{{vehcile_cru.id}}" >
-                                        <h4 class="font-weight-bold">Name : {{vehcile_cru.name}}</h4>
-                                        <p class="mb-0">{{vehcile_cru.description}}</p>
-                                        <p class="mb-0">Capacity : {{vehcile_cru.capacity}}</p>
-
-
-                                    </div>
-                                </div>
-                            </div>
-                            {% endfor%}
+        <div class="panel panel-default">
+            <div class="kt-portlet kt-portlet--mobile">
+                <div class="panel panel-heading">
+                    <div class="kt-portlet__head panel-title" data-toggle="collapse" data-target="#collapseTFive">
+                        <div class="kt-portlet__head-label">
+                            <h3 class="kt-portlet__head-title">
+                                {{'Choose your truck'|__}}
+                            </h3>
                         </div>
+                    </div>
+                </div>
+                <div id="collapseTFive" class="panel-collapse collapse">
+                    <div class="kt-portlet__body">
+                        <div class="row">
+                            <div class="form-group col-lg-4">
+                                <label for="vehicle_category">{{'Choose your vehicle category'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
+                            </div>
+                            <div class="form-group col-lg-8">
+                                <select class="form-control vehicle_category"  name="vehicle_category" id="vehicle_category" >
+                                    <option data-hidden="true"></option>
+                                    {% for categories_cru in categories_crud %}
+                                    <option value="Category A">sdasd</option>
+                                    {% endfor%}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-lg-12">
+                                <label for="vehicle_type">{{'Choose your vehicle type'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
+                            </div>
+                            <div class="form-group col-lg-12" id="vehicle_type">
+                                <div id="vehicleTypeCarousel" class="vehicleTypeCarousel">
+                                    {% for vehcile_cru in vehcile_crud %}
+                                    <div class="card card-body mx-3 px-0 border-0">
+                                        <input type="radio" name="" class="make_radio_slide">
+                                        <div class="content-inner mx-3 text-center d-block">
+                                            <img alt="" class="img-fluid mx-auto" src="./admin/media/images/vehicle 2.jpg">
+                                            <div class="vehicle-detail text-center mx-2 mx-lg-4 mt-4">
+                                                <h4 class="font-weight-bold">Name : {{vehcile_cru.name}}</h4>
+                                                <p class="mb-0">{{vehcile_cru.description}}</p>
+                                                <p class="mb-0">Capacity : {{vehcile_cru.capacity}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endfor%}
+                                </div>
 
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -3190,6 +3217,10 @@ function onChangefees(){
 {{ form_close() }}
 
 {% put styles %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"
+        integrity="sha384-REHJTs1r2ErKBuJB0fCK99gCYsVjwxHrSU0N7I1zl9vZbggVJXRMsv/sLlOAGb4M" crossorigin="anonymous">
     <style>
         .readonly .input-group-prepend span {
             background: none;
@@ -3220,6 +3251,36 @@ function onChangefees(){
         }
         .kt-portlet .kt-portlet__head .kt-portlet__head-label .kt-portlet__head-title {
             font-weight: 700;
+        }
+        .panel-title {
+          position: relative;
+          cursor: pointer;
+        }
+          
+        .panel-title::after {
+          content: "\f107";
+          color: #48465b;
+          top: 13px;
+          font-size: 22px;
+          right: 17px;
+          position: absolute;
+          font-family: "FontAwesome"
+        }
+        .panel-title[aria-expanded="true"]::after {
+          content: "\f106";
+        }
+        .make_radio_slide {
+          position: absolute;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          right: 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          height: 100%;
+          opacity: 0;
         }
     </style>
 {% endput %}

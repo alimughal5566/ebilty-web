@@ -1,1 +1,0 @@
-1620456554a:1:{i:0;O:8:"stdClass":3:{s:2:"id";i:6;s:4:"item";s:26:"tiipiik_smssender_settings";s:5:"value";s:261:"{"enable":0,"gateway":"smsala","from":"+14075054816","twilio_sid":"ACac97aa77a14f1efe5ebcb5ed30ac9fef","twilio_token":"02f9af00215e28054fb5f74589517885","smsala_api_id":"","smsala_api_password":"","smsala_sms_type":"","smsala_encoding":"","smsala_sender_id":""}";}}
