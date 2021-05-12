@@ -37,7 +37,7 @@ return Redirect::back();
 ?>
 ==
 
-<div class="kt-datatable"></div>
+<div id="shipmenttableStatus" class="kt-datatable"></div>
 
 <script>
     function listing(){
@@ -209,7 +209,7 @@ return Redirect::back();
                     template: function (data) {
                         {% if user.role_id != 12 %}
                         var output = '' +
-                            '<div class="btn-group btn-group" role="group" aria-label="...">'+
+                            '<div id="shipmentbtns" class="btn-group btn-group" role="group" aria-label="...">'+
                             '<a href="{{url("dashboard/shipments")}}/'+data.id+'/view" class="btn btn-brand btn-sm btn-icon" data-skin="dark" data-toggle="kt-tooltip" data-placement="top" title="{{"View Shipment"|__}}"><i class="la la-eye"></i></button>';
 
 
