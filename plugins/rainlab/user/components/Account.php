@@ -335,7 +335,6 @@ class Account extends ComponentBase
              */
             $data['role_id']=$data['user_role_id'];
             $data['vehicle_category']=$data['vehicle_category'];
-            $data['truck_used']=$data['truck_used'];
             Event::fire('rainlab.user.beforeRegister', [&$data]);
             $requireActivation = UserSettings::get('require_activation', true);
             $automaticActivation = UserSettings::get('activate_mode') == UserSettings::ACTIVATE_AUTO;
