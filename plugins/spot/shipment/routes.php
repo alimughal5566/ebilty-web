@@ -6371,7 +6371,6 @@ Route::group(['prefix' => 'api'], function() {
         die(json_encode($full_data));
 
     })->middleware('web');
-
     Route::any('shipments/{type}', function(Request $req,$type) {
         $request = post();
         $page                       =   $request['pagination']['page'];

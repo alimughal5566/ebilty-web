@@ -3172,10 +3172,11 @@ function onChangefees(){
                             <div class="form-group col-lg-12">
                                 <label for="vehicle_type">{{'Choose your vehicle type'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
                             </div>
+                            <input type='hidden' id='slectedTracks' name='truck_used' />
                             <div class="form-group col-lg-12" id="vehicle_type">
                                 <div id="vehicleTypeCarousel" class="vehicleTypeCarousel">
                                     {% for vehcile_cru in vehcile_crud %}
-                                    <div class="card card-body mx-3 px-0 border-0">
+                                    <div onclick="getvahicalid({{vehcile_cru.id}})" class="card border-0 card-body mx-3 px-0 selectedVahicals vahicalContainer{{vehcile_cru.id}}" >
                                         <input type="radio" name="" class="make_radio_slide">
                                         <div class="content-inner mx-3 text-center d-block">
                                             <img alt="" class="img-fluid mx-auto" src="./admin/media/images/vehicle 2.jpg">
@@ -3288,6 +3289,12 @@ function onChangefees(){
 <script src="{{ 'assets/admin/vendors/custom/geocomplete/jquery.geocomplete.js'|theme }}" type="text/javascript"></script>
 <script src="//maps.googleapis.com/maps/api/js?libraries=places&key={{settings.google.map}}"></script>
 <script type="text/javascript">
+    function getvahicalid(params) {
+        $("#slectedTracks").val(params)
+        $(".selectedVahicals").addClass("border-0")
+        $(`.vahicalContainer${params}`).removeClass("border-0")
+        $(`.vahicalContainer${params}`).css({ "border":" 2px solid #fed06f "})
+    }
 KTUtil.ready(function () {
     $( ".kt_form" ).validate({
         ignore: ":hidden",
@@ -3336,6 +3343,9 @@ KTUtil.ready(function () {
     });
 
 
+
+  
+
     $('body').on('click', '.type', function(e){
         var selected = $(this).val();
         if(selected == 2){
@@ -3351,6 +3361,9 @@ KTUtil.ready(function () {
                 $('.receiver_information').removeClass('kt-hidden');
             }
         }
+
+
+
 
         var show_receiver_info = $('.show_receiver_info:checked').val();
          var sender_address_id = $('#sender_address_id').val();
