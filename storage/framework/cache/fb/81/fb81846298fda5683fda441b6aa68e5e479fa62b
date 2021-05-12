@@ -1,4 +1,4 @@
-1620821122a:1:{s:22:"dashboard/manifest.htm";a:19:{s:8:"fileName";s:22:"dashboard/manifest.htm";s:7:"content";s:32513:"title = "Manifest View"
+1620821831a:1:{s:22:"dashboard/manifest.htm";a:19:{s:8:"fileName";s:22:"dashboard/manifest.htm";s:7:"content";s:32513:"title = "Manifest View"
 url = "/dashboard/shipments/manifest/:id/view"
 layout = "admin"
 is_hidden = 0
