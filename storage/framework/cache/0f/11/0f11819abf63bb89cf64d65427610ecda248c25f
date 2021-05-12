@@ -1,4 +1,4 @@
-1620718558a:1:{s:9:"login.htm";a:21:{s:8:"fileName";s:9:"login.htm";s:7:"content";s:43782:"title = "Login"
+1620820888a:1:{s:9:"login.htm";a:21:{s:8:"fileName";s:9:"login.htm";s:7:"content";s:43800:"title = "Login"
 url = "/login/:code?"
 layout = "blank"
 is_hidden = 0
@@ -32,7 +32,7 @@ function onStart(){
     if(Auth::getUser()){
         return Redirect::to('dashboard');
     }
-$this['categories']= \Spot\Shipment\Models\Category::select('id','name')->get();
+$this['categories_car']= \Spot\Shipment\Models\Categories::select('id','title')->get();
 $this['cars']= \Spot\Shipment\Models\Car::select('id','name')->get();
 
 
@@ -87,7 +87,7 @@ function onMyRegister()
     $this['account']->onRegister();
 }
 function onChangefees1(){
-return \Spot\Shipment\Models\Car::select('id','name')->where('transport_id',$_POST['id'])->get();
+return \Spot\Shipment\Models\Vehicles::select('id','name')->where('categories_id',$_POST['id'])->get();
 }
 ?>
 ==
@@ -260,8 +260,8 @@ return \Spot\Shipment\Models\Car::select('id','name')->where('transport_id',$_PO
                                     <label for="vehicle_category" class="sr-only"></label>
                                     <select name="vehicle_category" requierd class="form-control selectpicker" data-dropup-auto="false" id="vehicle_category" autocomplete="off" >
 
-                                        {% for category in categories %}
-                                        <option value="{{category.id}}">{{category.name}}</option>
+                                        {% for category in categories_car %}
+                                        <option value="{{category.id}}">{{category.title}}</option>
                                         {% endfor %}
                                         <option  value="" selected disabled>Vehicle category</option>
                                     </select>
@@ -793,7 +793,7 @@ return \Spot\Shipment\Models\Car::select('id','name')->where('transport_id',$_PO
 
  </script>
  {% endput %}
-";s:5:"mtime";i:1620716886;s:6:"markup";s:41322:"<style>
+";s:5:"mtime";i:1620739540;s:6:"markup";s:41327:"<style>
     /*$this['departments']=\Spot\Shipment\Models\UsersGroups::where('id','!=',1)->get();*/
     /*<!--dd($this['departments']);-->*/
 
@@ -961,8 +961,8 @@ return \Spot\Shipment\Models\Car::select('id','name')->where('transport_id',$_PO
                                     <label for="vehicle_category" class="sr-only"></label>
                                     <select name="vehicle_category" requierd class="form-control selectpicker" data-dropup-auto="false" id="vehicle_category" autocomplete="off" >
 
-                                        {% for category in categories %}
-                                        <option value="{{category.id}}">{{category.name}}</option>
+                                        {% for category in categories_car %}
+                                        <option value="{{category.id}}">{{category.title}}</option>
                                         {% endfor %}
                                         <option  value="" selected disabled>Vehicle category</option>
                                     </select>
@@ -1493,11 +1493,11 @@ return \Spot\Shipment\Models\Car::select('id','name')->where('transport_id',$_PO
 
 
  </script>
- {% endput %}";s:4:"code";s:1964:"function onStart(){
+ {% endput %}";s:4:"code";s:1977:"function onStart(){
     if(Auth::getUser()){
         return Redirect::to('dashboard');
     }
-$this['categories']= \Spot\Shipment\Models\Category::select('id','name')->get();
+$this['categories_car']= \Spot\Shipment\Models\Categories::select('id','title')->get();
 $this['cars']= \Spot\Shipment\Models\Car::select('id','name')->get();
 
 
@@ -1552,5 +1552,5 @@ function onMyRegister()
     $this['account']->onRegister();
 }
 function onChangefees1(){
-return \Spot\Shipment\Models\Car::select('id','name')->where('transport_id',$_POST['id'])->get();
+return \Spot\Shipment\Models\Vehicles::select('id','name')->where('categories_id',$_POST['id'])->get();
 }";s:5:"title";s:5:"Login";s:3:"url";s:13:"/login/:code?";s:6:"layout";s:5:"blank";s:9:"is_hidden";s:1:"0";s:4:"role";s:1:"0";s:10:"permission";s:1:"0";s:14:"anonymous_only";s:1:"1";s:11:"logged_only";s:1:"0";s:8:"child_of";s:13:"mey_no_parent";s:10:"hide_crumb";s:1:"0";s:18:"remove_crumb_trail";s:1:"0";s:14:"crumb_disabled";s:1:"0";s:7:"viewBag";a:2:{s:11:"localeTitle";a:1:{s:2:"ar";s:23:"تسجيل الدخول";}s:9:"localeUrl";a:1:{s:2:"ar";s:13:"/login/:code?";}}s:7:"account";a:3:{s:8:"redirect";s:19:"dashboard/dashboard";s:9:"paramCode";s:4:"code";s:11:"forceSecure";s:1:"0";}s:13:"resetPassword";a:1:{s:9:"paramCode";s:4:"code";}s:7:"session";a:1:{s:8:"security";s:3:"all";}}}

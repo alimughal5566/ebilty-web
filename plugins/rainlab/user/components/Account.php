@@ -305,8 +305,9 @@ class Account extends ComponentBase
                 $name=time() . '.png';
 
                 Storage::disk('app/uploads/public/images')->put($name, $data);
-                $data['cnic']=$name;
+
             }
+            $data['cnic']=$name??'';
             if (!array_key_exists('password_confirmation', $data)) {
                 $data['password_confirmation'] = post('password');
             }
@@ -333,10 +334,11 @@ class Account extends ComponentBase
             /*
              * Register user
              */
-            $data['role_id']=$data['user_role_id'];
-            $data['vehicle_category']=$data['vehicle_category'];
-            $data['truck_used']=$data['truck_used'];
+            $data['role_id']=$data['user_role_id']??'';
+            $data['vehicle_category']=$data['vehicle_category']??'';
+            $data['truck_used']=$data['truck_used']??'';
             Event::fire('rainlab.user.beforeRegister', [&$data]);
+
             $requireActivation = UserSettings::get('require_activation', true);
             $automaticActivation = UserSettings::get('activate_mode') == UserSettings::ACTIVATE_AUTO;
             $userActivation = UserSettings::get('activate_mode') == UserSettings::ACTIVATE_USER;
@@ -344,7 +346,7 @@ class Account extends ComponentBase
 
             $user = Auth::register($data, $automaticActivation);
 
-
+dd($user);
             Event::fire('rainlab.user.register', [$user, $data]);
 
             /*

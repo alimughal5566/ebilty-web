@@ -6371,7 +6371,6 @@ Route::group(['prefix' => 'api'], function() {
         die(json_encode($full_data));
 
     })->middleware('web');
-
     Route::any('shipments/{type}', function(Request $req,$type) {
         $request = post();
         $page                       =   $request['pagination']['page'];
@@ -6908,11 +6907,12 @@ Route::group(['prefix' => 'api'], function() {
                 });
                 break;
             case 12:
-                $records    =   $records->where(function($q){
-                    $q->where('sender_id', Auth::getUser()->id);
-                    $q->orWhere('receiver_id', Auth::getUser()->id);
-                    $q->orWhere('created_by', Auth::getUser()->id);
-                })
+                $records    =   $records
+//                    ->where(function($q){
+//                    $q->where('sender_id', Auth::getUser()->id);
+//                    $q->orWhere('receiver_id', Auth::getUser()->id);
+//                    $q->orWhere('created_by', Auth::getUser()->id);
+//                })
                     ->where('truck_used' , Auth::getUser()->truck_used)
                     ->where('vehicle_category' , Auth::getUser()->vehicle_category);;
                 break;

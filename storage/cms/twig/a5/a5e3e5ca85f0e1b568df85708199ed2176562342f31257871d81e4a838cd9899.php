@@ -359,69 +359,76 @@ class __TwigTemplate_4166c30a1e70ab6b8a989ed774970a59ee21c26145be99bf4de664e2fb4
                         ";
             }
             // line 183
-            echo "
-                        ";
-            // line 184
-            if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "role_id", [], "any", false, false, false, 184) != 5)) {
-                // line 185
+            echo "                        ";
+            if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "role_id", [], "any", false, false, false, 183) != 5)) {
+                // line 184
                 echo "                        if(data.requested   ==  0 || data.requested == 1 || data.requested == 9 || data.requested == 5){
                             output += '<a href=\"javascript:;\" class=\"assign_employee btn btn-brand btn-sm btn-icon\" data-skin=\"dark\" data-toggle=\"modal\" data-target=\"#assign_shipmentEmployee\" data-placement=\"top\" title=\"";
-                // line 186
+                // line 185
                 echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Assign Employee"]);
                 echo "\" id=\"'+data.id+'\" ><i class=\"la la-user\"></i></button>';
                         }
                         ";
             }
-            // line 189
-            echo "
-                        ";
-            // line 190
-            if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "role_id", [], "any", false, false, false, 190) != 5)) {
-                // line 191
+            // line 188
+            echo "                        ";
+            if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "role_id", [], "any", false, false, false, 188) != 5)) {
+                // line 189
                 echo "                        if(data.requested   ==  1 ){
                             output += '<a href=\"javascript:;\" class=\"shipmentReceived btn btn-brand btn-sm btn-icon\" data-skin=\"dark\"  data-placement=\"top\" title=\"";
-                // line 192
+                // line 190
                 echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Received"]);
                 echo "\" id=\"'+data.id+'\" ><i class=\"la la-arrow-down\"></i></button>';
                         }
                         ";
             }
-            // line 195
-            echo "
-
-                        ";
-            // line 197
-            if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "role_id", [], "any", false, false, false, 197) != 5)) {
-                // line 198
+            // line 193
+            echo "                        ";
+            if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "role_id", [], "any", false, false, false, 193) != 5)) {
+                // line 194
                 echo "                        if(data.requested   ==  1 || data.requested == 9 || data.requested == 3 || data.requested == 7){
                             output += '<a href=\"javascript:;\" class=\"shipmentDeliveried btn btn-brand btn-sm btn-icon\" data-skin=\"dark\"  data-placement=\"top\" title=\"";
-                // line 199
+                // line 195
                 echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["set as Deliveried"]);
                 echo "\" id=\"'+data.id+'\" ><i class=\"la la-thumbs-o-up\"></i></button>';
                         }
                         ";
             }
-            // line 202
-            echo "
-                        ";
-            // line 203
-            if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "role_id", [], "any", false, false, false, 203) != 5)) {
-                // line 204
+            // line 198
+            echo "                        ";
+            if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "role_id", [], "any", false, false, false, 198) != 5)) {
+                // line 199
                 echo "                        if(data.requested   ==  1 || data.requested == 9 || data.requested == 3 || data.requested == 4 || data.requested == 7){
                             output += '<a href=\"javascript:;\" class=\"shipmentPaid btn btn-brand btn-sm btn-icon\" data-skin=\"dark\"  data-placement=\"top\" title=\"";
-                // line 205
+                // line 200
                 echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Paid"]);
                 echo "\" id=\"'+data.id+'\" ><i class=\"la la-dollar\"></i></button>';
                         }
                         ";
             }
-            // line 208
+            // line 203
             echo "
                         ";
-            // line 209
-            if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "order", 1 => "u"], "method", false, false, false, 209) && (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "role_id", [], "any", false, false, false, 209) != 5))) {
-                // line 210
+            // line 204
+            if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "order", 1 => "u"], "method", false, false, false, 204) && (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "role_id", [], "any", false, false, false, 204) != 5))) {
+                // line 205
                 echo "                        if(data.requested   ==  0 || data.requested == 1 || data.requested == 100){
+                            output += '<a href=\"";
+                // line 206
+                echo url("dashboard/shipments");
+                echo "/'+data.id+'/edit\" class=\"btn btn-brand btn-sm btn-icon\" data-skin=\"dark\" data-toggle=\"kt-tooltip\" data-placement=\"top\" title=\"";
+                echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Edit Shipment"]);
+                echo "\"><i class=\"la la-edit\"></i></button>';
+                        }
+                        ";
+            }
+            // line 209
+            echo "                        ";
+            if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "role_id", [], "any", false, false, false, 209) == 5)) {
+                // line 210
+                echo "                        if((data.requested   ==  0 || data.requested == 100) && data.sender_id == ";
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "id", [], "any", false, false, false, 210), "html", null, true);
+                echo "){
                             output += '<a href=\"";
                 // line 211
                 echo url("dashboard/shipments");
@@ -432,37 +439,21 @@ class __TwigTemplate_4166c30a1e70ab6b8a989ed774970a59ee21c26145be99bf4de664e2fb4
                         ";
             }
             // line 214
-            echo "                        ";
-            if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "role_id", [], "any", false, false, false, 214) == 5)) {
-                // line 215
-                echo "                        if((data.requested   ==  0 || data.requested == 100) && data.sender_id == ";
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "id", [], "any", false, false, false, 215), "html", null, true);
-                echo "){
-                            output += '<a href=\"";
-                // line 216
-                echo url("dashboard/shipments");
-                echo "/'+data.id+'/edit\" class=\"btn btn-brand btn-sm btn-icon\" data-skin=\"dark\" data-toggle=\"kt-tooltip\" data-placement=\"top\" title=\"";
-                echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Edit Shipment"]);
-                echo "\"><i class=\"la la-edit\"></i></button>';
-                        }
-                        ";
-            }
-            // line 219
             echo "                        if((data.requested   !=  0 && data.requested   !=  1 && data.requested != 100)){
                             output += '<a href=\"";
-            // line 220
+            // line 215
             echo url("dashboard/shipments");
             echo "/'+data.id+'/print/shipment\" target=\"_blank\" class=\"btn btn-info btn-sm btn-icon\" data-skin=\"dark\" data-toggle=\"kt-tooltip\" data-placement=\"top\" title=\"";
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Print Shipment"]);
             echo "\"><i class=\"la la-print\"></i></button>';
                         }
                         ";
-            // line 222
-            if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "order", 1 => "u"], "method", false, false, false, 222)) {
-                // line 223
+            // line 217
+            if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "order", 1 => "u"], "method", false, false, false, 217)) {
+                // line 218
                 echo "                        if((data.requested   ==  100 || data.requested   ==  0 || data.requested == 1)){
                             output += '<a href=\"";
-                // line 224
+                // line 219
                 echo url("dashboard/shipments");
                 echo "/'+data.id+'/print/label\" class=\"btn btn-info btn-sm btn-icon\" data-skin=\"dark\" data-toggle=\"kt-tooltip\" data-placement=\"top\" title=\"";
                 echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Print Label"]);
@@ -470,13 +461,13 @@ class __TwigTemplate_4166c30a1e70ab6b8a989ed774970a59ee21c26145be99bf4de664e2fb4
                         }
                         ";
             }
-            // line 227
+            // line 222
             echo "                        ";
-            if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "order", 1 => "u"], "method", false, false, false, 227)) {
-                // line 228
+            if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "order", 1 => "u"], "method", false, false, false, 222)) {
+                // line 223
                 echo "                        if((data.requested   ==  3 || data.requested   ==  5 || data.requested == 6 || data.requested == 7 || data.requested == 9)){
                             output += '<a href=\"";
-                // line 229
+                // line 224
                 echo url("dashboard/shipments");
                 echo "/'+data.id+'/update\" class=\"btn btn-info btn-sm btn-icon\" data-skin=\"dark\" data-toggle=\"kt-tooltip\" data-placement=\"top\" title=\"";
                 echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Update Status"]);
@@ -484,16 +475,16 @@ class __TwigTemplate_4166c30a1e70ab6b8a989ed774970a59ee21c26145be99bf4de664e2fb4
                         }
                         ";
             }
-            // line 232
+            // line 227
             echo "                        //0 = Pending | 1 = Approved | 2 = Refused | 3 = Delivered to driver | 4 = Delivered | 5 = Return request | 6 = Delivery of discards to the driver | 7 = Supply in stock | 8 = Returned | 9 = received
 
                         ";
-            // line 234
-            if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "order", 1 => "u"], "method", false, false, false, 234)) {
-                // line 235
+            // line 229
+            if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "order", 1 => "u"], "method", false, false, false, 229)) {
+                // line 230
                 echo "                        if((data.requested   ==  1 || data.requested   ==  3)){
                             output += '<a href=\"";
-                // line 236
+                // line 231
                 echo url("dashboard/shipments");
                 echo "/'+data.id+'/deliver\" class=\"btn btn-success btn-sm btn-icon\" data-skin=\"dark\" data-toggle=\"kt-tooltip\" data-placement=\"top\" title=\"";
                 echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Mark as delivered"]);
@@ -501,11 +492,25 @@ class __TwigTemplate_4166c30a1e70ab6b8a989ed774970a59ee21c26145be99bf4de664e2fb4
                         }
                         ";
             }
+            // line 234
+            echo "                        ";
+            if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "order", 1 => "d"], "method", false, false, false, 234) && (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "role_id", [], "any", false, false, false, 234) != 5))) {
+                // line 235
+                echo "                        if(data.requested   ==  0 || data.requested == 100 || data.requested == 1){
+                            output += '<a href=\"javascript:void(0);\" class=\"btn btn-danger btn-sm delete_record kt-font-light btn-icon\" rel=\"'+data.id+'\" data-skin=\"dark\" data-toggle=\"kt-tooltip\" data-placement=\"top\" title=\"";
+                // line 236
+                echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Delete Shipment"]);
+                echo "\"><i class=\"la la-remove\"></i></a>';
+                        }
+                        ";
+            }
             // line 239
             echo "                        ";
-            if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "order", 1 => "d"], "method", false, false, false, 239) && (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "role_id", [], "any", false, false, false, 239) != 5))) {
+            if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "role_id", [], "any", false, false, false, 239) == 5)) {
                 // line 240
-                echo "                        if(data.requested   ==  0 || data.requested == 100 || data.requested == 1){
+                echo "                        if((data.requested   ==  0 || data.requested == 100) && (data.sender_id != ";
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "id", [], "any", false, false, false, 240), "html", null, true);
+                echo ")){
                             output += '<a href=\"javascript:void(0);\" class=\"btn btn-danger btn-sm delete_record kt-font-light btn-icon\" rel=\"'+data.id+'\" data-skin=\"dark\" data-toggle=\"kt-tooltip\" data-placement=\"top\" title=\"";
                 // line 241
                 echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Delete Shipment"]);
@@ -514,29 +519,15 @@ class __TwigTemplate_4166c30a1e70ab6b8a989ed774970a59ee21c26145be99bf4de664e2fb4
                         ";
             }
             // line 244
-            echo "                        ";
-            if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "role_id", [], "any", false, false, false, 244) == 5)) {
-                // line 245
-                echo "                        if((data.requested   ==  0 || data.requested == 100) && (data.sender_id != ";
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "id", [], "any", false, false, false, 245), "html", null, true);
-                echo ")){
-                            output += '<a href=\"javascript:void(0);\" class=\"btn btn-danger btn-sm delete_record kt-font-light btn-icon\" rel=\"'+data.id+'\" data-skin=\"dark\" data-toggle=\"kt-tooltip\" data-placement=\"top\" title=\"";
-                // line 246
-                echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Delete Shipment"]);
-                echo "\"><i class=\"la la-remove\"></i></a>';
-                        }
-                        ";
-            }
-            // line 249
             echo "
                         ";
         } else {
-            // line 251
+            // line 246
             echo "                        var output = '' +
                             '<button  type=\"button\" data-id=\"'+data.id+'\" onclick=\"openBid(this)\" class=\" btn btn-brand btn-sm btn-icon bid\">bid</button>';
                         ";
         }
-        // line 254
+        // line 249
         echo "                        '</div>';
 
                         return output;
@@ -587,20 +578,20 @@ class __TwigTemplate_4166c30a1e70ab6b8a989ed774970a59ee21c26145be99bf4de664e2fb4
                 buttonsStyling: false,
 
                 text: \"";
-        // line 303
+        // line 298
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Are you sure to delete this item ?"]);
         echo "\",
                 type: \"question\",
 
                 confirmButtonText: \"";
-        // line 306
+        // line 301
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Yes, delete!"]);
         echo "\",
                 confirmButtonClass: \"btn btn-sm btn-bold btn-danger\",
 
                 showCancelButton: true,
                 cancelButtonText: '";
-        // line 310
+        // line 305
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["No, cancel"]);
         echo "',
                 cancelButtonClass: \"btn btn-sm btn-bold btn-brand\"
@@ -612,17 +603,17 @@ class __TwigTemplate_4166c30a1e70ab6b8a989ed774970a59ee21c26145be99bf4de664e2fb4
 
                             swal.fire({
                                 title: '";
-        // line 319
+        // line 314
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Deleted!"]);
         echo "',
                                 text: '";
-        // line 320
+        // line 315
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Your selected record has been deleted! :("]);
         echo "',
                                 type: 'success',
                                 buttonsStyling: false,
                                 confirmButtonText: '";
-        // line 323
+        // line 318
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["OK"]);
         echo "',
                                 confirmButtonClass: \"btn btn-sm btn-bold btn-brand\",
@@ -635,17 +626,17 @@ class __TwigTemplate_4166c30a1e70ab6b8a989ed774970a59ee21c26145be99bf4de664e2fb4
                 } else if (result.dismiss === 'cancel') {
                     swal.fire({
                         title: '";
-        // line 333
+        // line 328
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Cancelled"]);
         echo "',
                         text: '";
-        // line 334
+        // line 329
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["You selected record has not been deleted! :)"]);
         echo "',
                         type: 'error',
                         buttonsStyling: false,
                         confirmButtonText: '";
-        // line 337
+        // line 332
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["OK"]);
         echo "',
                         confirmButtonClass: \"btn btn-sm btn-bold btn-brand\",
@@ -712,7 +703,7 @@ class __TwigTemplate_4166c30a1e70ab6b8a989ed774970a59ee21c26145be99bf4de664e2fb4
 
     public function getDebugInfo()
     {
-        return array (  649 => 337,  643 => 334,  639 => 333,  626 => 323,  620 => 320,  616 => 319,  604 => 310,  597 => 306,  591 => 303,  540 => 254,  535 => 251,  531 => 249,  525 => 246,  520 => 245,  517 => 244,  511 => 241,  508 => 240,  505 => 239,  497 => 236,  494 => 235,  492 => 234,  488 => 232,  480 => 229,  477 => 228,  474 => 227,  466 => 224,  463 => 223,  461 => 222,  454 => 220,  451 => 219,  443 => 216,  438 => 215,  435 => 214,  427 => 211,  424 => 210,  422 => 209,  419 => 208,  413 => 205,  410 => 204,  408 => 203,  405 => 202,  399 => 199,  396 => 198,  394 => 197,  390 => 195,  384 => 192,  381 => 191,  379 => 190,  376 => 189,  370 => 186,  367 => 185,  365 => 184,  362 => 183,  356 => 180,  353 => 179,  351 => 178,  342 => 174,  338 => 172,  336 => 171,  329 => 167,  316 => 157,  310 => 154,  303 => 150,  292 => 142,  284 => 137,  273 => 129,  264 => 123,  250 => 112,  244 => 109,  235 => 103,  222 => 100,  214 => 95,  208 => 92,  199 => 86,  186 => 83,  175 => 75,  164 => 70,  156 => 65,  140 => 52,  136 => 51,  131 => 49,  89 => 24,  83 => 21,  79 => 20,  75 => 19,  71 => 18,  67 => 17,  63 => 16,  59 => 15,  50 => 9,  46 => 8,  37 => 1,);
+        return array (  640 => 332,  634 => 329,  630 => 328,  617 => 318,  611 => 315,  607 => 314,  595 => 305,  588 => 301,  582 => 298,  531 => 249,  526 => 246,  522 => 244,  516 => 241,  511 => 240,  508 => 239,  502 => 236,  499 => 235,  496 => 234,  488 => 231,  485 => 230,  483 => 229,  479 => 227,  471 => 224,  468 => 223,  465 => 222,  457 => 219,  454 => 218,  452 => 217,  445 => 215,  442 => 214,  434 => 211,  429 => 210,  426 => 209,  418 => 206,  415 => 205,  413 => 204,  410 => 203,  404 => 200,  401 => 199,  398 => 198,  392 => 195,  389 => 194,  386 => 193,  380 => 190,  377 => 189,  374 => 188,  368 => 185,  365 => 184,  362 => 183,  356 => 180,  353 => 179,  351 => 178,  342 => 174,  338 => 172,  336 => 171,  329 => 167,  316 => 157,  310 => 154,  303 => 150,  292 => 142,  284 => 137,  273 => 129,  264 => 123,  250 => 112,  244 => 109,  235 => 103,  222 => 100,  214 => 95,  208 => 92,  199 => 86,  186 => 83,  175 => 75,  164 => 70,  156 => 65,  140 => 52,  136 => 51,  131 => 49,  89 => 24,  83 => 21,  79 => 20,  75 => 19,  71 => 18,  67 => 17,  63 => 16,  59 => 15,  50 => 9,  46 => 8,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -899,26 +890,21 @@ class __TwigTemplate_4166c30a1e70ab6b8a989ed774970a59ee21c26145be99bf4de664e2fb4
                             output += '<a href=\"javascript:;\" class=\"shipmentApproved btn btn-brand btn-sm btn-icon\" data-skin=\"dark\"  data-placement=\"top\" title=\"{{\"Approve\"|__}}\" id=\"'+data.id+'\" ><i class=\"la la-check\"></i></button>';
                         }
                         {% endif %}
-
                         {% if user.role_id != 5 %}
                         if(data.requested   ==  0 || data.requested == 1 || data.requested == 9 || data.requested == 5){
                             output += '<a href=\"javascript:;\" class=\"assign_employee btn btn-brand btn-sm btn-icon\" data-skin=\"dark\" data-toggle=\"modal\" data-target=\"#assign_shipmentEmployee\" data-placement=\"top\" title=\"{{\"Assign Employee\"|__}}\" id=\"'+data.id+'\" ><i class=\"la la-user\"></i></button>';
                         }
                         {% endif %}
-
                         {% if user.role_id != 5 %}
                         if(data.requested   ==  1 ){
                             output += '<a href=\"javascript:;\" class=\"shipmentReceived btn btn-brand btn-sm btn-icon\" data-skin=\"dark\"  data-placement=\"top\" title=\"{{\"Received\"|__}}\" id=\"'+data.id+'\" ><i class=\"la la-arrow-down\"></i></button>';
                         }
                         {% endif %}
-
-
                         {% if user.role_id != 5 %}
                         if(data.requested   ==  1 || data.requested == 9 || data.requested == 3 || data.requested == 7){
                             output += '<a href=\"javascript:;\" class=\"shipmentDeliveried btn btn-brand btn-sm btn-icon\" data-skin=\"dark\"  data-placement=\"top\" title=\"{{\"set as Deliveried\"|__}}\" id=\"'+data.id+'\" ><i class=\"la la-thumbs-o-up\"></i></button>';
                         }
                         {% endif %}
-
                         {% if user.role_id != 5 %}
                         if(data.requested   ==  1 || data.requested == 9 || data.requested == 3 || data.requested == 4 || data.requested == 7){
                             output += '<a href=\"javascript:;\" class=\"shipmentPaid btn btn-brand btn-sm btn-icon\" data-skin=\"dark\"  data-placement=\"top\" title=\"{{\"Paid\"|__}}\" id=\"'+data.id+'\" ><i class=\"la la-dollar\"></i></button>';

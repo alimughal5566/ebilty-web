@@ -219,26 +219,21 @@ return Redirect::back();
                             output += '<a href="javascript:;" class="shipmentApproved btn btn-brand btn-sm btn-icon" data-skin="dark"  data-placement="top" title="{{"Approve"|__}}" id="'+data.id+'" ><i class="la la-check"></i></button>';
                         }
                         {% endif %}
-
                         {% if user.role_id != 5 %}
                         if(data.requested   ==  0 || data.requested == 1 || data.requested == 9 || data.requested == 5){
                             output += '<a href="javascript:;" class="assign_employee btn btn-brand btn-sm btn-icon" data-skin="dark" data-toggle="modal" data-target="#assign_shipmentEmployee" data-placement="top" title="{{"Assign Employee"|__}}" id="'+data.id+'" ><i class="la la-user"></i></button>';
                         }
                         {% endif %}
-
                         {% if user.role_id != 5 %}
                         if(data.requested   ==  1 ){
                             output += '<a href="javascript:;" class="shipmentReceived btn btn-brand btn-sm btn-icon" data-skin="dark"  data-placement="top" title="{{"Received"|__}}" id="'+data.id+'" ><i class="la la-arrow-down"></i></button>';
                         }
                         {% endif %}
-
-
                         {% if user.role_id != 5 %}
                         if(data.requested   ==  1 || data.requested == 9 || data.requested == 3 || data.requested == 7){
                             output += '<a href="javascript:;" class="shipmentDeliveried btn btn-brand btn-sm btn-icon" data-skin="dark"  data-placement="top" title="{{"set as Deliveried"|__}}" id="'+data.id+'" ><i class="la la-thumbs-o-up"></i></button>';
                         }
                         {% endif %}
-
                         {% if user.role_id != 5 %}
                         if(data.requested   ==  1 || data.requested == 9 || data.requested == 3 || data.requested == 4 || data.requested == 7){
                             output += '<a href="javascript:;" class="shipmentPaid btn btn-brand btn-sm btn-icon" data-skin="dark"  data-placement="top" title="{{"Paid"|__}}" id="'+data.id+'" ><i class="la la-dollar"></i></button>';

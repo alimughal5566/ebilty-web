@@ -1,11 +1,11 @@
 <?php 
-class Cms609a319d6a423426861478_616a7de12ebc692bb37c1436854096e2Class extends Cms\Classes\PageCode
+class Cms609baadaed692308020496_5f25240af1f55e7bbe425ff275665c27Class extends Cms\Classes\PageCode
 {
 public function onStart(){
     if(Auth::getUser()){
         return Redirect::to('dashboard');
     }
-$this['categories']= \Spot\Shipment\Models\Category::select('id','name')->get();
+$this['categories_car']= \Spot\Shipment\Models\Categories::select('id','title')->get();
 $this['cars']= \Spot\Shipment\Models\Car::select('id','name')->get();
 
 
@@ -60,6 +60,6 @@ public function onMyRegister()
     $this['account']->onRegister();
 }
 public function onChangefees1(){
-return \Spot\Shipment\Models\Car::select('id','name')->where('transport_id',$_POST['id'])->get();
+return \Spot\Shipment\Models\Vehicles::select('id','name')->where('categories_id',$_POST['id'])->get();
 }
 }
