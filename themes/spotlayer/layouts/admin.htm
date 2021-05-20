@@ -436,16 +436,18 @@ function onRefreshTime(){
                                 </div>
                             </div>
 
-
+                            {% if mainMenu.menuItems %}
                           <ul class="kt-menu__nav ">
                                     {% for item in mainMenu.menuItems if not item.viewBag.isHidden %}
                                         {% if user.hasUserPermission(item.code, 'r') or item.code is empty %}
+
+
                                    <li class="kt-menu__item  {{ item.isActive or item.isChildActive or this.page.menu_breadcrumb == item.code ? 'kt-menu__item--open kt-menu__item--here' : '' }} kt-menu__item--submenu kt-menu__item--rel" {% if item.items %}data-ktmenu-submenu-toggle="hover" aria-haspopup="true"{% endif %}>
                                                 <a href="{% if item.url %}{{ item.url }}{% else %}#{% endif %}" class="kt-menu__link {% if item.items %}kt-menu__toggle{% endif %}" {{ item.viewBag.isExternal ? 'target="_blank"' }}>
                                                     <span class="kt-menu__link-icon">
                                                         {{ item.viewBag.icon|raw }}
                                                     </span>
-                                                    <span class="kt-menu__link-text">{{ item.title }}</span>
+                                                    <span class="kt-menu__link-text">{{ item.title|__ }}</span>
                                                     {% if item.items %}
                                                         <i class="kt-menu__ver-arrow la la-angle-right"></i>
                                                     {% endif %}
@@ -457,7 +459,8 @@ function onRefreshTime(){
                                                             {% for item in item.items if not item.viewBag.isHidden %}
                                                                 {% if user.hasUserPermission(item.code, 'r') or item.code is empty %}
                                                                     <li class="kt-menu__item {{ item.isActive or item.isChildActive or (currentPageUrl == item.url|replace({'[url]': url('/')})) ? 'kt-menu__item--open kt-menu__item--here' : '' }}"  aria-haspopup="true">
-                                                                        <a > {% if item.viewBag.icon and item.viewBag.icon != '' %}
+                                                                        <a  href="{% if item.url %}{{ item.url|replace({'[url]': url('/')}) }}{% else %}javascript:void(0);{% endif %}" class="kt-menu__link ">
+                                                                            {% if item.viewBag.icon and item.viewBag.icon != '' %}
                                                                                 {{ item.viewBag.icon|raw }}
                                                                             {% else %}
                                                                                 <i class="kt-menu__link-bullet kt-menu__link-bullet--dot"><span></span></i>
@@ -474,26 +477,27 @@ function onRefreshTime(){
                                         {% endif %}
                                     {% endfor %}
 
-                              {% if mainMenu.menuItems %}
-                              <ul class="kt-menu__nav ">
-                                  {% if user.role_id==12 %}
-                                  <li class="kt-menu__item  {{ item.isActive or item.isChildActive or this.page.menu_breadcrumb == item.code ? 'kt-menu__item--open kt-menu__item--here' : '' }} kt-menu__item--submenu kt-menu__item--rel" {% if item.items %}data-ktmenu-submenu-toggle="hover" aria-haspopup="true"{% endif %}>
-                                      <a href="/en/my-bids/list" class="kt-menu__link {% if item.items %}kt-menu__toggle{% endif %}" {{ item.viewBag.isExternal ? 'target="_blank"' }}>
-                                      <span class="kt-menu__link-icon">
+                                </ul>
+                         <ul class="kt-menu__nav ">
+                             {% if user.role_id==12 %}
+                             <li class="kt-menu__item  {{ item.isActive or item.isChildActive or this.page.menu_breadcrumb == item.code ? 'kt-menu__item--open kt-menu__item--here' : '' }} kt-menu__item--submenu kt-menu__item--rel" {% if item.items %}data-ktmenu-submenu-toggle="hover" aria-haspopup="true"{% endif %}>
+                                 <a href="/en/my-bids/list" class="kt-menu__link {% if item.items %}kt-menu__toggle{% endif %}" {{ item.viewBag.isExternal ? 'target="_blank"' }}>
+                                 <span class="kt-menu__link-icon">
                                                      {{ item.viewBag.icon|raw }}
                                                     </span>
-                                      <span class="kt-menu__link-text">My Shipments</span>
-                                      {% if item.items %}
-                                      <i class="kt-menu__ver-arrow la la-angle-right"></i>
-                                      {% endif %}
-                                      </a>
+                                 <span class="kt-menu__link-text">My Shipments</span>
+                                 {% if item.items %}
+                                 <i class="kt-menu__ver-arrow la la-angle-right"></i>
+                                 {% endif %}
+                                 </a>
 
-                                  </li>
-                                  {% endif %}
-                              </ul>
-                              {% endif %}{% if mainMenu.menuItems %}
-                                </ul>
+                             </li>
+                             {% endif %}
+                         </ul>
                             {% endif %}
+
+
+
                      </div>
                     </div>
                     <!-- end:: Aside Menu -->

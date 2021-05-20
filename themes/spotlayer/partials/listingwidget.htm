@@ -338,10 +338,10 @@ return Redirect::back();
 
                     $('#showBidModal').modal('hide')
                 },
-                // error: function (request, status, error) {
-                //     alert(request.responseText);
-                //     $('#showBidModal').modal('hide')
-                // }
+                error: function (request, status, error) {
+                    alert('Already bidded');
+                    $('#showBidModal').modal('hide')
+                }
             })
         })
         $('body').on('click','.delete_record',function(){
