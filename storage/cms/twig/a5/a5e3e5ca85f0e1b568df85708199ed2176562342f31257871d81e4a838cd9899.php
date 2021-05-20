@@ -34,7 +34,7 @@ class __TwigTemplate_4166c30a1e70ab6b8a989ed774970a59ee21c26145be99bf4de664e2fb4
     {
         $macros = $this->macros;
         // line 1
-        echo "<div class=\"kt-datatable\"></div>
+        echo "<div id=\"shipmenttableStatus\" class=\"kt-datatable\"></div>
 
 <script>
     function listing(){
@@ -336,7 +336,7 @@ class __TwigTemplate_4166c30a1e70ab6b8a989ed774970a59ee21c26145be99bf4de664e2fb4
         if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "role_id", [], "any", false, false, false, 171) != 12)) {
             // line 172
             echo "                        var output = '' +
-                            '<div class=\"btn-group btn-group\" role=\"group\" aria-label=\"...\">'+
+                            '<div id=\"shipmentbtns\" class=\"btn-group btn-group\" role=\"group\" aria-label=\"...\">'+
                             '<a href=\"";
             // line 174
             echo url("dashboard/shipments");
@@ -708,7 +708,7 @@ class __TwigTemplate_4166c30a1e70ab6b8a989ed774970a59ee21c26145be99bf4de664e2fb4
 
     public function getSourceContext()
     {
-        return new Source("<div class=\"kt-datatable\"></div>
+        return new Source("<div id=\"shipmenttableStatus\" class=\"kt-datatable\"></div>
 
 <script>
     function listing(){
@@ -880,7 +880,7 @@ class __TwigTemplate_4166c30a1e70ab6b8a989ed774970a59ee21c26145be99bf4de664e2fb4
                     template: function (data) {
                         {% if user.role_id != 12 %}
                         var output = '' +
-                            '<div class=\"btn-group btn-group\" role=\"group\" aria-label=\"...\">'+
+                            '<div id=\"shipmentbtns\" class=\"btn-group btn-group\" role=\"group\" aria-label=\"...\">'+
                             '<a href=\"{{url(\"dashboard/shipments\")}}/'+data.id+'/view\" class=\"btn btn-brand btn-sm btn-icon\" data-skin=\"dark\" data-toggle=\"kt-tooltip\" data-placement=\"top\" title=\"{{\"View Shipment\"|__}}\"><i class=\"la la-eye\"></i></button>';
 
 

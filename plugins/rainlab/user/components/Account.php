@@ -284,30 +284,28 @@ class Account extends ComponentBase
              * Validate input
              */
             $data = post();
+//dd($data['cnic']);
+
 
             if($data['cnic']){
-//                $image_64 = $data['cnic']; //your base64 encoded data
-//                $extension = explode('/', explode(':', substr($image_64, 0, strpos($image_64, ';')))[1])[1];   // .jpg .png .pdf
-//                $replace = substr($image_64, 0, strpos($image_64, ',')+1);
-//            // find substring fro replace here eg: data:image/png;base64,
-//                $image = str_replace($replace, '', $image_64);
-//                $image = str_replace(' ', '+', $image);
-//                $imageName = rand().'.'.$extension;
+                $img = $data['cnic'];
+                $extension = explode('/', explode(':', substr($img, 0, strpos($img, ';')))[1])[1];   // .jpg .png .pdf
+                $img = str_replace('data:image/jpeg;base64,', '', $img);
+                $img = str_replace(' ', '+', $img);
+                $imageData = base64_decode($img);
+                $imageName = rand().'CNIC'.'.'.$extension;
+
+                // we got raw data of file now we can convert this row data to file in dist and add that to `File` model
+//                $file = (new \System\Models\File)->fromData($imageData, $imageName);
+                file_put_contents(storage_path('app/uploads/public/images/'.$imageName), $imageData);
+
+//                \Storage::disk('images')->put($imageName, $imageData);
 //                dd($imageName);
-//                \Storage::disk('app/uploads/public/images')->put($imageName, base64_decode($image));
-
-//                $request->cnic->move(public_path('images'), $imageName);
-
-                $data = $data['cnic'];
-                $image_array_1 = explode(";", $data);
-                $image_array_2 = explode(",", $image_array_1[1]);
-                $data = base64_decode($image_array_2[1]);
-                $name=time() . '.png';
-
-                Storage::disk('app/uploads/public/images')->put($name, $data);
 
             }
-            $data['cnic']=$name??'';
+    //dd($imageName);
+
+            $data['cnic']=$imageName;
             if (!array_key_exists('password_confirmation', $data)) {
                 $data['password_confirmation'] = post('password');
             }
@@ -334,11 +332,13 @@ class Account extends ComponentBase
             /*
              * Register user
              */
+
+
             $data['role_id']=$data['user_role_id']??'';
             $data['vehicle_category']=$data['vehicle_category']??'';
             $data['truck_used']=$data['truck_used']??'';
-            Event::fire('rainlab.user.beforeRegister', [&$data]);
 
+            Event::fire('rainlab.user.beforeRegister', [&$data]);
             $requireActivation = UserSettings::get('require_activation', true);
             $automaticActivation = UserSettings::get('activate_mode') == UserSettings::ACTIVATE_AUTO;
             $userActivation = UserSettings::get('activate_mode') == UserSettings::ACTIVATE_USER;
@@ -346,8 +346,22 @@ class Account extends ComponentBase
 
             $user = Auth::register($data, $automaticActivation);
 
-dd($user);
-            Event::fire('rainlab.user.register', [$user, $data]);
+           if($user->role_id == 112){
+           $delete_role=\Db::table('spot_userpermissions_user_permission')->where('user_id',$user->id)->delete();
+           if($delete_role) {
+    for ($i=1;$i<=36;$i++){
+    $add_roles = \Db::table('spot_userpermissions_user_permission')->insert([
+       "user_id"=>$user->id,
+       "permission_id"=>$i,
+       "permission_state"=> $i == 1 ? 'crud' : 'NULL',
+       "created_at"=> now(),
+       "updated_at"=> now(),
+    ]);
+    }
+
+}
+            }
+           Event::fire('rainlab.user.register', [$user, $data]);
 
             /*
              * Activation is by the user, send the email

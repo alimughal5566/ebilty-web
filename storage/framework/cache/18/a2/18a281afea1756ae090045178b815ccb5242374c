@@ -1,0 +1,90 @@
+1621498378a:1:{s:7:"bid.htm";a:18:{s:8:"fileName";s:7:"bid.htm";s:7:"content";s:1438:"url = "/bid/list"
+layout = "admin"
+description = "Bid List"
+is_hidden = 0
+role = 0
+permission = 0
+anonymous_only = 0
+logged_only = 1
+child_of = "mey_no_parent"
+hide_crumb = 1
+remove_crumb_trail = 0
+crumb_disabled = 0
+[viewBag]
+==
+<?php
+function onStart() {
+$bids = \Spot\Shipment\Models\Bid::all();
+dd($bids);
+}
+?>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="kt-portlet kt-portlet--mobile">
+            <div class="kt-portlet__head">
+                <div class="kt-portlet__head-label">
+                    <h3 class="kt-portlet__head-title">
+                    </h3>
+                </div>
+            </div>
+            <div class="kt-portlet__body">
+                <div class="row">
+                    <div class="form-group col-lg-12">
+                        <div>
+                            <table class="table">
+                                <tr>
+                                    <th>Bid Amount</th>
+                                </tr>
+
+                                {% for bid in bids %}
+                                <tr>
+                                    <td>{{bid.bid_amount}}</td>
+                                </tr>
+                                {% endfor %}
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+";s:5:"mtime";i:1620716886;s:6:"markup";s:1192:"<?php
+function onStart() {
+$bids = \Spot\Shipment\Models\Bid::all();
+dd($bids);
+}
+?>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="kt-portlet kt-portlet--mobile">
+            <div class="kt-portlet__head">
+                <div class="kt-portlet__head-label">
+                    <h3 class="kt-portlet__head-title">
+                    </h3>
+                </div>
+            </div>
+            <div class="kt-portlet__body">
+                <div class="row">
+                    <div class="form-group col-lg-12">
+                        <div>
+                            <table class="table">
+                                <tr>
+                                    <th>Bid Amount</th>
+                                </tr>
+
+                                {% for bid in bids %}
+                                <tr>
+                                    <td>{{bid.bid_amount}}</td>
+                                </tr>
+                                {% endfor %}
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>";s:4:"code";N;s:3:"url";s:9:"/bid/list";s:6:"layout";s:5:"admin";s:11:"description";s:8:"Bid List";s:9:"is_hidden";s:1:"0";s:4:"role";s:1:"0";s:10:"permission";s:1:"0";s:14:"anonymous_only";s:1:"0";s:11:"logged_only";s:1:"1";s:8:"child_of";s:13:"mey_no_parent";s:10:"hide_crumb";s:1:"1";s:18:"remove_crumb_trail";s:1:"0";s:14:"crumb_disabled";s:1:"0";s:7:"viewBag";a:0:{}}}

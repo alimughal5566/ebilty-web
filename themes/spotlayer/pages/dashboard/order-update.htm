@@ -21,74 +21,71 @@ function onStart() {
     }
 
     $this->page->stretch        = true;
-
-
     $this['order']      =   $order  =   \Spot\Shipment\Models\Order::find($this->param('id'));
 
+switch (Auth::getUser()->role_id) {
+case 6:
+if(!in_array($order->office_id, Auth::getUser()->manage->pluck('id')->toArray())){
+\Flash::error($this['theme_lang']['not_allowed']);
+return Redirect::to('dashboard/shipments/');
+}
+break;
+case 5:
+if($order->sender_id != Auth::getUser()->id && $order->receiver_id != Auth::getUser()->id){
+\Flash::error($this['theme_lang']['not_allowed']);
+return Redirect::to('dashboard/shipments/');
+}
+break;
+case 4:
+if(Auth::getUser()->is_superuser){
+if($order->office_id != Auth::getUser()->office){
+\Flash::error($this['theme_lang']['not_allowed']);
+return Redirect::to('dashboard/shipments/');
+}
+}else{
+if($order->assigned_id != Auth::getUser()->id){
+if($order->manifest_id != null){
+if($order->driver_id != Auth::getUser()->id && $order->employee_id != Auth::getUser()->id){
+\Flash::error($this['theme_lang']['not_allowed']);
+return Redirect::to('dashboard/shipments/');
+}
+}else{
+\Flash::error($this['theme_lang']['not_allowed']);
+return Redirect::to('dashboard/shipments/');
+}
+}
+}
+break;
+case 3:
+$employees  =   \RainLab\User\Models\User::whereHas('groups',function($q){$q->whereIn('user_group_id', Auth::getUser()->groups->pluck('id')->toArray());})->pluck('id')->toArray();
+if(!in_array($order->assigned_id, $employees)){
+if($order->manifest_id != null){
+if(!in_array($order->driver_id, $employees) && !in_array($order->employee_id, $employees)){
+\Flash::error($this['theme_lang']['not_allowed']);
+return Redirect::to('dashboard/shipments/');
+}
+}else{
+\Flash::error($this['theme_lang']['not_allowed']);
+return Redirect::to('dashboard/shipments/');
+}
+}
+break;
+}
 
-    switch (Auth::getUser()->role_id) {
-        case 6:
-            if(!in_array($order->office_id, Auth::getUser()->manage->pluck('id')->toArray())){
-                \Flash::error($this['theme_lang']['not_allowed']);
-                return Redirect::to('dashboard/shipments/');
-            }
-            break;
-        case 5:
-            if($order->sender_id != Auth::getUser()->id && $order->receiver_id != Auth::getUser()->id){
-                \Flash::error($this['theme_lang']['not_allowed']);
-                return Redirect::to('dashboard/shipments/');
-            }
-            break;
-        case 4:
-            if(Auth::getUser()->is_superuser){
-                if($order->office_id != Auth::getUser()->office){
-                    \Flash::error($this['theme_lang']['not_allowed']);
-                    return Redirect::to('dashboard/shipments/');
-                }
-            }else{
-                if($order->assigned_id != Auth::getUser()->id){
-                    if($order->manifest_id != null){
-                        if($order->driver_id != Auth::getUser()->id && $order->employee_id != Auth::getUser()->id){
-                            \Flash::error($this['theme_lang']['not_allowed']);
-                            return Redirect::to('dashboard/shipments/');
-                        }
-                    }else{
-                        \Flash::error($this['theme_lang']['not_allowed']);
-                        return Redirect::to('dashboard/shipments/');
-                    }
-                }
-            }
-            break;
-        case 3:
-            $employees  =   \RainLab\User\Models\User::whereHas('groups',function($q){$q->whereIn('user_group_id', Auth::getUser()->groups->pluck('id')->toArray());})->pluck('id')->toArray();
-            if(!in_array($order->assigned_id, $employees)){
-                if($order->manifest_id != null){
-                    if(!in_array($order->driver_id, $employees) && !in_array($order->employee_id, $employees)){
-                        \Flash::error($this['theme_lang']['not_allowed']);
-                        return Redirect::to('dashboard/shipments/');
-                    }
-                }else{
-                    \Flash::error($this['theme_lang']['not_allowed']);
-                    return Redirect::to('dashboard/shipments/');
-                }
-            }
-            break;
-    }
-
-    $this['primary_currency']=   \Responsiv\Currency\Models\Currency::where('is_primary', 1)->first();
-    $this['employees']      =   \RainLab\User\Models\User::whereNotIn('role_id',[1,5])->select('id','name')->get();
-    $this['packaging']      =   \Spot\Shipment\Models\Packaging::select('id','name')->get();
-    $this['modes']          =   \Spot\Shipment\Models\Mode::select('id','name')->get();
-    $this['couriers']       =   \Spot\Shipment\Models\Courier::select('id','name')->get();
-    $this['deliverytimes']  =   \Spot\Shipment\Models\DeliveryTime::select('id','name')->get();
-    $this['offices']        =   \Spot\Shipment\Models\Office::select('id','name')->get();
-    $this['categories']     =   \Spot\Shipment\Models\Category::select('id','name')->get();
-    $this['countries']      =   \RainLab\Location\Models\Country::select('id','name')->where('is_enabled', 1)->get();
-    $this['states']         =   \RainLab\Location\Models\State::select('id','name')->get();
-    $this['cities']         =   \Spot\Shipment\Models\City::select('id','name')->get();
-    $this['areas']          =   \Spot\Shipment\Models\Area::select('id','name')->get();
-    $this['statuses']       =   \Spot\Shipment\Models\Status::select('id','name')->get();
-    $this['max']            =   \Spot\Shipment\Models\Order::max('number')+1;
+$this['primary_currency']=   \Responsiv\Currency\Models\Currency::where('is_primary', 1)->first();
+$this['employees']      =   \RainLab\User\Models\User::whereNotIn('role_id',[1,5])->select('id','name')->get();
+$this['packaging']      =   \Spot\Shipment\Models\Packaging::select('id','name')->get();
+$this['modes']          =   \Spot\Shipment\Models\Mode::select('id','name')->get();
+$this['couriers']       =   \Spot\Shipment\Models\Courier::select('id','name')->get();
+$this['deliverytimes']  =   \Spot\Shipment\Models\DeliveryTime::select('id','name')->get();
+$this['offices']        =   \Spot\Shipment\Models\Office::select('id','name')->get();
+$this['categories']     =   \Spot\Shipment\Models\Category::select('id','name')->get();
+$this['countries']      =   \RainLab\Location\Models\Country::select('id','name')->where('is_enabled', 1)->get();
+$this['states']         =   \RainLab\Location\Models\State::select('id','name')->get();
+$this['cities']         =   \Spot\Shipment\Models\City::select('id','name')->get();
+$this['areas']          =   \Spot\Shipment\Models\Area::select('id','name')->get();
+$this['statuses']       =   \Spot\Shipment\Models\Status::select('id','name')->get();
+$this['max']            =   \Spot\Shipment\Models\Order::max('number')+1;
 }
 function onSave()
 {
