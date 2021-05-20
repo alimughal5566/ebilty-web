@@ -107,12 +107,12 @@ class __TwigTemplate_03b8b9e1f54fd836300d9e0ae7acce8377ec2d8c3d8918f1fb77e34c5c3
             type: \"POST\",
             data: {'id': id},
             success: function (result) {
-                // location.reload()
+                location.reload()
             },
-            // error: function (request, status, error) {
-            //     alert(request.responseText);
-            //     \$('#showBidModal').modal('hide')
-            // }
+            error: function (request, status, error) {
+                alert(request.responseText);
+                \$('#showBidModal').modal('hide')
+            }
         })
     }
 </script>";
@@ -183,12 +183,12 @@ class __TwigTemplate_03b8b9e1f54fd836300d9e0ae7acce8377ec2d8c3d8918f1fb77e34c5c3
             type: \"POST\",
             data: {'id': id},
             success: function (result) {
-                // location.reload()
+                location.reload()
             },
-            // error: function (request, status, error) {
-            //     alert(request.responseText);
-            //     \$('#showBidModal').modal('hide')
-            // }
+            error: function (request, status, error) {
+                alert(request.responseText);
+                \$('#showBidModal').modal('hide')
+            }
         })
     }
 </script>", "C:\\xampp\\htdocs\\IVYLABS\\ebilty-web/themes/spotlayer/pages/bid.htm", "");

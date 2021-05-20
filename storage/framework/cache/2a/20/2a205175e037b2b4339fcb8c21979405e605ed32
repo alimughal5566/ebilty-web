@@ -1,4 +1,4 @@
-1621502290a:1:{s:17:"listingwidget.htm";a:6:{s:8:"fileName";s:17:"listingwidget.htm";s:7:"content";s:24117:"[viewBag]
+1621519055a:1:{s:17:"listingwidget.htm";a:6:{s:8:"fileName";s:17:"listingwidget.htm";s:7:"content";s:24355:"[viewBag]
 ==
 <?php
     function onStart(){
@@ -210,7 +210,12 @@ return Redirect::back();
                         {% if user.role_id != 12 %}
                         var output = '' +
                             '<div id="shipmentbtns" class="btn-group btn-group" role="group" aria-label="...">'+
-                            '<a href="{{url("dashboard/shipments")}}/'+data.id+'/view" class="btn btn-brand btn-sm btn-icon" data-skin="dark" data-toggle="kt-tooltip" data-placement="top" title="{{"View Shipment"|__}}"><i class="la la-eye"></i></button>';
+                            '<a href="{{url("dashboard/shipments")}}/'+data.id+'/view" class="btn btn-brand btn-sm btn-icon" data-skin="dark" data-toggle="kt-tooltip" data-placement="top" title="{{"View Shipment"|__}}"><i class="la la-eye"></i></a>'
+
+                            +'<a href="{{url("bid/list")}}" class="btn btn-brand btn-sm btn-icon" data-skin="dark" data-toggle="kt-tooltip" data-placement="top" title="{{"View Bid List"|__}}"><i class="la la-area-chart"></i></a>';
+
+
+
 
 
 
@@ -248,6 +253,7 @@ return Redirect::back();
                         {% if user.role_id == 5 %}
                         if((data.requested   ==  0 || data.requested == 100) && data.sender_id == {{user.id}}){
                             output += '<a href="{{url("dashboard/shipments")}}/'+data.id+'/edit" class="btn btn-brand btn-sm btn-icon" data-skin="dark" data-toggle="kt-tooltip" data-placement="top" title="{{"Edit Shipment"|__}}"><i class="la la-edit"></i></button>';
+
                         }
                         {% endif %}
                         if((data.requested   !=  0 && data.requested   !=  1 && data.requested != 100)){
@@ -278,6 +284,7 @@ return Redirect::back();
                         {% if user.role_id == 5 %}
                         if((data.requested   ==  0 || data.requested == 100) && (data.sender_id != {{user.id}})){
                             output += '<a href="javascript:void(0);" class="btn btn-danger btn-sm delete_record kt-font-light btn-icon" rel="'+data.id+'" data-skin="dark" data-toggle="kt-tooltip" data-placement="top" title="{{"Delete Shipment"|__}}"><i class="la la-remove"></i></a>';
+
                         }
                         {% endif %}
 
@@ -427,7 +434,7 @@ return Redirect::back();
             </div>
         </div>
     </div>
-</div>";s:5:"mtime";i:1621499442;s:6:"markup";s:22966:"<div id="shipmenttableStatus" class="kt-datatable"></div>
+</div>";s:5:"mtime";i:1621513853;s:6:"markup";s:23204:"<div id="shipmenttableStatus" class="kt-datatable"></div>
 
 <script>
     function listing(){
@@ -600,7 +607,12 @@ return Redirect::back();
                         {% if user.role_id != 12 %}
                         var output = '' +
                             '<div id="shipmentbtns" class="btn-group btn-group" role="group" aria-label="...">'+
-                            '<a href="{{url("dashboard/shipments")}}/'+data.id+'/view" class="btn btn-brand btn-sm btn-icon" data-skin="dark" data-toggle="kt-tooltip" data-placement="top" title="{{"View Shipment"|__}}"><i class="la la-eye"></i></button>';
+                            '<a href="{{url("dashboard/shipments")}}/'+data.id+'/view" class="btn btn-brand btn-sm btn-icon" data-skin="dark" data-toggle="kt-tooltip" data-placement="top" title="{{"View Shipment"|__}}"><i class="la la-eye"></i></a>'
+
+                            +'<a href="{{url("bid/list")}}" class="btn btn-brand btn-sm btn-icon" data-skin="dark" data-toggle="kt-tooltip" data-placement="top" title="{{"View Bid List"|__}}"><i class="la la-area-chart"></i></a>';
+
+
+
 
 
 
@@ -638,6 +650,7 @@ return Redirect::back();
                         {% if user.role_id == 5 %}
                         if((data.requested   ==  0 || data.requested == 100) && data.sender_id == {{user.id}}){
                             output += '<a href="{{url("dashboard/shipments")}}/'+data.id+'/edit" class="btn btn-brand btn-sm btn-icon" data-skin="dark" data-toggle="kt-tooltip" data-placement="top" title="{{"Edit Shipment"|__}}"><i class="la la-edit"></i></button>';
+
                         }
                         {% endif %}
                         if((data.requested   !=  0 && data.requested   !=  1 && data.requested != 100)){
@@ -668,6 +681,7 @@ return Redirect::back();
                         {% if user.role_id == 5 %}
                         if((data.requested   ==  0 || data.requested == 100) && (data.sender_id != {{user.id}})){
                             output += '<a href="javascript:void(0);" class="btn btn-danger btn-sm delete_record kt-font-light btn-icon" rel="'+data.id+'" data-skin="dark" data-toggle="kt-tooltip" data-placement="top" title="{{"Delete Shipment"|__}}"><i class="la la-remove"></i></a>';
+
                         }
                         {% endif %}
 

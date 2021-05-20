@@ -1,5 +1,5 @@
 <?php 
-class Cms60a6242c144e3617562976_4c54a39650c3fac65a16877784e84a5eClass extends Cms\Classes\PageCode
+class Cms60a6568564793014390017_81b1f7560056396a97360c37391a898eClass extends Cms\Classes\PageCode
 {
 public function onStart(){
 $this['bids'] = \Spot\Shipment\Models\Bid::

@@ -6873,9 +6873,14 @@ Route::group(['prefix' => 'api'], function() {
         $bid = \Spot\Shipment\Models\Bid::find($request['id']);
         $bid->status_approved = 1;
         $bid->save();
-        \DB::table('spot_shipment_bid' , $bid->order_id)
+        \DB::table('spot_shipment_bid' )
+            ->where('order_id' , $bid->order_id)
             ->where('id' ,'!=', $request['id'])
             ->update(['status_approved' => 2]);
+        \DB::table('spot_shipment_order' )
+            ->where('id' , $bid->order_id)
+            ->update(['assigned_id' => $bid->user_id]);
+
         die(json_encode($bid));
     });
     Route::any('get-vehicles' , function (Request $req){
