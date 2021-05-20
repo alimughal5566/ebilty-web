@@ -1,10 +1,10 @@
-1621497780a:1:{s:17:"listingwidget.htm";a:6:{s:8:"fileName";s:17:"listingwidget.htm";s:7:"content";s:23601:"[viewBag]
+1621502290a:1:{s:17:"listingwidget.htm";a:6:{s:8:"fileName";s:17:"listingwidget.htm";s:7:"content";s:24117:"[viewBag]
 ==
 <?php
     function onStart(){
         $data = post();
         $this['user']   =   Auth::getUser();
-
+        $user_id = $this['user']->id;
         $start              = '';
         $end                = '';
         if(isset($data['start']) && isset($data['end'])){
@@ -283,7 +283,7 @@ return Redirect::back();
 
                         {% else %}
                         var output = '' +
-                            '<button  type="button" data-id="'+data.id+'" onclick="openBid(this)" class=" btn btn-brand btn-sm btn-icon bid">bid</button>';
+                            '<button  type="button" data-user-id="'+data.user_id+'" data-id="'+data.id+'" onclick="openBid(this)" class=" btn btn-brand btn-sm btn-icon bid">bid</button>';
                         {% endif %}
                         '</div>';
 
@@ -299,6 +299,8 @@ return Redirect::back();
         // Bid Open
         $('body').on('click','.bid' , function (){
             let order_id_value = $(this).attr('data-id');
+            let user_id = $(this).attr('data-user-id');
+            alert(user_id)
             $.ajax({
                 url: "/api/get/bid",
                 type: "POST",
@@ -306,11 +308,12 @@ return Redirect::back();
                 success: function (result){
                     console.log(result)
                     result = JSON.parse(result)
-                    $('#truck_type').val(result.title)
+                    // $('#truck_type').val(result.title)
                     $('#truck_id').val(result.truck_id)
                     $('#route').val(result.receiver_addr)
                     $('#customer_budget').val(result.price_kg)
                     $('#order_id_placed').val(order_id_value)
+                    $('#save_bid_user_id').val(user_id)
                     $('#showBidModal').modal('show')
                 }
             })
@@ -320,12 +323,17 @@ return Redirect::back();
             $.ajax({
                 url: "/api/save/bid",
                 type: "POST",
-                data: {'order_id': $('#order_id_placed').val() ,'truck_id': $('#truck_id').val() , 'truck_type': $('#truck_type').val() , 'route': $('#route').val(),
+                data: {'user_id': $('#save_bid_user_id').val() , 'order_id': $('#order_id_placed').val() ,'truck_id': $('#truck_id').val() , 'truck_type': $('#truck_type').val() , 'route': $('#route').val(),
                     'customer_budget': $('#customer_budget').val() , 'bid_price' : $('#bid_price').val()
                 },
                 success: function (result){
+
                     $('#showBidModal').modal('hide')
-                }
+                },
+                // error: function (request, status, error) {
+                //     alert(request.responseText);
+                //     $('#showBidModal').modal('hide')
+                // }
             })
         })
         $('body').on('click','.delete_record',function(){
@@ -406,6 +414,7 @@ return Redirect::back();
                 </div>
                 <input type="hidden" id="order_id_placed" >
                 <input type="hidden" id="truck_id" >
+                <input type="hidden" id="save_bid_user_id" >
                 <div>
                     <lable for="bid_price">What Is You Total Amount You'd Like To Bid For This Job
                         <input type="text" id="bid_price" name="bid_price" class="form-control">
@@ -418,7 +427,7 @@ return Redirect::back();
             </div>
         </div>
     </div>
-</div>";s:5:"mtime";i:1620821990;s:6:"markup";s:22487:"<div id="shipmenttableStatus" class="kt-datatable"></div>
+</div>";s:5:"mtime";i:1621499442;s:6:"markup";s:22966:"<div id="shipmenttableStatus" class="kt-datatable"></div>
 
 <script>
     function listing(){
@@ -664,7 +673,7 @@ return Redirect::back();
 
                         {% else %}
                         var output = '' +
-                            '<button  type="button" data-id="'+data.id+'" onclick="openBid(this)" class=" btn btn-brand btn-sm btn-icon bid">bid</button>';
+                            '<button  type="button" data-user-id="'+data.user_id+'" data-id="'+data.id+'" onclick="openBid(this)" class=" btn btn-brand btn-sm btn-icon bid">bid</button>';
                         {% endif %}
                         '</div>';
 
@@ -680,6 +689,8 @@ return Redirect::back();
         // Bid Open
         $('body').on('click','.bid' , function (){
             let order_id_value = $(this).attr('data-id');
+            let user_id = $(this).attr('data-user-id');
+            alert(user_id)
             $.ajax({
                 url: "/api/get/bid",
                 type: "POST",
@@ -687,11 +698,12 @@ return Redirect::back();
                 success: function (result){
                     console.log(result)
                     result = JSON.parse(result)
-                    $('#truck_type').val(result.title)
+                    // $('#truck_type').val(result.title)
                     $('#truck_id').val(result.truck_id)
                     $('#route').val(result.receiver_addr)
                     $('#customer_budget').val(result.price_kg)
                     $('#order_id_placed').val(order_id_value)
+                    $('#save_bid_user_id').val(user_id)
                     $('#showBidModal').modal('show')
                 }
             })
@@ -701,12 +713,17 @@ return Redirect::back();
             $.ajax({
                 url: "/api/save/bid",
                 type: "POST",
-                data: {'order_id': $('#order_id_placed').val() ,'truck_id': $('#truck_id').val() , 'truck_type': $('#truck_type').val() , 'route': $('#route').val(),
+                data: {'user_id': $('#save_bid_user_id').val() , 'order_id': $('#order_id_placed').val() ,'truck_id': $('#truck_id').val() , 'truck_type': $('#truck_type').val() , 'route': $('#route').val(),
                     'customer_budget': $('#customer_budget').val() , 'bid_price' : $('#bid_price').val()
                 },
                 success: function (result){
+
                     $('#showBidModal').modal('hide')
-                }
+                },
+                // error: function (request, status, error) {
+                //     alert(request.responseText);
+                //     $('#showBidModal').modal('hide')
+                // }
             })
         })
         $('body').on('click','.delete_record',function(){
@@ -787,6 +804,7 @@ return Redirect::back();
                 </div>
                 <input type="hidden" id="order_id_placed" >
                 <input type="hidden" id="truck_id" >
+                <input type="hidden" id="save_bid_user_id" >
                 <div>
                     <lable for="bid_price">What Is You Total Amount You'd Like To Bid For This Job
                         <input type="text" id="bid_price" name="bid_price" class="form-control">
@@ -799,10 +817,10 @@ return Redirect::back();
             </div>
         </div>
     </div>
-</div>";s:4:"code";s:1080:"    function onStart(){
+</div>";s:4:"code";s:1117:"    function onStart(){
         $data = post();
         $this['user']   =   Auth::getUser();
-
+        $user_id = $this['user']->id;
         $start              = '';
         $end                = '';
         if(isset($data['start']) && isset($data['end'])){

@@ -524,7 +524,7 @@ class __TwigTemplate_4166c30a1e70ab6b8a989ed774970a59ee21c26145be99bf4de664e2fb4
         } else {
             // line 246
             echo "                        var output = '' +
-                            '<button  type=\"button\" data-id=\"'+data.id+'\" onclick=\"openBid(this)\" class=\" btn btn-brand btn-sm btn-icon bid\">bid</button>';
+                            '<button  type=\"button\" data-user-id=\"'+data.user_id+'\" data-id=\"'+data.id+'\" onclick=\"openBid(this)\" class=\" btn btn-brand btn-sm btn-icon bid\">bid</button>';
                         ";
         }
         // line 249
@@ -542,6 +542,8 @@ class __TwigTemplate_4166c30a1e70ab6b8a989ed774970a59ee21c26145be99bf4de664e2fb4
         // Bid Open
         \$('body').on('click','.bid' , function (){
             let order_id_value = \$(this).attr('data-id');
+            let user_id = \$(this).attr('data-user-id');
+            alert(user_id)
             \$.ajax({
                 url: \"/api/get/bid\",
                 type: \"POST\",
@@ -549,11 +551,12 @@ class __TwigTemplate_4166c30a1e70ab6b8a989ed774970a59ee21c26145be99bf4de664e2fb4
                 success: function (result){
                     console.log(result)
                     result = JSON.parse(result)
-                    \$('#truck_type').val(result.title)
+                    // \$('#truck_type').val(result.title)
                     \$('#truck_id').val(result.truck_id)
                     \$('#route').val(result.receiver_addr)
                     \$('#customer_budget').val(result.price_kg)
                     \$('#order_id_placed').val(order_id_value)
+                    \$('#save_bid_user_id').val(user_id)
                     \$('#showBidModal').modal('show')
                 }
             })
@@ -563,12 +566,17 @@ class __TwigTemplate_4166c30a1e70ab6b8a989ed774970a59ee21c26145be99bf4de664e2fb4
             \$.ajax({
                 url: \"/api/save/bid\",
                 type: \"POST\",
-                data: {'order_id': \$('#order_id_placed').val() ,'truck_id': \$('#truck_id').val() , 'truck_type': \$('#truck_type').val() , 'route': \$('#route').val(),
+                data: {'user_id': \$('#save_bid_user_id').val() , 'order_id': \$('#order_id_placed').val() ,'truck_id': \$('#truck_id').val() , 'truck_type': \$('#truck_type').val() , 'route': \$('#route').val(),
                     'customer_budget': \$('#customer_budget').val() , 'bid_price' : \$('#bid_price').val()
                 },
                 success: function (result){
+
                     \$('#showBidModal').modal('hide')
-                }
+                },
+                // error: function (request, status, error) {
+                //     alert(request.responseText);
+                //     \$('#showBidModal').modal('hide')
+                // }
             })
         })
         \$('body').on('click','.delete_record',function(){
@@ -578,20 +586,20 @@ class __TwigTemplate_4166c30a1e70ab6b8a989ed774970a59ee21c26145be99bf4de664e2fb4
                 buttonsStyling: false,
 
                 text: \"";
-        // line 298
+        // line 306
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Are you sure to delete this item ?"]);
         echo "\",
                 type: \"question\",
 
                 confirmButtonText: \"";
-        // line 301
+        // line 309
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Yes, delete!"]);
         echo "\",
                 confirmButtonClass: \"btn btn-sm btn-bold btn-danger\",
 
                 showCancelButton: true,
                 cancelButtonText: '";
-        // line 305
+        // line 313
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["No, cancel"]);
         echo "',
                 cancelButtonClass: \"btn btn-sm btn-bold btn-brand\"
@@ -603,17 +611,17 @@ class __TwigTemplate_4166c30a1e70ab6b8a989ed774970a59ee21c26145be99bf4de664e2fb4
 
                             swal.fire({
                                 title: '";
-        // line 314
+        // line 322
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Deleted!"]);
         echo "',
                                 text: '";
-        // line 315
+        // line 323
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Your selected record has been deleted! :("]);
         echo "',
                                 type: 'success',
                                 buttonsStyling: false,
                                 confirmButtonText: '";
-        // line 318
+        // line 326
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["OK"]);
         echo "',
                                 confirmButtonClass: \"btn btn-sm btn-bold btn-brand\",
@@ -626,17 +634,17 @@ class __TwigTemplate_4166c30a1e70ab6b8a989ed774970a59ee21c26145be99bf4de664e2fb4
                 } else if (result.dismiss === 'cancel') {
                     swal.fire({
                         title: '";
-        // line 328
+        // line 336
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Cancelled"]);
         echo "',
                         text: '";
-        // line 329
+        // line 337
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["You selected record has not been deleted! :)"]);
         echo "',
                         type: 'error',
                         buttonsStyling: false,
                         confirmButtonText: '";
-        // line 332
+        // line 340
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["OK"]);
         echo "',
                         confirmButtonClass: \"btn btn-sm btn-bold btn-brand\",
@@ -676,6 +684,7 @@ class __TwigTemplate_4166c30a1e70ab6b8a989ed774970a59ee21c26145be99bf4de664e2fb4
                 </div>
                 <input type=\"hidden\" id=\"order_id_placed\" >
                 <input type=\"hidden\" id=\"truck_id\" >
+                <input type=\"hidden\" id=\"save_bid_user_id\" >
                 <div>
                     <lable for=\"bid_price\">What Is You Total Amount You'd Like To Bid For This Job
                         <input type=\"text\" id=\"bid_price\" name=\"bid_price\" class=\"form-control\">
@@ -703,7 +712,7 @@ class __TwigTemplate_4166c30a1e70ab6b8a989ed774970a59ee21c26145be99bf4de664e2fb4
 
     public function getDebugInfo()
     {
-        return array (  640 => 332,  634 => 329,  630 => 328,  617 => 318,  611 => 315,  607 => 314,  595 => 305,  588 => 301,  582 => 298,  531 => 249,  526 => 246,  522 => 244,  516 => 241,  511 => 240,  508 => 239,  502 => 236,  499 => 235,  496 => 234,  488 => 231,  485 => 230,  483 => 229,  479 => 227,  471 => 224,  468 => 223,  465 => 222,  457 => 219,  454 => 218,  452 => 217,  445 => 215,  442 => 214,  434 => 211,  429 => 210,  426 => 209,  418 => 206,  415 => 205,  413 => 204,  410 => 203,  404 => 200,  401 => 199,  398 => 198,  392 => 195,  389 => 194,  386 => 193,  380 => 190,  377 => 189,  374 => 188,  368 => 185,  365 => 184,  362 => 183,  356 => 180,  353 => 179,  351 => 178,  342 => 174,  338 => 172,  336 => 171,  329 => 167,  316 => 157,  310 => 154,  303 => 150,  292 => 142,  284 => 137,  273 => 129,  264 => 123,  250 => 112,  244 => 109,  235 => 103,  222 => 100,  214 => 95,  208 => 92,  199 => 86,  186 => 83,  175 => 75,  164 => 70,  156 => 65,  140 => 52,  136 => 51,  131 => 49,  89 => 24,  83 => 21,  79 => 20,  75 => 19,  71 => 18,  67 => 17,  63 => 16,  59 => 15,  50 => 9,  46 => 8,  37 => 1,);
+        return array (  648 => 340,  642 => 337,  638 => 336,  625 => 326,  619 => 323,  615 => 322,  603 => 313,  596 => 309,  590 => 306,  531 => 249,  526 => 246,  522 => 244,  516 => 241,  511 => 240,  508 => 239,  502 => 236,  499 => 235,  496 => 234,  488 => 231,  485 => 230,  483 => 229,  479 => 227,  471 => 224,  468 => 223,  465 => 222,  457 => 219,  454 => 218,  452 => 217,  445 => 215,  442 => 214,  434 => 211,  429 => 210,  426 => 209,  418 => 206,  415 => 205,  413 => 204,  410 => 203,  404 => 200,  401 => 199,  398 => 198,  392 => 195,  389 => 194,  386 => 193,  380 => 190,  377 => 189,  374 => 188,  368 => 185,  365 => 184,  362 => 183,  356 => 180,  353 => 179,  351 => 178,  342 => 174,  338 => 172,  336 => 171,  329 => 167,  316 => 157,  310 => 154,  303 => 150,  292 => 142,  284 => 137,  273 => 129,  264 => 123,  250 => 112,  244 => 109,  235 => 103,  222 => 100,  214 => 95,  208 => 92,  199 => 86,  186 => 83,  175 => 75,  164 => 70,  156 => 65,  140 => 52,  136 => 51,  131 => 49,  89 => 24,  83 => 21,  79 => 20,  75 => 19,  71 => 18,  67 => 17,  63 => 16,  59 => 15,  50 => 9,  46 => 8,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -954,7 +963,7 @@ class __TwigTemplate_4166c30a1e70ab6b8a989ed774970a59ee21c26145be99bf4de664e2fb4
 
                         {% else %}
                         var output = '' +
-                            '<button  type=\"button\" data-id=\"'+data.id+'\" onclick=\"openBid(this)\" class=\" btn btn-brand btn-sm btn-icon bid\">bid</button>';
+                            '<button  type=\"button\" data-user-id=\"'+data.user_id+'\" data-id=\"'+data.id+'\" onclick=\"openBid(this)\" class=\" btn btn-brand btn-sm btn-icon bid\">bid</button>';
                         {% endif %}
                         '</div>';
 
@@ -970,6 +979,8 @@ class __TwigTemplate_4166c30a1e70ab6b8a989ed774970a59ee21c26145be99bf4de664e2fb4
         // Bid Open
         \$('body').on('click','.bid' , function (){
             let order_id_value = \$(this).attr('data-id');
+            let user_id = \$(this).attr('data-user-id');
+            alert(user_id)
             \$.ajax({
                 url: \"/api/get/bid\",
                 type: \"POST\",
@@ -977,11 +988,12 @@ class __TwigTemplate_4166c30a1e70ab6b8a989ed774970a59ee21c26145be99bf4de664e2fb4
                 success: function (result){
                     console.log(result)
                     result = JSON.parse(result)
-                    \$('#truck_type').val(result.title)
+                    // \$('#truck_type').val(result.title)
                     \$('#truck_id').val(result.truck_id)
                     \$('#route').val(result.receiver_addr)
                     \$('#customer_budget').val(result.price_kg)
                     \$('#order_id_placed').val(order_id_value)
+                    \$('#save_bid_user_id').val(user_id)
                     \$('#showBidModal').modal('show')
                 }
             })
@@ -991,12 +1003,17 @@ class __TwigTemplate_4166c30a1e70ab6b8a989ed774970a59ee21c26145be99bf4de664e2fb4
             \$.ajax({
                 url: \"/api/save/bid\",
                 type: \"POST\",
-                data: {'order_id': \$('#order_id_placed').val() ,'truck_id': \$('#truck_id').val() , 'truck_type': \$('#truck_type').val() , 'route': \$('#route').val(),
+                data: {'user_id': \$('#save_bid_user_id').val() , 'order_id': \$('#order_id_placed').val() ,'truck_id': \$('#truck_id').val() , 'truck_type': \$('#truck_type').val() , 'route': \$('#route').val(),
                     'customer_budget': \$('#customer_budget').val() , 'bid_price' : \$('#bid_price').val()
                 },
                 success: function (result){
+
                     \$('#showBidModal').modal('hide')
-                }
+                },
+                // error: function (request, status, error) {
+                //     alert(request.responseText);
+                //     \$('#showBidModal').modal('hide')
+                // }
             })
         })
         \$('body').on('click','.delete_record',function(){
@@ -1077,6 +1094,7 @@ class __TwigTemplate_4166c30a1e70ab6b8a989ed774970a59ee21c26145be99bf4de664e2fb4
                 </div>
                 <input type=\"hidden\" id=\"order_id_placed\" >
                 <input type=\"hidden\" id=\"truck_id\" >
+                <input type=\"hidden\" id=\"save_bid_user_id\" >
                 <div>
                     <lable for=\"bid_price\">What Is You Total Amount You'd Like To Bid For This Job
                         <input type=\"text\" id=\"bid_price\" name=\"bid_price\" class=\"form-control\">

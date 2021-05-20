@@ -308,7 +308,7 @@ return Redirect::back();
                 success: function (result){
                     console.log(result)
                     result = JSON.parse(result)
-                    $('#truck_type').val(result.title)
+                    // $('#truck_type').val(result.title)
                     $('#truck_id').val(result.truck_id)
                     $('#route').val(result.receiver_addr)
                     $('#customer_budget').val(result.price_kg)

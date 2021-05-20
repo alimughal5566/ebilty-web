@@ -6935,10 +6935,10 @@ Route::group(['prefix' => 'api'], function() {
 //                    $q->where('sender_id', Auth::getUser()->id);
 //                    $q->orWhere('receiver_id', Auth::getUser()->id);
 //                    $q->orWhere('created_by', Auth::getUser()->id);
-                });
+                })
 //                    ->where('sender_city' , Auth::getUser()->city)
-//                    ->where('truck_used' , Auth::getUser()->truck_used)
-//                    ->where('vehicle_category' , Auth::getUser()->vehicle_category);
+                    ->where('truck_used' , Auth::getUser()->truck_used)
+                    ->where('vehicle_category' , Auth::getUser()->vehicle_category);
                 break;
             case 4:
                 if(Auth::getUser()->is_superuser){

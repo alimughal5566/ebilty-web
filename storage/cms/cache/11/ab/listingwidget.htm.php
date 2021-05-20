@@ -1,10 +1,10 @@
 <?php 
-class Cms609bc92184ec6951784707_58e50cd506bfcb0fab11807711fc50b6Class extends Cms\Classes\PartialCode
+class Cms60a61e393e533879774399_ffcefb5af68b607f1f12f339a9eb97b9Class extends Cms\Classes\PartialCode
 {
 public function onStart(){
         $data = post();
         $this['user']   =   Auth::getUser();
-
+        $user_id = $this['user']->id;
         $start              = '';
         $end                = '';
         if(isset($data['start']) && isset($data['end'])){
