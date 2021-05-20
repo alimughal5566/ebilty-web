@@ -635,4 +635,6 @@
   'Spot\\Shipment\\Models\\categories' => 'plugins\\spot\\shipment\\models\\categories.php',
   'Spot\\Shipment\\Models\\Vehicles' => 'plugins\\spot\\shipment\\models\\Vehicles.php',
   'Spot\\Shipment\\Models\\Categories' => 'plugins\\spot\\shipment\\models\\Categories.php',
+  'Spot\\Shipment\\Models\\Bid' => 'plugins\\spot\\shipment\\models\\Bid.php',
+  'Vdomah\\JWTAuth\\Models\\Settings' => 'plugins\\vdomah\\jwtauth\\models\\Settings.php',
 );

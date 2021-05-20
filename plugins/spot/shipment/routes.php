@@ -6868,15 +6868,37 @@ Route::group(['prefix' => 'api'], function() {
         die(json_encode($order));
 
     });
+    Route::any('set/bid/status' , function (Request $req){
+        $request = post();
+        $bid = \Spot\Shipment\Models\Bid::find($request['id']);
+        $bid->status_approved = 1;
+        $bid->save();
+        \DB::table('spot_shipment_bid' , $bid->order_id)
+            ->where('id' ,'!=', $request['id'])
+            ->update(['status_approved' => 2]);
+        die(json_encode($bid));
+    });
     Route::any('save/bid' , function (Request $req){
         $request = post();
-        $bid = new \Spot\Shipment\Models\Bid;
-        $bid->order_id = $request['order_id'];
-        $bid->truck_type = $request['truck_type'];
-        $bid->route = $request['route'];
-        $bid->customer_budget = $request['customer_budget'];
-        $bid->bid_amount = $request['bid_price'];
-        $bid->save();
+//        dd(Auth::getUser()->role_id);
+//      if(Auth::getUser()) {
+          $bid = \Spot\Shipment\Models\Bid::where('order_id', $request['order_id'])
+              ->where('user_id', $request['user_id'])
+              ->first();
+          if (!$bid) {
+              $bid = new \Spot\Shipment\Models\Bid;
+              $bid->order_id = $request['order_id'];
+              $bid->truck_type = $request['truck_type'];
+              $bid->route = $request['route'];
+              $bid->customer_budget = $request['customer_budget'];
+              $bid->bid_amount = $request['bid_price'];
+              $bid->user_id = $request['user_id'];
+              $bid->save();
+          } else {
+              return response()->json(['error' => 'already defined'], 405);
+          }
+
+
         die(json_encode($bid));
 
     });
@@ -7140,6 +7162,7 @@ Route::group(['prefix' => 'api'], function() {
 
             $recordArray = array(
                 'id'                    =>  $record->id,
+                'user_id'               => Auth::getUser()->id,
                 'created_at_date'       =>  \Carbon\Carbon::parse($record->created_at)->format('d/m/Y'),
                 'created_at_time'       =>  \Carbon\Carbon::parse($record->created_at)->format('h:i:s a'),
                 'type'                  =>  $record->type,
@@ -7157,6 +7180,7 @@ Route::group(['prefix' => 'api'], function() {
                 'delayed'               =>  $delayed,
                 'manifest_id'           =>  $record->manifest_id,
                 'assigned_id'           =>  (($record->assigned_id) ? $record->assigned_id : '-') ,
+                'shipping_number'       =>  $record->number,
                 'shipping_number'       =>  $record->number,
                 'shipping_from_area'    =>  $shipping_from_area,
                 'shipping_to_area'      =>  $shipping_to_area,
