@@ -25,10 +25,11 @@ paramCode = "code"
 
 [session]
 security = "all"
+
 ==
 <?php
 function onStart(){
-
+$this['cars']       = \Spot\Shipment\Models\Status::get();
 $this['bids'] = \Spot\Shipment\Models\Bid::
 join('spot_shipment_order' , 'spot_shipment_order.id','spot_shipment_bid.order_id')
 ->join('spot_shipment_office' , 'spot_shipment_order.office_id','spot_shipment_office.id')
@@ -39,10 +40,9 @@ join('spot_shipment_order' , 'spot_shipment_order.id','spot_shipment_bid.order_i
  ->where('spot_shipment_bid.status_approved' , '!=' , 0)
 ->get();
 }
-
 function onChangefees1(){
 $order=\Spot\Shipment\Models\Order::where('id',$_POST['id'])->first();
-$order->status_id=7;
+$order->status_id=$_POST['status'];
 $order->save();
 return 1;
 }
@@ -75,7 +75,7 @@ return 1;
                                     <th>Bid Status</th>
                                     <th>Shipping Status</th>
 
-                                    <th></th>
+                                    <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -90,13 +90,20 @@ return 1;
                                     <td>{{bid.street}}</td>
                                     <td>{{(bid.bid_status==1)?"Approved":"Declined"}}</td>
                                     <td>{{bid.stat}}</td>
+                                    <td>
+                                        <div class="form-group col-lg-12 car_container">
+                                            <select class="form-control" id="car_id" name="car_id" data-live-search="true"  onchange="setStatus('{{bid.order_id}}')">
+                                                <option ></option>
+                                                {% for car in cars %}
+                                                <option value="{{car.id}}"  {{(car.id==bid.stats)?"selected":""}}>{{car.name}}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                    </td>
 
-
-
-                                            {% if bid.stats == 3 %}
-                                    <td><button type="button" onclick="setStatus('{{bid.order_id}}')" class="btn btn-primary btn-xs"><i class="fa fa-check"></i></button>
-
-                                        {% endif %}
+<!--                                            {% if bid.stats == 3 %}-->
+<!--                                    <td><button type="button" onclick="setStatus('{{bid.order_id}}')" class="btn btn-primary btn-xs"><i class="fa fa-check"></i></button> </td>-->
+<!--                                        {% endif %}-->
                                 </tr>
                                 {% endfor %}
                                 </tbody>
@@ -115,9 +122,10 @@ return 1;
         // alert(id)
         var result =confirm("Are you sure you want to complete this shipment?" );
         if (result) {
+
             $.request('onChangefees1', {
                 method: 'post',
-                data: {id: id},
+                data: {id: id,status:$('#car_id').val()},
                 success: function (response, status, xhr, $form) {
 
                     console.log(response);

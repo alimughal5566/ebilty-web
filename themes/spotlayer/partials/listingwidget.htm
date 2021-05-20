@@ -300,7 +300,7 @@ return Redirect::back();
         $('body').on('click','.bid' , function (){
             let order_id_value = $(this).attr('data-id');
             let user_id = $(this).attr('data-user-id');
-            alert(user_id)
+            // alert(user_id)
             $.ajax({
                 url: "/api/get/bid",
                 type: "POST",
@@ -311,9 +311,10 @@ return Redirect::back();
                     // $('#truck_type').val(result.title)
                     $('#truck_id').val(result.truck_id)
                     $('#route').val(result.receiver_addr)
-                    $('#customer_budget').val(result.price_kg)
+                    // $('#customer_budget').val(result.price_kg)
                     $('#order_id_placed').val(order_id_value)
                     $('#save_bid_user_id').val(user_id)
+                    $('#customer_budget').val(result.budget_client)
                     $('#showBidModal').modal('show')
                 }
             })
@@ -409,7 +410,7 @@ return Redirect::back();
                 </div>
                 <div>
                     <lable for="customer_budget">Customer's Total Budget
-                        <input type="text" id="customer_budget" name="customer_budget" class="form-control">
+                        <input type="text" id="customer_budget" name="customer_budget" class="form-control" readonly="true">
                     </lable>
                 </div>
                 <input type="hidden" id="order_id_placed" >

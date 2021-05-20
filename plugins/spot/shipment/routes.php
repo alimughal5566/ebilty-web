@@ -6864,7 +6864,7 @@ Route::group(['prefix' => 'api'], function() {
         $request = post();
         $order = \Spot\Shipment\Models\Order::where('spot_shipment_order.id' , $request['id'])
             ->join('spot_categories_crud' , 'spot_categories_crud.id' , 'spot_shipment_order.vehicle_category')
-            ->select('spot_categories_crud.title' , 'spot_shipment_order.receiver_addr' , 'spot_shipment_order.price_kg' , 'spot_categories_crud.id as truck_id')->first();
+            ->select('spot_categories_crud.title' , 'spot_shipment_order.receiver_addr' , 'spot_shipment_order.price_kg' , 'spot_categories_crud.id as truck_id','spot_shipment_order.budget_client as budget_client')->first();
         die(json_encode($order));
 
     });
@@ -6877,6 +6877,10 @@ Route::group(['prefix' => 'api'], function() {
             ->where('id' ,'!=', $request['id'])
             ->update(['status_approved' => 2]);
         die(json_encode($bid));
+    });
+    Route::any('get-vehicles' , function (Request $req){
+        $request = post();
+        return \Spot\Shipment\Models\Vehicles::where('categories_id',$request['id'])->get();
     });
     Route::any('save/bid' , function (Request $req){
         $request = post();

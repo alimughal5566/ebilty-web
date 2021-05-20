@@ -19,10 +19,6 @@ use \Spot\Shipment\Models\Settings;
 function onStart() {
     if(!Auth::getUser()->hasUserPermission(["order"],'c')) {
 
-
-
-
-
         \Flash::error($this['theme_lang']['not_allowed']);
         return Redirect::to('dashboard/settings');
     }
@@ -79,7 +75,7 @@ function onSave()
           echo 'WE ARE HERE';
             throw new ApplicationException($this['theme_lang']['another_order_with_the_same_numbers']);
         }
-        $item                        = new \Spot\Shipment\Models\Order;
+        $item  = new \Spot\Shipment\Models\Order;
             if(Auth::getUser()->role_id == 5){
                 $item->sender_id             = Auth::getUser()->id;
                 $address                     =\Spot\Shipment\Models\Address::where('user_id',Auth::getUser()->id)->first();
@@ -160,7 +156,7 @@ function onSave()
             if(isset($data['assigned_id']) && $data['assigned_id'] != ''){
                 $item->assigned_id  = htmlspecialchars($data['assigned_id']);
             }
-            $item->type                  =2;
+            $item->type=2;
             if(isset($data['alert_received'])){
                 $item-> preAlert_received            = \Carbon\Carbon::parse(\Carbon\Carbon::createFromFormat($this['settings']['dateformat'], $data['alert_received']));
             }
@@ -168,6 +164,9 @@ function onSave()
                 $item->releasedNote_received            = \Carbon\Carbon::parse(\Carbon\Carbon::createFromFormat($this['settings']['dateformat'], $data['note_received']));
             }
 
+            if(isset($data['budget_client'])){
+                $item->budget_client = $data['budget_client'];
+            }
             $item->save();
 
             $subitem                    = new \Spot\Shipment\Models\Item;
@@ -438,7 +437,10 @@ function onSave()
             throw new ApplicationException($this['theme_lang']['another_order_with_the_same_numbers']);
         }
 
-        $item                   = new \Spot\Shipment\Models\Order;
+        $item = new \Spot\Shipment\Models\Order;
+    if(isset($data['budget_client'])){
+    $item->budget_client = $data['budget_client'];
+    }
         if(isset($data['enable_anotherSender']) && $data['enable_anotherSender'] != ''){
             $item->sender_id        = htmlspecialchars($data['another_sender_id']);
         }else{
@@ -1388,6 +1390,7 @@ function onNewclient(){
         $subitem->default           = 1;
         $subitem->created_at        = \Carbon\Carbon::now();
         $subitem->updated_at        = \Carbon\Carbon::now();
+
         $subitem->save();
 
         if(isset($data['connect'])){
@@ -3141,6 +3144,10 @@ function onChangefees(){
 {% endif %}
 
 <div class="row">
+
+
+
+
     <div class="col-lg-12">
         <div class="panel panel-default">
             <div class="kt-portlet kt-portlet--mobile">
@@ -3156,27 +3163,36 @@ function onChangefees(){
                 <div id="collapseTFive" class="panel-collapse collapse">
                     <div class="kt-portlet__body">
                         <div class="row">
-                            <div class="form-group col-lg-4">
+
+                            <div class="form-group col-lg-8">
+                                <label>{{'Budget'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text">{{'Budget'|__}}</span></div>
+                                    <input  type="number" class="form-control budget_client" name="budget_client" min="1" placeholder="Your budget">
+                                </div>
+                            </div>
+
+                            <div class="form-group col-lg-12">
                                 <label for="vehicle_category">{{'Choose your vehicle category'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
                             </div>
                             <div class="form-group col-lg-8">
-                                <select class="form-control vehicle_category"  name="vehicle_category" id="vehicle_category" >
+                                <select class="form-control vehicle_category" onchange="getVehicles(this.value)"  name="vehicle_category" id="vehicle_category" >
                                     <option data-hidden="true"></option>
                                     {% for categories_cru in categories_crud %}
-                                    <option value="Category A">sdasd</option>
+                                         <option value="{{categories_cru.id}}">{{categories_cru.title}}</option>
                                     {% endfor%}
                                 </select>
                             </div>
                         </div>
                         <div class="row">
                             <div class="form-group col-lg-12">
-                                <label for="vehicle_type">{{'Choose your vehicle type'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
+                                <label for="slectedTracks">{{'Choose your vehicle type'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
                             </div>
                             <input type='hidden' id='slectedTracks' name='truck_used' />
-                            <div class="form-group col-lg-12" id="vehicle_type">
+                            <div class="form-group col-lg-12" id="">
                                 <div id="vehicleTypeCarousel" class="vehicleTypeCarousel">
                                     {% for vehcile_cru in vehcile_crud %}
-                                    <div onclick="getvahicalid({{vehcile_cru.id}})" class="card border-0 card-body mx-3 px-0 selectedVahicals vahicalContainer{{vehcile_cru.id}}" >
+                                    <div onclick="getvahicalid({{vehcile_cru.id}})" class="card border-0 card-body mx-3 px-0 selectedVahicals vahicalContainer{{vehcile_cru.id}}">
                                         <input type="radio" name="" class="make_radio_slide">
                                         <div class="content-inner mx-3 text-center d-block">
                                             <img alt="" class="img-fluid mx-auto" src="./admin/media/images/vehicle 2.jpg">
@@ -3189,7 +3205,6 @@ function onChangefees(){
                                     </div>
                                     {% endfor%}
                                 </div>
-
                             </div>
                         </div>
                     </div>
@@ -3215,6 +3230,15 @@ function onChangefees(){
         </div>
     </div>
 </div>
+
+
+
+
+
+
+
+
+
 {{ form_close() }}
 
 {% put styles %}
@@ -3289,11 +3313,86 @@ function onChangefees(){
 <script src="{{ 'assets/admin/vendors/custom/geocomplete/jquery.geocomplete.js'|theme }}" type="text/javascript"></script>
 <script src="//maps.googleapis.com/maps/api/js?libraries=places&key={{settings.google.map}}"></script>
 <script type="text/javascript">
+    $(".selectedVahicals").addClass("border-0")
+    // $(`.vahicalContainer${params}`).removeClass("border-0")
+    // $(`.vahicalContainer${params}`).css({ "border":" 2px solid #fed06f "})
     function getvahicalid(params) {
         $("#slectedTracks").val(params)
         $(".selectedVahicals").addClass("border-0")
         $(`.vahicalContainer${params}`).removeClass("border-0")
-        $(`.vahicalContainer${params}`).css({ "border":" 2px solid #fed06f "})
+        // $(`.vahicalContainer${params}`).css({ "border":" 2px solid #fed06f "})
+    }
+var firstInit = false;
+    function getVehicles(val) {
+        $('#vehicle_type').removeClass('d-none');
+ let cars;
+        $.ajax({
+            method: 'post',
+            url: "{{url('api/get-vehicles')}}",
+            data: {id: val},
+            success: function (response, status, xhr, $form) {
+                let imageurl = "{{url('/')}}"
+                console.log(response);
+                // window.location.reload();
+                // cars+="
+                $('.vehicleTypeCarousel').empty()
+                let slidetoShow = (response.length > 2 ? 3 : 2)
+                let centermode = (response.length > 2 ? true : false)
+                // $('.vehicleTypeCarousel').slick('unslick');
+                $.each( response, function( index, value ) {
+                        $('.vehicleTypeCarousel').append(`
+                        <div onclick="getvahicalid(${value.id})" class="card border-0 card-body mx-3 px-0 selectedVahicals vahicalContainer{{vehcile_cru.id}}" >
+                                        <input type="radio" name="" class="make_radio_slide">
+                                        <div class="content-inner mx-3 text-center d-block">
+                                            <img alt="" class="img-fluid mx-auto" src="./admin/media/images/vehicle 2.jpg">
+                                            <div class="vehicle-detail text-center mx-2 mx-lg-4 mt-4">
+                                                <h4 class="font-weight-bold">Name : ${value.name}</h4>
+                                                <p class="mb-0">${value.description}</p>
+                                                <p class="mb-0">Capacity : ${value.capacity}</p>
+                                            </div>
+                                        </div>
+                                    </div>`)
+                        });
+                if(response.length > 0) {
+                        $('.vehicleTypeCarousel').slick('unslick').slick('reinit');
+
+                    $('.vehicleTypeCarousel').slick({
+                        centerMode: centermode,
+                        arrows: true,
+                        centerPadding: '60px',
+                        prevArrow: "<button type='button' class='slick-prev'><i class='fa fa-chevron-left fa-2x' aria-hidden='true'></i></button>",
+                        nextArrow: "<button type='button' class='slick-next'><i class='fa fa-chevron-right fa-2x' aria-hidden='true'></i></button>",
+                        slidesToShow: slidetoShow,
+                        slidesToScroll: 1,
+                        autoplay: false,
+                        infinite: true,
+                        autoplaySpeed: 2000,
+                        responsive: [
+                            {
+                                breakpoint: 768,
+                                settings: {
+                                    arrows: true,
+                                    centerMode: true,
+                                    centerPadding: '40px',
+                                    slidesToShow: slidetoShow,
+                                    slidesToScroll: 1,
+                                }
+                            },
+                            {
+                                breakpoint: 480,
+                                settings: {
+                                    arrows: true,
+                                    centerMode: true,
+                                    centerPadding: '30px',
+                                    slidesToShow: 1
+                                }
+                            }
+                        ]
+                    });
+                }
+            }
+        });
+
     }
 KTUtil.ready(function () {
     $( ".kt_form" ).validate({
@@ -3563,10 +3662,11 @@ KTUtil.ready(function () {
             });
             $.request('onNewclient', {
                  {% if addShipmentForm == "add_form_normal" %}
-                 data: {name: parent.find('.name').val(),email: parent.find('.email').val(), vat: parent.find('.vat').val(),budget: parent.find('.budget').val() ,street_addr: parent.find('.street').val(), num: parent.find('.num').val(), box: parent.find('.box').val(), city_id: parent.find('.city_id').find("option:selected").val(), postal_code: parent.find('.postal_code').val(),  country_id: parent.find('.country_id').find("option:selected").val(), lang: parent.find('.lang').find("option:selected").val(), clearance: parent.find('.clearance').val(), fiscal: parent.find('.fiscal').val(),payment_term: parent.find('.payment_term').val(),price_kg: parent.find('.price_kg').val(),storage_fee: parent.find('.feeRadio:checked').val(),cost_24: parent.find('.cost_24').val(),cost_48: parent.find('.cost_48').val()},
+                 data: {name: parent.find('.name').val(),email: parent.find('.email').val(), vat: parent.find('.vat').val(),budget: parent.find('.budget').val() ,street_addr: parent.find('.street').val(), num: parent.find('.num').val(), box: parent.find('.box').val(), city_id: parent.find('.city_id').find("option:selected").val(), postal_code: parent.find('.postal_code').val(),  country_id: parent.find('.country_id').find("option:selected").val(), lang: parent.find('.lang').find("option:selected").val(), clearance: parent.find('.clearance').val(), fiscal: parent.find('.fiscal').val(),payment_term: parent.find('.payment_term').val(),price_kg: parent.find('.price_kg').val(),storage_fee: parent.find('.feeRadio:checked').val(),cost_24: parent.find('.cost_24').val(),cost_48: parent.find('.cost_48').val(),budget_client: parent.find('.budget_client').val()},
                  {% else %}
-                 data: { name: parent.find('.name').val(), mobile: parent.find('.mobile').val(), email: parent.find('.email').val(), gender: parent.find('.gender:checked').val(), street_addr: parent.find('.street_addr').val(), lat: parent.find('.lat').val(), lng: parent.find('.lng').val(), url: parent.find('.url').val(), area_id: parent.find('.area_id').find("option:selected").val(), city_id: parent.find('.city_id').find("option:selected").val(), postal_code: parent.find('.postal_code').val(), state_id: parent.find('.state_id').find("option:selected").val(), country_id: parent.find('.country_id').find("option:selected").val(), connect: parent.find('.connect:checked').val(), username: parent.find('.username').val(), password: parent.find('.password').val()},
+                 data: { name: parent.find('.name').val(), mobile: parent.find('.mobile').val(), email: parent.find('.email').val(), gender: parent.find('.gender:checked').val(), street_addr: parent.find('.street_addr').val(), lat: parent.find('.lat').val(), lng: parent.find('.lng').val(), url: parent.find('.url').val(), area_id: parent.find('.area_id').find("option:selected").val(), city_id: parent.find('.city_id').find("option:selected").val(), postal_code: parent.find('.postal_code').val(), state_id: parent.find('.state_id').find("option:selected").val(), country_id: parent.find('.country_id').find("option:selected").val(), connect: parent.find('.connect:checked').val(), username: parent.find('.username').val(), password: parent.find('.password').val(),budget_client: parent.find('.budget_client').val()},
                  {% endif %}
+
                  error: function(response, status, xhr, $form) {
                      swal.fire({
                          title: '{{"Error!"|__}}',
