@@ -1,5 +1,5 @@
 <?php 
-use \Spot\Shipment\Models\Settings;use RainLab\Translate\Classes\Translator;use RainLab\Translate\Components\LocalePicker;class Cms609bc90353e40536124067_fdd02d5c537e52048500a14ca48cc05eClass extends Cms\Classes\LayoutCode
+use \Spot\Shipment\Models\Settings;use RainLab\Translate\Classes\Translator;use RainLab\Translate\Components\LocalePicker;class Cms60a63f07dd9bd233017170_d4ddda0b101ee7d32abc08fbd9408901Class extends Cms\Classes\LayoutCode
 {
 
 

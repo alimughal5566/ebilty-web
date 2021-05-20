@@ -1,4 +1,4 @@
-1621497184a:1:{s:9:"front.htm";a:12:{s:8:"fileName";s:9:"front.htm";s:7:"content";s:70128:"description = "Front layout"
+1621512306a:1:{s:9:"front.htm";a:12:{s:8:"fileName";s:9:"front.htm";s:7:"content";s:70119:"description = "Front layout"
 
 [localePicker]
 forceUrl = 1
@@ -513,7 +513,7 @@ function onMyRegister()
 									{% else %}
 									<!-- Login trigger -->
 									<div class="topnav login--panel topnav-account-login topnav-login align-self-center">
-										<a class="topnav-item popup-with-form" href="#login_panel">
+										<a class="topnav-item " href="{{url('/login/')}}">
 											<i class="login-icon fas fa-sign-in-alt visible-xs xs-icon"></i>
 											<span class="topnav-item--text">{{'LOGIN'|__}}</span>
 										</a>
@@ -1066,7 +1066,7 @@ function onMyRegister()
         <!--end::Page Scripts -->
     </body>
 </html>
-";s:5:"mtime";i:1620152427;s:6:"markup";s:69512:"<!doctype html>
+";s:5:"mtime";i:1621507846;s:6:"markup";s:69503:"<!doctype html>
 <html lang="{{currentLang}}" {% if currentLang == 'ar'%}direction="rtl" dir="rtl" style="direction: rtl"{% else %}dir="ltr"{% endif %} class="no-js">
     <head>
         <base href="{{ 'assets/admin'|theme }}"><!--end::Base Path -->
@@ -1545,7 +1545,7 @@ function onMyRegister()
 									{% else %}
 									<!-- Login trigger -->
 									<div class="topnav login--panel topnav-account-login topnav-login align-self-center">
-										<a class="topnav-item popup-with-form" href="#login_panel">
+										<a class="topnav-item " href="{{url('/login/')}}">
 											<i class="login-icon fas fa-sign-in-alt visible-xs xs-icon"></i>
 											<span class="topnav-item--text">{{'LOGIN'|__}}</span>
 										</a>

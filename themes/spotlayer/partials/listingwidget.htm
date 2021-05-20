@@ -210,7 +210,12 @@ return Redirect::back();
                         {% if user.role_id != 12 %}
                         var output = '' +
                             '<div id="shipmentbtns" class="btn-group btn-group" role="group" aria-label="...">'+
-                            '<a href="{{url("dashboard/shipments")}}/'+data.id+'/view" class="btn btn-brand btn-sm btn-icon" data-skin="dark" data-toggle="kt-tooltip" data-placement="top" title="{{"View Shipment"|__}}"><i class="la la-eye"></i></button>';
+                            '<a href="{{url("dashboard/shipments")}}/'+data.id+'/view" class="btn btn-brand btn-sm btn-icon" data-skin="dark" data-toggle="kt-tooltip" data-placement="top" title="{{"View Shipment"|__}}"><i class="la la-eye"></i></a>'
+
+                            +'<a href="{{url("bid/list")}}" class="btn btn-brand btn-sm btn-icon" data-skin="dark" data-toggle="kt-tooltip" data-placement="top" title="{{"View Bid List"|__}}"><i class="la la-area-chart"></i></a>';
+
+
+
 
 
 
@@ -248,6 +253,7 @@ return Redirect::back();
                         {% if user.role_id == 5 %}
                         if((data.requested   ==  0 || data.requested == 100) && data.sender_id == {{user.id}}){
                             output += '<a href="{{url("dashboard/shipments")}}/'+data.id+'/edit" class="btn btn-brand btn-sm btn-icon" data-skin="dark" data-toggle="kt-tooltip" data-placement="top" title="{{"Edit Shipment"|__}}"><i class="la la-edit"></i></button>';
+
                         }
                         {% endif %}
                         if((data.requested   !=  0 && data.requested   !=  1 && data.requested != 100)){
@@ -278,6 +284,7 @@ return Redirect::back();
                         {% if user.role_id == 5 %}
                         if((data.requested   ==  0 || data.requested == 100) && (data.sender_id != {{user.id}})){
                             output += '<a href="javascript:void(0);" class="btn btn-danger btn-sm delete_record kt-font-light btn-icon" rel="'+data.id+'" data-skin="dark" data-toggle="kt-tooltip" data-placement="top" title="{{"Delete Shipment"|__}}"><i class="la la-remove"></i></a>';
+
                         }
                         {% endif %}
 
