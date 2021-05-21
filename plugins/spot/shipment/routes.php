@@ -4084,6 +4084,7 @@ Route::group(['prefix' => 'api'], function() {
                 'name'                =>  $record->name,
                 'capacity'            =>  $record->capacity,
                 'description'         =>  $record->description,
+                'thumbnail'         =>  $record->thumbnail,
             );
             array_push($recordsArray,$recordArray);
         }

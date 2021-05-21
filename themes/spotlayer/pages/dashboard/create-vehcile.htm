@@ -41,17 +41,29 @@ return false;
     }
 
 $data = post();
-<!--var_dump($data );-->
-
 $item                       = new \Spot\Shipment\Models\Vehicles;
 $item->name                 = $data['name'];
 $item->description          = $data['description'];
 $item->categories_id         = $data['categories_id'];
 $item->capacity         = $data['capacity'];
+
+if ($data['photo']) {
+$data2 = $data['photo'];
+$image_array_1 = explode(";", $data2);
+$image_array_2 = explode(",", $image_array_1[1]);
+$data3 = base64_decode($image_array_2[1]);
+$name=time() . '.png';
+$image_name = $name ;
+Storage::disk('local')->put($image_name, $data3);
+$item->thumbnail = $name;
+}
+
+
+
 $item->save();
 
 
-$languages              =   RainLab\Translate\Models\Locale::get();
+$languages =RainLab\Translate\Models\Locale::get();
 foreach($languages as $lang){
 if(isset($data['name'][$lang->code]) && $data['name'][$lang->code] != ''){
 $item->lang($lang->code)->name             = htmlspecialchars($data['name'][$lang->code]);
@@ -145,6 +157,14 @@ return Redirect::to('dashboard/settings/'.$this->page->child_of_page);
                         </select>
                     </div>
                 </div>
+                <div class="form-group row">
+                    <label class="col-xl-3 col-lg-3 col-form-label">{{'Image'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
+                    <div class="col-lg-9 col-xl-6">
+                        <input type="file" class="form-control img" name="img" required >
+                        <input type="hidden" name="photo" class="imag" required >
+
+                    </div>
+                </div>
             </div>
         </div>
         <div class="kt-portlet__foot">
@@ -198,5 +218,19 @@ return Redirect::to('dashboard/settings/'.$this->page->child_of_page);
             form[0].submit(); // submit the form
         }
     });
+
+    // Select the image
+    $(".img").change(function() {
+        const file = document.querySelector('input[type=file]').files[0];
+        const reader = new FileReader();
+        reader.addEventListener("load", function () {
+            // convert image file to base64 string
+            $('.imag').val(reader.result);
+        }, false);
+        if (file) {
+            reader.readAsDataURL(file);
+        }
+    });
+
 </script>
 {% endput %}

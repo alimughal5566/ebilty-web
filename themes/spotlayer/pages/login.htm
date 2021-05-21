@@ -258,8 +258,7 @@ return \Spot\Shipment\Models\Vehicles::select('id','name')->where('categories_id
 
                                 <div class="input-group vehicle_category"  style="display:none">
                                     <label for="vehicle_category" class="sr-only"></label>
-                                    <select name="vehicle_category" requierd class="form-control selectpicker" data-dropup-auto="false" id="vehicle_category" autocomplete="off" >
-
+                                    <select name="vehicle_category" requierd class="form-control selectpicker" data-dropup-auto="false" id="vehicle_category" autocomplete="off">
                                         {% for category in categories_car %}
                                         <option value="{{category.id}}">{{category.title}}</option>
                                         {% endfor %}
@@ -769,23 +768,34 @@ return \Spot\Shipment\Models\Vehicles::select('id','name')->where('categories_id
 
 
 
+     // // Select the image
+     // $("#cnic").change(function() {
+     // const fileInput = document.querySelector("#cnic");
+     // fileInput.addEventListener("change", (e) => {
+     //     // get a reference to the file
+     //     const file = e.target.files[0];
+     //     const reader = new FileReader();
+     //     reader.onloadend = () => {
+     //         $('#cnic_image').val(reader.result);
+     //         console.log(reader.result);
+     //     };
+     //     reader.readAsDataURL(file);
+     //     // console.log(reader.readAsDataURL(file));
+     // });
+     // });
+
      // Select the image
      $("#cnic").change(function() {
-     const fileInput = document.querySelector("#cnic");
-     fileInput.addEventListener("change", (e) => {
-         // get a reference to the file
-         const file = e.target.files[0];
+         const file = document.querySelector('input[type=file]').files[0];
          const reader = new FileReader();
-         reader.onloadend = () => {
+         reader.addEventListener("load", function () {
+             // convert image file to base64 string
              $('#cnic_image').val(reader.result);
-             console.log(reader.result);
-         };
-         reader.readAsDataURL(file);
-         // console.log(reader.readAsDataURL(file));
+         }, false);
+         if (file) {
+             reader.readAsDataURL(file);
+         }
      });
-     });
-
-
 
 
 
