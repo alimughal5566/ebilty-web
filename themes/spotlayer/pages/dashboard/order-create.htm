@@ -164,6 +164,7 @@ function onSave()
                 $item->releasedNote_received            = \Carbon\Carbon::parse(\Carbon\Carbon::createFromFormat($this['settings']['dateformat'], $data['note_received']));
             }
 
+            $item->requested = 1;
             if(isset($data['budget_client'])){
                 $item->budget_client = $data['budget_client'];
             }
@@ -438,9 +439,16 @@ function onSave()
         }
 
         $item = new \Spot\Shipment\Models\Order;
-    if(isset($data['budget_client'])){
-    $item->budget_client = $data['budget_client'];
-    }
+         if(isset($data['budget_client'])){
+            $item->budget_client = $data['budget_client'];
+        }
+        if(isset($data['truck_used'])){
+            $item->truck_used = $data['truck_used'];
+        }
+        $item->requested = 1;
+        if(isset($data['vehicle_category'])){
+            $item->vehicle_category = $data['vehicle_category'];
+        }
         if(isset($data['enable_anotherSender']) && $data['enable_anotherSender'] != ''){
             $item->sender_id        = htmlspecialchars($data['another_sender_id']);
         }else{
@@ -504,12 +512,12 @@ function onSave()
 
         if(Auth::getUser()->role_id == 5){
             $item->status_id        = 19;
-            $item->requested        = 0;
+            $item->requested        = 1;
         }else{
             if(isset($data['status_id']) && $data['status_id'] != ''){
                 $status = explode("_" , htmlspecialchars($data['status_id']) );
                 $item->status_id        = $status[0];
-                $item->requested        = $status[1];
+                $item->requested        =1;
                 //$item->status_id        = htmlspecialchars($data['status_id']);
             }
         }
@@ -3193,7 +3201,7 @@ function onChangefees(){
                                 <div id="vehicleTypeCarousel" class="vehicleTypeCarousel">
                                     {% for vehcile_cru in vehcile_crud %}
                                     <div onclick="getvahicalid({{vehcile_cru.id}})" class="card border-0 card-body mx-3 px-0 selectedVahicals vahicalContainer{{vehcile_cru.id}}">
-                                        <input type="radio" name="" class="make_radio_slide">
+                                        <input type="radio" name="model" class="make_radio_slide">
                                         <div class="content-inner mx-3 text-center d-block">
                                             <img alt="" class="img-fluid mx-auto" src="./admin/media/images/vehicle 2.jpg">
                                             <div class="vehicle-detail text-center mx-2 mx-lg-4 mt-4">
@@ -3662,9 +3670,9 @@ KTUtil.ready(function () {
             });
             $.request('onNewclient', {
                  {% if addShipmentForm == "add_form_normal" %}
-                 data: {name: parent.find('.name').val(),email: parent.find('.email').val(), vat: parent.find('.vat').val(),budget: parent.find('.budget').val() ,street_addr: parent.find('.street').val(), num: parent.find('.num').val(), box: parent.find('.box').val(), city_id: parent.find('.city_id').find("option:selected").val(), postal_code: parent.find('.postal_code').val(),  country_id: parent.find('.country_id').find("option:selected").val(), lang: parent.find('.lang').find("option:selected").val(), clearance: parent.find('.clearance').val(), fiscal: parent.find('.fiscal').val(),payment_term: parent.find('.payment_term').val(),price_kg: parent.find('.price_kg').val(),storage_fee: parent.find('.feeRadio:checked').val(),cost_24: parent.find('.cost_24').val(),cost_48: parent.find('.cost_48').val(),budget_client: parent.find('.budget_client').val()},
+                 data: {name: parent.find('.name').val(),email: parent.find('.email').val(), vat: parent.find('.vat').val(),budget: parent.find('.budget').val() ,street_addr: parent.find('.street').val(), num: parent.find('.num').val(), box: parent.find('.box').val(), city_id: parent.find('.city_id').find("option:selected").val(), postal_code: parent.find('.postal_code').val(),  country_id: parent.find('.country_id').find("option:selected").val(), lang: parent.find('.lang').find("option:selected").val(), clearance: parent.find('.clearance').val(), fiscal: parent.find('.fiscal').val(),payment_term: parent.find('.payment_term').val(),price_kg: parent.find('.price_kg').val(),storage_fee: parent.find('.feeRadio:checked').val(),cost_24: parent.find('.cost_24').val(),cost_48: parent.find('.cost_48').val(),budget_client: parent.find('.budget_client').val(),vehicle_category: parent.find('#vehicle_category').val(),vehicle_type: parent.find('.make_radio_slide').val()},
                  {% else %}
-                 data: { name: parent.find('.name').val(), mobile: parent.find('.mobile').val(), email: parent.find('.email').val(), gender: parent.find('.gender:checked').val(), street_addr: parent.find('.street_addr').val(), lat: parent.find('.lat').val(), lng: parent.find('.lng').val(), url: parent.find('.url').val(), area_id: parent.find('.area_id').find("option:selected").val(), city_id: parent.find('.city_id').find("option:selected").val(), postal_code: parent.find('.postal_code').val(), state_id: parent.find('.state_id').find("option:selected").val(), country_id: parent.find('.country_id').find("option:selected").val(), connect: parent.find('.connect:checked').val(), username: parent.find('.username').val(), password: parent.find('.password').val(),budget_client: parent.find('.budget_client').val()},
+                 data: { name: parent.find('.name').val(), mobile: parent.find('.mobile').val(), email: parent.find('.email').val(), gender: parent.find('.gender:checked').val(), street_addr: parent.find('.street_addr').val(), lat: parent.find('.lat').val(), lng: parent.find('.lng').val(), url: parent.find('.url').val(), area_id: parent.find('.area_id').find("option:selected").val(), city_id: parent.find('.city_id').find("option:selected").val(), postal_code: parent.find('.postal_code').val(), state_id: parent.find('.state_id').find("option:selected").val(), country_id: parent.find('.country_id').find("option:selected").val(), connect: parent.find('.connect:checked').val(), username: parent.find('.username').val(), password: parent.find('.password').val(),budget_client: parent.find('.budget_client').val(),vehicle_category: parent.find('#vehicle_category').val(),vehicle_type: parent.find('.make_radio_slide').val()},
                  {% endif %}
 
                  error: function(response, status, xhr, $form) {

@@ -6864,22 +6864,38 @@ Route::group(['prefix' => 'api'], function() {
         $request = post();
         $order = \Spot\Shipment\Models\Order::where('spot_shipment_order.id' , $request['id'])
             ->join('spot_categories_crud' , 'spot_categories_crud.id' , 'spot_shipment_order.vehicle_category')
-            ->select('spot_categories_crud.title' , 'spot_shipment_order.receiver_addr' , 'spot_shipment_order.price_kg' , 'spot_categories_crud.id as truck_id','spot_shipment_order.budget_client as budget_client')->first();
+            ->join('spot_vehicle_crud' , 'spot_vehicle_crud.id' , 'spot_shipment_order.truck_used')
+            ->join('spot_shipment_address' , 'spot_shipment_address.id' , 'spot_shipment_order.receiver_address_id')
+            ->select('spot_vehicle_crud.name as ve_name','spot_vehicle_crud.model as ve_model','spot_categories_crud.title as title' , 'spot_shipment_address.name as receiver_addr', 'spot_shipment_address.street as street' , 'spot_shipment_order.price_kg' , 'spot_shipment_order.truck_used as truck_id','spot_shipment_order.budget_client as budget_client')->first();
         die(json_encode($order));
 
     });
     Route::any('set/bid/status' , function (Request $req){
         $request = post();
         $bid = \Spot\Shipment\Models\Bid::find($request['id']);
-        $bid->status_approved = 1;
+        $status=$request['status'];
+        $stat='';
+        $stat2='';
+        if($status==1){
+            $stat=0;
+            $stat2=0;
+            \DB::table('spot_shipment_order' )
+                ->where('id' , $bid->order_id)
+                ->update(['assigned_id' =>null]);
+        }else{
+            \DB::table('spot_shipment_order' )
+                ->where('id' , $bid->order_id)
+                ->update(['assigned_id' => $bid->user_id]);
+            $stat2=2;
+            $stat=1;
+        }
+        $bid->status_approved = $stat;
         $bid->save();
         \DB::table('spot_shipment_bid' )
             ->where('order_id' , $bid->order_id)
             ->where('id' ,'!=', $request['id'])
-            ->update(['status_approved' => 2]);
-        \DB::table('spot_shipment_order' )
-            ->where('id' , $bid->order_id)
-            ->update(['assigned_id' => $bid->user_id]);
+            ->update(['status_approved' => $stat2]);
+
 
         die(json_encode($bid));
     });

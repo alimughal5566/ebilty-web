@@ -31,6 +31,7 @@ $this['Vehicles']   =   \Spot\Shipment\Models\Vehicles::select('id','name')->get
 }
 function onSave()
 {
+
 if($this['settings']['demo_mode']){
 throw new ApplicationException('NOT ALLAOWED IN DEMO');
 return false;
@@ -38,7 +39,10 @@ return false;
     if(!Auth::getUser()->hasUserPermission(["branches"],'c')) {
     throw new ApplicationException($this['theme_lang']['not_allowed']);
     }
+
 $data = post();
+var_dump($data );
+
 $item                       = new \Spot\Shipment\Models\Vehicles;
 $item->name                 = $data['name'];
 $item->description          = $data['description'];

@@ -458,7 +458,7 @@ function onShipmentPaid(){
     $activity->save();
 
     \Flash::success($this['theme_lang']['updated_successfully']);
-    return Redirect::back(); 
+    return Redirect::back();
 }
 
 function onShipmentDeliveried(){
@@ -571,7 +571,7 @@ function onShipmentDeliveried(){
     $activity->save();
 
     \Flash::success($this['theme_lang']['updated_successfully']);
-    return Redirect::back(); 
+    return Redirect::back();
 }
 function onShipmentApproved(){
     $data = post();
@@ -629,7 +629,7 @@ function onShipmentApproved(){
     $activity->save();
 
     \Flash::success($this['theme_lang']['updated_successfully']);
-    return Redirect::back();  
+    return Redirect::back();
 
 
 }
@@ -689,7 +689,7 @@ function onShipmentReceived(){
     $activity->save();
 
     \Flash::success($this['theme_lang']['updated_successfully']);
-    return Redirect::back();  
+    return Redirect::back();
 
 
 }
@@ -750,7 +750,7 @@ function onAssignEmployee(){
     $activity->save();
 
     \Flash::success($this['theme_lang']['updated_successfully']);
-    return Redirect::back();  
+    return Redirect::back();
 }
 
 
@@ -1259,7 +1259,7 @@ function onPrint()
                         <input type="hidden" id="shipments_label_id" class="form-control" name="ids" />
                         {% if user.role_id != 4 %}
                             <div class="form-group col-lg-12">
-                                <p>Are you sure to print <span id="shipments_length"></span>  selected records ?</p>
+                                <p>Are you sure to print <span id="shipments_length"></span> selected records ?</p>
                             </div>
                         {% endif %}
                     </div>
@@ -1774,7 +1774,7 @@ var KTAppUserListDatatable = function () {
         var path = location.pathname;
         var directories = path.split("/");
         var lastDirecotry = directories[(directories.length - 2)]+'/'+directories[(directories.length - 1)];
-        
+
 
         if(lastDirecotry == 'shipments/view') {
             history.go(-1);
@@ -2187,7 +2187,7 @@ var KTAppUserListDatatable = function () {
         // $('body').on('click', '#assignEmployee', function (e) {
         //     $('#assign_employee').modal('toggle');
         // });
-        
+
 
         $('body').on('click', '.shipmentApproved', function (e) {
             e.preventDefault();
@@ -2235,7 +2235,7 @@ var KTAppUserListDatatable = function () {
                     });
                 }
             });
-           
+
 
         });
 
@@ -2286,11 +2286,11 @@ var KTAppUserListDatatable = function () {
                     });
                 }
             });
-           
+
 
         });
 
-        
+
 
         $('body').on('click', '.shipmentPaid', function (e) {
             e.preventDefault();
@@ -2338,7 +2338,7 @@ var KTAppUserListDatatable = function () {
                     });
                 }
             });
-            
+
 
         });
 
@@ -2388,7 +2388,7 @@ var KTAppUserListDatatable = function () {
                     });
                 }
             });
-            
+
 
         });
 
@@ -2606,7 +2606,7 @@ KTUtil.ready(function () {
         }else if($(this).attr('href').replace('#','') == 'stock'){
             $('#kt_subheader h3.kt-subheader__title').html('{{"In Stock"|__}}');
         }else if($(this).attr('href').replace('#','') == 'custom'){
-            $('#kt_subheader h3.kt-subheader__title').html('{{"In Custom"|__}}');    
+            $('#kt_subheader h3.kt-subheader__title').html('{{"In Custom"|__}}');
         }else if($(this).attr('href').replace('#','') == 'delivered'){
             $('#kt_subheader h3.kt-subheader__title').html('{{"Delivered"|__}}');
         }else if($(this).attr('href').replace('#','') == 'supplied'){
