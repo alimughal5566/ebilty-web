@@ -6961,7 +6961,7 @@ Route::group(['prefix' => 'api'], function() {
 //                    $q->orWhere('receiver_id', Auth::getUser()->id);
 //                    $q->orWhere('created_by', Auth::getUser()->id);
                 })
-//                    ->where('sender_city' , Auth::getUser()->city)
+                    ->where('sender_city' , Auth::getUser()->city)
                     ->where('truck_used' , Auth::getUser()->truck_used)
                     ->where('vehicle_category' , Auth::getUser()->vehicle_category);
                 break;
