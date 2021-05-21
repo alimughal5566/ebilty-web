@@ -421,7 +421,7 @@ function onRefreshTime(){
                                         </div>
                                     </div>
                                 </div>
-
+                                {% if user.role_id!=12 %}
                                 <div class="kt-widget__footer kt-margin-t-15">
                                     <a href="{{'dashboard/order-create'|page}}" class="btn btn-label-brand btn-lg btn-upper btn-block">
                                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon kt-svg-icon--light">
@@ -434,6 +434,7 @@ function onRefreshTime(){
                                          <span>{{'Add Shipment'|__}}</span>
                                      </a>
                                 </div>
+                                {% endif %}
                             </div>
 
                             {% if mainMenu.menuItems %}

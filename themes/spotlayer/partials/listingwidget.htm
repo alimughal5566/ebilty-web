@@ -105,8 +105,8 @@ return Redirect::back();
                     sortable: true,
                     width: 140,
                     template: function(row) {
-
-                        return '<a href="{{url('dashboard/shipments')}}/'+row.id+'/view">{{settings.tracking.prefix_order}}{{settings.tracking.numbers_order}}'+row.shipping_number+'</a>';
+                        return '<a >{{settings.tracking.prefix_order}}{{settings.tracking.numbers_order}}'+row.shipping_number+'</a>';
+                        // return '<a href="{{url('dashboard/shipments')}}/'+row.id+'/view">{{settings.tracking.prefix_order}}{{settings.tracking.numbers_order}}'+row.shipping_number+'</a>';
                     }
                 },
                 {
@@ -213,11 +213,6 @@ return Redirect::back();
                             '<a href="{{url("dashboard/shipments")}}/'+data.id+'/view" class="btn btn-brand btn-sm btn-icon" data-skin="dark" data-toggle="kt-tooltip" data-placement="top" title="{{"View Shipment"|__}}"><i class="la la-eye"></i></a>'
 
                             +'<a href="{{url("bid/list")}}" class="btn btn-brand btn-sm btn-icon" data-skin="dark" data-toggle="kt-tooltip" data-placement="top" title="{{"View Bid List"|__}}"><i class="la la-area-chart"></i></a>';
-
-
-
-
-
 
                         {% if user.role_id != 5 %}
                         if(data.requested   ==  0 ){
