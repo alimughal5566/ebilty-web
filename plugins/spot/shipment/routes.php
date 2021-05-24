@@ -6962,6 +6962,7 @@ Route::group(['prefix' => 'api'], function() {
 //                    $q->orWhere('receiver_id', Auth::getUser()->id);
 //                    $q->orWhere('created_by', Auth::getUser()->id);
                 })
+
                     ->where('sender_city' , Auth::getUser()->city)
                     ->where('truck_used' , Auth::getUser()->truck_used)
                     ->where('vehicle_category' , Auth::getUser()->vehicle_category);
@@ -7051,6 +7052,7 @@ Route::group(['prefix' => 'api'], function() {
                 });
             }
         }
+
 
         if(isset($request['start'])){
             $records    =   $records->where('updated_at', '>=', $request['start'])->where('updated_at', '<=', $request['end']);
