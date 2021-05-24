@@ -439,9 +439,9 @@ function onRefreshTime(){
 
                             {% if mainMenu.menuItems %}
                           <ul class="kt-menu__nav ">
-                                    {% for item in mainMenu.menuItems if not item.viewBag.isHidden %}
-                                        {% if user.hasUserPermission(item.code, 'r') or item.code is empty %}
-
+                              {% if user.role_id!=12 %}
+                              {% for item in mainMenu.menuItems if not item.viewBag.isHidden %}
+                              {% if user.hasUserPermission(item.code, 'r') or item.code is empty %}
 
                                    <li class="kt-menu__item  {{ item.isActive or item.isChildActive or this.page.menu_breadcrumb == item.code ? 'kt-menu__item--open kt-menu__item--here' : '' }} kt-menu__item--submenu kt-menu__item--rel" {% if item.items %}data-ktmenu-submenu-toggle="hover" aria-haspopup="true"{% endif %}>
                                                 <a href="{% if item.url %}{{ item.url }}{% else %}#{% endif %}" class="kt-menu__link {% if item.items %}kt-menu__toggle{% endif %}" {{ item.viewBag.isExternal ? 'target="_blank"' }}>
@@ -477,6 +477,8 @@ function onRefreshTime(){
                                             </li>
                                         {% endif %}
                                     {% endfor %}
+                                    {% endif %}
+
 
                                 </ul>
                          <ul class="kt-menu__nav ">

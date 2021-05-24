@@ -3199,19 +3199,20 @@ function onChangefees(){
                             <input type='hidden' id='slectedTracks' name='truck_used' />
                             <div class="form-group col-lg-12" id="">
                                 <div id="vehicleTypeCarousel" class="vehicleTypeCarousel">
-                                    {% for vehcile_cru in vehcile_crud %}
-                                    <div onclick="getvahicalid({{vehcile_cru.id}})" class="card border-0 card-body mx-3 px-0 selectedVahicals vahicalContainer{{vehcile_cru.id}}">
-                                        <input type="radio" name="model" class="make_radio_slide">
-                                        <div class="content-inner mx-3 text-center d-block">
-                                            <img alt="" class="img-fluid mx-auto" src="./admin/media/images/vehicle 2.jpg">
-                                            <div class="vehicle-detail text-center mx-2 mx-lg-4 mt-4">
-                                                <h4 class="font-weight-bold">Name : {{vehcile_cru.name}}</h4>
-                                                <p class="mb-0">{{vehcile_cru.description}}</p>
-                                                <p class="mb-0">Capacity : {{vehcile_cru.capacity}}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    {% endfor%}
+<!--                                    <div>N/a</div>-->
+<!--                                    {% for vehcile_cru in vehcile_crud %}-->
+<!--                                    <div onclick="getvahicalid({{vehcile_cru.id}})" class="card border-0 card-body mx-3 px-0 selectedVahicals vahicalContainer{{vehcile_cru.id}}">-->
+<!--                                        <input type="radio" name="model" class="make_radio_slide">-->
+<!--                                        <div class="content-inner mx-3 text-center d-block">-->
+<!--                                            <img alt="" class="img-fluid mx-auto" src="./admin/media/images/vehicle 2.jpg">-->
+<!--                                            <div class="vehicle-detail text-center mx-2 mx-lg-4 mt-4">-->
+<!--                                                <h4 class="font-weight-bold">Name : {{vehcile_cru.name}}</h4>-->
+<!--                                                <p class="mb-0">{{vehcile_cru.description}}</p>-->
+<!--                                                <p class="mb-0">Capacity : {{vehcile_cru.capacity}}</p>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    {% endfor%}-->
                                 </div>
                             </div>
                         </div>
@@ -3359,7 +3360,7 @@ var firstInit = false;
                                                 <p class="mb-0">Capacity : ${value.capacity}</p>
                                             </div>
                                         </div>
-                                    </div>`)
+                         </div>`)
                         });
                 if(response.length > 0) {
                         $('.vehicleTypeCarousel').slick('unslick').slick('reinit');
@@ -3397,6 +3398,9 @@ var firstInit = false;
                             }
                         ]
                     });
+                }else{
+                    $('.vehicleTypeCarousel').html('No vehicle found')
+
                 }
             }
         });
