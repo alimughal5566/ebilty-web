@@ -6955,17 +6955,24 @@ Route::group(['prefix' => 'api'], function() {
                 });
                 break;
             case 12:
-                $records    =   $records
-                    ->where(function($q){
+
+//                $vehicles = Spot\Shipment\Models\UserVehicle::where('user_id',Auth::getUser()->id)->get();
+                
+
+//                foreach($vehicles as $truck){
+//                    $records->orwhere('truck_used' ,$truck->vehicle_id );
+//                    $records->where('vehicle_category' , $truck->vehicle_type);
+//                }
+
+                $records    =   $records->where(function($q){
                     $q->where('assigned_id', NULL);
 //                    $q->where('sender_id', Auth::getUser()->id);
 //                    $q->orWhere('receiver_id', Auth::getUser()->id);
 //                    $q->orWhere('created_by', Auth::getUser()->id);
                 })
 
-                    ->where('sender_city' , Auth::getUser()->city)
-                    ->where('truck_used' , Auth::getUser()->truck_used)
-                    ->where('vehicle_category' , Auth::getUser()->vehicle_category);
+                    ->where('sender_city' , Auth::getUser()->city);
+
                 break;
             case 4:
                 if(Auth::getUser()->is_superuser){
