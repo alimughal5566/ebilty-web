@@ -6,8 +6,7 @@ class Vehicles extends Model
 {
     protected $table='spot_vehicle_crud';
 
-
-
+    protected $guarded=[''];
 
 
 

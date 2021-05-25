@@ -210,10 +210,7 @@ return Redirect::back();
                         {% if user.role_id != 12 %}
                         var output = '' +
                             '<div id="shipmentbtns" class="btn-group btn-group" role="group" aria-label="...">'+
-                            '<a href="{{url("dashboard/shipments")}}/'+data.id+'/view" class="btn btn-brand btn-sm btn-icon" data-skin="dark" data-toggle="kt-tooltip" data-placement="top" title="{{"View Shipment"|__}}"><i class="la la-eye"></i></a>'
-
-                            +'<a href="{{url("bid/list")}}" class="btn btn-brand btn-sm btn-icon" data-skin="dark" data-toggle="kt-tooltip" data-placement="top" title="{{"View Bid List"|__}}"><i class="la la-area-chart"></i></a>';
-
+                            '<a href="{{url("dashboard/shipments")}}/'+data.id+'/view" class="btn btn-brand btn-sm btn-icon" data-skin="dark" data-toggle="kt-tooltip" data-placement="top" title="{{"View Shipment"|__}}"><i class="la la-eye"></i></a>';
 
 
 
@@ -251,6 +248,10 @@ return Redirect::back();
                         }
                         {% endif %}
                         {% if user.role_id == 5 %}
+                        if(data.assigned_id   ==  '-'){
+                            output += '<a href="{{url("bid/list")}}" class="btn btn-brand btn-sm btn-icon" data-skin="dark" data-toggle="kt-tooltip" data-placement="top" title="{{"View Bid List"|__}}"><i class="la la-area-chart"></i></a>';
+
+                        }
                         if((data.requested   ==  0 || data.requested == 100) && data.sender_id == {{user.id}}){
                             output += '<a href="{{url("dashboard/shipments")}}/'+data.id+'/edit" class="btn btn-brand btn-sm btn-icon" data-skin="dark" data-toggle="kt-tooltip" data-placement="top" title="{{"Edit Shipment"|__}}"><i class="la la-edit"></i></button>';
 
