@@ -255,4 +255,13 @@ class Order extends Model
      */
     public $rules = [
     ];
+
+    public function vehicle_id()
+    {
+        return $this->hasMany(UserVehicle::class, 'vehicle_id','truck_used');
+    }
+    public function vehicle_type()
+    {
+        return $this->hasMany(UserVehicle::class, 'vehicle_type','vehicle_category');
+    }
 }
