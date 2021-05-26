@@ -17,6 +17,7 @@ localeTitle[ar] = "إدارة الطلبات"
 ==
 <?php
 function onStart(){
+var_dump('ss');
     if(!Auth::getUser()->hasUserPermission(["order"],'r')) {
         \Flash::error($this['theme_lang']['not_allowed']);
     }

@@ -1,0 +1,179 @@
+1622034818a:1:{s:7:"bid.htm";a:22:{s:8:"fileName";s:7:"bid.htm";s:7:"content";s:4027:"title = "Bids List"
+subtitle = "Bids List"
+url = "/bid/list"
+layout = "admin"
+is_hidden = 0
+role = 0
+permission = 0
+anonymous_only = 1
+logged_only = 0
+child_of = "mey_no_parent"
+child_of = "home"
+hide_crumb = 0
+remove_crumb_trail = 0
+crumb_disabled = 0
+
+[viewBag]
+
+[account]
+paramCode = "code"
+forceSecure = 0
+
+[resetPassword]Accoun
+
+paramCode = "code"
+
+[session]
+security = "all"
+==
+<?php
+function onStart(){
+$this['bids'] = \Spot\Shipment\Models\Bid::
+join('spot_shipment_order' , 'spot_shipment_order.id','spot_shipment_bid.order_id')
+->join('users' , 'users.id' , 'spot_shipment_bid.user_id')
+->select('users.id' , 'users.name' ,'spot_shipment_order.id as id', 'spot_shipment_bid.bid_amount' , 'spot_shipment_bid.route' , 'spot_shipment_bid.id as bidid', 'spot_shipment_bid.status_approved as status_approved')
+->where('spot_shipment_order.sender_id' , Auth::getUser()->id)
+->get();
+
+}
+?>
+==
+<div class="row">
+    <div class="col-lg-12">
+        <div class="kt-portlet kt-portlet--mobile">
+            <div class="kt-portlet__head">
+                <div class="kt-portlet__head-label">
+                    <h3 class="kt-portlet__head-title">
+                    </h3>
+                </div>
+            </div>
+            <div class="kt-portlet__body">
+                <div class="row">
+                    <div class="form-group col-lg-12">
+                        <div>
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>Shipping Id</th>
+                                    <th>Bid By</th>
+                                    <th>Bid Route</th>
+                                    <th>Bid Amount</th>
+                                    <th>Status</th>
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for bid in bids %}
+                                <tr>
+                                    <td>{{bid.id}}</td>
+                                    <td>{{bid.name}}</td>
+                                    <td>{{bid.route}}</td>
+                                    <td>{{bid.bid_amount}}</td>
+                                    <td>{{(bid.status_approved==1)?'Approved':((bid.status_approved==2)?'Declined':'Pending')}}</td>
+                                    <td>
+                                    <a style="border-radius: 17px !important;" href="javascript:void(0);" onclick="setStatus('{{bid.bidid}}','{{bid.status_approved}}')" class="btn btn-warning btn-sm delete_record kt-font-light btn-icon" rel="'+data.id+'" data-skin="dark" data-toggle="kt-tooltip" data-placement="top" title="{{(bid.status_approved==1)?'Cancel Bid':((bid.status_approved==2)?'Cancel Bid':'Accept Bid')}}"><i class="{{(bid.status_approved==1)?'fa fa-check-double':((bid.status_approved==2)?'fa fa-times':'fa fa-pause')}}"></i></a></td>
+                              </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function setStatus(id,status) {
+        $.ajax({
+            url: "{{url('api/set/bid/status')}}",
+            type: "POST",
+            data: {'id': id,'status': status},
+            success: function (result) {
+                swal.fire({
+                    title: 'Bid updated successfully',
+                    type: 'success',
+                });
+                setTimeout(function(){ location.reload() },1000);
+            },
+            error: function (request, status, error) {
+                alert(request.responseText);
+                $('#showBidModal').modal('hide')
+            }
+        })
+    }
+</script>";s:5:"mtime";i:1622032563;s:6:"markup";s:3091:"<div class="row">
+    <div class="col-lg-12">
+        <div class="kt-portlet kt-portlet--mobile">
+            <div class="kt-portlet__head">
+                <div class="kt-portlet__head-label">
+                    <h3 class="kt-portlet__head-title">
+                    </h3>
+                </div>
+            </div>
+            <div class="kt-portlet__body">
+                <div class="row">
+                    <div class="form-group col-lg-12">
+                        <div>
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>Shipping Id</th>
+                                    <th>Bid By</th>
+                                    <th>Bid Route</th>
+                                    <th>Bid Amount</th>
+                                    <th>Status</th>
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for bid in bids %}
+                                <tr>
+                                    <td>{{bid.id}}</td>
+                                    <td>{{bid.name}}</td>
+                                    <td>{{bid.route}}</td>
+                                    <td>{{bid.bid_amount}}</td>
+                                    <td>{{(bid.status_approved==1)?'Approved':((bid.status_approved==2)?'Declined':'Pending')}}</td>
+                                    <td>
+                                    <a style="border-radius: 17px !important;" href="javascript:void(0);" onclick="setStatus('{{bid.bidid}}','{{bid.status_approved}}')" class="btn btn-warning btn-sm delete_record kt-font-light btn-icon" rel="'+data.id+'" data-skin="dark" data-toggle="kt-tooltip" data-placement="top" title="{{(bid.status_approved==1)?'Cancel Bid':((bid.status_approved==2)?'Cancel Bid':'Accept Bid')}}"><i class="{{(bid.status_approved==1)?'fa fa-check-double':((bid.status_approved==2)?'fa fa-times':'fa fa-pause')}}"></i></a></td>
+                              </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function setStatus(id,status) {
+        $.ajax({
+            url: "{{url('api/set/bid/status')}}",
+            type: "POST",
+            data: {'id': id,'status': status},
+            success: function (result) {
+                swal.fire({
+                    title: 'Bid updated successfully',
+                    type: 'success',
+                });
+                setTimeout(function(){ location.reload() },1000);
+            },
+            error: function (request, status, error) {
+                alert(request.responseText);
+                $('#showBidModal').modal('hide')
+            }
+        })
+    }
+</script>";s:4:"code";s:507:"function onStart(){
+$this['bids'] = \Spot\Shipment\Models\Bid::
+join('spot_shipment_order' , 'spot_shipment_order.id','spot_shipment_bid.order_id')
+->join('users' , 'users.id' , 'spot_shipment_bid.user_id')
+->select('users.id' , 'users.name' ,'spot_shipment_order.id as id', 'spot_shipment_bid.bid_amount' , 'spot_shipment_bid.route' , 'spot_shipment_bid.id as bidid', 'spot_shipment_bid.status_approved as status_approved')
+->where('spot_shipment_order.sender_id' , Auth::getUser()->id)
+->get();
+
+}";s:5:"title";s:9:"Bids List";s:8:"subtitle";s:9:"Bids List";s:3:"url";s:9:"/bid/list";s:6:"layout";s:5:"admin";s:9:"is_hidden";s:1:"0";s:4:"role";s:1:"0";s:10:"permission";s:1:"0";s:14:"anonymous_only";s:1:"1";s:11:"logged_only";s:1:"0";s:8:"child_of";s:4:"home";s:10:"hide_crumb";s:1:"0";s:18:"remove_crumb_trail";s:1:"0";s:14:"crumb_disabled";s:1:"0";s:7:"viewBag";a:0:{}s:7:"account";a:2:{s:9:"paramCode";s:4:"code";s:11:"forceSecure";s:1:"0";}s:13:"resetPassword";a:1:{s:9:"paramCode";s:4:"code";}s:7:"session";a:1:{s:8:"security";s:3:"all";}}}

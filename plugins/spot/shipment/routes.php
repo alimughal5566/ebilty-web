@@ -6373,6 +6373,7 @@ Route::group(['prefix' => 'api'], function() {
 
     })->middleware('web');
     Route::any('shipments/{type}', function(Request $req,$type) {
+       
         $request = post();
         $page                       =   $request['pagination']['page'];
         $perpage                    =   $request['pagination']['perpage'];
@@ -6936,7 +6937,7 @@ Route::group(['prefix' => 'api'], function() {
         $field                      =   ((isset($request['sort']['field']))? $request['sort']['field'] : 'id');
         $skip                       =   intval(($page-1)*$perpage);
 
-        $records    =   \Spot\Shipment\Models\Order::orderBy($field, $sort);
+        $records    =   \Spot\Shipment\Models\Order::orderBy($field, $sort)->whereHas('vehicle_id');
         switch (Auth::getUser()->role_id) {
             case 1:
                 $records    =   $records->where('requested','!=',100);
@@ -6955,22 +6956,21 @@ Route::group(['prefix' => 'api'], function() {
                 });
                 break;
             case 12:
+                $vehicles = Spot\Shipment\Models\UserVehicle::where('user_id',Auth::getUser()->id)->get();
+                    $records->where(function($q) use ($vehicles){
+                        foreach($vehicles as $truck) {
+                            $q->orWhere('truck_used', $truck->vehicle_id);
+                            $q->orWhere('vehicle_category', $truck->vehicle_type);
+                        }
+                    });
 
-//                $vehicles = Spot\Shipment\Models\UserVehicle::where('user_id',Auth::getUser()->id)->get();
-                
-
-//                foreach($vehicles as $truck){
-//                    $records->orwhere('truck_used' ,$truck->vehicle_id );
-//                    $records->where('vehicle_category' , $truck->vehicle_type);
-//                }
-
-                $records    =   $records->where(function($q){
+                    $records =  $records->where(function($q){
                     $q->where('assigned_id', NULL);
 //                    $q->where('sender_id', Auth::getUser()->id);
 //                    $q->orWhere('receiver_id', Auth::getUser()->id);
 //                    $q->orWhere('created_by', Auth::getUser()->id);
                 })
-
+//        dd(Auth::getUser()->city)
                     ->where('sender_city' , Auth::getUser()->city);
 
                 break;

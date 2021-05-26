@@ -104,11 +104,14 @@ return \Spot\Shipment\Models\Vehicles::select('id','name')->where('categories_id
     }
     .option_min_add {
         position: absolute;
-        right: -50px;
+        right: -27px;
         top: -10px;
     }
     .option_min_add.sec_min {
         right: -22px;
+    }
+    .option_min_add .fa {
+        cursor: pointer;
     }
 </style>
 <!-- begin:: Page -->
@@ -558,7 +561,7 @@ return \Spot\Shipment\Models\Vehicles::select('id','name')->where('categories_id
                                     </select>
                                     <div class="option_min_add">
                                         <span class="fa fa-minus-circle minus text-dark pls pt-5 mt-2 pl-1 " data-id="${counter}" ></span>&nbsp
-                                        <span class="fa fa-plus-circle plos text-dark pls pt-5 mt-2 pl-1"></span>
+                                       
                                     </div>
                                 </div>
                                 <div class="input-group vehicle_type" style="display: none"  id="type_${counter}">
@@ -569,7 +572,11 @@ return \Spot\Shipment\Models\Vehicles::select('id','name')->where('categories_id
                                 </div>`;
                              counter++;
             $('.divs').append(txt);
-            $('#first').hide('3000')
+            // $('#first').hide('3000');
+            // if ($('.divs').counter === 0) {
+                // console.log('popo');
+                // code to run if it isn't there
+            // }
         });
 
         $(document).on('click', '.minus', function(){
