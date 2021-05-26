@@ -1,4 +1,4 @@
-1622034818a:1:{s:21:"dashboard/clients.htm";a:19:{s:8:"fileName";s:21:"dashboard/clients.htm";s:7:"content";s:20321:"title = "Clients"
+1622037713a:1:{s:21:"dashboard/clients.htm";a:19:{s:8:"fileName";s:21:"dashboard/clients.htm";s:7:"content";s:20321:"title = "Clients"
 url = "/dashboard/clients"
 layout = "admin"
 is_hidden = 0
@@ -508,7 +508,7 @@ KTUtil.ready(function () {
 });
 </script>
 {% endput %}
-";s:5:"mtime";i:1622031598;s:6:"markup";s:17454:"<!--begin::Portlet-->
+";s:5:"mtime";i:1620289248;s:6:"markup";s:17454:"<!--begin::Portlet-->
 <div class="kt-portlet">
     <div class="kt-portlet__body">
         <div class="kt-datatable"></div>

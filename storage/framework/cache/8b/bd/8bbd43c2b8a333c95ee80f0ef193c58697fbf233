@@ -1,4 +1,4 @@
-1622034819a:1:{s:27:"dashboard/shipment-copy.htm";a:19:{s:8:"fileName";s:27:"dashboard/shipment-copy.htm";s:7:"content";s:322971:"title = "Shipment View"
+1622037714a:1:{s:27:"dashboard/shipment-copy.htm";a:19:{s:8:"fileName";s:27:"dashboard/shipment-copy.htm";s:7:"content";s:322971:"title = "Shipment View"
 url = "/dashboard/shipments/:id/copy"
 layout = "admin"
 is_hidden = 0
@@ -5949,7 +5949,7 @@ KTUtil.ready(function () {
 });
 </script>
 {% endput %}
-";s:5:"mtime";i:1622031599;s:6:"markup";s:209920:"<div class="kt-portlet ">
+";s:5:"mtime";i:1620289248;s:6:"markup";s:209920:"<div class="kt-portlet ">
     <div class="kt-portlet__body">
         <div class="kt-widget kt-widget--user-profile-3">
             <div class="kt-widget__top">

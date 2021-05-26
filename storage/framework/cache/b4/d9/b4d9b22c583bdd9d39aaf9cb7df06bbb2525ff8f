@@ -1,4 +1,4 @@
-1622034819a:1:{s:27:"dashboard/reports-print.htm";a:19:{s:8:"fileName";s:27:"dashboard/reports-print.htm";s:7:"content";s:28552:"title = "Report Print"
+1622037714a:1:{s:27:"dashboard/reports-print.htm";a:19:{s:8:"fileName";s:27:"dashboard/reports-print.htm";s:7:"content";s:28552:"title = "Report Print"
 url = "/dashboard/reports/:category/:type/print"
 layout = "blank"
 is_hidden = 0
@@ -587,7 +587,7 @@ KTUtil.ready(function () {
 });
 </script>
 {% endput %}
-";s:5:"mtime";i:1622031599;s:6:"markup";s:23196:"<div id="page-wrap">
+";s:5:"mtime";i:1620289248;s:6:"markup";s:23196:"<div id="page-wrap">
     <table width="100%">
         <tr>
             <td style="border: 0;  text-align: left" width="18%">
