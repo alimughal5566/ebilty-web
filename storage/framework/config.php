@@ -173,7 +173,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => 'C:\\xampp\\htdocs\\IVYLABS\\ebilty-web\\storage\\framework/cache',
+        'path' => 'C:\\xampp\\htdocs\\ebilty-web\\storage\\framework/cache',
       ),
       'memcached' => 
       array (
@@ -203,7 +203,7 @@
     'paths' => 
     array (
     ),
-    'compiled' => 'C:\\xampp\\htdocs\\IVYLABS\\ebilty-web\\storage\\framework\\views',
+    'compiled' => false,
   ),
   '*::database' => 
   array (
@@ -275,7 +275,7 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\xampp\\htdocs\\IVYLABS\\ebilty-web\\storage\\app',
+        'root' => 'C:\\xampp\\htdocs\\ebilty-web\\storage\\app',
       ),
       's3' => 
       array (
