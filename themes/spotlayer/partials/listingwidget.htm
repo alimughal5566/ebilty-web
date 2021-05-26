@@ -105,8 +105,8 @@ return Redirect::back();
                     sortable: true,
                     width: 140,
                     template: function(row) {
-
-                        return '<a href="{{url('dashboard/shipments')}}/'+row.id+'/view">{{settings.tracking.prefix_order}}{{settings.tracking.numbers_order}}'+row.shipping_number+'</a>';
+                        return '<a >{{settings.tracking.prefix_order}}{{settings.tracking.numbers_order}}'+row.shipping_number+'</a>';
+                        // return '<a href="{{url('dashboard/shipments')}}/'+row.id+'/view">{{settings.tracking.prefix_order}}{{settings.tracking.numbers_order}}'+row.shipping_number+'</a>';
                     }
                 },
                 {
@@ -291,7 +291,7 @@ return Redirect::back();
 
                         {% else %}
                         var output = '' +
-                            '<button  type="button" data-user-id="'+data.user_id+'" data-id="'+data.id+'" onclick="openBid(this)" class=" btn btn-brand btn-sm btn-icon bid">bid</button>';
+                            '<button  style="border-radius: 14px" type="button" data-user-id="'+data.user_id+'" data-id="'+data.id+'" onclick="openBid(this)" class=" w-40 btn btn-brand btn-sm btn-icon bid" data-toggle="kt-tooltip" data-placement="top" title="{{"Place Bid"|__}}">bid<span></span></button>';
                         {% endif %}
                         '</div>';
 
@@ -314,11 +314,14 @@ return Redirect::back();
                 type: "POST",
                 data: {id: order_id_value},
                 success: function (result){
-                    console.log(result)
+                    // console.log(result)
                     result = JSON.parse(result)
-                    // $('#truck_type').val(result.title)
-                    $('#truck_id').val(result.truck_id)
-                    $('#route').val(result.receiver_addr)
+                    $('#category').val(result.title)
+                    $('#ve_name').val(result.ve_name)
+                    // $('#ve_model').val(result.ve_model)
+                    $('#truck_type').val(result.truck_id)
+                    $('#route').html(result.receiver_addr+'('+ result.street+')')
+
                     // $('#customer_budget').val(result.price_kg)
                     $('#order_id_placed').val(order_id_value)
                     $('#save_bid_user_id').val(user_id)
@@ -329,6 +332,12 @@ return Redirect::back();
         })
         // Bid Save
         $('body').on('click','.bidsave' , function (){
+            if($('#bid_price').val()==''){
+                $('#bid_price').addClass('border-danger');
+                return ;
+
+            }
+            $('#bid_price').removeClass('border-danger');
             $.ajax({
                 url: "/api/save/bid",
                 type: "POST",
@@ -336,11 +345,19 @@ return Redirect::back();
                     'customer_budget': $('#customer_budget').val() , 'bid_price' : $('#bid_price').val()
                 },
                 success: function (result){
-
+                    swal.fire(
+                        'Action Successfull',
+                        'You bids successfully.',
+                        'success'
+                    )
                     $('#showBidModal').modal('hide')
                 },
                 error: function (request, status, error) {
-                    alert('Already bidded');
+                    swal.fire(
+                        'Already bidds',
+                        'Please waits for approval.',
+                        'warning');
+
                     $('#showBidModal').modal('hide')
                 }
             })
@@ -400,20 +417,32 @@ return Redirect::back();
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">place a bid</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Place a bid</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <p>bid your truct</p>
+<!--                <p>bid your truct</p>-->
                 <div class="row col-md-12">
-                    <lable for="truck_type">truck Type</lable>
-                    <input type="text" id="truck_type" name="truck_type" class="form-control">
+                    <lable for="truck_type">Vehicle Category</lable>
+                    <input type="text" id="category" name="category" class="form-control" readonly>
                 </div>
+                <div class="row col-md-12">
+                    <lable for="ve_name">Vehicle Name</lable>
+                    <input type="text" id="ve_name" name="ve_name" class="form-control" readonly>
+                </div>
+<!--                <div class="row col-md-12">-->
+<!--                    <lable for="ve_model">Vehicle Model</lable>-->
+<!--                    <input type="text" id="ve_model" name="ve_model" class="form-control" readonly>-->
+<!--                </div>-->
+<!--                <div class="row col-md-12">-->
+<!--                    <lable for="truck_type">Truck Type</lable>-->
+<!--                    <input type="text" id="truck_type" name="truck_type" class="form-control">-->
+<!--                </div>-->
                 <div>
                     <lable for="route">Route
-                        <input type="text" id="route" name="route" class="form-control">
+                        <textarea  id="route" name="route" class="form-control" readonly ></textarea>
                     </lable>
                 </div>
                 <div>
@@ -422,12 +451,12 @@ return Redirect::back();
                     </lable>
                 </div>
                 <input type="hidden" id="order_id_placed" >
-                <input type="hidden" id="truck_id" >
+                <input type="hidden" id="truck_type" name="truck_type" >
                 <input type="hidden" id="save_bid_user_id" >
                 <div>
-                    <lable for="bid_price">What Is You Total Amount You'd Like To Bid For This Job
-                        <input type="text" id="bid_price" name="bid_price" class="form-control">
-                    </lable>
+                       <lable for="bid_price">What Is Your Total Amount You'd Like To Bid For This Job?
+                          <input type="number" id="bid_price" name="bid_price" class="form-control" min="1" placeholder="Bidding amount" required>
+                       </lable>
                 </div>
             </div>
             <div class="modal-footer">

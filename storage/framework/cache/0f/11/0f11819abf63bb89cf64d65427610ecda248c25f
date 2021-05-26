@@ -1,0 +1,1770 @@
+1621949689a:1:{s:9:"login.htm";a:21:{s:8:"fileName";s:9:"login.htm";s:7:"content";s:48742:"title = "Login"
+url = "/login/:code?"
+layout = "blank"
+is_hidden = 0
+role = 0
+permission = 0
+anonymous_only = 1
+logged_only = 0
+child_of = "mey_no_parent"
+hide_crumb = 0
+remove_crumb_trail = 0
+crumb_disabled = 0
+
+[viewBag]
+localeTitle[ar] = "تسجيل الدخول"
+localeUrl[ar] = "/login/:code?"
+
+[account]
+redirect = "dashboard/dashboard"
+paramCode = "code"
+forceSecure = 0
+
+[resetPassword]
+paramCode = "code"
+
+[session]
+security = "all"
+==
+<?php
+
+function onStart(){
+    if(Auth::getUser()){
+        return Redirect::to('dashboard');
+    }
+$this['categories_car']= \Spot\Shipment\Models\Categories::select('id','title')->get();
+$this['cars']= \Spot\Shipment\Models\Car::select('id','name')->get();
+
+
+    if(isset($_GET['login'])){
+        $data = $_GET;
+
+        $rules = [];
+
+        $rules['login'] = 'required|between:2,255';
+
+        $rules['password'] = 'required|between:4,255';
+
+        $data['login'] = trim($data['login']);
+
+        $validation = Validator::make($data, $rules);
+        if ($validation->fails()) {
+            throw new ValidationException($validation);
+        }
+
+        /*
+            * Authenticate user
+            */
+        $credentials = [
+            'login'    => array_get($data, 'login'),
+            'password' => array_get($data, 'password')
+        ];
+
+
+        Event::fire('rainlab.user.beforeAuthenticate', [$this, $credentials]);
+        try {
+            $user = Auth::authenticate($credentials, true);
+            if ($user->isBanned()) {
+                Auth::logout();
+                throw new ValidationException(/*Sorry, this user is currently not activated. Please contact us for further assistance.*/'rainlab.user::lang.account.banned');
+            }
+
+            return Redirect::to('dashboard');
+        } catch (\Throwable $th) {
+            Flash::error(Lang::get('rainlab.user::lang.account.invalid_current_pass'));
+            return Redirect::to('login');
+        }
+    }
+
+    $this['requireActivation']      = RainLab\User\Models\Settings::get('require_activation', true);
+    $this['automaticActivation']    = RainLab\User\Models\Settings::get('activate_mode', true);
+}
+function onMyRegister()
+{
+    $data['role_id']  = 5;
+
+
+    $this['account']->onRegister();
+}
+function onChangefees1(){
+return \Spot\Shipment\Models\Vehicles::select('id','name')->where('categories_id',$_POST['id'])->get();
+}
+?>
+==
+
+<style>
+    /*$this['departments']=\Spot\Shipment\Models\UsersGroups::where('id','!=',1)->get();*/
+    /*<!--dd($this['departments']);-->*/
+
+    body{
+        background-image: linear-gradient(to right, #EE8335, #FDC90E);
+    }
+    .divs , .vehicle_category {
+        position: relative;
+    }
+    .option_min_add {
+        position: absolute;
+        right: -50px;
+        top: -10px;
+    }
+    .option_min_add.sec_min {
+        right: -22px;
+    }
+</style>
+<!-- begin:: Page -->
+ <div class="kt-grid kt-grid--ver kt-grid--root kt-page custom-grid">
+     <div class="kt-grid kt-grid--hor kt-grid--root  kt-login kt-login--v5 kt-login--signin" id="kt_login">
+         <div class="kt-login__header mx-auto text-center d-block w-100">
+             <a class="kt-login__logo d-inline-block py-4" href="{{url('/')}}">
+                 <img style="max-height:90px;max-width:80%;"
+                      class="h-auto w-auto" alt=""
+                      src="{% if settings.logo %}{{ settings.logo.path }}{% else %}./admin/media/logos/logo.svg{% endif %}">
+             </a>
+         </div>
+         <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--desktop kt-grid--ver-desktop kt-grid--hor-tablet-and-mobile">
+             <div class="kt-login__right">
+                 <div class="kt-login__wrapper">
+                     <div class="kt-login__signin">
+                         <div class="kt-login__head">
+                             <div class="kt-login__title mb-4">
+                                 <h3 class="kt-margin-t-30"><span class="color-secondary">Sign</span> <span
+                                         class="text-white">In</span></h3>
+                             </div>
+                             <div class="kt-login__subtitle text-white font-weight-bold">Enter your credentials to log in </div>
+                         </div>
+                         <div class="kt-login__form mt-3">
+                             <form class="kt-form mb-3" action="">
+
+                                 {% flash %}
+                                    <div class="kt-alert kt-alert--outline alert alert-{% if type == 'error' %}danger{% else %}{{type}}{% endif %} alert-dismissible" role="alert">
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="{{'Close'|__}}"></button>
+                                        <span>{{ message }}</span>
+                                    </div>
+                                 {% endflash %}
+                                 <div class="form-group">
+                                     <label for="userSigninLogin" class="sr-only"></label>
+                                     <input class="form-control" type="text" placeholder="{{ loginAttributeLabel|__ }}" name="login" id="userSigninLogin" autocomplete="off" required>
+                                     <i class="fa fa-user field-icon"></i>
+                                 </div>
+                                 <div class="form-group">
+                                     <label for="userSigninPassword" class="sr-only"></label>
+                                     <input class="form-control form-control-last" type="Password" placeholder="{{'Password'|__}}" id="userSigninPassword" name="password" required>
+                                     <i class="fa fa-user field-icon"></i>
+                                 </div>
+                                 <div class="row kt-login__extra">
+                                     {% if rememberLoginMode == 'ask' %}
+                                     <div class="col kt-align-left">
+                                         <label class="kt-checkbox color-secondary font-weight-bold">
+                                             <input name="remember" type="checkbox" value="1"> {{'Remember me'|__}}
+                                             <span></span>
+                                         </label>
+                                     </div>
+                                     {% endif %}
+                                     <div class="col kt-align-right ">
+                                         <button class="btn btn-gradient btn-gradient-blue btn-block w-100">{{'Sign In'|__}}</button>
+                                        <!--  <a href="javascript:;" id="kt_login_forgot" class="kt-link kt-hidden">{{'Forget Password ?'|__}}</a> -->
+                                     </div>
+                                 </div>
+                                  <a href="javascript:void(0);" id="kt_login_forgot" class="kt-link mt-3 ml-auto text-right d-block color-secondary font-weight-bold">{{'Forget Password ?'|__}}</a>
+                                 <div class="kt-login__actions kt-margin-t-10 flex-column">
+                  					<span class="kt-login__account-msg d-block w-100 text-white font-weight-bold">
+                  						{{"Don't have an account yet? No need to worry"|__}}
+                  					</span>
+                  					&nbsp;&nbsp;
+                  					<a href="javascript:void(0);" id="kt_login_signup" class="kt-login__account-link btn-gradient btn-gradient-orange btn-block w-100">{{"Sign Up!"|__}}</a>
+                  				</div>
+                                 <div class="kt-login__actions my-4">
+                  					<span class="kt-login__account-msg text-white font-weight-bold">
+                  						{{"You have tracking number ?"|__}}
+                  					</span>
+                  					&nbsp;&nbsp;
+                  					<a href="{{url('tracking')}}"  class="kt-login__account-link color-secondary font-weight-bold">{{"Track shipment"|__}}</a>
+                  				</div>
+                             </form>
+                         </div>
+                         <div class="kt-login__actionsCustom">
+                             <div class="section_separator">
+                                 <span class="text-white font-weight-bold">OR</span>
+                             </div>
+                             <div>
+                                 <div class="text-center mx-auto d-block my-4">
+                                     <span class="text-center text-white font-weight-bold">Login As</span>
+                                 </div>
+
+                                 <div class="login-item-type d-flex flex-wrap justify-content-between">
+                                     <a href="/login" class="btn btn-gradient flex-column half">
+                                         <i class="fa fa-industry fa-2x"></i>
+                                         <span>VENDOR</span>
+                                     </a>
+                                     <a href="/login" class="btn btn-gradient flex-column half">
+                                         <i class="fa fa-truck-loading fa-2x"></i>
+                                         <span>SERVICE PROVIDER</span>
+                                     </a>
+                                     <a href="/login/admin" class="btn btn-gradient flex-column full">
+                                         <i class="fa fa-user-circle fa-2x"></i>
+                                         <span>ADMIN</span>
+                                     </a>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+		             <div class="kt-login__signup">
+                         {% if canRegister %}
+                             <div class="kt-login__head mb-5">
+                                 <div class="kt-login__title">
+                                     <h3 class="kt-margin-t-30"><span class="color-secondary">Sign</span> <span
+                                             class="text-white">Up !</span></h3>
+                                 </div>
+                                 <div class="kt-login__subtitle text-white font-weight-bold">{{'Enter your details to create your account'|__}}</div>
+                             </div>
+                            <form class="kt-form" action=""  enctype="multipart/form-data">
+        						<div class="input-group">
+                                    <label for="registerName" class="sr-only"></label>
+        							<input class="form-control" type="text" id="registerName" placeholder="{{'Full Name'|__}}" name="name" required>
+                                    <i class="fa fa-user field-icon"></i>
+        						</div>
+        						<div class="input-group">
+                                    <label for="registerEmail" class="sr-only"></label>
+        							<input class="form-control" type="text" placeholder="{{'Email'|__}}" id="registerEmail" name="email" autocomplete="off" required>
+                                    <i class="fa fa-envelope field-icon"></i>
+        						</div>
+<!--                                {% if loginAttribute == "username" %}-->
+<!--            						<div class="input-group">-->
+<!--            							<input class="form-control" type="text" placeholder="{{'Enter your username'|__}}" id="registerUsername" name="username" autocomplete="off" required>-->
+<!--            						</div>-->
+<!--                                {% endif %}-->
+
+                                <div class="input-group">
+                                    <label for="postal_code" class="sr-only"></label>
+                                    <input class="form-control" type="text" placeholder="{{'Postal Address'|__}}"  name="postal_code" id="postal_code" autocomplete="off" required>
+                                    <i class="fa fa-home field-icon"></i>
+                                </div>
+                                <div class="input-group">
+                                    <label for="mobile" class="sr-only"></label>
+                                    <input class="form-control" type="text" placeholder="{{'Mobile Number'|__}}"  name="mobile" id="mobile" autocomplete="off" required>
+                                    <i class="fa fa-mobile-alt field-icon"></i>
+                                </div>
+                                <div class="input-group upload-btn-wrapper">
+                                    <label for="cnic" class="sr-only"></label>
+                                    <span class="upload-wrap px-3 w-100 d-flex align-items-center justify-content-between">
+                                        <span class="upload-txt ont-weight-bold">CNIC</span>
+                                        <a class="btn">Upload Image</a>
+                                    </span>
+                                    <input class="" type="file" placeholder="{{'CNIC'|__}}"  name="cnic" autocomplete="off"  id="cnic" required accept="image/*">
+                                    <input  type="hidden"  name="cnic_image" id="cnic_image" >
+                                </div>
+                                <div class="input-group">
+                                    <label for="bussiness_type" class="sr-only"></label>
+                                    <input class="form-control" type="text" placeholder="{{'Bussiness Type'|__}}"  name="bussiness_type" id="bussiness_type" autocomplete="off" required>
+                                    <i class="fa fa-user-cog field-icon"></i>
+                                </div>
+                                <div class="input-group">
+                                    <label for="user_role_id" class="sr-only"></label>
+                                    <select name="user_role_id" class="form-control selectpicker" data-dropup-auto="false" id="user_role_id" autocomplete="off" required>
+                                        <option  value="" selected disabled>Register As</option>
+                                        <option  value="5" class="individual">Vendor</option>
+                                        <option  value="12" class="company">Service Provider</option>
+                                    </select>
+                                </div>
+
+                                <div class="input-group vehicle_category" style="display:none">
+                                    <label for="vehicle_category" class="sr-only"></label>
+                                    <select name="vehicle_category[]" required class="form-control selectpicker" data-dropup-auto="false" id="vehicle_category" autocomplete="off">
+                                        {% for category in categories_car %}
+                                        <option value="{{category.id}}">{{category.title}}</option>
+                                        {% endfor %}
+                                        <option value="" selected disabled>Vehicle category</option>
+                                    </select>
+
+                                    <div class="option_min_add sec_min">
+                                        <span class="fa fa-plus-circle plos text-dark pls pt-5 mt-2 pl-1" id="first"></span>
+                                    </div>
+                                </div>
+                                <div class="input-group vehicle_type veh" style="display:none">
+                                    <label for="vehicle_category" class="sr-only"></label>
+                                    <select  name="truck_used[]"  class="form-control" data-dropup-auto="false" id="truck_used" autocomplete="off" required>
+                                    </select>
+                                </div>
+
+                                <div class="divs">
+                                </div>
+
+        						<div class="input-group">
+                                    <label for="registerPassword" class="sr-only"></label>
+        							<input class="form-control" type="password" placeholder="{{'Password'|__}}" id="registerPassword" name="password" required>
+                                    <i class="fa fa-lock field-icon"></i>
+        						</div>
+<!--        						<div class="input-group">-->
+<!--        							<input class="form-control" type="password" placeholder="{{'Confirm Password'|__}}" name="rpassword" id="rpassword" required>-->
+<!--        						</div>-->
+<!--        						<div class="row kt-login__extra kt-hidden">-->
+<!--        							<div class="col kt-align-left">-->
+<!--        								<label class="kt-checkbox">-->
+<!--        									<input type="checkbox" name="agree" id="agreement" checked required>{{'I Agree the'|__}} <a href="#" data-toggle="modal" data-target="#kt_modal_6" class="kt-link kt-login__link kt-font-bold">{{'terms and conditions'|__}}</a>.-->
+<!--        									<span></span>-->
+<!--        								</label>-->
+<!--        								<span class="form-text text-muted"></span>-->
+<!--        							</div>-->
+<!--        						</div>-->
+        						<div class="kt-login__actions d-flex align-items-center justify-content-between text-justify">
+                                    <button id="kt_login_signup_cancel" class="btn btn-gradient btn-gradient-default kt-login__btn-secondary mx-0">{{'Cancel'|__}}</button>
+                                    <button id="kt_login_signup_submit" type="submit" class="btn btn-gradient btn-gradient-blue kt-login__btn-primary mx-0">{{'Sign Up'|__}}</button>
+        						</div>
+                                <div class="kt-login__actions kt-margin-t-10 flex-column">
+                  					<span class="kt-login__account-msg d-block w-100 text-white font-weight-bold">Already have an account? <a href="javascript:void(0);" id="kt_login_signin" class="kt-login__account-link ">{{"Login"|__}}</a> to your account</span>
+                                </div>
+        					</form>
+                        {% else %}
+                            <!-- Registration is disabled. -->
+                        {% endif %}
+    				</div>
+                     <div class="kt-login__forgot">
+                         <div class="kt-login__head">
+                             <h3 class="kt-login__title">{{'Forgotten Password ?'|__}}</h3>
+                             <div class="kt-login__desc">{{'Enter your email to reset your password'|__}}:</div>
+                         </div>
+                         <div class="kt-login__form">
+
+                             <form class="kt-form" data-request="{{ __SELF__ }}::onRestorePassword" data-request-update="'{{ __SELF__ }}::reset': '#partialUserResetForm'">
+                                 <div class="form-group">
+                                     <input class="form-control" type="email" placeholder="{{'Email'|__}}" name="email" id="userRestoreEmail" autocomplete="off">
+                                 </div>
+
+                                 <div class="kt-login__actions">
+                                     <button id="kt_login_forgot_submit" class="btn btn-brand btn-pill btn-elevate">{{'Request'|__}}</button>
+                                     <button id="kt_login_forgot_cancel" class="btn btn-outline-brand btn-pill">{{'Cancel'|__}}</button>
+                                 </div>
+                             </form>
+
+                         </div>
+                     </div>
+
+
+                      {% if settings.demo_mode %}
+                      <!--begin::Divider-->
+                      <div class="kt-login__divider">
+                          <div class="kt-divider">
+                              <span></span>
+                              <span>{{"OR"|__}}</span>
+                              <span></span>
+                          </div>
+                      </div>
+                      <!--end::Divider-->
+
+                      <!--begin::Options-->
+                       <div class="row">
+                          <div class="col-xl-12">
+                              <!--begin:: Widgets/Applications/User/Profile3-->
+                              <div class="kt-portlet kt-portlet--height-fluid">
+                                  <div class="kt-portlet__body">
+                                      <div class="kt-widget kt-widget--user-profile-3">
+                                          <div class="kt-widget__bottom">
+                                              <div class="kt-widget__item">
+                                                  <div class="kt-widget__icon">
+                                                      <i class="flaticon-user-settings"></i>
+                                                  </div>
+                                                  <div class="kt-widget__details">
+                                                      <span class="kt-widget__title">{{'Admin'|__}}</span>
+                                                      <a href="javascript:;" id="admin" class="kt-widget__value kt-font-brand signin_as">{{'Login as'|__}}</a>
+                                                  </div>
+                                              </div>
+
+                                              <div class="kt-widget__item">
+                                                  <div class="kt-widget__icon">
+                                                      <i class="flaticon-businesswoman"></i>
+                                                  </div>
+                                                  <div class="kt-widget__details">
+                                                      <span class="kt-widget__title">{{'Employee'}}</span>
+                                                      <a href="javascript:;" id="employee" class="kt-widget__value kt-font-brand signin_as">{{'Login as'|__}}</a>
+                                                  </div>
+                                              </div>
+
+                                              <div class="kt-widget__item">
+                                                  <div class="kt-widget__icon">
+                                                      <i class="flaticon-truck"></i>
+                                                  </div>
+                                                  <div class="kt-widget__details">
+                                                      <span class="kt-widget__title">{{'Driver'|__}}</span>
+                                                      <a href="javascript:;" id="driver" class="kt-widget__value kt-font-brand signin_as">{{'Login as'|__}}</a>
+                                                  </div>
+                                              </div>
+
+                                              <div class="kt-widget__item">
+                                                  <div class="kt-widget__icon">
+                                                      <i class="flaticon-avatar"></i>
+                                                  </div>
+                                                  <div class="kt-widget__details">
+                                                      <span class="kt-widget__title">{{'Client'|__}}</span>
+                                                      <a href="javascript:;" id="client" class="kt-widget__value kt-font-brand signin_as">{{'Login as'|__}}</a>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <!--end:: Widgets/Applications/User/Profile3-->
+                          </div>
+                      </div>
+                      <!--end::Options-->
+
+                      {% endif %}
+
+                 </div>
+             </div>
+         </div>
+     </div>
+ </div>
+ <!-- Modal -->
+ <div class="modal fade" id="kt_modal_6" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+         <div class="modal-content">
+             <div class="modal-header">
+                 <h5 class="modal-title" id="exampleModalLongTitle">{{'Terms and conditions'|__}}</h5>
+                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                 </button>
+             </div>
+             <div class="modal-body">
+                 <div class="kt-scroll" data-scroll="true" data-height="200">
+                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                 </div>
+             </div>
+             <div class="modal-footer">
+                 <button type="button" class="btn btn-secondary" data-dismiss="modal">{{"Don't Agree"|__}}</button>
+                 <button type="button" class="btn btn-primary" id="agree" data-dismiss="modal">{{'Agree'|__}}</button>
+             </div>
+         </div>
+     </div>
+ </div>
+ {% put styles %}
+     <link href="./admin/css/demo10/pages/login/login-5.css" rel="stylesheet" type="text/css" />
+     <style>
+         .kt-header__topbar-item--langs {
+             display: -webkit-box;
+             display: -ms-flexbox;
+             display: flex;
+             -webkit-box-flex: 1;
+             -ms-flex: 1;
+             flex: 1;
+             width: 100%;
+             -webkit-box-align: center;
+             -ms-flex-align: center;
+             align-items: center;
+             -webkit-box-pack: center;
+             -ms-flex-pack: center;
+             justify-content: center;
+         }
+         .kt-header__topbar-item--langs .kt-header__topbar-icon img {
+             width: 25px;
+         }
+     </style>
+ {% endput %}
+ {% put scripts %}
+ <script type="text/javascript">
+     "use strict";
+
+    // Class Definition
+    var KTLoginGeneral = function() {
+
+        var login = $('#kt_login');
+
+        var showErrorMsg = function(form, type, msg) {
+            var alert = $('<div class="kt-alert kt-alert--outline alert alert-' + type + ' alert-dismissible" role="alert">\
+    			<button type="button" class="close" data-dismiss="alert" aria-label="Close"></button>\
+    			<span></span>\
+    		</div>');
+
+            form.find('.alert').remove();
+            alert.prependTo(form);
+            //alert.animateClass('fadeIn animated');
+            KTUtil.animateClass(alert[0], 'fadeIn animated');
+            alert.find('span').html(msg);
+        }
+
+        // Private Functions
+        var displaySignUpForm = function() {
+            login.removeClass('kt-login--forgot');
+            login.removeClass('kt-login--signin');
+
+            login.addClass('kt-login--signup');
+            KTUtil.animateClass(login.find('.kt-login__signup')[0], 'flipInX animated');
+        }
+
+        var displaySignInForm = function() {
+            login.removeClass('kt-login--forgot');
+            login.removeClass('kt-login--signup');
+
+            login.addClass('kt-login--signin');
+            KTUtil.animateClass(login.find('.kt-login__signin')[0], 'flipInX animated');
+            //login.find('.kt-login__signin').animateClass('flipInX animated');
+        }
+
+        var displayForgotForm = function() {
+            login.removeClass('kt-login--signin');
+            login.removeClass('kt-login--signup');
+
+            login.addClass('kt-login--forgot');
+            //login.find('.kt-login--forgot').animateClass('flipInX animated');
+            KTUtil.animateClass(login.find('.kt-login__forgot')[0], 'flipInX animated');
+
+        }
+
+        var handleFormSwitch = function() {
+            $('#kt_login_forgot').click(function(e) {
+                e.preventDefault();
+                displayForgotForm();
+            });
+
+            $('#kt_login_forgot_cancel').click(function(e) {
+                e.preventDefault();
+                displaySignInForm();
+            });
+
+            $('#kt_login_signup').click(function(e) {
+                e.preventDefault();
+                displaySignUpForm();
+            });
+
+            $('#kt_login_signup_cancel').click(function(e) {
+                e.preventDefault();
+                displaySignInForm();
+            });
+        }
+
+        $(document).on('change', '#user_role_id', function(){
+            var text=$("#user_role_id option:selected").text();
+            if(text=="Service Provider"){
+                $('.vehicle_category').show('2000');
+            }else{
+                $('.vehicle_category').hide('2000');
+                $('.vehicle_type').hide('2000');
+            }
+        });
+        $(document).on('change', '#vehicle_category', function(){
+                $('.veh').show('2000');
+        });
+        var counter=0;
+        $(document).on('click', '.plos', function(){
+               var txt=`<div class="input-group div_${counter}" >
+                                    <label for="vehicle_category_${counter}" class="sr-only"></label>
+                                    <select name="vehicle_category[]" required class="form-control sbt" data-dropup-auto="false" id="vehicle_category_${counter}" data-id="${counter}" autocomplete="off">
+                                        {% for category in categories_car %}
+                                        <option value="{{category.id}}">{{category.title}}</option>
+                                        {% endfor %}
+                                        <option value="" selected disabled>Vehicle category</option>
+                                    </select>
+                                    <div class="option_min_add">
+                                        <span class="fa fa-minus-circle minus text-dark pls pt-5 mt-2 pl-1 " data-id="${counter}" ></span>&nbsp
+                                        <span class="fa fa-plus-circle plos text-dark pls pt-5 mt-2 pl-1"></span>
+                                    </div>
+                                </div>
+                                <div class="input-group vehicle_type" style="display: none"  id="type_${counter}">
+                                    <label for="vehicle_category" class="sr-only"></label>
+                                    <select  name="truck_used[]" class="form-control" data-dropup-auto="false" id="truck_used_${counter}" autocomplete="off" required >
+                                    </select>
+                                </div>
+                                </div>`;
+                             counter++;
+            $('.divs').append(txt);
+            $('#first').hide('3000')
+        });
+
+        $(document).on('click', '.minus', function(){
+            var id=$(this).attr('data-id');
+               $('.div_'+id).hide('3000')
+               $('#type_'+id).hide('3000')
+
+        });
+
+
+        $(document).on('change', '#vehicle_category', function(){
+            $.request('onChangefees1', {
+                method:'post',
+                data: {id:$('#vehicle_category option:selected' ).val()},
+                success: function(response, status, xhr, $form) {
+                    var html='';
+                    $.each(response,function (key,value) {
+                        html += '<option value="'+value.id+'">'+value.name+'</option>';
+                        console.log(value);
+                    });
+                    html += "<option value='' selected disabled>Choose type</option>";
+                    $('#truck_used').empty().append(html);
+                }
+            });
+        });
+
+        $(document).on('change', '.sbt', function(){
+            var id=$(this).attr('data-id');
+            console.log(this)
+           var val1= $('#vehicle_category_'+id+' option:selected').val();
+            // alert(id);
+            // return;
+            $.request('onChangefees1', {
+                method:'post',
+                data: {id:val1},
+                success: function(response, status, xhr, $form) {
+                    var html='';
+                    $.each(response,function (key,value) {
+                        html += '<option value="'+value.id+'">'+value.name+'</option>';
+                        // $("#truck_used").append('<option value=1>My option</option>');
+                        console.log(value);
+                    });
+                    html += "<option value='' selected disabled>Choose type</option>";
+                    $('#truck_used_'+id).empty().append(html);
+                    $('#type_'+id).show('3000');
+                }
+            });
+        });
+
+        var handleSignInFormSubmit = function() {
+            $('#kt_login_signin_submit').click(function(e) {
+                e.preventDefault();
+                var btn = $(this);
+                var form = $(this).closest('form');
+
+                form.validate({
+                    rules: {
+                        login: {
+                            required: true
+                        },
+                        password: {
+                            required: true
+                        }
+                    },
+                    messages: {
+                        "login": {
+                            required: '{{"This field is required!"|__}}',
+                        },
+                        "password": {
+                            required: '{{"This field is required!"|__}}',
+                        },
+                    }
+                });
+
+                if (!form.valid()) {
+                    return;
+                }
+
+                btn.addClass('kt-spinner kt-spinner--right kt-spinner--sm kt-spinner--light').attr('disabled', true);
+
+                $.request('onSignin', {
+                    data: {login: $('#userSigninLogin').val(), password: $('#userSigninPassword').val()},
+                    error: function(e,response) {
+                        btn.removeClass('kt-spinner kt-spinner--right kt-spinner--sm kt-spinner--light').attr('disabled', false);
+                        console.log(e);
+                        if(typeof e.responseJSON !== 'undefined'){
+                            showErrorMsg(form, 'danger', e.responseJSON.X_OCTOBER_ERROR_MESSAGE);
+                        }else{
+                            showErrorMsg(form, 'danger', e.responseText);
+                        }
+                    },
+                    success: function(response, status, xhr, $form) {
+                    	// similate 2s delay
+                    	setTimeout(function() {
+    	                    btn.removeClass('kt-spinner kt-spinner--right kt-spinner--sm kt-spinner--light').attr('disabled', false);
+                           showErrorMsg(form, 'success', '{{"Correct, you are being redirect"|__}}.');
+                           location.href = "{{url('dashboard')}}";
+                        }, 2000);
+                    }
+                });
+            });
+        }
+
+        var handleSignUpFormSubmit = function() {
+            $('#kt_login_signup_submit').click(function(e) {
+
+                e.preventDefault();
+
+                var btn = $(this);
+                var form = $(this).closest('form');
+
+                form.validate({
+                    rules: {
+                        fullname: {
+                            required: true
+                        },
+                        email: {
+                            required: true,
+                            email: true
+                        },
+                        password: {
+                            required: true
+                        },
+                        rpassword: {
+                            required: true
+                        },
+                        agree: {
+                            required: true
+                        }
+                    }
+                });
+                if (!form.valid()) {
+                    return;
+                }
+
+                btn.addClass('kt-spinner kt-spinner--right kt-spinner--sm kt-spinner--light').attr('disabled', true);
+                var arr=[];
+                if(counter>0) {
+                    for (var i = 0; i < counter; i++) {
+                        var val = $("#vehicle_category_" + i + " option:selected").val();
+                        var typ = $("#type_" + i + " option:selected").val();
+                        if (val != '' && typ!='') {
+                            var ar = {cat: val, type: typ};
+                            arr.push(ar);
+                        }
+                    }
+                }
+                    var ar = {cat: $('#vehicle_category option:selected' ).val(), type: $('#truck_used option:selected').val()};
+                    arr.push(ar);
+
+
+// console.log(arr);
+//  return ;
+
+                $.request('onRegister', {
+                    {% if loginAttribute == "username" %}
+
+                        data: {
+                        name: $('#registerName').val(),
+                                email: $('#registerEmail').val(),
+                                username: $('#registerUsername').val(),
+                                password: $('#registerPassword').val(),
+                                password_confirmation: $('#rpassword').val(),
+                                phone: $('#mobile').val(),
+                                postal_code: $('#postal_code').val(),
+                                cnic: $('#cnic_image').val(),
+                                bussiness_type: $('#bussiness_type').val(),
+                                user_role_id:$('#user_role_id').val(),
+                                vehicle_category:$('#vehicle_category option:selected' ).val(),
+                                truck_used:$('#truck_used option:selected').val()
+                                ,vehicles:arr
+                        },
+
+                    {% else %}
+
+                        data: {name: $('#registerName').val(), email: $('#registerEmail').val(), password: $('#registerPassword').val(), phone: $('#mobile').val(), postal_code: $('#postal_code').val(), cnic: $('#cnic_image').val(), bussiness_type: $('#bussiness_type').val(), user_role_id:$('#user_role_id').val(),vehicle_category:$('#vehicle_category option:selected' ).val(),truck_used:$('#truck_used option:selected').val(),vehicles:arr},
+
+                    {% endif %}
+
+                    error: function(e,response) {
+                        btn.removeClass('kt-spinner kt-spinner--right kt-spinner--sm kt-spinner--light').attr('disabled', false);
+                        if(typeof e.responseJSON !== 'undefined'){
+                            showErrorMsg(form, 'danger', e.responseJSON.X_OCTOBER_ERROR_MESSAGE);
+                        }else{
+                            showErrorMsg(form, 'danger', e.responseText);
+                        }
+                        //showErrorMsg(form, 'danger', e.responseJSON.X_OCTOBER_ERROR_MESSAGE);
+                    },
+                    success: function(response, status, xhr, $form) {
+                    	// similate 2s delay
+                    	setTimeout(function() {
+    	                    btn.removeClass('kt-spinner kt-spinner--right kt-spinner--sm kt-spinner--light').attr('disabled', false);
+                            {% if (requireActivation and automaticActivation is null) %}
+    	                       showErrorMsg(form, 'success', '{{"Thank you. To complete your registration please check your email"|__}}.');
+                            {% else %}
+                               showErrorMsg(form, 'success', '{{"Correct, you are being redirect"|__}}.');
+                               location.href = "{{url('dashboard')}}";
+                           {% endif %}
+                        }, 2000);
+                    }
+                });
+            });
+        }
+
+        var handleForgotFormSubmit = function() {
+            $('#kt_login_forgot_submit').click(function(e) {
+                e.preventDefault();
+
+                var btn = $(this);
+                var form = $(this).closest('form');
+
+                form.validate({
+                    rules: {
+                        email: {
+                            required: true,
+                            email: true
+                        }
+                    }
+                });
+
+                if (!form.valid()) {
+                    return;
+                }
+
+                btn.addClass('kt-spinner kt-spinner--right kt-spinner--sm kt-spinner--light').attr('disabled', true);
+
+                $.request('onRestorePassword', {
+                    data: {email: $('#userRestoreEmail').val()},
+                    error: function(e,response) {
+                        btn.removeClass('kt-spinner kt-spinner--right kt-spinner--sm kt-spinner--light').attr('disabled', false);
+                        alert(e.responseText);
+                        if(typeof e.responseJSON !== 'undefined'){
+                            showErrorMsg(form, 'danger', e.responseJSON.X_OCTOBER_ERROR_MESSAGE);
+                        }else{
+                            showErrorMsg(form, 'danger', e.responseText);
+                        }
+                        //showErrorMsg(form, 'danger', e.responseJSON.X_OCTOBER_ERROR_MESSAGE);
+                    },
+                    success: function(response, status, xhr, $form) {
+                    	// similate 2s delay
+                    	setTimeout(function() {
+	                           btn.removeClass('kt-spinner kt-spinner--right kt-spinner--sm kt-spinner--light').attr('disabled', false);
+                               showErrorMsg(form, 'success', '{{"Cool! Password recovery instruction has been sent to your email"|__}}.');
+                        }, 2000);
+                    }
+                });
+            });
+        }
+
+        // Public Functions
+        return {
+            // public functions
+            init: function() {
+                handleFormSwitch();
+                handleSignInFormSubmit();
+                handleSignUpFormSubmit();
+                handleForgotFormSubmit();
+            }
+        };
+    }();
+
+     // Class Initialization
+     KTUtil.ready(function () {
+         KTLoginGeneral.init();
+
+         $('body').on('click','#agree', function(e){
+             $( "#agreement" ).prop( "checked", true );
+         });
+
+         {% if settings.demo_mode %}
+          $('body').on('click','.signin_as', function(e){
+              var type = $(this).attr('id');
+              if(type == 'admin'){
+                  $('#userSigninLogin').val('admin');
+                  $('#userSigninPassword').val('123456');
+                  $('#kt_login_signin_submit').trigger('click');
+              }else if(type == 'employee'){
+                  $('#userSigninLogin').val('employee');
+                  $('#userSigninPassword').val('123456');
+                  $('#kt_login_signin_submit').trigger('click');
+              }else if(type == 'driver'){
+                  $('#userSigninLogin').val('driver');
+                  $('#userSigninPassword').val('123456');
+                  $('#kt_login_signin_submit').trigger('click');
+              }else if(type == 'client'){
+                  $('#userSigninLogin').val('client');
+                  $('#userSigninPassword').val('123456');
+                  $('#kt_login_signin_submit').trigger('click');
+              }
+          });
+          {% endif %}
+     });
+
+
+
+     // // Select the image
+     // $("#cnic").change(function() {
+     // const fileInput = document.querySelector("#cnic");
+     // fileInput.addEventListener("change", (e) => {
+     //     // get a reference to the file
+     //     const file = e.target.files[0];
+     //     const reader = new FileReader();
+     //     reader.onloadend = () => {
+     //         $('#cnic_image').val(reader.result);
+     //         console.log(reader.result);
+     //     };
+     //     reader.readAsDataURL(file);
+     //     // console.log(reader.readAsDataURL(file));
+     // });
+     // });
+
+     // Select the image
+     $("#cnic").change(function() {
+         const file = document.querySelector('input[type=file]').files[0];
+         const reader = new FileReader();
+         reader.addEventListener("load", function () {
+             // convert image file to base64 string
+             $('#cnic_image').val(reader.result);
+         }, false);
+         if (file) {
+             reader.readAsDataURL(file);
+         }
+     });
+
+
+
+
+
+ </script>
+ {% endput %}
+";s:5:"mtime";i:1621945449;s:6:"markup";s:46276:"<style>
+    /*$this['departments']=\Spot\Shipment\Models\UsersGroups::where('id','!=',1)->get();*/
+    /*<!--dd($this['departments']);-->*/
+
+    body{
+        background-image: linear-gradient(to right, #EE8335, #FDC90E);
+    }
+    .divs , .vehicle_category {
+        position: relative;
+    }
+    .option_min_add {
+        position: absolute;
+        right: -50px;
+        top: -10px;
+    }
+    .option_min_add.sec_min {
+        right: -22px;
+    }
+</style>
+<!-- begin:: Page -->
+ <div class="kt-grid kt-grid--ver kt-grid--root kt-page custom-grid">
+     <div class="kt-grid kt-grid--hor kt-grid--root  kt-login kt-login--v5 kt-login--signin" id="kt_login">
+         <div class="kt-login__header mx-auto text-center d-block w-100">
+             <a class="kt-login__logo d-inline-block py-4" href="{{url('/')}}">
+                 <img style="max-height:90px;max-width:80%;"
+                      class="h-auto w-auto" alt=""
+                      src="{% if settings.logo %}{{ settings.logo.path }}{% else %}./admin/media/logos/logo.svg{% endif %}">
+             </a>
+         </div>
+         <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--desktop kt-grid--ver-desktop kt-grid--hor-tablet-and-mobile">
+             <div class="kt-login__right">
+                 <div class="kt-login__wrapper">
+                     <div class="kt-login__signin">
+                         <div class="kt-login__head">
+                             <div class="kt-login__title mb-4">
+                                 <h3 class="kt-margin-t-30"><span class="color-secondary">Sign</span> <span
+                                         class="text-white">In</span></h3>
+                             </div>
+                             <div class="kt-login__subtitle text-white font-weight-bold">Enter your credentials to log in </div>
+                         </div>
+                         <div class="kt-login__form mt-3">
+                             <form class="kt-form mb-3" action="">
+
+                                 {% flash %}
+                                    <div class="kt-alert kt-alert--outline alert alert-{% if type == 'error' %}danger{% else %}{{type}}{% endif %} alert-dismissible" role="alert">
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="{{'Close'|__}}"></button>
+                                        <span>{{ message }}</span>
+                                    </div>
+                                 {% endflash %}
+                                 <div class="form-group">
+                                     <label for="userSigninLogin" class="sr-only"></label>
+                                     <input class="form-control" type="text" placeholder="{{ loginAttributeLabel|__ }}" name="login" id="userSigninLogin" autocomplete="off" required>
+                                     <i class="fa fa-user field-icon"></i>
+                                 </div>
+                                 <div class="form-group">
+                                     <label for="userSigninPassword" class="sr-only"></label>
+                                     <input class="form-control form-control-last" type="Password" placeholder="{{'Password'|__}}" id="userSigninPassword" name="password" required>
+                                     <i class="fa fa-user field-icon"></i>
+                                 </div>
+                                 <div class="row kt-login__extra">
+                                     {% if rememberLoginMode == 'ask' %}
+                                     <div class="col kt-align-left">
+                                         <label class="kt-checkbox color-secondary font-weight-bold">
+                                             <input name="remember" type="checkbox" value="1"> {{'Remember me'|__}}
+                                             <span></span>
+                                         </label>
+                                     </div>
+                                     {% endif %}
+                                     <div class="col kt-align-right ">
+                                         <button class="btn btn-gradient btn-gradient-blue btn-block w-100">{{'Sign In'|__}}</button>
+                                        <!--  <a href="javascript:;" id="kt_login_forgot" class="kt-link kt-hidden">{{'Forget Password ?'|__}}</a> -->
+                                     </div>
+                                 </div>
+                                  <a href="javascript:void(0);" id="kt_login_forgot" class="kt-link mt-3 ml-auto text-right d-block color-secondary font-weight-bold">{{'Forget Password ?'|__}}</a>
+                                 <div class="kt-login__actions kt-margin-t-10 flex-column">
+                  					<span class="kt-login__account-msg d-block w-100 text-white font-weight-bold">
+                  						{{"Don't have an account yet? No need to worry"|__}}
+                  					</span>
+                  					&nbsp;&nbsp;
+                  					<a href="javascript:void(0);" id="kt_login_signup" class="kt-login__account-link btn-gradient btn-gradient-orange btn-block w-100">{{"Sign Up!"|__}}</a>
+                  				</div>
+                                 <div class="kt-login__actions my-4">
+                  					<span class="kt-login__account-msg text-white font-weight-bold">
+                  						{{"You have tracking number ?"|__}}
+                  					</span>
+                  					&nbsp;&nbsp;
+                  					<a href="{{url('tracking')}}"  class="kt-login__account-link color-secondary font-weight-bold">{{"Track shipment"|__}}</a>
+                  				</div>
+                             </form>
+                         </div>
+                         <div class="kt-login__actionsCustom">
+                             <div class="section_separator">
+                                 <span class="text-white font-weight-bold">OR</span>
+                             </div>
+                             <div>
+                                 <div class="text-center mx-auto d-block my-4">
+                                     <span class="text-center text-white font-weight-bold">Login As</span>
+                                 </div>
+
+                                 <div class="login-item-type d-flex flex-wrap justify-content-between">
+                                     <a href="/login" class="btn btn-gradient flex-column half">
+                                         <i class="fa fa-industry fa-2x"></i>
+                                         <span>VENDOR</span>
+                                     </a>
+                                     <a href="/login" class="btn btn-gradient flex-column half">
+                                         <i class="fa fa-truck-loading fa-2x"></i>
+                                         <span>SERVICE PROVIDER</span>
+                                     </a>
+                                     <a href="/login/admin" class="btn btn-gradient flex-column full">
+                                         <i class="fa fa-user-circle fa-2x"></i>
+                                         <span>ADMIN</span>
+                                     </a>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+		             <div class="kt-login__signup">
+                         {% if canRegister %}
+                             <div class="kt-login__head mb-5">
+                                 <div class="kt-login__title">
+                                     <h3 class="kt-margin-t-30"><span class="color-secondary">Sign</span> <span
+                                             class="text-white">Up !</span></h3>
+                                 </div>
+                                 <div class="kt-login__subtitle text-white font-weight-bold">{{'Enter your details to create your account'|__}}</div>
+                             </div>
+                            <form class="kt-form" action=""  enctype="multipart/form-data">
+        						<div class="input-group">
+                                    <label for="registerName" class="sr-only"></label>
+        							<input class="form-control" type="text" id="registerName" placeholder="{{'Full Name'|__}}" name="name" required>
+                                    <i class="fa fa-user field-icon"></i>
+        						</div>
+        						<div class="input-group">
+                                    <label for="registerEmail" class="sr-only"></label>
+        							<input class="form-control" type="text" placeholder="{{'Email'|__}}" id="registerEmail" name="email" autocomplete="off" required>
+                                    <i class="fa fa-envelope field-icon"></i>
+        						</div>
+<!--                                {% if loginAttribute == "username" %}-->
+<!--            						<div class="input-group">-->
+<!--            							<input class="form-control" type="text" placeholder="{{'Enter your username'|__}}" id="registerUsername" name="username" autocomplete="off" required>-->
+<!--            						</div>-->
+<!--                                {% endif %}-->
+
+                                <div class="input-group">
+                                    <label for="postal_code" class="sr-only"></label>
+                                    <input class="form-control" type="text" placeholder="{{'Postal Address'|__}}"  name="postal_code" id="postal_code" autocomplete="off" required>
+                                    <i class="fa fa-home field-icon"></i>
+                                </div>
+                                <div class="input-group">
+                                    <label for="mobile" class="sr-only"></label>
+                                    <input class="form-control" type="text" placeholder="{{'Mobile Number'|__}}"  name="mobile" id="mobile" autocomplete="off" required>
+                                    <i class="fa fa-mobile-alt field-icon"></i>
+                                </div>
+                                <div class="input-group upload-btn-wrapper">
+                                    <label for="cnic" class="sr-only"></label>
+                                    <span class="upload-wrap px-3 w-100 d-flex align-items-center justify-content-between">
+                                        <span class="upload-txt ont-weight-bold">CNIC</span>
+                                        <a class="btn">Upload Image</a>
+                                    </span>
+                                    <input class="" type="file" placeholder="{{'CNIC'|__}}"  name="cnic" autocomplete="off"  id="cnic" required accept="image/*">
+                                    <input  type="hidden"  name="cnic_image" id="cnic_image" >
+                                </div>
+                                <div class="input-group">
+                                    <label for="bussiness_type" class="sr-only"></label>
+                                    <input class="form-control" type="text" placeholder="{{'Bussiness Type'|__}}"  name="bussiness_type" id="bussiness_type" autocomplete="off" required>
+                                    <i class="fa fa-user-cog field-icon"></i>
+                                </div>
+                                <div class="input-group">
+                                    <label for="user_role_id" class="sr-only"></label>
+                                    <select name="user_role_id" class="form-control selectpicker" data-dropup-auto="false" id="user_role_id" autocomplete="off" required>
+                                        <option  value="" selected disabled>Register As</option>
+                                        <option  value="5" class="individual">Vendor</option>
+                                        <option  value="12" class="company">Service Provider</option>
+                                    </select>
+                                </div>
+
+                                <div class="input-group vehicle_category" style="display:none">
+                                    <label for="vehicle_category" class="sr-only"></label>
+                                    <select name="vehicle_category[]" required class="form-control selectpicker" data-dropup-auto="false" id="vehicle_category" autocomplete="off">
+                                        {% for category in categories_car %}
+                                        <option value="{{category.id}}">{{category.title}}</option>
+                                        {% endfor %}
+                                        <option value="" selected disabled>Vehicle category</option>
+                                    </select>
+
+                                    <div class="option_min_add sec_min">
+                                        <span class="fa fa-plus-circle plos text-dark pls pt-5 mt-2 pl-1" id="first"></span>
+                                    </div>
+                                </div>
+                                <div class="input-group vehicle_type veh" style="display:none">
+                                    <label for="vehicle_category" class="sr-only"></label>
+                                    <select  name="truck_used[]"  class="form-control" data-dropup-auto="false" id="truck_used" autocomplete="off" required>
+                                    </select>
+                                </div>
+
+                                <div class="divs">
+                                </div>
+
+        						<div class="input-group">
+                                    <label for="registerPassword" class="sr-only"></label>
+        							<input class="form-control" type="password" placeholder="{{'Password'|__}}" id="registerPassword" name="password" required>
+                                    <i class="fa fa-lock field-icon"></i>
+        						</div>
+<!--        						<div class="input-group">-->
+<!--        							<input class="form-control" type="password" placeholder="{{'Confirm Password'|__}}" name="rpassword" id="rpassword" required>-->
+<!--        						</div>-->
+<!--        						<div class="row kt-login__extra kt-hidden">-->
+<!--        							<div class="col kt-align-left">-->
+<!--        								<label class="kt-checkbox">-->
+<!--        									<input type="checkbox" name="agree" id="agreement" checked required>{{'I Agree the'|__}} <a href="#" data-toggle="modal" data-target="#kt_modal_6" class="kt-link kt-login__link kt-font-bold">{{'terms and conditions'|__}}</a>.-->
+<!--        									<span></span>-->
+<!--        								</label>-->
+<!--        								<span class="form-text text-muted"></span>-->
+<!--        							</div>-->
+<!--        						</div>-->
+        						<div class="kt-login__actions d-flex align-items-center justify-content-between text-justify">
+                                    <button id="kt_login_signup_cancel" class="btn btn-gradient btn-gradient-default kt-login__btn-secondary mx-0">{{'Cancel'|__}}</button>
+                                    <button id="kt_login_signup_submit" type="submit" class="btn btn-gradient btn-gradient-blue kt-login__btn-primary mx-0">{{'Sign Up'|__}}</button>
+        						</div>
+                                <div class="kt-login__actions kt-margin-t-10 flex-column">
+                  					<span class="kt-login__account-msg d-block w-100 text-white font-weight-bold">Already have an account? <a href="javascript:void(0);" id="kt_login_signin" class="kt-login__account-link ">{{"Login"|__}}</a> to your account</span>
+                                </div>
+        					</form>
+                        {% else %}
+                            <!-- Registration is disabled. -->
+                        {% endif %}
+    				</div>
+                     <div class="kt-login__forgot">
+                         <div class="kt-login__head">
+                             <h3 class="kt-login__title">{{'Forgotten Password ?'|__}}</h3>
+                             <div class="kt-login__desc">{{'Enter your email to reset your password'|__}}:</div>
+                         </div>
+                         <div class="kt-login__form">
+
+                             <form class="kt-form" data-request="{{ __SELF__ }}::onRestorePassword" data-request-update="'{{ __SELF__ }}::reset': '#partialUserResetForm'">
+                                 <div class="form-group">
+                                     <input class="form-control" type="email" placeholder="{{'Email'|__}}" name="email" id="userRestoreEmail" autocomplete="off">
+                                 </div>
+
+                                 <div class="kt-login__actions">
+                                     <button id="kt_login_forgot_submit" class="btn btn-brand btn-pill btn-elevate">{{'Request'|__}}</button>
+                                     <button id="kt_login_forgot_cancel" class="btn btn-outline-brand btn-pill">{{'Cancel'|__}}</button>
+                                 </div>
+                             </form>
+
+                         </div>
+                     </div>
+
+
+                      {% if settings.demo_mode %}
+                      <!--begin::Divider-->
+                      <div class="kt-login__divider">
+                          <div class="kt-divider">
+                              <span></span>
+                              <span>{{"OR"|__}}</span>
+                              <span></span>
+                          </div>
+                      </div>
+                      <!--end::Divider-->
+
+                      <!--begin::Options-->
+                       <div class="row">
+                          <div class="col-xl-12">
+                              <!--begin:: Widgets/Applications/User/Profile3-->
+                              <div class="kt-portlet kt-portlet--height-fluid">
+                                  <div class="kt-portlet__body">
+                                      <div class="kt-widget kt-widget--user-profile-3">
+                                          <div class="kt-widget__bottom">
+                                              <div class="kt-widget__item">
+                                                  <div class="kt-widget__icon">
+                                                      <i class="flaticon-user-settings"></i>
+                                                  </div>
+                                                  <div class="kt-widget__details">
+                                                      <span class="kt-widget__title">{{'Admin'|__}}</span>
+                                                      <a href="javascript:;" id="admin" class="kt-widget__value kt-font-brand signin_as">{{'Login as'|__}}</a>
+                                                  </div>
+                                              </div>
+
+                                              <div class="kt-widget__item">
+                                                  <div class="kt-widget__icon">
+                                                      <i class="flaticon-businesswoman"></i>
+                                                  </div>
+                                                  <div class="kt-widget__details">
+                                                      <span class="kt-widget__title">{{'Employee'}}</span>
+                                                      <a href="javascript:;" id="employee" class="kt-widget__value kt-font-brand signin_as">{{'Login as'|__}}</a>
+                                                  </div>
+                                              </div>
+
+                                              <div class="kt-widget__item">
+                                                  <div class="kt-widget__icon">
+                                                      <i class="flaticon-truck"></i>
+                                                  </div>
+                                                  <div class="kt-widget__details">
+                                                      <span class="kt-widget__title">{{'Driver'|__}}</span>
+                                                      <a href="javascript:;" id="driver" class="kt-widget__value kt-font-brand signin_as">{{'Login as'|__}}</a>
+                                                  </div>
+                                              </div>
+
+                                              <div class="kt-widget__item">
+                                                  <div class="kt-widget__icon">
+                                                      <i class="flaticon-avatar"></i>
+                                                  </div>
+                                                  <div class="kt-widget__details">
+                                                      <span class="kt-widget__title">{{'Client'|__}}</span>
+                                                      <a href="javascript:;" id="client" class="kt-widget__value kt-font-brand signin_as">{{'Login as'|__}}</a>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <!--end:: Widgets/Applications/User/Profile3-->
+                          </div>
+                      </div>
+                      <!--end::Options-->
+
+                      {% endif %}
+
+                 </div>
+             </div>
+         </div>
+     </div>
+ </div>
+ <!-- Modal -->
+ <div class="modal fade" id="kt_modal_6" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+         <div class="modal-content">
+             <div class="modal-header">
+                 <h5 class="modal-title" id="exampleModalLongTitle">{{'Terms and conditions'|__}}</h5>
+                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                 </button>
+             </div>
+             <div class="modal-body">
+                 <div class="kt-scroll" data-scroll="true" data-height="200">
+                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                 </div>
+             </div>
+             <div class="modal-footer">
+                 <button type="button" class="btn btn-secondary" data-dismiss="modal">{{"Don't Agree"|__}}</button>
+                 <button type="button" class="btn btn-primary" id="agree" data-dismiss="modal">{{'Agree'|__}}</button>
+             </div>
+         </div>
+     </div>
+ </div>
+ {% put styles %}
+     <link href="./admin/css/demo10/pages/login/login-5.css" rel="stylesheet" type="text/css" />
+     <style>
+         .kt-header__topbar-item--langs {
+             display: -webkit-box;
+             display: -ms-flexbox;
+             display: flex;
+             -webkit-box-flex: 1;
+             -ms-flex: 1;
+             flex: 1;
+             width: 100%;
+             -webkit-box-align: center;
+             -ms-flex-align: center;
+             align-items: center;
+             -webkit-box-pack: center;
+             -ms-flex-pack: center;
+             justify-content: center;
+         }
+         .kt-header__topbar-item--langs .kt-header__topbar-icon img {
+             width: 25px;
+         }
+     </style>
+ {% endput %}
+ {% put scripts %}
+ <script type="text/javascript">
+     "use strict";
+
+    // Class Definition
+    var KTLoginGeneral = function() {
+
+        var login = $('#kt_login');
+
+        var showErrorMsg = function(form, type, msg) {
+            var alert = $('<div class="kt-alert kt-alert--outline alert alert-' + type + ' alert-dismissible" role="alert">\
+    			<button type="button" class="close" data-dismiss="alert" aria-label="Close"></button>\
+    			<span></span>\
+    		</div>');
+
+            form.find('.alert').remove();
+            alert.prependTo(form);
+            //alert.animateClass('fadeIn animated');
+            KTUtil.animateClass(alert[0], 'fadeIn animated');
+            alert.find('span').html(msg);
+        }
+
+        // Private Functions
+        var displaySignUpForm = function() {
+            login.removeClass('kt-login--forgot');
+            login.removeClass('kt-login--signin');
+
+            login.addClass('kt-login--signup');
+            KTUtil.animateClass(login.find('.kt-login__signup')[0], 'flipInX animated');
+        }
+
+        var displaySignInForm = function() {
+            login.removeClass('kt-login--forgot');
+            login.removeClass('kt-login--signup');
+
+            login.addClass('kt-login--signin');
+            KTUtil.animateClass(login.find('.kt-login__signin')[0], 'flipInX animated');
+            //login.find('.kt-login__signin').animateClass('flipInX animated');
+        }
+
+        var displayForgotForm = function() {
+            login.removeClass('kt-login--signin');
+            login.removeClass('kt-login--signup');
+
+            login.addClass('kt-login--forgot');
+            //login.find('.kt-login--forgot').animateClass('flipInX animated');
+            KTUtil.animateClass(login.find('.kt-login__forgot')[0], 'flipInX animated');
+
+        }
+
+        var handleFormSwitch = function() {
+            $('#kt_login_forgot').click(function(e) {
+                e.preventDefault();
+                displayForgotForm();
+            });
+
+            $('#kt_login_forgot_cancel').click(function(e) {
+                e.preventDefault();
+                displaySignInForm();
+            });
+
+            $('#kt_login_signup').click(function(e) {
+                e.preventDefault();
+                displaySignUpForm();
+            });
+
+            $('#kt_login_signup_cancel').click(function(e) {
+                e.preventDefault();
+                displaySignInForm();
+            });
+        }
+
+        $(document).on('change', '#user_role_id', function(){
+            var text=$("#user_role_id option:selected").text();
+            if(text=="Service Provider"){
+                $('.vehicle_category').show('2000');
+            }else{
+                $('.vehicle_category').hide('2000');
+                $('.vehicle_type').hide('2000');
+            }
+        });
+        $(document).on('change', '#vehicle_category', function(){
+                $('.veh').show('2000');
+        });
+        var counter=0;
+        $(document).on('click', '.plos', function(){
+               var txt=`<div class="input-group div_${counter}" >
+                                    <label for="vehicle_category_${counter}" class="sr-only"></label>
+                                    <select name="vehicle_category[]" required class="form-control sbt" data-dropup-auto="false" id="vehicle_category_${counter}" data-id="${counter}" autocomplete="off">
+                                        {% for category in categories_car %}
+                                        <option value="{{category.id}}">{{category.title}}</option>
+                                        {% endfor %}
+                                        <option value="" selected disabled>Vehicle category</option>
+                                    </select>
+                                    <div class="option_min_add">
+                                        <span class="fa fa-minus-circle minus text-dark pls pt-5 mt-2 pl-1 " data-id="${counter}" ></span>&nbsp
+                                        <span class="fa fa-plus-circle plos text-dark pls pt-5 mt-2 pl-1"></span>
+                                    </div>
+                                </div>
+                                <div class="input-group vehicle_type" style="display: none"  id="type_${counter}">
+                                    <label for="vehicle_category" class="sr-only"></label>
+                                    <select  name="truck_used[]" class="form-control" data-dropup-auto="false" id="truck_used_${counter}" autocomplete="off" required >
+                                    </select>
+                                </div>
+                                </div>`;
+                             counter++;
+            $('.divs').append(txt);
+            $('#first').hide('3000')
+        });
+
+        $(document).on('click', '.minus', function(){
+            var id=$(this).attr('data-id');
+               $('.div_'+id).hide('3000')
+               $('#type_'+id).hide('3000')
+
+        });
+
+
+        $(document).on('change', '#vehicle_category', function(){
+            $.request('onChangefees1', {
+                method:'post',
+                data: {id:$('#vehicle_category option:selected' ).val()},
+                success: function(response, status, xhr, $form) {
+                    var html='';
+                    $.each(response,function (key,value) {
+                        html += '<option value="'+value.id+'">'+value.name+'</option>';
+                        console.log(value);
+                    });
+                    html += "<option value='' selected disabled>Choose type</option>";
+                    $('#truck_used').empty().append(html);
+                }
+            });
+        });
+
+        $(document).on('change', '.sbt', function(){
+            var id=$(this).attr('data-id');
+            console.log(this)
+           var val1= $('#vehicle_category_'+id+' option:selected').val();
+            // alert(id);
+            // return;
+            $.request('onChangefees1', {
+                method:'post',
+                data: {id:val1},
+                success: function(response, status, xhr, $form) {
+                    var html='';
+                    $.each(response,function (key,value) {
+                        html += '<option value="'+value.id+'">'+value.name+'</option>';
+                        // $("#truck_used").append('<option value=1>My option</option>');
+                        console.log(value);
+                    });
+                    html += "<option value='' selected disabled>Choose type</option>";
+                    $('#truck_used_'+id).empty().append(html);
+                    $('#type_'+id).show('3000');
+                }
+            });
+        });
+
+        var handleSignInFormSubmit = function() {
+            $('#kt_login_signin_submit').click(function(e) {
+                e.preventDefault();
+                var btn = $(this);
+                var form = $(this).closest('form');
+
+                form.validate({
+                    rules: {
+                        login: {
+                            required: true
+                        },
+                        password: {
+                            required: true
+                        }
+                    },
+                    messages: {
+                        "login": {
+                            required: '{{"This field is required!"|__}}',
+                        },
+                        "password": {
+                            required: '{{"This field is required!"|__}}',
+                        },
+                    }
+                });
+
+                if (!form.valid()) {
+                    return;
+                }
+
+                btn.addClass('kt-spinner kt-spinner--right kt-spinner--sm kt-spinner--light').attr('disabled', true);
+
+                $.request('onSignin', {
+                    data: {login: $('#userSigninLogin').val(), password: $('#userSigninPassword').val()},
+                    error: function(e,response) {
+                        btn.removeClass('kt-spinner kt-spinner--right kt-spinner--sm kt-spinner--light').attr('disabled', false);
+                        console.log(e);
+                        if(typeof e.responseJSON !== 'undefined'){
+                            showErrorMsg(form, 'danger', e.responseJSON.X_OCTOBER_ERROR_MESSAGE);
+                        }else{
+                            showErrorMsg(form, 'danger', e.responseText);
+                        }
+                    },
+                    success: function(response, status, xhr, $form) {
+                    	// similate 2s delay
+                    	setTimeout(function() {
+    	                    btn.removeClass('kt-spinner kt-spinner--right kt-spinner--sm kt-spinner--light').attr('disabled', false);
+                           showErrorMsg(form, 'success', '{{"Correct, you are being redirect"|__}}.');
+                           location.href = "{{url('dashboard')}}";
+                        }, 2000);
+                    }
+                });
+            });
+        }
+
+        var handleSignUpFormSubmit = function() {
+            $('#kt_login_signup_submit').click(function(e) {
+
+                e.preventDefault();
+
+                var btn = $(this);
+                var form = $(this).closest('form');
+
+                form.validate({
+                    rules: {
+                        fullname: {
+                            required: true
+                        },
+                        email: {
+                            required: true,
+                            email: true
+                        },
+                        password: {
+                            required: true
+                        },
+                        rpassword: {
+                            required: true
+                        },
+                        agree: {
+                            required: true
+                        }
+                    }
+                });
+                if (!form.valid()) {
+                    return;
+                }
+
+                btn.addClass('kt-spinner kt-spinner--right kt-spinner--sm kt-spinner--light').attr('disabled', true);
+                var arr=[];
+                if(counter>0) {
+                    for (var i = 0; i < counter; i++) {
+                        var val = $("#vehicle_category_" + i + " option:selected").val();
+                        var typ = $("#type_" + i + " option:selected").val();
+                        if (val != '' && typ!='') {
+                            var ar = {cat: val, type: typ};
+                            arr.push(ar);
+                        }
+                    }
+                }
+                    var ar = {cat: $('#vehicle_category option:selected' ).val(), type: $('#truck_used option:selected').val()};
+                    arr.push(ar);
+
+
+// console.log(arr);
+//  return ;
+
+                $.request('onRegister', {
+                    {% if loginAttribute == "username" %}
+
+                        data: {
+                        name: $('#registerName').val(),
+                                email: $('#registerEmail').val(),
+                                username: $('#registerUsername').val(),
+                                password: $('#registerPassword').val(),
+                                password_confirmation: $('#rpassword').val(),
+                                phone: $('#mobile').val(),
+                                postal_code: $('#postal_code').val(),
+                                cnic: $('#cnic_image').val(),
+                                bussiness_type: $('#bussiness_type').val(),
+                                user_role_id:$('#user_role_id').val(),
+                                vehicle_category:$('#vehicle_category option:selected' ).val(),
+                                truck_used:$('#truck_used option:selected').val()
+                                ,vehicles:arr
+                        },
+
+                    {% else %}
+
+                        data: {name: $('#registerName').val(), email: $('#registerEmail').val(), password: $('#registerPassword').val(), phone: $('#mobile').val(), postal_code: $('#postal_code').val(), cnic: $('#cnic_image').val(), bussiness_type: $('#bussiness_type').val(), user_role_id:$('#user_role_id').val(),vehicle_category:$('#vehicle_category option:selected' ).val(),truck_used:$('#truck_used option:selected').val(),vehicles:arr},
+
+                    {% endif %}
+
+                    error: function(e,response) {
+                        btn.removeClass('kt-spinner kt-spinner--right kt-spinner--sm kt-spinner--light').attr('disabled', false);
+                        if(typeof e.responseJSON !== 'undefined'){
+                            showErrorMsg(form, 'danger', e.responseJSON.X_OCTOBER_ERROR_MESSAGE);
+                        }else{
+                            showErrorMsg(form, 'danger', e.responseText);
+                        }
+                        //showErrorMsg(form, 'danger', e.responseJSON.X_OCTOBER_ERROR_MESSAGE);
+                    },
+                    success: function(response, status, xhr, $form) {
+                    	// similate 2s delay
+                    	setTimeout(function() {
+    	                    btn.removeClass('kt-spinner kt-spinner--right kt-spinner--sm kt-spinner--light').attr('disabled', false);
+                            {% if (requireActivation and automaticActivation is null) %}
+    	                       showErrorMsg(form, 'success', '{{"Thank you. To complete your registration please check your email"|__}}.');
+                            {% else %}
+                               showErrorMsg(form, 'success', '{{"Correct, you are being redirect"|__}}.');
+                               location.href = "{{url('dashboard')}}";
+                           {% endif %}
+                        }, 2000);
+                    }
+                });
+            });
+        }
+
+        var handleForgotFormSubmit = function() {
+            $('#kt_login_forgot_submit').click(function(e) {
+                e.preventDefault();
+
+                var btn = $(this);
+                var form = $(this).closest('form');
+
+                form.validate({
+                    rules: {
+                        email: {
+                            required: true,
+                            email: true
+                        }
+                    }
+                });
+
+                if (!form.valid()) {
+                    return;
+                }
+
+                btn.addClass('kt-spinner kt-spinner--right kt-spinner--sm kt-spinner--light').attr('disabled', true);
+
+                $.request('onRestorePassword', {
+                    data: {email: $('#userRestoreEmail').val()},
+                    error: function(e,response) {
+                        btn.removeClass('kt-spinner kt-spinner--right kt-spinner--sm kt-spinner--light').attr('disabled', false);
+                        alert(e.responseText);
+                        if(typeof e.responseJSON !== 'undefined'){
+                            showErrorMsg(form, 'danger', e.responseJSON.X_OCTOBER_ERROR_MESSAGE);
+                        }else{
+                            showErrorMsg(form, 'danger', e.responseText);
+                        }
+                        //showErrorMsg(form, 'danger', e.responseJSON.X_OCTOBER_ERROR_MESSAGE);
+                    },
+                    success: function(response, status, xhr, $form) {
+                    	// similate 2s delay
+                    	setTimeout(function() {
+	                           btn.removeClass('kt-spinner kt-spinner--right kt-spinner--sm kt-spinner--light').attr('disabled', false);
+                               showErrorMsg(form, 'success', '{{"Cool! Password recovery instruction has been sent to your email"|__}}.');
+                        }, 2000);
+                    }
+                });
+            });
+        }
+
+        // Public Functions
+        return {
+            // public functions
+            init: function() {
+                handleFormSwitch();
+                handleSignInFormSubmit();
+                handleSignUpFormSubmit();
+                handleForgotFormSubmit();
+            }
+        };
+    }();
+
+     // Class Initialization
+     KTUtil.ready(function () {
+         KTLoginGeneral.init();
+
+         $('body').on('click','#agree', function(e){
+             $( "#agreement" ).prop( "checked", true );
+         });
+
+         {% if settings.demo_mode %}
+          $('body').on('click','.signin_as', function(e){
+              var type = $(this).attr('id');
+              if(type == 'admin'){
+                  $('#userSigninLogin').val('admin');
+                  $('#userSigninPassword').val('123456');
+                  $('#kt_login_signin_submit').trigger('click');
+              }else if(type == 'employee'){
+                  $('#userSigninLogin').val('employee');
+                  $('#userSigninPassword').val('123456');
+                  $('#kt_login_signin_submit').trigger('click');
+              }else if(type == 'driver'){
+                  $('#userSigninLogin').val('driver');
+                  $('#userSigninPassword').val('123456');
+                  $('#kt_login_signin_submit').trigger('click');
+              }else if(type == 'client'){
+                  $('#userSigninLogin').val('client');
+                  $('#userSigninPassword').val('123456');
+                  $('#kt_login_signin_submit').trigger('click');
+              }
+          });
+          {% endif %}
+     });
+
+
+
+     // // Select the image
+     // $("#cnic").change(function() {
+     // const fileInput = document.querySelector("#cnic");
+     // fileInput.addEventListener("change", (e) => {
+     //     // get a reference to the file
+     //     const file = e.target.files[0];
+     //     const reader = new FileReader();
+     //     reader.onloadend = () => {
+     //         $('#cnic_image').val(reader.result);
+     //         console.log(reader.result);
+     //     };
+     //     reader.readAsDataURL(file);
+     //     // console.log(reader.readAsDataURL(file));
+     // });
+     // });
+
+     // Select the image
+     $("#cnic").change(function() {
+         const file = document.querySelector('input[type=file]').files[0];
+         const reader = new FileReader();
+         reader.addEventListener("load", function () {
+             // convert image file to base64 string
+             $('#cnic_image').val(reader.result);
+         }, false);
+         if (file) {
+             reader.readAsDataURL(file);
+         }
+     });
+
+
+
+
+
+ </script>
+ {% endput %}";s:4:"code";s:1970:"function onStart(){
+    if(Auth::getUser()){
+        return Redirect::to('dashboard');
+    }
+$this['categories_car']= \Spot\Shipment\Models\Categories::select('id','title')->get();
+$this['cars']= \Spot\Shipment\Models\Car::select('id','name')->get();
+
+
+    if(isset($_GET['login'])){
+        $data = $_GET;
+
+        $rules = [];
+
+        $rules['login'] = 'required|between:2,255';
+
+        $rules['password'] = 'required|between:4,255';
+
+        $data['login'] = trim($data['login']);
+
+        $validation = Validator::make($data, $rules);
+        if ($validation->fails()) {
+            throw new ValidationException($validation);
+        }
+
+        /*
+            * Authenticate user
+            */
+        $credentials = [
+            'login'    => array_get($data, 'login'),
+            'password' => array_get($data, 'password')
+        ];
+
+
+        Event::fire('rainlab.user.beforeAuthenticate', [$this, $credentials]);
+        try {
+            $user = Auth::authenticate($credentials, true);
+            if ($user->isBanned()) {
+                Auth::logout();
+                throw new ValidationException(/*Sorry, this user is currently not activated. Please contact us for further assistance.*/'rainlab.user::lang.account.banned');
+            }
+
+            return Redirect::to('dashboard');
+        } catch (\Throwable $th) {
+            Flash::error(Lang::get('rainlab.user::lang.account.invalid_current_pass'));
+            return Redirect::to('login');
+        }
+    }
+
+    $this['requireActivation']      = RainLab\User\Models\Settings::get('require_activation', true);
+    $this['automaticActivation']    = RainLab\User\Models\Settings::get('activate_mode', true);
+}
+function onMyRegister()
+{
+    $data['role_id']  = 5;
+
+
+    $this['account']->onRegister();
+}
+function onChangefees1(){
+return \Spot\Shipment\Models\Vehicles::select('id','name')->where('categories_id',$_POST['id'])->get();
+}";s:5:"title";s:5:"Login";s:3:"url";s:13:"/login/:code?";s:6:"layout";s:5:"blank";s:9:"is_hidden";s:1:"0";s:4:"role";s:1:"0";s:10:"permission";s:1:"0";s:14:"anonymous_only";s:1:"1";s:11:"logged_only";s:1:"0";s:8:"child_of";s:13:"mey_no_parent";s:10:"hide_crumb";s:1:"0";s:18:"remove_crumb_trail";s:1:"0";s:14:"crumb_disabled";s:1:"0";s:7:"viewBag";a:2:{s:11:"localeTitle";a:1:{s:2:"ar";s:23:"تسجيل الدخول";}s:9:"localeUrl";a:1:{s:2:"ar";s:13:"/login/:code?";}}s:7:"account";a:3:{s:8:"redirect";s:19:"dashboard/dashboard";s:9:"paramCode";s:4:"code";s:11:"forceSecure";s:1:"0";}s:13:"resetPassword";a:1:{s:9:"paramCode";s:4:"code";}s:7:"session";a:1:{s:8:"security";s:3:"all";}}}

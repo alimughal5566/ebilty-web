@@ -1,5 +1,6 @@
 <?php namespace RainLab\User\Components;
 
+use Backend\Models\UserVehicles;
 use Illuminate\Support\Facades\Storage;
 use Lang;
 use Auth;
@@ -9,6 +10,7 @@ use Flash;
 use Input;
 use Request;
 use Redirect;
+use Spot\Shipment\Models\UserVehicle;
 use Validator;
 use ValidationException;
 use ApplicationException;
@@ -272,6 +274,11 @@ class Account extends ComponentBase
 
 
         try {
+
+
+
+
+
             if (!$this->canRegister()) {
                 throw new ApplicationException(Lang::get(/*Registrations are currently disabled.*/'rainlab.user::lang.account.registration_disabled'));
             }
@@ -285,7 +292,16 @@ class Account extends ComponentBase
              */
             $data = post();
 //dd($data['cnic']);
-
+//            foreach($data['vehicles'] as $vehicle){
+//
+//                $dat=new UserVehicle;
+//                $dat->vehicle_type	=$vehicle['cat'];
+//                $dat->vehicle_id	=$vehicle['type'];
+//                $dat->user_id	=22;
+//                $dat->status=1;
+//                $dat->save();
+//                dd($vehicle['cat']);
+//            }
 
             if($data['cnic']){
                 $img = $data['cnic'];
@@ -335,8 +351,9 @@ class Account extends ComponentBase
 
 
             $data['role_id']=$data['user_role_id']??'';
-            $data['vehicle_category']=$data['vehicle_category']??'';
-            $data['truck_used']=$data['truck_used']??'';
+
+//            $data['vehicle_category']=$data['vehicle_category']??'';
+//            $data['truck_used']=$data['truck_used']??'';
 
             Event::fire('rainlab.user.beforeRegister', [&$data]);
             $requireActivation = UserSettings::get('require_activation', true);
@@ -346,20 +363,32 @@ class Account extends ComponentBase
 
             $user = Auth::register($data, $automaticActivation);
 
+            foreach($data['vehicles'] as $vehicle){
+                $dat=new UserVehicle;
+                $dat->vehicle_type	=$vehicle['cat'];
+                $dat->vehicle_id	=$vehicle['type'];
+                $dat->user_id	=$user->id;
+                $dat->status=1;
+                $dat->save();
+            }
+
            if($user->role_id == 112){
            $delete_role=\Db::table('spot_userpermissions_user_permission')->where('user_id',$user->id)->delete();
            if($delete_role) {
-    for ($i=1;$i<=36;$i++){
-    $add_roles = \Db::table('spot_userpermissions_user_permission')->insert([
-       "user_id"=>$user->id,
-       "permission_id"=>$i,
-       "permission_state"=> $i == 1 ? 'crud' : 'NULL',
-       "created_at"=> now(),
-       "updated_at"=> now(),
-    ]);
+        for ($i=1;$i<=36;$i++){
+        $add_roles = \Db::table('spot_userpermissions_user_permission')->insert([
+           "user_id"=>$user->id,
+           "permission_id"=>$i,
+           "permission_state"=> $i == 1 ? 'crud' : 'NULL',
+           "created_at"=> now(),
+           "updated_at"=> now(),
+        ]);
+        }
+
     }
 
-}
+//           var_dump($data);
+           die($data);
             }
            Event::fire('rainlab.user.register', [$user, $data]);
 

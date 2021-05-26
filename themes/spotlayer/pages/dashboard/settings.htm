@@ -82,7 +82,7 @@ function onStart(){
         $this['updateShipmentForm']   =   Settings::get('updateShipmentForm',true);
         $this['printTemplate']        =   Settings::get('printTemplate',true);
         $this['addUserSHipment']        =   Settings::get('addUserSHipment',true);
-        
+
     }elseif($this->param('page') == 'company'){
         $this['company']            =   Settings::get('company', true);
     }elseif($this->param('page') == 'website'){
@@ -96,22 +96,22 @@ function onStart(){
         //        dd($file->name);
         //    }
         //}
-        
+
         if($settings->sliders_pics)
         {
             foreach($settings->sliders_pics as $key => $file)
             {
                 //Storage::delete('/uploads/public/images/'.$file->file_name);
-            }        
+            }
         }
-            
+
         //unset($website['faqs']);
         //dd($website);
     }elseif($this->param('page') == 'fees'){
         $this['taxes']              =   Settings::get('taxes', true);
         $this['fees']               =   Settings::get('fees', true);
         $this['packaging_fees']     =   Settings::get('packaging_fees', true);
-        $this['fees_weights']     =   Settings::get('fees_weight', true); 
+        $this['fees_weights']     =   Settings::get('fees_weight', true);
         $this['enable_fees_weight']     =   Settings::get('enable_fees_weight', true);
         //dd(Settings::get('fees_weight', true));
         $this['primary_currency']   =   Currency::where('is_primary', 1)->first();
@@ -137,10 +137,10 @@ function onStart(){
                     'smsala_sms_type'           =>  SMS::get('smsala_sms_type'),
                     'smsala_encoding'           =>  SMS::get('smsala_encoding'),
                     'smsala_sender_id'          =>  SMS::get('smsala_sender_id'),
-                    // 'sms_server'                =>  SMS::get('sms_server'), 
+                    // 'sms_server'                =>  SMS::get('sms_server'),
                     // 'sms_authKey'               =>  SMS::get('sms_authKey'),
                     // 'sms_getway_id'             =>  SMS::get('sms_getway_id'),
-                    // 'sms_mode'                  =>  SMS::get('sms_mode'), 
+                    // 'sms_mode'                  =>  SMS::get('sms_mode'),
                     // 'sms_sender_id'             =>  SMS::get('sms_sender_id'),
                     // 'sms_country_id'            =>  SMS::get('sms_country_id'),
                     // 'sms_encoding'              =>  SMS::get('sms_encoding'),
@@ -179,7 +179,7 @@ function onStart(){
         $this['customers']      =   Settings::get('customers', true);
         $this['areas']          =   \Spot\Shipment\Models\Area::select('id','name')->get();
         $this['states']         =  \RainLab\Location\Models\State::whereHas('country',function($q){$q->where('is_enabled', 1);})->select('id','name')->get();
-       // dd($this['customers']);   
+       // dd($this['customers']);
     }elseif($this->param('page') == 'google'){
         $this->page->settings_breadcrumb       =   'components';
         $this['google']             =   Settings::get('google', true);
@@ -281,7 +281,7 @@ elseif($this->param('page') == 'destination'){
             $this->page->actions   = array(
                 'add'   =>  url('dashboard/settings/reasonarrival/create')
             );
-        } 
+        }
     }elseif($this->param('page') == 'size'){
         if(!Auth::getUser()->hasUserPermission(["size"],'r')) {
             \Flash::error($this['theme_lang']['not_allowed']);
@@ -293,7 +293,7 @@ elseif($this->param('page') == 'destination'){
             $this->page->actions   = array(
                 'add'   =>  url('dashboard/settings/size/create')
             );
-        }          
+        }
     }elseif($this->param('page') == 'categories'){
         if(!Auth::getUser()->hasUserPermission(["category"],'r')) {
             \Flash::error($this['theme_lang']['not_allowed']);
@@ -377,7 +377,7 @@ elseif($this->param('page') == 'destination'){
             $this->page->actions   = array(
                 'add'   =>  url('dashboard/settings/break/create')
             );
-        }            
+        }
     }elseif($this->param('page') == 'statuses'){
         if(!Auth::getUser()->hasUserPermission(["statuses"],'r')) {
             \Flash::error($this['theme_lang']['not_allowed']);
@@ -401,7 +401,7 @@ elseif($this->param('page') == 'destination'){
     //        $this->page->actions   = array(
     //            'add'   =>  url('dashboard/settings/statuses/create/Stockstatuses')
     //        );
-    //    }   
+    //    }
     //}elseif($this->param('page') == 'Customstatuses'){
     //    if(!Auth::getUser()->hasUserPermission(["statuses"],'r')) {
     //        \Flash::error($this['theme_lang']['not_allowed']);
@@ -413,7 +413,7 @@ elseif($this->param('page') == 'destination'){
     //        $this->page->actions   = array(
     //            'add'   =>  url('dashboard/settings/statuses/create/Customstatuses')
     //        );
-    //    }      
+    //    }
     }elseif($this->param('page') == 'treasury'){
         if(!Auth::getUser()->hasUserPermission(["treasury"],'r')) {
             \Flash::error($this['theme_lang']['not_allowed']);
@@ -661,7 +661,7 @@ function onSave()
         $settings->updateShipmentForm           =   htmlspecialchars($data['update_form']);
         $settings->printTemplate                =   htmlspecialchars($data['print_template']);
         $settings->addUserSHipment              =   htmlspecialchars($data['add_user']);
-        
+
 
         $currency                                   =   Currency::find($data['currency']);
         $currency->is_primary                       =   1;
@@ -719,11 +719,11 @@ function onSave()
                 $faqs[]       = array(
                                     'question' =>  htmlspecialchars($faq['question']),
                                     'answer'   =>  htmlspecialchars($faq['answer']),
-                                );   
+                                );
             }
         }
 
-    
+
         if(Input::file('sliders')){
             $settings->sliders_pics()->delete();
             foreach( Input::file('sliders') as $key => $slide_image){
@@ -758,12 +758,12 @@ function onSave()
 
         if($_FILES){
             foreach($_FILES['sliders'] as $key => $slide_image){
-                
+
             }
         }
         if(isset($data['services']) && $data['services'] != '' && !empty($data['services'])){
             $services = array();
-            
+
             foreach($data['services'] as  $key => $service){
                 if (Input::hasFile('services') && Input::file('services')[$key]) {
                 dd(Input::file('services')[$key]);
@@ -773,13 +773,13 @@ function onSave()
                                     'title'         =>  htmlspecialchars($service['title']),
                                     'description'   =>  htmlspecialchars($service['description']),
                                     'img_name'      =>  'test',
-                                );   
+                                );
             }
         }
 
         if(isset($data['sliders']) && $data['sliders'] != '' && !empty($data['sliders'])){
             $sliders = array();
-            
+
             foreach($data['sliders'] as $key => $slider){
                 if (Input::hasFile('sliders') && isset(Input::file('sliders')[$key])) {
                 dd(Input::file('sliders')[$key]);
@@ -789,7 +789,7 @@ function onSave()
                                     'titleslider'         =>  htmlspecialchars($slider['titleslider']),
                                     'subtitle'   =>  htmlspecialchars($slider['subtitle']),
                                     'link'          =>  htmlspecialchars($slider['link']),
-                                );   
+                                );
             }
         }
 
@@ -836,8 +836,8 @@ function onSave()
         //                    '100'            =>  htmlspecialchars($data['fees_weight']['100']),
         //                    'above100'       =>  htmlspecialchars($data['fees_weight']['above100']),
         //                );
-        
-        
+
+
         $settings->packaging_fees   = array(
                                         'fees' => $data['packaging_fees'],
                                         'enable' => (isset($data['packaging_fees']['enable']) ? 1 : 0),
@@ -1027,11 +1027,11 @@ function onSave()
                             'enable_createAccount' => (isset($data['enable_createAccount']) ? 1 : 0),
                             'connect'              =>  (isset($data['customers']['connect']) ? 1 : 0),
 
-                            
+
                         );
-        $settings->customers              =   $customers;    
+        $settings->customers              =   $customers;
     }elseif($this->param('page') == 'payment'){
-        $payment = array();        
+        $payment = array();
 
         if(isset($data['enable_cash'])){
             $payment['enable_cash'] = 1 ;
@@ -1041,7 +1041,7 @@ function onSave()
 
         if(isset($data['enable_transfer'])){
             $payment['enable_transfer'] = 1 ;
-            $payment['transfer_desc'] = $data['transfer_desc'];  
+            $payment['transfer_desc'] = $data['transfer_desc'];
         }else{
             $payment['enable_transfer'] = 0;
         }
@@ -1226,7 +1226,7 @@ function onDelete()
                     \Spot\Container\Models\Destination::find($data['id'])->delete();
                 }
                 return Redirect::back();
-            } 
+            }
         case 'location':
             if(!Auth::getUser()->hasUserPermission(["location"],'d')) {
                 return Response::json(['error' => $this['theme_lang']['not_allowed']], 401);
@@ -1278,7 +1278,7 @@ function onDelete()
                     \Spot\Container\Models\Size::find($data['id'])->delete();
                 }
                 return Redirect::back();
-            }        
+            }
         case 'statuses':
             if(!Auth::getUser()->hasUserPermission(["statuses"],'d')) {
                 return Response::json(['error' => $this['theme_lang']['not_allowed']], 401);
@@ -1624,12 +1624,12 @@ function onDelete()
                  <label class="col-xl-3 col-lg-3 col-form-label">{{'Date Format'|__}}</label>
                  <div class="col-lg-9 col-xl-6">
                   <select class="form-control" name="dateformat" required>
-                                                    <option data-hidden="true"></option>
-                                                    <option value="d/m/Y" {% if dateformat == "d/m/Y" %}selected{% endif %}>{{'now'|date('d/m/Y')}}</option>
-                                                    <option value="m/d/Y" {% if dateformat == "m/d/Y" %}selected{% endif %}>{{'now'|date('m/d/Y')}}</option>
-                                                    <option value="d M, Y" {% if dateformat == "d M, Y" %}selected{% endif %}>{{'now'|date('d M, Y')}}</option>
-                                                    <option value="M d, Y" {% if dateformat == "M d, Y" %}selected{% endif %}>{{'now'|date('M d, Y')}}</option>
-                                                </select>
+                    <option data-hidden="true"></option>
+                    <option value="d/m/Y" {% if dateformat == "d/m/Y" %}selected{% endif %}>{{'now'|date('d/m/Y')}}</option>
+                    <option value="m/d/Y" {% if dateformat == "m/d/Y" %}selected{% endif %}>{{'now'|date('m/d/Y')}}</option>
+                    <option value="d M, Y" {% if dateformat == "d M, Y" %}selected{% endif %}>{{'now'|date('d M, Y')}}</option>
+                    <option value="M d, Y" {% if dateformat == "M d, Y" %}selected{% endif %}>{{'now'|date('M d, Y')}}</option>
+                </select>
                  </div>
                 </div>
                 <div class="form-group row">
@@ -1681,12 +1681,12 @@ function onDelete()
                  </div>
                 </div>
                                         <!-- add shipment form -->
-                                        <div class="form-group row">
+                                        <div class="form-group row" >
                                             <label class="col-xl-3 col-lg-3 col-form-label">{{'Add Shipment Form'|__}}</label>
                                             <div class="col-lg-9 col-xl-6">
                                                 <div class="kt-checkbox-single">
                                                     <label class="kt-checkbox">
-                                                        <input type="radio" id="add_form_simple" value="add_form_simple" name="add_form" {% if addShipmentForm == "add_form_simple" %}checked{% elseif settings.demo_mode %}disabled{% endif %}> {{'Simple'|__}} 
+                                                        <input type="radio" id="add_form_simple" value="add_form_simple" name="add_form" {% if addShipmentForm == "add_form_simple" %}checked{% elseif settings.demo_mode %}disabled{% endif %}> {{'Simple'|__}}
                                                         {% if settings.demo_mode and addShipmentForm != "add_form_simple" %}
                                                          <a href="https://cargosimple.spotlayer.com/" target="_blank">{{'Click here to view Simple Form Demo'|__}}</a>
                                                         {% endif %}
@@ -1695,7 +1695,7 @@ function onDelete()
                                                 </div>
                                                 <div class="kt-checkbox-single">
                                                     <label class="kt-checkbox">
-                                                        <input type="radio" id="add_form_advance" value="add_form_advance" name="add_form" {% if addShipmentForm == "add_form_advance" %}checked{% elseif settings.demo_mode %}disabled{% endif %}> {{'Advance'|__}} 
+                                                        <input type="radio" id="add_form_advance" value="add_form_advance" name="add_form" {% if addShipmentForm == "add_form_advance" %}checked{% elseif settings.demo_mode %}disabled{% endif %}> {{'Advance'|__}}
                                                         {% if settings.demo_mode and addShipmentForm != "add_form_advance" %}
                                                          <a href="https://cargo.spotlayer.com/" target="_blank">{{'Click here to view Advanced Form Demo'|__}}</a>
                                                         {% endif %}
@@ -1937,7 +1937,7 @@ function onDelete()
                    </div>
                </div>
               </div>
-                                            
+
                                 {% if settings.demo_mode %}
                                     <div class="kt-section">
                                         <div class="kt-section__body">
@@ -2625,7 +2625,7 @@ function onDelete()
 
                                                                     <div class="d-md-none kt-margin-b-10"></div>
                                                                 </div>
-                                                                
+
                                                                 <div class="form-group row">
                                                                     <div class="col-md-3">
                                                                         <a href="javascript:;" data-repeater-delete="" class="btn-sm btn btn-label-danger btn-bold kt-margin-t-25 delete_btn">
@@ -2674,7 +2674,7 @@ function onDelete()
 
                                                                     <div class="d-md-none kt-margin-b-10"></div>
                                                                 </div>
-                                                                
+
                                                                 <div class="form-group row">
                                                                     <div class="col-md-3">
                                                                         <a href="javascript:;" data-repeater-delete="" class="btn-sm btn btn-label-danger btn-bold kt-margin-t-25">
@@ -2736,7 +2736,7 @@ function onDelete()
                             <div class="col-xl-2"></div>
                             <div class="col-xl-8">
                                 <div class="kt-section kt-section--first">
-                                    
+
                                     <div class="kt-section__body">
 
                                         <div class="kt-section">
@@ -3099,7 +3099,7 @@ function onDelete()
                             <div class="col-xl-2"></div>
                             <div class="col-xl-8">
                                 <div class="kt-section kt-section--first">
-                                    
+
                                     <div class="kt-section__body">
                                         <div class="kt-section">
                                             <h5 class="kt-section__title kt-margin-b-20">
@@ -3885,19 +3885,19 @@ function onDelete()
                             <div class="kt-section__body">
                                 <div class="kt-datatable"></div>
                             </div>
-                        </div>     
+                        </div>
                     {% elseif this.param.page == 'reasonarrival' %}
                         <div class="kt-section kt-section--first">
                             <div class="kt-section__body">
                                 <div class="kt-datatable"></div>
                             </div>
-                        </div> 
+                        </div>
                     {% elseif this.param.page == 'size' %}
                         <div class="kt-section kt-section--first">
                             <div class="kt-section__body">
                                 <div class="kt-datatable"></div>
                             </div>
-                        </div>                  
+                        </div>
                     {% elseif this.param.page == 'statuses' %}
                         <div class="kt-section kt-section--first">
                             <div class="kt-section__body">
@@ -3915,7 +3915,7 @@ function onDelete()
                             <div class="kt-section__body">
                                 <div class="kt-datatable"></div>
                             </div>
-                        </div>        
+                        </div>
                     {% elseif this.param.page == 'treasury' %}
                         <div class="kt-section kt-section--first">
                             <div class="kt-section__body">
@@ -3951,7 +3951,7 @@ function onDelete()
                             <div class="kt-section__body">
                                 <div class="kt-datatable"></div>
                             </div>
-                        </div> 
+                        </div>
                     {% elseif this.param.page == 'handler' %}
                         <div class="kt-section kt-section--first">
                             <div class="kt-section__body">
@@ -3963,7 +3963,7 @@ function onDelete()
                             <div class="kt-section__body">
                                 <div class="kt-datatable"></div>
                             </div>
-                        </div>           
+                        </div>
                     {% elseif this.param.page == 'packaging' %}
                         <div class="kt-section kt-section--first">
                             <div class="kt-section__body">
@@ -4466,7 +4466,7 @@ function onDelete()
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="fcm {% if push_notifications.push_provider != 'fcm' %}kt-hidden{% endif %}"> 
+                                            <div class="fcm {% if push_notifications.push_provider != 'fcm' %}kt-hidden{% endif %}">
                                                 <div class="form-group row">
                                                     <label class="col-xl-3 col-lg-3 col-form-label">{{'Customer App Key'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
                                                     <div class="col-lg-9 col-xl-6">
@@ -5835,7 +5835,7 @@ $('body').on('change', '.taxes_type', function(){
         $('#taxes_sgst').removeClass('kt-hidden');
         $('#taxes_cgst').removeClass('kt-hidden');
     }
-}); 
+});
 
 
 $('#weight_repeater').repeater({
@@ -6317,7 +6317,7 @@ var KTAppUserListDatatable = function () {
                                 {% endif %}
                         },
                     }
-                ] 
+                ]
             {% elseif this.param.page == 'location' %}
                 // datasource definition
                 data: {
@@ -6431,7 +6431,7 @@ var KTAppUserListDatatable = function () {
                                 {% endif %}
                         },
                     }
-                ] 
+                ]
             {% elseif this.param.page == 'reasonarrival' %}
                 // datasource definition
                 data: {
@@ -6488,7 +6488,7 @@ var KTAppUserListDatatable = function () {
                                 {% endif %}
                         },
                     }
-                ]  
+                ]
             {% elseif this.param.page == 'size' %}
                 // datasource definition
                 data: {
@@ -6545,7 +6545,7 @@ var KTAppUserListDatatable = function () {
                                 {% endif %}
                         },
                     }
-                ]          
+                ]
             {% elseif this.param.page == 'cars' %}
                 // datasource definition
                 data: {
@@ -6594,7 +6594,7 @@ var KTAppUserListDatatable = function () {
                         sortable: false,
                         width: 'auto',
                         template: function(row) {
-                            return row.transport.name; 
+                            return row.transport.name;
                         },
                     },
                     {
@@ -6653,6 +6653,21 @@ var KTAppUserListDatatable = function () {
                     class: 'kt-checkbox--solid'
                 },
                 textAlign: 'center',
+            },
+            {
+                field: "thumbnail",
+                title: "{{'Image'|__}}",
+                autoHide: false,
+                sortable: false,
+                width: 100,
+                overflow: 'visible',
+                template: function (data) {
+                    return '' +
+                        '<div class="btn-group btn-group" role="group" aria-label="...">'+
+                        '<img width="130" src="/storage/app/'+data.thumbnail+'"  alt=""/>'+
+                        '</div>';
+                    return '-';}
+
             },
             {
                 field: "name",
@@ -6863,7 +6878,7 @@ var KTAppUserListDatatable = function () {
                                 {% endif %}
                         },
                     }
-                ]         
+                ]
             {% elseif this.param.page == 'treasury' %}
                 // datasource definition
                 data: {
@@ -7336,7 +7351,7 @@ var KTAppUserListDatatable = function () {
                                 {% endif %}
                         },
                     }
-                ]            
+                ]
             {% elseif this.param.page == 'packaging' %}
                 // datasource definition
                 data: {
@@ -8501,7 +8516,7 @@ KTUtil.ready(function() {
             }
         });
     {% elseif this.param.page == 'backup' %}
-    
+
         KTAppUserListDatatable.init();
 
        {% if settings.demo_mode %}

@@ -306,12 +306,15 @@ class __TwigTemplate_ec4c8615aa4f88c386affbc38bac22809438612aac9c65131d1bdfda2f5
                                         </div>
                                     </div>
                                 </div>
-
-                                <div class=\"kt-widget__footer kt-margin-t-15\">
+                                ";
+        // line 152
+        if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "role_id", [], "any", false, false, false, 152) != 12)) {
+            // line 153
+            echo "                                <div class=\"kt-widget__footer kt-margin-t-15\">
                                     <a href=\"";
-        // line 154
-        echo $this->extensions['Cms\Twig\Extension']->pageFilter("dashboard/order-create");
-        echo "\" class=\"btn btn-label-brand btn-lg btn-upper btn-block\">
+            // line 154
+            echo $this->extensions['Cms\Twig\Extension']->pageFilter("dashboard/order-create");
+            echo "\" class=\"btn btn-label-brand btn-lg btn-upper btn-block\">
                                         <svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" width=\"24px\" height=\"24px\" viewBox=\"0 0 24 24\" version=\"1.1\" class=\"kt-svg-icon kt-svg-icon--light\">
                                             <g stroke=\"none\" stroke-width=\"1\" fill=\"none\" fill-rule=\"evenodd\">
                                                 <rect id=\"bound\" x=\"0\" y=\"0\" width=\"24\" height=\"24\"/>
@@ -320,192 +323,285 @@ class __TwigTemplate_ec4c8615aa4f88c386affbc38bac22809438612aac9c65131d1bdfda2f5
                                             </g>
                                         </svg>
                                          <span>";
-        // line 162
-        echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Add Shipment"]);
-        echo "</span>
+            // line 162
+            echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Add Shipment"]);
+            echo "</span>
                                      </a>
                                 </div>
-                            </div>
+                                ";
+        }
+        // line 166
+        echo "                            </div>
 
                             ";
-        // line 167
-        if (twig_get_attribute($this->env, $this->source, ($context["mainMenu"] ?? null), "menuItems", [], "any", false, false, false, 167)) {
-            // line 168
-            echo "                          <ul class=\"kt-menu__nav \">
-                                    ";
+        // line 168
+        if (twig_get_attribute($this->env, $this->source, ($context["mainMenu"] ?? null), "menuItems", [], "any", false, false, false, 168)) {
             // line 169
-            $context['_parent'] = $context;
-            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, ($context["mainMenu"] ?? null), "menuItems", [], "any", false, false, false, 169));
-            foreach ($context['_seq'] as $context["_key"] => $context["item"]) {
-                if ( !twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["item"], "viewBag", [], "any", false, false, false, 169), "isHidden", [], "any", false, false, false, 169)) {
-                    // line 170
-                    echo "                                        ";
-                    if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => twig_get_attribute($this->env, $this->source, $context["item"], "code", [], "any", false, false, false, 170), 1 => "r"], "method", false, false, false, 170) || twig_test_empty(twig_get_attribute($this->env, $this->source, $context["item"], "code", [], "any", false, false, false, 170)))) {
-                        // line 171
-                        echo "
-
-                                   <li class=\"kt-menu__item  ";
-                        // line 173
-                        echo ((((twig_get_attribute($this->env, $this->source, $context["item"], "isActive", [], "any", false, false, false, 173) || twig_get_attribute($this->env, $this->source, $context["item"], "isChildActive", [], "any", false, false, false, 173)) || (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, false, false, 173), "menu_breadcrumb", [], "any", false, false, false, 173) == twig_get_attribute($this->env, $this->source, $context["item"], "code", [], "any", false, false, false, 173)))) ? ("kt-menu__item--open kt-menu__item--here") : (""));
-                        echo " kt-menu__item--submenu kt-menu__item--rel\" ";
-                        if (twig_get_attribute($this->env, $this->source, $context["item"], "items", [], "any", false, false, false, 173)) {
-                            echo "data-ktmenu-submenu-toggle=\"hover\" aria-haspopup=\"true\"";
-                        }
-                        echo ">
+            echo "                          <ul class=\"kt-menu__nav \">
+                              ";
+            // line 170
+            if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "role_id", [], "any", false, false, false, 170) != 12)) {
+                // line 171
+                echo "                              ";
+                $context['_parent'] = $context;
+                $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, ($context["mainMenu"] ?? null), "menuItems", [], "any", false, false, false, 171));
+                foreach ($context['_seq'] as $context["_key"] => $context["item"]) {
+                    if ( !twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["item"], "viewBag", [], "any", false, false, false, 171), "isHidden", [], "any", false, false, false, 171)) {
+                        // line 172
+                        echo "                              ";
+                        if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => twig_get_attribute($this->env, $this->source, $context["item"], "code", [], "any", false, false, false, 172), 1 => "r"], "method", false, false, false, 172) || twig_test_empty(twig_get_attribute($this->env, $this->source, $context["item"], "code", [], "any", false, false, false, 172)))) {
+                            // line 173
+                            echo "                                   <li class=\"kt-menu__item  ";
+                            echo ((((twig_get_attribute($this->env, $this->source, $context["item"], "isActive", [], "any", false, false, false, 173) || twig_get_attribute($this->env, $this->source, $context["item"], "isChildActive", [], "any", false, false, false, 173)) || (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, false, false, 173), "menu_breadcrumb", [], "any", false, false, false, 173) == twig_get_attribute($this->env, $this->source, $context["item"], "code", [], "any", false, false, false, 173)))) ? ("kt-menu__item--open kt-menu__item--here") : (""));
+                            echo " kt-menu__item--submenu kt-menu__item--rel\" ";
+                            if (twig_get_attribute($this->env, $this->source, $context["item"], "items", [], "any", false, false, false, 173)) {
+                                echo "data-ktmenu-submenu-toggle=\"hover\" aria-haspopup=\"true\"";
+                            }
+                            echo ">
                                                 <a href=\"";
-                        // line 174
-                        if (twig_get_attribute($this->env, $this->source, $context["item"], "url", [], "any", false, false, false, 174)) {
-                            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["item"], "url", [], "any", false, false, false, 174), "html", null, true);
-                        } else {
-                            echo "#";
-                        }
-                        echo "\" class=\"kt-menu__link ";
-                        if (twig_get_attribute($this->env, $this->source, $context["item"], "items", [], "any", false, false, false, 174)) {
-                            echo "kt-menu__toggle";
-                        }
-                        echo "\" ";
-                        echo ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["item"], "viewBag", [], "any", false, false, false, 174), "isExternal", [], "any", false, false, false, 174)) ? ("target=\"_blank\"") : (""));
-                        echo ">
+                            // line 174
+                            if (twig_get_attribute($this->env, $this->source, $context["item"], "url", [], "any", false, false, false, 174)) {
+                                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["item"], "url", [], "any", false, false, false, 174), "html", null, true);
+                            } else {
+                                echo "#";
+                            }
+                            echo "\" class=\"kt-menu__link ";
+                            if (twig_get_attribute($this->env, $this->source, $context["item"], "items", [], "any", false, false, false, 174)) {
+                                echo "kt-menu__toggle";
+                            }
+                            echo "\" ";
+                            echo ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["item"], "viewBag", [], "any", false, false, false, 174), "isExternal", [], "any", false, false, false, 174)) ? ("target=\"_blank\"") : (""));
+                            echo ">
                                                     <span class=\"kt-menu__link-icon\">
                                                         ";
-                        // line 176
-                        echo twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["item"], "viewBag", [], "any", false, false, false, 176), "icon", [], "any", false, false, false, 176);
-                        echo "
+                            // line 176
+                            echo twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["item"], "viewBag", [], "any", false, false, false, 176), "icon", [], "any", false, false, false, 176);
+                            echo "
                                                     </span>
                                                     <span class=\"kt-menu__link-text\">";
-                        // line 178
-                        echo call_user_func_array($this->env->getFilter('__')->getCallable(), [twig_get_attribute($this->env, $this->source, $context["item"], "title", [], "any", false, false, false, 178)]);
-                        echo "</span>
+                            // line 178
+                            echo call_user_func_array($this->env->getFilter('__')->getCallable(), [twig_get_attribute($this->env, $this->source, $context["item"], "title", [], "any", false, false, false, 178)]);
+                            echo "</span>
                                                     ";
-                        // line 179
-                        if (twig_get_attribute($this->env, $this->source, $context["item"], "items", [], "any", false, false, false, 179)) {
-                            // line 180
-                            echo "                                                        <i class=\"kt-menu__ver-arrow la la-angle-right\"></i>
+                            // line 179
+                            if (twig_get_attribute($this->env, $this->source, $context["item"], "items", [], "any", false, false, false, 179)) {
+                                // line 180
+                                echo "                                                        <i class=\"kt-menu__ver-arrow la la-angle-right\"></i>
                                                     ";
-                        }
-                        // line 182
-                        echo "                                                </a>
+                            }
+                            // line 182
+                            echo "                                                </a>
                                                 ";
-                        // line 183
-                        if (twig_get_attribute($this->env, $this->source, $context["item"], "items", [], "any", false, false, false, 183)) {
-                            // line 184
-                            echo "                                                    <div class=\"kt-menu__submenu \">
+                            // line 183
+                            if (twig_get_attribute($this->env, $this->source, $context["item"], "items", [], "any", false, false, false, 183)) {
+                                // line 184
+                                echo "                                                    <div class=\"kt-menu__submenu \">
                                                         <span class=\"kt-menu__arrow\"></span>
                                                         <ul class=\"kt-menu__subnav\">
                                                             ";
-                            // line 187
-                            $context['_parent'] = $context;
-                            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, $context["item"], "items", [], "any", false, false, false, 187));
-                            foreach ($context['_seq'] as $context["_key"] => $context["item"]) {
-                                if ( !twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["item"], "viewBag", [], "any", false, false, false, 187), "isHidden", [], "any", false, false, false, 187)) {
-                                    // line 188
-                                    echo "                                                                ";
-                                    if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => twig_get_attribute($this->env, $this->source, $context["item"], "code", [], "any", false, false, false, 188), 1 => "r"], "method", false, false, false, 188) || twig_test_empty(twig_get_attribute($this->env, $this->source, $context["item"], "code", [], "any", false, false, false, 188)))) {
-                                        // line 189
-                                        echo "                                                                    <li class=\"kt-menu__item ";
-                                        echo ((((twig_get_attribute($this->env, $this->source, $context["item"], "isActive", [], "any", false, false, false, 189) || twig_get_attribute($this->env, $this->source, $context["item"], "isChildActive", [], "any", false, false, false, 189)) || (($context["currentPageUrl"] ?? null) == twig_replace_filter(twig_get_attribute($this->env, $this->source, $context["item"], "url", [], "any", false, false, false, 189), ["[url]" => url("/")])))) ? ("kt-menu__item--open kt-menu__item--here") : (""));
-                                        echo "\"  aria-haspopup=\"true\">
+                                // line 187
+                                $context['_parent'] = $context;
+                                $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, $context["item"], "items", [], "any", false, false, false, 187));
+                                foreach ($context['_seq'] as $context["_key"] => $context["item"]) {
+                                    if ( !twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["item"], "viewBag", [], "any", false, false, false, 187), "isHidden", [], "any", false, false, false, 187)) {
+                                        // line 188
+                                        echo "                                                                ";
+                                        if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => twig_get_attribute($this->env, $this->source, $context["item"], "code", [], "any", false, false, false, 188), 1 => "r"], "method", false, false, false, 188) || twig_test_empty(twig_get_attribute($this->env, $this->source, $context["item"], "code", [], "any", false, false, false, 188)))) {
+                                            // line 189
+                                            echo "                                                                    <li class=\"kt-menu__item ";
+                                            echo ((((twig_get_attribute($this->env, $this->source, $context["item"], "isActive", [], "any", false, false, false, 189) || twig_get_attribute($this->env, $this->source, $context["item"], "isChildActive", [], "any", false, false, false, 189)) || (($context["currentPageUrl"] ?? null) == twig_replace_filter(twig_get_attribute($this->env, $this->source, $context["item"], "url", [], "any", false, false, false, 189), ["[url]" => url("/")])))) ? ("kt-menu__item--open kt-menu__item--here") : (""));
+                                            echo "\"  aria-haspopup=\"true\">
                                                                         <a  href=\"";
-                                        // line 190
-                                        if (twig_get_attribute($this->env, $this->source, $context["item"], "url", [], "any", false, false, false, 190)) {
-                                            echo twig_escape_filter($this->env, twig_replace_filter(twig_get_attribute($this->env, $this->source, $context["item"], "url", [], "any", false, false, false, 190), ["[url]" => url("/")]), "html", null, true);
-                                        } else {
-                                            echo "javascript:void(0);";
-                                        }
-                                        echo "\" class=\"kt-menu__link \">
+                                            // line 190
+                                            if (twig_get_attribute($this->env, $this->source, $context["item"], "url", [], "any", false, false, false, 190)) {
+                                                echo twig_escape_filter($this->env, twig_replace_filter(twig_get_attribute($this->env, $this->source, $context["item"], "url", [], "any", false, false, false, 190), ["[url]" => url("/")]), "html", null, true);
+                                            } else {
+                                                echo "javascript:void(0);";
+                                            }
+                                            echo "\" class=\"kt-menu__link \">
                                                                             ";
-                                        // line 191
-                                        if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["item"], "viewBag", [], "any", false, false, false, 191), "icon", [], "any", false, false, false, 191) && (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["item"], "viewBag", [], "any", false, false, false, 191), "icon", [], "any", false, false, false, 191) != ""))) {
-                                            // line 192
-                                            echo "                                                                                ";
-                                            echo twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["item"], "viewBag", [], "any", false, false, false, 192), "icon", [], "any", false, false, false, 192);
-                                            echo "
+                                            // line 191
+                                            if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["item"], "viewBag", [], "any", false, false, false, 191), "icon", [], "any", false, false, false, 191) && (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["item"], "viewBag", [], "any", false, false, false, 191), "icon", [], "any", false, false, false, 191) != ""))) {
+                                                // line 192
+                                                echo "                                                                                ";
+                                                echo twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["item"], "viewBag", [], "any", false, false, false, 192), "icon", [], "any", false, false, false, 192);
+                                                echo "
                                                                             ";
-                                        } else {
-                                            // line 194
-                                            echo "                                                                                <i class=\"kt-menu__link-bullet kt-menu__link-bullet--dot\"><span></span></i>
+                                            } else {
+                                                // line 194
+                                                echo "                                                                                <i class=\"kt-menu__link-bullet kt-menu__link-bullet--dot\"><span></span></i>
                                                                             ";
-                                        }
-                                        // line 196
-                                        echo "                                                                            <span class=\"kt-menu__link-text\">";
-                                        echo call_user_func_array($this->env->getFilter('__')->getCallable(), [twig_get_attribute($this->env, $this->source, $context["item"], "title", [], "any", false, false, false, 196)]);
-                                        echo "</span>
+                                            }
+                                            // line 196
+                                            echo "                                                                            <span class=\"kt-menu__link-text\">";
+                                            echo call_user_func_array($this->env->getFilter('__')->getCallable(), [twig_get_attribute($this->env, $this->source, $context["item"], "title", [], "any", false, false, false, 196)]);
+                                            echo "</span>
                                                                         </a>
                                                                     </li>
                                                                 ";
+                                        }
+                                        // line 200
+                                        echo "                                                            ";
                                     }
-                                    // line 200
-                                    echo "                                                            ";
                                 }
-                            }
-                            $_parent = $context['_parent'];
-                            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['item'], $context['_parent'], $context['loop']);
-                            $context = array_intersect_key($context, $_parent) + $_parent;
-                            // line 201
-                            echo "                                                        </ul>
+                                $_parent = $context['_parent'];
+                                unset($context['_seq'], $context['_iterated'], $context['_key'], $context['item'], $context['_parent'], $context['loop']);
+                                $context = array_intersect_key($context, $_parent) + $_parent;
+                                // line 201
+                                echo "                                                        </ul>
                                                     </div>
                                                 ";
-                        }
-                        // line 204
-                        echo "                                            </li>
+                            }
+                            // line 204
+                            echo "                                            </li>
                                         ";
+                        }
+                        // line 206
+                        echo "                                    ";
                     }
-                    // line 206
-                    echo "                                    ";
                 }
+                $_parent = $context['_parent'];
+                unset($context['_seq'], $context['_iterated'], $context['_key'], $context['item'], $context['_parent'], $context['loop']);
+                $context = array_intersect_key($context, $_parent) + $_parent;
+                // line 207
+                echo "                                    ";
             }
-            $_parent = $context['_parent'];
-            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['item'], $context['_parent'], $context['loop']);
-            $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 207
+            // line 208
             echo "
+
                                 </ul>
-                         <ul class=\"kt-menu__nav \">
-                             ";
-            // line 210
-            if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "role_id", [], "any", false, false, false, 210) == 12)) {
-                // line 211
-                echo "                             <li class=\"kt-menu__item  ";
-                echo ((((twig_get_attribute($this->env, $this->source, ($context["item"] ?? null), "isActive", [], "any", false, false, false, 211) || twig_get_attribute($this->env, $this->source, ($context["item"] ?? null), "isChildActive", [], "any", false, false, false, 211)) || (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, false, false, 211), "menu_breadcrumb", [], "any", false, false, false, 211) == twig_get_attribute($this->env, $this->source, ($context["item"] ?? null), "code", [], "any", false, false, false, 211)))) ? ("kt-menu__item--open kt-menu__item--here") : (""));
+                         ";
+            // line 211
+            if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "role_id", [], "any", false, false, false, 211) == 12)) {
+                // line 212
+                echo "                         <ul class=\"kt-menu__nav \">
+                             <li class=\"kt-menu__item  ";
+                // line 213
+                echo ((((twig_get_attribute($this->env, $this->source, ($context["item"] ?? null), "isActive", [], "any", false, false, false, 213) || twig_get_attribute($this->env, $this->source, ($context["item"] ?? null), "isChildActive", [], "any", false, false, false, 213)) || (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, false, false, 213), "menu_breadcrumb", [], "any", false, false, false, 213) == twig_get_attribute($this->env, $this->source, ($context["item"] ?? null), "code", [], "any", false, false, false, 213)))) ? ("kt-menu__item--open kt-menu__item--here") : (""));
                 echo " kt-menu__item--submenu kt-menu__item--rel\" ";
-                if (twig_get_attribute($this->env, $this->source, ($context["item"] ?? null), "items", [], "any", false, false, false, 211)) {
+                if (twig_get_attribute($this->env, $this->source, ($context["item"] ?? null), "items", [], "any", false, false, false, 213)) {
                     echo "data-ktmenu-submenu-toggle=\"hover\" aria-haspopup=\"true\"";
                 }
                 echo ">
-                                 <a href=\"/en/my-bids/list\" class=\"kt-menu__link ";
-                // line 212
-                if (twig_get_attribute($this->env, $this->source, ($context["item"] ?? null), "items", [], "any", false, false, false, 212)) {
+                                 <a href=\"/en/dashboard\" class=\"kt-menu__link ";
+                // line 214
+                if (twig_get_attribute($this->env, $this->source, ($context["item"] ?? null), "items", [], "any", false, false, false, 214)) {
                     echo "kt-menu__toggle";
                 }
                 echo "\" ";
-                echo ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["item"] ?? null), "viewBag", [], "any", false, false, false, 212), "isExternal", [], "any", false, false, false, 212)) ? ("target=\"_blank\"") : (""));
+                echo ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["item"] ?? null), "viewBag", [], "any", false, false, false, 214), "isExternal", [], "any", false, false, false, 214)) ? ("target=\"_blank\"") : (""));
                 echo ">
                                  <span class=\"kt-menu__link-icon\">
                                                      ";
-                // line 214
-                echo twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["item"] ?? null), "viewBag", [], "any", false, false, false, 214), "icon", [], "any", false, false, false, 214);
+                // line 216
+                echo twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["item"] ?? null), "viewBag", [], "any", false, false, false, 216), "icon", [], "any", false, false, false, 216);
                 echo "
                                                     </span>
-                                 <span class=\"kt-menu__link-text\">My Shipments</span>
+                                 <span class=\"kt-menu__link-text\">Dashboard</span>
                                  ";
-                // line 217
-                if (twig_get_attribute($this->env, $this->source, ($context["item"] ?? null), "items", [], "any", false, false, false, 217)) {
-                    // line 218
+                // line 219
+                if (twig_get_attribute($this->env, $this->source, ($context["item"] ?? null), "items", [], "any", false, false, false, 219)) {
+                    // line 220
                     echo "                                 <i class=\"kt-menu__ver-arrow la la-angle-right\"></i>
                                  ";
                 }
-                // line 220
+                // line 222
                 echo "                                 </a>
 
                              </li>
-                             ";
+                         </ul>
+                         ";
             }
-            // line 224
-            echo "                         </ul>
-                            ";
+            // line 227
+            echo "                         ";
+            if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "role_id", [], "any", false, false, false, 227) == 5)) {
+                // line 228
+                echo "                         <ul class=\"kt-menu__nav \">
+                             <li class=\"kt-menu__item  ";
+                // line 229
+                echo ((((twig_get_attribute($this->env, $this->source, ($context["item"] ?? null), "isActive", [], "any", false, false, false, 229) || twig_get_attribute($this->env, $this->source, ($context["item"] ?? null), "isChildActive", [], "any", false, false, false, 229)) || (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, false, false, 229), "menu_breadcrumb", [], "any", false, false, false, 229) == twig_get_attribute($this->env, $this->source, ($context["item"] ?? null), "code", [], "any", false, false, false, 229)))) ? ("kt-menu__item--open kt-menu__item--here") : (""));
+                echo " kt-menu__item--submenu kt-menu__item--rel\" ";
+                if (twig_get_attribute($this->env, $this->source, ($context["item"] ?? null), "items", [], "any", false, false, false, 229)) {
+                    echo "data-ktmenu-submenu-toggle=\"hover\" aria-haspopup=\"true\"";
+                }
+                echo ">
+                                 <a href=\"/en/bid/list\" class=\"kt-menu__link ";
+                // line 230
+                if (twig_get_attribute($this->env, $this->source, ($context["item"] ?? null), "items", [], "any", false, false, false, 230)) {
+                    echo "kt-menu__toggle";
+                }
+                echo "\" ";
+                echo ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["item"] ?? null), "viewBag", [], "any", false, false, false, 230), "isExternal", [], "any", false, false, false, 230)) ? ("target=\"_blank\"") : (""));
+                echo ">
+                                 <span class=\"kt-menu__link-icon\">
+                                                     ";
+                // line 232
+                echo twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["item"] ?? null), "viewBag", [], "any", false, false, false, 232), "icon", [], "any", false, false, false, 232);
+                echo "
+                                                    </span>
+                                 <span class=\"kt-menu__link-text\">Bids</span>
+                                 ";
+                // line 235
+                if (twig_get_attribute($this->env, $this->source, ($context["item"] ?? null), "items", [], "any", false, false, false, 235)) {
+                    // line 236
+                    echo "                                 <i class=\"kt-menu__ver-arrow la la-angle-right\"></i>
+                                 ";
+                }
+                // line 238
+                echo "                                 </a>
+
+                             </li>
+                         </ul>
+                         ";
+            }
+            // line 243
+            echo "                         ";
         }
-        // line 226
+        // line 244
+        echo "                         ";
+        if ((twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "role_id", [], "any", false, false, false, 244) == 12)) {
+            // line 245
+            echo "                         <ul class=\"kt-menu__nav \">
+                             <li class=\"kt-menu__item  ";
+            // line 246
+            echo ((((twig_get_attribute($this->env, $this->source, ($context["item"] ?? null), "isActive", [], "any", false, false, false, 246) || twig_get_attribute($this->env, $this->source, ($context["item"] ?? null), "isChildActive", [], "any", false, false, false, 246)) || (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, false, false, 246), "menu_breadcrumb", [], "any", false, false, false, 246) == twig_get_attribute($this->env, $this->source, ($context["item"] ?? null), "code", [], "any", false, false, false, 246)))) ? ("kt-menu__item--open kt-menu__item--here") : (""));
+            echo " kt-menu__item--submenu kt-menu__item--rel\" ";
+            if (twig_get_attribute($this->env, $this->source, ($context["item"] ?? null), "items", [], "any", false, false, false, 246)) {
+                echo "data-ktmenu-submenu-toggle=\"hover\" aria-haspopup=\"true\"";
+            }
+            echo ">
+                                 <a href=\"/en/my-bids/list\" class=\"kt-menu__link ";
+            // line 247
+            if (twig_get_attribute($this->env, $this->source, ($context["item"] ?? null), "items", [], "any", false, false, false, 247)) {
+                echo "kt-menu__toggle";
+            }
+            echo "\" ";
+            echo ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["item"] ?? null), "viewBag", [], "any", false, false, false, 247), "isExternal", [], "any", false, false, false, 247)) ? ("target=\"_blank\"") : (""));
+            echo ">
+                                 <span class=\"kt-menu__link-icon\">
+                                                     ";
+            // line 249
+            echo twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["item"] ?? null), "viewBag", [], "any", false, false, false, 249), "icon", [], "any", false, false, false, 249);
+            echo "
+                                                    </span>
+                                 <span class=\"kt-menu__link-text\">My Shipments</span>
+                                 ";
+            // line 252
+            if (twig_get_attribute($this->env, $this->source, ($context["item"] ?? null), "items", [], "any", false, false, false, 252)) {
+                // line 253
+                echo "                                 <i class=\"kt-menu__ver-arrow la la-angle-right\"></i>
+                                 ";
+            }
+            // line 255
+            echo "                                 </a>
+
+                             </li>
+                         </ul>
+                         ";
+        }
+        // line 260
         echo "
+
 
 
                      </div>
@@ -562,21 +658,21 @@ class __TwigTemplate_ec4c8615aa4f88c386affbc38bac22809438612aac9c65131d1bdfda2f5
                                 <div class=\"dropdown-menu dropdown-menu-fit dropdown-menu-right dropdown-menu-anim dropdown-menu-lg\">
                                     <div class=\"kt-quick-search kt-quick-search--dropdown kt-quick-search--result-compact\" id=\"kt_quick_search_dropdown\">
                                         <form method=\"GET\" action=\"";
-        // line 282
+        // line 317
         echo url("dashboard/search");
         echo "\"class=\"kt-quick-search__form\">
                                             ";
-        // line 283
+        // line 318
         echo call_user_func_array($this->env->getFunction('form_token')->getCallable(), ["token"]);
         echo "
                                             ";
-        // line 284
+        // line 319
         echo call_user_func_array($this->env->getFunction('form_sessionKey')->getCallable(), ["sessionKey"]);
         echo "
                                             <div class=\"input-group\">
                                                 <div class=\"input-group-prepend\"><span class=\"input-group-text\"><i class=\"flaticon2-search-1\"></i></span></div>
                                                 <input type=\"text\" class=\"form-control kt-quick-search__input\" placeholder=\"";
-        // line 287
+        // line 322
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["quick search"]);
         echo "...\" name=\"quicksearch\" >
                                                 <div class=\"input-group-append\"><span class=\"input-group-text\"><i class=\"la la-close kt-quick-search__close\"></i></span></div>
@@ -593,28 +689,28 @@ class __TwigTemplate_ec4c8615aa4f88c386affbc38bac22809438612aac9c65131d1bdfda2f5
                             <!--begin: Notifications -->
                             <div id=\"notificationsmenu\" class=\"kt-header__topbar-item dropdown\">
                                 ";
-        // line 301
+        // line 336
         $context['__cms_partial_params'] = [];
         echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("notificationsmenu"        , $context['__cms_partial_params']        , true        );
         unset($context['__cms_partial_params']);
-        // line 302
+        // line 337
         echo "                            </div>
                             <!--end: Notifications -->
                             ";
-        // line 304
+        // line 339
         if (($context["locales"] ?? null)) {
-            // line 305
+            // line 340
             echo "                                <!--begin: Language bar -->
                                 <div class=\"kt-header__topbar-item kt-header__topbar-item--langs\">
                                     <div class=\"kt-header__topbar-wrapper\" data-toggle=\"dropdown\" data-offset=\"10px,0px\">
                                         <span class=\"kt-header__topbar-icon kt-header__topbar-icon--info\">
                                             ";
-            // line 309
+            // line 344
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable(($context["locales"] ?? null));
             foreach ($context['_seq'] as $context["code"] => $context["name"]) {
                 if ((($context["activeLocale"] ?? null) == $context["code"])) {
-                    // line 310
+                    // line 345
                     echo "                                                <img class=\"\" src=\"./admin/media/flags/";
                     echo twig_escape_filter($this->env, $context["code"], "html", null, true);
                     echo ".svg\" alt=\"\" />
@@ -624,17 +720,17 @@ class __TwigTemplate_ec4c8615aa4f88c386affbc38bac22809438612aac9c65131d1bdfda2f5
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['code'], $context['name'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 312
+            // line 347
             echo "                                        </span>
                                     </div>
                                     <div class=\"dropdown-menu dropdown-menu-fit dropdown-menu-right dropdown-menu-anim\">
                                         <ul class=\"kt-nav kt-margin-t-10 kt-margin-b-10\">
                                             ";
-            // line 316
+            // line 351
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable(($context["locales"] ?? null));
             foreach ($context['_seq'] as $context["code"] => $context["name"]) {
-                // line 317
+                // line 352
                 echo "                                                <li class=\"kt-nav__item ";
                 if ((($context["activeLocale"] ?? null) == $context["code"])) {
                     echo "kt-nav__item--active";
@@ -644,11 +740,11 @@ class __TwigTemplate_ec4c8615aa4f88c386affbc38bac22809438612aac9c65131d1bdfda2f5
                 echo "\">
                                                     <a href=\"#\" class=\"kt-nav__link\">
                                                         <span class=\"kt-nav__link-icon\"><img src=\"./admin/media/flags/";
-                // line 319
+                // line 354
                 echo twig_escape_filter($this->env, $context["code"], "html", null, true);
                 echo ".svg\" alt=\"\" /></span>
                                                         <span class=\"kt-nav__link-text\">";
-                // line 320
+                // line 355
                 echo twig_escape_filter($this->env, $context["name"], "html", null, true);
                 echo "</span>
                                                     </a>
@@ -658,43 +754,43 @@ class __TwigTemplate_ec4c8615aa4f88c386affbc38bac22809438612aac9c65131d1bdfda2f5
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['code'], $context['name'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 324
+            // line 359
             echo "                                        </ul>
                                     </div>
                                 </div>
                                 <!--end: Language bar -->
                             ";
         }
-        // line 329
+        // line 364
         echo "
                             <!--begin: User bar -->
                             <div class=\"kt-header__topbar-item kt-header__topbar-item--user\">
                                 <div class=\"kt-header__topbar-wrapper\" data-toggle=\"dropdown\" data-offset=\"10px,0px\">
                                     <div class=\"kt-header__topbar-user\">
                                         <span class=\"kt-header__topbar-welcome\">";
-        // line 334
+        // line 369
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Hi"]);
         echo ",</span>
                                         <span class=\"kt-header__topbar-username\">";
-        // line 335
-        echo twig_escape_filter($this->env, twig_capitalize_string_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "name", [], "any", false, false, false, 335)), "html", null, true);
+        // line 370
+        echo twig_escape_filter($this->env, twig_capitalize_string_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "name", [], "any", false, false, false, 370)), "html", null, true);
         echo "</span>
                                         ";
-        // line 336
-        if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "avatar", [], "any", false, false, false, 336)) {
-            // line 337
+        // line 371
+        if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "avatar", [], "any", false, false, false, 371)) {
+            // line 372
             echo "                                             <img alt=\"Pic\" src=\"";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "avatar", [], "any", false, false, false, 337), "thumb", [0 => 25, 1 => 25, 2 => "crop"], "method", false, false, false, 337), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "avatar", [], "any", false, false, false, 372), "thumb", [0 => 25, 1 => 25, 2 => "crop"], "method", false, false, false, 372), "html", null, true);
             echo "\" />
                                         ";
         } else {
-            // line 339
+            // line 374
             echo "                                           <span class=\"kt-badge kt-badge--username kt-badge--unified-brand kt-badge--lg kt-badge--rounded kt-font-light kt-badge--bold\">";
-            echo twig_escape_filter($this->env, twig_slice($this->env, twig_upper_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "name", [], "any", false, false, false, 339)), 0, 2), "html", null, true);
+            echo twig_escape_filter($this->env, twig_slice($this->env, twig_upper_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "name", [], "any", false, false, false, 374)), 0, 2), "html", null, true);
             echo "</span>
                                         ";
         }
-        // line 341
+        // line 376
         echo "                                    </div>
                                 </div>
                                 <div class=\"dropdown-menu dropdown-menu-fit dropdown-menu-right dropdown-menu-anim dropdown-menu-xl\">
@@ -702,38 +798,38 @@ class __TwigTemplate_ec4c8615aa4f88c386affbc38bac22809438612aac9c65131d1bdfda2f5
                                     <div class=\"kt-user-card kt-user-card--skin-light kt-notification-item-padding-x\">
                                         <div class=\"kt-user-card__avatar\">
                                             ";
-        // line 347
-        if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "avatar", [], "any", false, false, false, 347)) {
-            // line 348
+        // line 382
+        if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "avatar", [], "any", false, false, false, 382)) {
+            // line 383
             echo "                                                 <img alt=\"Pic\" src=\"";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "avatar", [], "any", false, false, false, 348), "thumb", [0 => 60, 1 => 60, 2 => "crop"], "method", false, false, false, 348), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "avatar", [], "any", false, false, false, 383), "thumb", [0 => 60, 1 => 60, 2 => "crop"], "method", false, false, false, 383), "html", null, true);
             echo "\" />
                                             ";
         } else {
-            // line 350
+            // line 385
             echo "                                                <span class=\"kt-badge kt-badge--username kt-badge--unified-success kt-badge--lg kt-badge--rounded kt-badge--bold\">";
-            echo twig_escape_filter($this->env, twig_slice($this->env, twig_capitalize_string_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "name", [], "any", false, false, false, 350)), 0, 1), "html", null, true);
+            echo twig_escape_filter($this->env, twig_slice($this->env, twig_capitalize_string_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "name", [], "any", false, false, false, 385)), 0, 1), "html", null, true);
             echo "</span>
                                              ";
         }
-        // line 352
+        // line 387
         echo "                                        </div>
                                         <div class=\"kt-user-card__name\">
                                             ";
-        // line 354
-        echo twig_escape_filter($this->env, twig_capitalize_string_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "name", [], "any", false, false, false, 354)), "html", null, true);
+        // line 389
+        echo twig_escape_filter($this->env, twig_capitalize_string_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "name", [], "any", false, false, false, 389)), "html", null, true);
         echo "
                                         </div>
                                         <!--<div class=\"kt-user-card__badge kt-hidden\">
                                             <span class=\"btn btn-";
-        // line 357
-        if ((twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "messages", [], "any", false, false, false, 357), "where", [0 => "read_at", 1 => null], "method", false, false, false, 357)) > 0)) {
+        // line 392
+        if ((twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "messages", [], "any", false, false, false, 392), "where", [0 => "read_at", 1 => null], "method", false, false, false, 392)) > 0)) {
             echo "danger";
         } else {
             echo "success";
         }
         echo " btn-sm btn-bold btn-font-md\">";
-        echo twig_escape_filter($this->env, twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "messages", [], "any", false, false, false, 357), "where", [0 => "read_at", 1 => null], "method", false, false, false, 357)), "html", null, true);
+        echo twig_escape_filter($this->env, twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "messages", [], "any", false, false, false, 392), "where", [0 => "read_at", 1 => null], "method", false, false, false, 392)), "html", null, true);
         echo " ";
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["messages"]);
         echo "</span>
@@ -744,7 +840,7 @@ class __TwigTemplate_ec4c8615aa4f88c386affbc38bac22809438612aac9c65131d1bdfda2f5
                                     <!--begin: Navigation -->
                                     <div class=\"kt-notification\">
                                         <a href=\"";
-        // line 364
+        // line 399
         echo $this->extensions['Cms\Twig\Extension']->pageFilter("dashboard/profile");
         echo "\" class=\"kt-notification__item\">
                                             <div class=\"kt-notification__item-icon\">
@@ -753,13 +849,13 @@ class __TwigTemplate_ec4c8615aa4f88c386affbc38bac22809438612aac9c65131d1bdfda2f5
                                             <div class=\"kt-notification__item-details\">
                                                 <div class=\"kt-notification__item-title kt-font-bold\">
                                                     ";
-        // line 370
+        // line 405
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["My Profile"]);
         echo "
                                                 </div>
                                                 <div class=\"kt-notification__item-time\">
                                                     ";
-        // line 373
+        // line 408
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Account settings and more"]);
         echo "
                                                 </div>
@@ -767,9 +863,9 @@ class __TwigTemplate_ec4c8615aa4f88c386affbc38bac22809438612aac9c65131d1bdfda2f5
                                         </a>
                                         <!--
                                             ";
-        // line 378
-        if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "message", 1 => "r"], "method", false, false, false, 378)) {
-            // line 379
+        // line 413
+        if (twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "hasUserPermission", [0 => "message", 1 => "r"], "method", false, false, false, 413)) {
+            // line 414
             echo "                                                <a href=\"";
             echo $this->extensions['Cms\Twig\Extension']->pageFilter("dashboard/inbox");
             echo "\" class=\"kt-notification__item\">
@@ -779,13 +875,13 @@ class __TwigTemplate_ec4c8615aa4f88c386affbc38bac22809438612aac9c65131d1bdfda2f5
                                                     <div class=\"kt-notification__item-details\">
                                                         <div class=\"kt-notification__item-title kt-font-bold\">
                                                             ";
-            // line 385
+            // line 420
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Messages"]);
             echo "
                                                         </div>
                                                         <div class=\"kt-notification__item-time\">
                                                             ";
-            // line 388
+            // line 423
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Customers messages from website"]);
             if ((($context["unreaded"] ?? null) > 0)) {
                 echo " <span class=\"kt-badge kt-badge--danger kt-badge--inline kt-badge--pill kt-badge--rounded\">";
@@ -794,16 +890,16 @@ class __TwigTemplate_ec4c8615aa4f88c386affbc38bac22809438612aac9c65131d1bdfda2f5
                 echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Unreaded"]);
                 echo "</span>";
             }
-            // line 389
+            // line 424
             echo "                                                        </div>
                                                     </div>
                                                 </a>
                                             ";
         }
-        // line 393
+        // line 428
         echo "                                        -->
                                         <a href=\"";
-        // line 394
+        // line 429
         echo $this->extensions['Cms\Twig\Extension']->pageFilter("dashboard/notifications");
         echo "\" class=\"kt-notification__item\">
                                             <div class=\"kt-notification__item-icon\">
@@ -812,13 +908,13 @@ class __TwigTemplate_ec4c8615aa4f88c386affbc38bac22809438612aac9c65131d1bdfda2f5
                                             <div class=\"kt-notification__item-details\">
                                                 <div class=\"kt-notification__item-title kt-font-bold\">
                                                     ";
-        // line 400
+        // line 435
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["My Notifications"]);
         echo "
                                                 </div>
                                                 <div class=\"kt-notification__item-time\">
                                                     ";
-        // line 403
+        // line 438
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["all pervious notifications"]);
         echo "
                                                 </div>
@@ -831,13 +927,13 @@ class __TwigTemplate_ec4c8615aa4f88c386affbc38bac22809438612aac9c65131d1bdfda2f5
                                             <div class=\"kt-notification__item-details\">
                                                 <div class=\"kt-notification__item-title kt-font-bold\">
                                                     ";
-        // line 413
+        // line 448
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["My Tasks"]);
         echo "
                                                 </div>
                                                 <div class=\"kt-notification__item-time\">
                                                     ";
-        // line 416
+        // line 451
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["latest tasks and requests"]);
         echo "
                                                 </div>
@@ -850,13 +946,13 @@ class __TwigTemplate_ec4c8615aa4f88c386affbc38bac22809438612aac9c65131d1bdfda2f5
                                             <div class=\"kt-notification__item-details\">
                                                 <div class=\"kt-notification__item-title kt-font-bold\">
                                                     ";
-        // line 426
+        // line 461
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Billing"]);
         echo "
                                                 </div>
                                                 <div class=\"kt-notification__item-time\">
                                                     ";
-        // line 429
+        // line 464
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["billing & statements"]);
         echo " <span class=\"kt-badge kt-badge--danger kt-badge--inline kt-badge--pill kt-badge--rounded\">2 ";
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["pending"]);
@@ -866,11 +962,11 @@ class __TwigTemplate_ec4c8615aa4f88c386affbc38bac22809438612aac9c65131d1bdfda2f5
                                         </a>
                                         <div class=\"kt-notification__custom kt-space-between\">
                                             <a class=\"btn btn-danger btn-block btn-bold kt-font-light\" data-request=\"onLogout\" data-request-data=\"redirect: '/'\">";
-        // line 434
+        // line 469
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Sign Out"]);
         echo "</a>
                                             <a href=\"#\" target=\"_blank\" class=\"btn btn-clean btn-sm btn-bold kt-hidden\">";
-        // line 435
+        // line 470
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Upgrade Plan"]);
         echo "</a>
                                         </div>
@@ -889,31 +985,31 @@ class __TwigTemplate_ec4c8615aa4f88c386affbc38bac22809438612aac9c65131d1bdfda2f5
                             <div class=\"kt-container  kt-container--fluid  \">
                                 <div class=\"kt-subheader__main\">
                                     ";
-        // line 451
-        $context["crumbOptions"] = twig_get_attribute($this->env, $this->source, ($context["breadcrumbs"] ?? null), "options", [], "any", false, false, false, 451);
-        // line 452
+        // line 486
+        $context["crumbOptions"] = twig_get_attribute($this->env, $this->source, ($context["breadcrumbs"] ?? null), "options", [], "any", false, false, false, 486);
+        // line 487
         echo "                                    <h3 class=\"kt-subheader__title\"><button class=\"kt-subheader__mobile-toggle kt-subheader__mobile-toggle--left\" id=\"kt_subheader_mobile_toggle\"><span></span></button>";
-        echo call_user_func_array($this->env->getFilter('__')->getCallable(), [twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, false, false, 452), "title", [], "any", false, false, false, 452)]);
+        echo call_user_func_array($this->env->getFilter('__')->getCallable(), [twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, false, false, 487), "title", [], "any", false, false, false, 487)]);
         echo "</h3>
 
                                     ";
-        // line 454
-        if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, false, false, 454), "description", [], "any", false, false, false, 454)) {
-            // line 455
+        // line 489
+        if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, false, false, 489), "description", [], "any", false, false, false, 489)) {
+            // line 490
             echo "                                        <span class=\"kt-subheader__desc\">";
-            echo call_user_func_array($this->env->getFilter('__')->getCallable(), [twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, false, false, 455), "description", [], "any", false, false, false, 455)]);
+            echo call_user_func_array($this->env->getFilter('__')->getCallable(), [twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, false, false, 490), "description", [], "any", false, false, false, 490)]);
             echo "</span>
                                     ";
         }
-        // line 457
+        // line 492
         echo "                                    <span class=\"kt-subheader__separator kt-subheader__separator--v\"></span>
                                     ";
-        // line 458
-        if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, false, false, 458), "listing", [], "any", false, false, false, 458)) {
-            // line 459
+        // line 493
+        if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, false, false, 493), "listing", [], "any", false, false, false, 493)) {
+            // line 494
             echo "                                        <div class=\"kt-subheader__group\" id=\"kt_subheader_search\">
                                             <span class=\"kt-subheader__desc\" id=\"kt_subheader_total\">";
-            // line 460
+            // line 495
             if (($context["total_records"] ?? null)) {
                 echo twig_escape_filter($this->env, ($context["total_records"] ?? null), "html", null, true);
                 echo " ";
@@ -922,16 +1018,16 @@ class __TwigTemplate_ec4c8615aa4f88c386affbc38bac22809438612aac9c65131d1bdfda2f5
             echo "</span>
                                             <form class=\"kt-margin-l-20\" id=\"kt_subheader_search_form\" style=\"margin-left:10px !important \">
                                                 ";
-            // line 462
+            // line 497
             echo call_user_func_array($this->env->getFunction('form_token')->getCallable(), ["token"]);
             echo "
                                                 ";
-            // line 463
+            // line 498
             echo call_user_func_array($this->env->getFunction('form_sessionKey')->getCallable(), ["sessionKey"]);
             echo "
                                                 <div class=\"kt-input-icon kt-input-icon--right kt-subheader__search\">
                                                     <input type=\"text\" class=\"form-control\" placeholder=\"";
-            // line 465
+            // line 500
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Quick Search"]);
             echo "\" id=\"generalSearch\">
                                                     <span class=\"kt-input-icon__icon kt-input-icon__icon--right\">
@@ -941,46 +1037,46 @@ class __TwigTemplate_ec4c8615aa4f88c386affbc38bac22809438612aac9c65131d1bdfda2f5
                                             </form>
                                         </div>
                                         ";
-            // line 472
+            // line 507
             if (($context["filter_statuses"] ?? null)) {
-                // line 473
+                // line 508
                 echo "                                            <div class=\"kt-subheader__group\" id=\"kt_subheader_search\">
                                                 <div class=\"btn-toolbar kt-margin-l-20\">
                                                     <div class=\"dropdown\" id=\"kt_subheader_group_actions_filter_change\">
                                                         <button type=\"button\" class=\"btn btn-label-brand btn-bold btn-sm dropdown-toggle\" data-toggle=\"dropdown\">";
-                // line 476
+                // line 511
                 echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Filter By"]);
                 echo "<span id=\"filter_selected\"></span></button>
                                                         <div class=\"dropdown-menu kt-padding-t-0 kt-padding-b-0\">
                                                             <ul class=\"kt-nav kt-padding-t-0 kt-padding-b-10\">
                                                                 <li class=\"kt-nav__section kt-nav__section--first\">
                                                                     <span class=\"kt-nav__section-text kt-font-boldest kt-padding-b-10\">";
-                // line 480
+                // line 515
                 echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Only show"]);
                 echo ":</span>
                                                                     <br />
                                                                     ";
-                // line 482
+                // line 517
                 $context['_parent'] = $context;
                 $context['_seq'] = twig_ensure_traversable(($context["filter_statuses"] ?? null));
                 foreach ($context['_seq'] as $context["id"] => $context["name"]) {
-                    // line 483
+                    // line 518
                     echo "                                                                        <form class=\"kt_subheader_filter_form\">
                                                                             ";
-                    // line 484
+                    // line 519
                     echo call_user_func_array($this->env->getFunction('form_token')->getCallable(), ["token"]);
                     echo "
                                                                             ";
-                    // line 485
+                    // line 520
                     echo call_user_func_array($this->env->getFunction('form_sessionKey')->getCallable(), ["sessionKey"]);
                     echo "
                                                                             <li class=\"kt-nav__item\">
                                                                                 <input type='hidden' class=\"filter\" value=\"";
-                    // line 487
+                    // line 522
                     echo twig_escape_filter($this->env, $context["id"], "html", null, true);
                     echo "\" />
                                                                                 <button class=\"btn btn-outline-dark btn-wide\" style=\"display: block;width: 100%;\" type=\"submit\">";
-                    // line 488
+                    // line 523
                     echo twig_escape_filter($this->env, $context["name"], "html", null, true);
                     echo "</button>
                                                                             </li>
@@ -990,7 +1086,7 @@ class __TwigTemplate_ec4c8615aa4f88c386affbc38bac22809438612aac9c65131d1bdfda2f5
                 $_parent = $context['_parent'];
                 unset($context['_seq'], $context['_iterated'], $context['id'], $context['name'], $context['_parent'], $context['loop']);
                 $context = array_intersect_key($context, $_parent) + $_parent;
-                // line 492
+                // line 527
                 echo "                                                                </li>
                                                             </ul>
                                                         </div>
@@ -999,42 +1095,42 @@ class __TwigTemplate_ec4c8615aa4f88c386affbc38bac22809438612aac9c65131d1bdfda2f5
                                             </div>
                                         ";
             }
-            // line 499
+            // line 534
             echo "                                        <div class=\"kt-subheader__group kt-hidden\" id=\"kt_subheader_group_actions\">
                                             <div class=\"kt-subheader__desc\"><span id=\"kt_subheader_group_selected_rows\"></span> ";
-            // line 500
+            // line 535
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Selected"]);
             echo ":</div>
                                             <div class=\"btn-toolbar kt-margin-l-20\">
                                                 ";
-            // line 502
+            // line 537
             if (($context["statuses"] ?? null)) {
-                // line 503
+                // line 538
                 echo "                                                    <div class=\"dropdown\" id=\"kt_subheader_group_actions_status_change\">
                                                         <button type=\"button\" class=\"btn btn-label-brand btn-bold btn-sm dropdown-toggle\" data-toggle=\"dropdown\">";
-                // line 504
+                // line 539
                 echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Update Status"]);
                 echo "</button>
                                                         <div class=\"dropdown-menu\">
                                                             <ul class=\"kt-nav\">
                                                                 <li class=\"kt-nav__section kt-nav__section--first\"><span class=\"kt-nav__section-text\">";
-                // line 507
+                // line 542
                 echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Change status to"]);
                 echo ":</span></li>
                                                                 ";
-                // line 508
+                // line 543
                 $context['_parent'] = $context;
                 $context['_seq'] = twig_ensure_traversable(($context["statuses"] ?? null));
                 foreach ($context['_seq'] as $context["_key"] => $context["status"]) {
-                    // line 509
+                    // line 544
                     echo "                                                                    <li class=\"kt-nav__item\">
                                                                         <a href=\"#\" class=\"kt-nav__link\" data-toggle=\"status-change\" data-status=\"";
-                    // line 510
-                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["status"], "value", [], "any", false, false, false, 510), "html", null, true);
+                    // line 545
+                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["status"], "value", [], "any", false, false, false, 545), "html", null, true);
                     echo "\">
                                                                             <span class=\"kt-nav__link-text\"><span class=\"kt-badge kt-badge--unified-success kt-badge--inline kt-badge--bold\">";
-                    // line 511
-                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["status"], "name", [], "any", false, false, false, 511), "html", null, true);
+                    // line 546
+                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["status"], "name", [], "any", false, false, false, 546), "html", null, true);
                     echo "</span></span>
                                                                         </a>
                                                                     </li>
@@ -1043,35 +1139,35 @@ class __TwigTemplate_ec4c8615aa4f88c386affbc38bac22809438612aac9c65131d1bdfda2f5
                 $_parent = $context['_parent'];
                 unset($context['_seq'], $context['_iterated'], $context['_key'], $context['status'], $context['_parent'], $context['loop']);
                 $context = array_intersect_key($context, $_parent) + $_parent;
-                // line 515
+                // line 550
                 echo "                                                            </ul>
                                                         </div>
                                                     </div>
                                                 ";
             }
-            // line 519
+            // line 554
             echo "                                                ";
-            if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, true, false, 519), "actions", [], "any", false, true, false, 519), "listing", [], "any", true, true, false, 519)) {
-                // line 520
+            if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, true, false, 554), "actions", [], "any", false, true, false, 554), "listing", [], "any", true, true, false, 554)) {
+                // line 555
                 echo "                                                <div class=\"dropdown\" id=\"kt_subheader_group_actions_shipment_change\">
                                                         <button type=\"button\" class=\"btn btn-label-brand btn-bold btn-sm dropdown-toggle\" data-toggle=\"dropdown\">";
-                // line 521
+                // line 556
                 echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Selected Actions"]);
                 echo "<span id=\"filter_selected\"></span></button>
                                                         <div class=\"dropdown-menu kt-padding-t-0 kt-padding-b-0\">
                                                             <ul class=\"kt-nav kt-padding-t-0 kt-padding-b-10\">
                                                                 <li class=\"kt-nav__section kt-nav__section--first\">
                                                                 ";
-                // line 525
+                // line 560
                 $context['_parent'] = $context;
-                $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, false, false, 525), "actions", [], "any", false, false, false, 525), "listing", [], "any", false, false, false, 525));
+                $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, false, false, 560), "actions", [], "any", false, false, false, 560), "listing", [], "any", false, false, false, 560));
                 foreach ($context['_seq'] as $context["_key"] => $context["button"]) {
-                    // line 526
+                    // line 561
                     echo "                                                                    <button class=\"btn btn-outline-dark btn-sm btn-bold \" id=\"";
-                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["button"], "id", [], "any", false, false, false, 526), "html", null, true);
+                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["button"], "id", [], "any", false, false, false, 561), "html", null, true);
                     echo "\" style=\"display: block;width: 100%;\" >";
-                    if (call_user_func_array($this->env->getFilter('__')->getCallable(), [twig_get_attribute($this->env, $this->source, $context["button"], "title", [], "any", false, false, false, 526)])) {
-                        echo call_user_func_array($this->env->getFilter('__')->getCallable(), [twig_get_attribute($this->env, $this->source, $context["button"], "title", [], "any", false, false, false, 526)]);
+                    if (call_user_func_array($this->env->getFilter('__')->getCallable(), [twig_get_attribute($this->env, $this->source, $context["button"], "title", [], "any", false, false, false, 561)])) {
+                        echo call_user_func_array($this->env->getFilter('__')->getCallable(), [twig_get_attribute($this->env, $this->source, $context["button"], "title", [], "any", false, false, false, 561)]);
                     }
                     echo "</button>
                                                                 ";
@@ -1079,36 +1175,36 @@ class __TwigTemplate_ec4c8615aa4f88c386affbc38bac22809438612aac9c65131d1bdfda2f5
                 $_parent = $context['_parent'];
                 unset($context['_seq'], $context['_iterated'], $context['_key'], $context['button'], $context['_parent'], $context['loop']);
                 $context = array_intersect_key($context, $_parent) + $_parent;
-                // line 528
+                // line 563
                 echo "                                                                </li>
                                                             </ul>
                                                         </div>
                                                     </div>
                                                 ";
             }
-            // line 533
+            // line 568
             echo "                                                ";
-            if ( !twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, true, false, 533), "actions", [], "any", false, true, false, 533), "delete", [], "any", true, true, false, 533)) {
-                // line 534
+            if ( !twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, true, false, 568), "actions", [], "any", false, true, false, 568), "delete", [], "any", true, true, false, 568)) {
+                // line 569
                 echo "                                                    <button class=\"btn btn-label-danger btn-bold btn-sm btn-icon-h\" id=\"kt_subheader_group_actions_delete_all\">";
                 echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Delete All"]);
                 echo "</button>
                                                 ";
             }
-            // line 536
+            // line 571
             echo "                                            </div>
                                         </div>
                                     ";
         } else {
-            // line 539
+            // line 574
             echo "                                        ";
-            if (twig_get_attribute($this->env, $this->source, ($context["currentCrumb"] ?? null), "show_crumb", [], "any", false, false, false, 539)) {
-                // line 540
+            if (twig_get_attribute($this->env, $this->source, ($context["currentCrumb"] ?? null), "show_crumb", [], "any", false, false, false, 574)) {
+                // line 575
                 echo "                                            <div class=\"kt-subheader__breadcrumbs\">
                                                 ";
-                // line 541
+                // line 576
                 $context["activeCrumb"] = "";
-                // line 542
+                // line 577
                 echo "                                                ";
                 $context['_parent'] = $context;
                 $context['_seq'] = twig_ensure_traversable(($context["breadcrumbs"] ?? null));
@@ -1126,20 +1222,20 @@ class __TwigTemplate_ec4c8615aa4f88c386affbc38bac22809438612aac9c65131d1bdfda2f5
                     $context['loop']['last'] = 1 === $length;
                 }
                 foreach ($context['_seq'] as $context["_key"] => $context["crumb"]) {
-                    // line 543
+                    // line 578
                     echo "                                                    ";
-                    if (twig_get_attribute($this->env, $this->source, $context["crumb"], "in_crumb_trail", [], "any", false, false, false, 543)) {
-                        // line 544
+                    if (twig_get_attribute($this->env, $this->source, $context["crumb"], "in_crumb_trail", [], "any", false, false, false, 578)) {
+                        // line 579
                         echo "                                                        ";
-                        if (( !twig_get_attribute($this->env, $this->source, $context["loop"], "last", [], "any", false, false, false, 544) &&  !twig_get_attribute($this->env, $this->source, $context["crumb"], "crumb_disabled", [], "any", false, false, false, 544))) {
-                            // line 545
+                        if (( !twig_get_attribute($this->env, $this->source, $context["loop"], "last", [], "any", false, false, false, 579) &&  !twig_get_attribute($this->env, $this->source, $context["crumb"], "crumb_disabled", [], "any", false, false, false, 579))) {
+                            // line 580
                             echo "                                                            <a href=\"";
-                            echo $this->extensions['Cms\Twig\Extension']->pageFilter(twig_get_attribute($this->env, $this->source, $context["crumb"], "baseFileName", [], "any", false, false, false, 545));
+                            echo $this->extensions['Cms\Twig\Extension']->pageFilter(twig_get_attribute($this->env, $this->source, $context["crumb"], "baseFileName", [], "any", false, false, false, 580));
                             echo "\" class=\"kt-subheader__breadcrumbs-home\">
                                                                 ";
-                            // line 546
-                            if (twig_get_attribute($this->env, $this->source, $context["loop"], "first", [], "any", false, false, false, 546)) {
-                                // line 547
+                            // line 581
+                            if (twig_get_attribute($this->env, $this->source, $context["loop"], "first", [], "any", false, false, false, 581)) {
+                                // line 582
                                 echo "                                                                    <svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" width=\"24px\" height=\"24px\" viewBox=\"0 0 24 24\" version=\"1.1\" class=\"kt-svg-icon\">
                                                                         <g stroke=\"none\" stroke-width=\"1\" fill=\"none\" fill-rule=\"evenodd\">
                                                                             <rect id=\"bound\" x=\"0\" y=\"0\" width=\"24\" height=\"24\"/>
@@ -1148,35 +1244,35 @@ class __TwigTemplate_ec4c8615aa4f88c386affbc38bac22809438612aac9c65131d1bdfda2f5
                                                                     </svg>
                                                                 ";
                             } else {
-                                // line 553
-                                if (call_user_func_array($this->env->getFilter('__')->getCallable(), [twig_get_attribute($this->env, $this->source, $context["crumb"], "title", [], "any", false, false, false, 553)])) {
-                                    echo call_user_func_array($this->env->getFilter('__')->getCallable(), [twig_get_attribute($this->env, $this->source, $context["crumb"], "title", [], "any", false, false, false, 553)]);
+                                // line 588
+                                if (call_user_func_array($this->env->getFilter('__')->getCallable(), [twig_get_attribute($this->env, $this->source, $context["crumb"], "title", [], "any", false, false, false, 588)])) {
+                                    echo call_user_func_array($this->env->getFilter('__')->getCallable(), [twig_get_attribute($this->env, $this->source, $context["crumb"], "title", [], "any", false, false, false, 588)]);
                                 }
                             }
                             echo "</a>
                                                         ";
                         } else {
-                            // line 555
+                            // line 590
                             echo "                                                            <span class=\"kt-subheader__breadcrumbs-link kt-subheader__breadcrumbs-link--active\">";
-                            if (call_user_func_array($this->env->getFilter('__')->getCallable(), [twig_get_attribute($this->env, $this->source, $context["crumb"], "title", [], "any", false, false, false, 555)])) {
-                                echo call_user_func_array($this->env->getFilter('__')->getCallable(), [twig_get_attribute($this->env, $this->source, $context["crumb"], "title", [], "any", false, false, false, 555)]);
+                            if (call_user_func_array($this->env->getFilter('__')->getCallable(), [twig_get_attribute($this->env, $this->source, $context["crumb"], "title", [], "any", false, false, false, 590)])) {
+                                echo call_user_func_array($this->env->getFilter('__')->getCallable(), [twig_get_attribute($this->env, $this->source, $context["crumb"], "title", [], "any", false, false, false, 590)]);
                             }
                             echo "</span>
                                                         ";
                         }
-                        // line 557
+                        // line 592
                         echo "                                                    ";
                     }
-                    // line 558
+                    // line 593
                     echo "                                                    ";
-                    if ( !twig_get_attribute($this->env, $this->source, $context["loop"], "last", [], "any", false, false, false, 558)) {
-                        // line 559
+                    if ( !twig_get_attribute($this->env, $this->source, $context["loop"], "last", [], "any", false, false, false, 593)) {
+                        // line 594
                         echo "                                                        ";
                         $context["activeCrumb"] = $context["crumb"];
-                        // line 560
+                        // line 595
                         echo "                                                    ";
                     }
-                    // line 561
+                    // line 596
                     echo "                                                ";
                     ++$context['loop']['index0'];
                     ++$context['loop']['index'];
@@ -1190,96 +1286,96 @@ class __TwigTemplate_ec4c8615aa4f88c386affbc38bac22809438612aac9c65131d1bdfda2f5
                 $_parent = $context['_parent'];
                 unset($context['_seq'], $context['_iterated'], $context['_key'], $context['crumb'], $context['_parent'], $context['loop']);
                 $context = array_intersect_key($context, $_parent) + $_parent;
-                // line 562
+                // line 597
                 echo "                                            </div>
                                         ";
             }
-            // line 564
+            // line 599
             echo "                                    ";
         }
-        // line 565
+        // line 600
         echo "                                </div>
                                 <div class=\"kt-subheader__toolbar\">
                                     <div class=\"kt-subheader__wrapper\">
                                         ";
-        // line 568
-        if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, false, false, 568), "daterange", [], "any", false, false, false, 568) == 1)) {
-            // line 569
+        // line 603
+        if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, false, false, 603), "daterange", [], "any", false, false, false, 603) == 1)) {
+            // line 604
             echo "                                            <div class=\"btn kt-subheader__btn-daterange\" id=\"kt_dashboard_daterangepicker\" data-toggle=\"kt-tooltip\" title=\"";
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Select dashboard daterange"]);
             echo "\" data-placement=\"left\">
                                                 <span class=\"kt-subheader__btn-daterange-title\" id=\"kt_dashboard_daterangepicker_title\">";
-            // line 570
+            // line 605
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Today"]);
             echo "</span>&nbsp;
                                                 <span class=\"kt-subheader__btn-daterange-date\" id=\"kt_dashboard_daterangepicker_date\">";
-            // line 571
+            // line 606
             echo twig_escape_filter($this->env, twig_date_format_filter($this->env, "now", "d M"), "html", null, true);
             echo "</span>
                                                 <i class=\"flaticon2-calendar-1\"></i>
                                             </div>
                                         ";
         } else {
-            // line 575
+            // line 610
             echo "                                            ";
-            if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, false, false, 575), "actions", [], "any", false, false, false, 575)) {
-                // line 576
+            if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, false, false, 610), "actions", [], "any", false, false, false, 610)) {
+                // line 611
                 echo "                                                ";
-                if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, true, false, 576), "actions", [], "any", false, true, false, 576), "add", [], "any", true, true, false, 576)) {
-                    // line 577
+                if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, true, false, 611), "actions", [], "any", false, true, false, 611), "add", [], "any", true, true, false, 611)) {
+                    // line 612
                     echo "                                                    <a href=\"";
-                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, false, false, 577), "actions", [], "any", false, false, false, 577), "add", [], "any", false, false, false, 577), "html", null, true);
+                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, false, false, 612), "actions", [], "any", false, false, false, 612), "add", [], "any", false, false, false, 612), "html", null, true);
                     echo "\" class=\"btn btn-label-success btn-bold\" id=\"add_new_btn\">";
                     echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Add new"]);
                     echo "&nbsp;<i class=\"flaticon2-add\"></i></a>
                                                 ";
                 }
-                // line 579
+                // line 614
                 echo "
                                                 ";
-                // line 580
-                if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, true, false, 580), "actions", [], "any", false, true, false, 580), "filter", [], "any", true, true, false, 580)) {
-                    // line 581
+                // line 615
+                if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, true, false, 615), "actions", [], "any", false, true, false, 615), "filter", [], "any", true, true, false, 615)) {
+                    // line 616
                     echo "                                                    <a href=\"#\" class=\"btn btn-label-success btn-bold\" id=\"filter\">";
                     echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Filter"]);
                     echo "&nbsp;<i class=\"flaticon2-search\"></i></a>
                                                 ";
                 }
-                // line 583
+                // line 618
                 echo "                                                 <!-- add multi shipments  -->
                                                 ";
-                // line 584
-                if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, true, false, 584), "actions", [], "any", false, true, false, 584), "multi", [], "any", true, true, false, 584)) {
-                    // line 585
+                // line 619
+                if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, true, false, 619), "actions", [], "any", false, true, false, 619), "multi", [], "any", true, true, false, 619)) {
+                    // line 620
                     echo "                                                <div class=\"kt-subheader__group\" id=\"kt_subheader_search\" style=\"display:inline-block; \">
                                                     <div class=\"btn-toolbar kt-margin-l-20\">
                                                         <div class=\"dropdown\" id=\"\">
                                                             <button type=\"button\" class=\"btn btn-label-success btn-bold btn-sm dropdown-toggle\" data-toggle=\"dropdown\">";
-                    // line 588
+                    // line 623
                     echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Add Using"]);
                     echo "<span id=\"filter_selected\"></span></button>
                                                             <div class=\"dropdown-menu kt-padding-t-0 kt-padding-b-0\">
                                                                 <ul class=\"kt-nav kt-padding-t-0 kt-padding-b-10\">
                                                                     <li class=\"kt-nav__section kt-nav__section--first\">
                                                                     ";
-                    // line 592
+                    // line 627
                     $context['_parent'] = $context;
-                    $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, false, false, 592), "actions", [], "any", false, false, false, 592), "multi", [], "any", false, false, false, 592));
+                    $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, false, false, 627), "actions", [], "any", false, false, false, 627), "multi", [], "any", false, false, false, 627));
                     foreach ($context['_seq'] as $context["_key"] => $context["button"]) {
-                        // line 593
+                        // line 628
                         echo "                                                                        <button class=\"btn btn-outline-dark btn-sm btn-bold \" id=\"";
-                        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["button"], "id", [], "any", false, false, false, 593), "html", null, true);
+                        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["button"], "id", [], "any", false, false, false, 628), "html", null, true);
                         echo "\" style=\"display: block;width: 100%;\" >
                                                                             <a href=\"";
-                        // line 594
-                        if (twig_get_attribute($this->env, $this->source, $context["button"], "url", [], "any", false, false, false, 594)) {
-                            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["button"], "url", [], "any", false, false, false, 594), "html", null, true);
+                        // line 629
+                        if (twig_get_attribute($this->env, $this->source, $context["button"], "url", [], "any", false, false, false, 629)) {
+                            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["button"], "url", [], "any", false, false, false, 629), "html", null, true);
                         } else {
                             echo "#";
                         }
                         echo "\" style=\"\">";
-                        if (call_user_func_array($this->env->getFilter('__')->getCallable(), [twig_get_attribute($this->env, $this->source, $context["button"], "title", [], "any", false, false, false, 594)])) {
-                            echo call_user_func_array($this->env->getFilter('__')->getCallable(), [twig_get_attribute($this->env, $this->source, $context["button"], "title", [], "any", false, false, false, 594)]);
+                        if (call_user_func_array($this->env->getFilter('__')->getCallable(), [twig_get_attribute($this->env, $this->source, $context["button"], "title", [], "any", false, false, false, 629)])) {
+                            echo call_user_func_array($this->env->getFilter('__')->getCallable(), [twig_get_attribute($this->env, $this->source, $context["button"], "title", [], "any", false, false, false, 629)]);
                         }
                         echo "</a></button>
 
@@ -1288,7 +1384,7 @@ class __TwigTemplate_ec4c8615aa4f88c386affbc38bac22809438612aac9c65131d1bdfda2f5
                     $_parent = $context['_parent'];
                     unset($context['_seq'], $context['_iterated'], $context['_key'], $context['button'], $context['_parent'], $context['loop']);
                     $context = array_intersect_key($context, $_parent) + $_parent;
-                    // line 597
+                    // line 632
                     echo "                                                                    </li>
                                                                 </ul>
                                                             </div>
@@ -1297,54 +1393,54 @@ class __TwigTemplate_ec4c8615aa4f88c386affbc38bac22809438612aac9c65131d1bdfda2f5
                                                 </div>
                                                 ";
                 }
-                // line 604
+                // line 639
                 echo "                                                <!--end  -->
                                                 ";
-                // line 605
-                if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, true, false, 605), "actions", [], "any", false, true, false, 605), "buttons", [], "any", true, true, false, 605)) {
-                    // line 606
+                // line 640
+                if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, true, false, 640), "actions", [], "any", false, true, false, 640), "buttons", [], "any", true, true, false, 640)) {
+                    // line 641
                     echo "                                                    ";
                     $context['_parent'] = $context;
-                    $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, false, false, 606), "actions", [], "any", false, false, false, 606), "buttons", [], "any", false, false, false, 606));
+                    $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, false, false, 641), "actions", [], "any", false, false, false, 641), "buttons", [], "any", false, false, false, 641));
                     foreach ($context['_seq'] as $context["_key"] => $context["button"]) {
-                        // line 607
+                        // line 642
                         echo "                                                        <a href=\"";
-                        if (twig_get_attribute($this->env, $this->source, $context["button"], "url", [], "any", false, false, false, 607)) {
-                            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["button"], "url", [], "any", false, false, false, 607), "html", null, true);
+                        if (twig_get_attribute($this->env, $this->source, $context["button"], "url", [], "any", false, false, false, 642)) {
+                            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["button"], "url", [], "any", false, false, false, 642), "html", null, true);
                         } else {
                             echo "#";
                         }
                         echo "\" class=\"btn btn-label-";
-                        if (twig_get_attribute($this->env, $this->source, $context["button"], "type", [], "any", false, false, false, 607)) {
-                            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["button"], "type", [], "any", false, false, false, 607), "html", null, true);
+                        if (twig_get_attribute($this->env, $this->source, $context["button"], "type", [], "any", false, false, false, 642)) {
+                            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["button"], "type", [], "any", false, false, false, 642), "html", null, true);
                         } else {
                             echo "primary";
                         }
                         echo " btn-bold\" id=\"";
-                        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["button"], "id", [], "any", false, false, false, 607), "html", null, true);
+                        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["button"], "id", [], "any", false, false, false, 642), "html", null, true);
                         echo "\">";
-                        if (call_user_func_array($this->env->getFilter('__')->getCallable(), [twig_get_attribute($this->env, $this->source, $context["button"], "title", [], "any", false, false, false, 607)])) {
-                            echo call_user_func_array($this->env->getFilter('__')->getCallable(), [twig_get_attribute($this->env, $this->source, $context["button"], "title", [], "any", false, false, false, 607)]);
+                        if (call_user_func_array($this->env->getFilter('__')->getCallable(), [twig_get_attribute($this->env, $this->source, $context["button"], "title", [], "any", false, false, false, 642)])) {
+                            echo call_user_func_array($this->env->getFilter('__')->getCallable(), [twig_get_attribute($this->env, $this->source, $context["button"], "title", [], "any", false, false, false, 642)]);
                         }
                         echo "&nbsp;<i class=\"";
-                        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["button"], "icon", [], "any", false, false, false, 607), "html", null, true);
+                        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["button"], "icon", [], "any", false, false, false, 642), "html", null, true);
                         echo "\"></i></a>
                                                     ";
                     }
                     $_parent = $context['_parent'];
                     unset($context['_seq'], $context['_iterated'], $context['_key'], $context['button'], $context['_parent'], $context['loop']);
                     $context = array_intersect_key($context, $_parent) + $_parent;
-                    // line 609
+                    // line 644
                     echo "                                                ";
                 }
-                // line 610
+                // line 645
                 echo "                                                ";
-                if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, true, false, 610), "actions", [], "any", false, true, false, 610), "other", [], "any", true, true, false, 610)) {
-                    // line 611
+                if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, true, false, 645), "actions", [], "any", false, true, false, 645), "other", [], "any", true, true, false, 645)) {
+                    // line 646
                     echo "                                                    <div class=\"dropdown dropdown-inline\" data-toggle-=\"kt-tooltip\" title=\"Quick actions\" data-placement=\"left\">
                                                         <a href=\"#\" class=\"btn kt-subheader__btn-primary\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
                                                             ";
-                    // line 613
+                    // line 648
                     echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Other Actions"]);
                     echo " &nbsp;
 
@@ -1362,23 +1458,23 @@ class __TwigTemplate_ec4c8615aa4f88c386affbc38bac22809438612aac9c65131d1bdfda2f5
                                                             <!--begin::Nav-->
                                                             <ul class=\"kt-nav\">
                                                                 ";
-                    // line 628
+                    // line 663
                     $context['_parent'] = $context;
-                    $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, false, false, 628), "actions", [], "any", false, false, false, 628), "other", [], "any", false, false, false, 628));
+                    $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["this"] ?? null), "page", [], "any", false, false, false, 663), "actions", [], "any", false, false, false, 663), "other", [], "any", false, false, false, 663));
                     foreach ($context['_seq'] as $context["_key"] => $context["link"]) {
-                        // line 629
+                        // line 664
                         echo "                                                                    <li class=\"kt-nav__item\">
                                                                         <a href=\"";
-                        // line 630
-                        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["link"], "url", [], "any", false, false, false, 630), "html", null, true);
+                        // line 665
+                        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["link"], "url", [], "any", false, false, false, 665), "html", null, true);
                         echo "\" class=\"kt-nav__link\">
                                                                             <i class=\"kt-nav__link-icon ";
-                        // line 631
-                        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["link"], "icon", [], "any", false, false, false, 631), "html", null, true);
+                        // line 666
+                        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["link"], "icon", [], "any", false, false, false, 666), "html", null, true);
                         echo "\"></i>
                                                                             <span class=\"kt-nav__link-text\">";
-                        // line 632
-                        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["link"], "name", [], "any", false, false, false, 632), "html", null, true);
+                        // line 667
+                        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["link"], "name", [], "any", false, false, false, 667), "html", null, true);
                         echo "</span>
                                                                         </a>
                                                                     </li>
@@ -1387,7 +1483,7 @@ class __TwigTemplate_ec4c8615aa4f88c386affbc38bac22809438612aac9c65131d1bdfda2f5
                     $_parent = $context['_parent'];
                     unset($context['_seq'], $context['_iterated'], $context['_key'], $context['link'], $context['_parent'], $context['loop']);
                     $context = array_intersect_key($context, $_parent) + $_parent;
-                    // line 636
+                    // line 671
                     echo "                                                            </ul>
 
                                                             <!--end::Nav-->
@@ -1395,13 +1491,13 @@ class __TwigTemplate_ec4c8615aa4f88c386affbc38bac22809438612aac9c65131d1bdfda2f5
                                                     </div>
                                                 ";
                 }
-                // line 642
+                // line 677
                 echo "                                            ";
             }
-            // line 643
+            // line 678
             echo "                                        ";
         }
-        // line 644
+        // line 679
         echo "                                    </div>
                                 </div>
                             </div>
@@ -1413,26 +1509,26 @@ class __TwigTemplate_ec4c8615aa4f88c386affbc38bac22809438612aac9c65131d1bdfda2f5
 
 
                        ";
-        // line 654
-        if (twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "demo_mode", [], "any", false, false, false, 654)) {
-            // line 655
+        // line 689
+        if (twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "demo_mode", [], "any", false, false, false, 689)) {
+            // line 690
             echo "                         <div class=\"alert alert-warning\" role=\"alert\">
                                  ";
-            // line 656
+            // line 691
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Please be aware that data will be replaced on this demo every 6 hours so that every one can test this demo as he needs without corrupting the data."]);
             echo "
                           </div>
                       ";
         }
-        // line 659
+        // line 694
         echo "
                        ";
-        // line 660
-        if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "google", [], "any", false, false, false, 660), "map", [], "any", false, false, false, 660) == "")) {
-            // line 661
+        // line 695
+        if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "google", [], "any", false, false, false, 695), "map", [], "any", false, false, false, 695) == "")) {
+            // line 696
             echo "                          <div class=\"alert alert-warning\" role=\"alert\">
                             ";
-            // line 662
+            // line 697
             echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Google maps functions will not be activated until you enter your google key"]);
             echo " <a href=\"";
             echo url("dashboard/settings/google");
@@ -1446,14 +1542,14 @@ class __TwigTemplate_ec4c8615aa4f88c386affbc38bac22809438612aac9c65131d1bdfda2f5
                           </div>
                       ";
         }
-        // line 665
+        // line 700
         echo "
 
 
                             ";
-        // line 668
+        // line 703
         echo $this->env->getExtension('Cms\Twig\Extension')->pageFunction();
-        // line 669
+        // line 704
         echo "               </div>
                         <!-- end:: Content -->
                     </div>
@@ -1463,7 +1559,7 @@ class __TwigTemplate_ec4c8615aa4f88c386affbc38bac22809438612aac9c65131d1bdfda2f5
                      <div class=\"kt-container  kt-container--fluid \">
                       <div class=\"kt-footer__copyright\">
 <!--                       ";
-        // line 677
+        // line 712
         echo twig_escape_filter($this->env, twig_date_format_filter($this->env, "now", "Y"), "html", null, true);
         echo "&nbsp;&copy;&nbsp;<a href=\"//spotlayer.com\" target=\"_blank\" class=\"kt-link\">";
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Powered By ivylabtech"]);
@@ -1471,7 +1567,7 @@ class __TwigTemplate_ec4c8615aa4f88c386affbc38bac22809438612aac9c65131d1bdfda2f5
                       </div>
                       <div class=\"kt-footer__menu\">
 <!--                       <a href=\"//ivylabtech.com\" target=\"_blank\" class=\"kt-link\">";
-        // line 680
+        // line 715
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Support"]);
         echo "</a>-->
                       </div>
@@ -1493,15 +1589,15 @@ class __TwigTemplate_ec4c8615aa4f88c386affbc38bac22809438612aac9c65131d1bdfda2f5
         <!-- begin::Global Config(global config for global JS sciprts) -->
         <script>
             ";
-        // line 699
-        $context["timezone"] = twig_split_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "timezone_offset", [], "any", false, false, false, 699), ":");
-        // line 700
+        // line 734
+        $context["timezone"] = twig_split_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "timezone_offset", [], "any", false, false, false, 734), ":");
+        // line 735
         echo "            ";
-        $context["timezone_offset"] = ((twig_get_attribute($this->env, $this->source, ($context["timezone"] ?? null), 0, [], "any", false, false, false, 700) * 60) + twig_get_attribute($this->env, $this->source, ($context["timezone"] ?? null), 1, [], "any", false, false, false, 700));
-        // line 701
+        $context["timezone_offset"] = ((twig_get_attribute($this->env, $this->source, ($context["timezone"] ?? null), 0, [], "any", false, false, false, 735) * 60) + twig_get_attribute($this->env, $this->source, ($context["timezone"] ?? null), 1, [], "any", false, false, false, 735));
+        // line 736
         echo "            ";
         $context["timezone_offset_hours"] = (($context["timezone_offset"] ?? null) / 60);
-        // line 702
+        // line 737
         echo "
             var KTAppOptions = {
                 \"colors\":{
@@ -1532,25 +1628,25 @@ class __TwigTemplate_ec4c8615aa4f88c386affbc38bac22809438612aac9c65131d1bdfda2f5
                 },
                 \"text\":{
                     'loading' : '";
-        // line 731
+        // line 766
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Loading ..."]);
         echo "'
                 },
                 \"timezone_offset\": \"";
-        // line 733
+        // line 768
         echo twig_escape_filter($this->env, ($context["timezone_offset"] ?? null), "html", null, true);
         echo "\",
                 \"timezone_offset_hours\": \"";
-        // line 734
+        // line 769
         echo twig_escape_filter($this->env, ($context["timezone_offset_hours"] ?? null), "html", null, true);
         echo "\",
                 \"dateformat\": \"";
-        // line 735
-        echo twig_escape_filter($this->env, twig_replace_filter(twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "dateformat", [], "any", false, false, false, 735), ["d" => "dd", "m" => "mm", "Y" => "yyyy"]), "html", null, true);
+        // line 770
+        echo twig_escape_filter($this->env, twig_replace_filter(twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "dateformat", [], "any", false, false, false, 770), ["d" => "dd", "m" => "mm", "Y" => "yyyy"]), "html", null, true);
         echo "\",
                 \"daterangeformat\": \"";
-        // line 736
-        echo twig_escape_filter($this->env, twig_replace_filter(twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "dateformat", [], "any", false, false, false, 736), ["d" => "DD", "m" => "MM", "M" => "MMM"]), "html", null, true);
+        // line 771
+        echo twig_escape_filter($this->env, twig_replace_filter(twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "dateformat", [], "any", false, false, false, 771), ["d" => "DD", "m" => "MM", "M" => "MMM"]), "html", null, true);
         echo "\"
             };
         </script>
@@ -1563,20 +1659,20 @@ class __TwigTemplate_ec4c8615aa4f88c386affbc38bac22809438612aac9c65131d1bdfda2f5
             <script src=\"./admin/vendors/global/vendors.bundle.js\" type=\"text/javascript\"></script>
             <script src=\"./admin/js/demo1/scripts.bundle.js\" type=\"text/javascript\"></script>
             ";
-        // line 747
-        if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "notifications", [], "any", false, false, false, 747), "live", [], "any", false, false, false, 747) == 1)) {
-            // line 748
+        // line 782
+        if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "notifications", [], "any", false, false, false, 782), "live", [], "any", false, false, false, 782) == 1)) {
+            // line 783
             echo "                <script src=\"//js.pusher.com/5.0/pusher.min.js\"></script>
             ";
         }
-        // line 750
+        // line 785
         echo "        <!--end::Global Theme Bundle -->
             </script>
 
         <!--begin::Page Scripts(used by this page) -->
             <script src='https://cdnjs.cloudflare.com/ajax/libs/ajax-bootstrap-select/1.3.8/js/ajax-bootstrap-select.min.js'></script>
             ";
-        // line 755
+        // line 790
         $_minify = System\Classes\CombineAssets::instance()->useMinify;
         if ($_minify) {
             echo '<script src="' . Request::getBasePath() . '/modules/system/assets/js/framework.combined-min.js"></script>'.PHP_EOL;
@@ -1587,11 +1683,11 @@ class __TwigTemplate_ec4c8615aa4f88c386affbc38bac22809438612aac9c65131d1bdfda2f5
         }
         echo '<link rel="stylesheet" property="stylesheet" href="' . Request::getBasePath() .'/modules/system/assets/css/framework.extras'.($_minify ? '-min' : '').'.css">'.PHP_EOL;
         unset($_minify);
-        // line 756
+        // line 791
         echo "            ";
         echo $this->env->getExtension('Cms\Twig\Extension')->assetsFunction('js');
         echo $this->env->getExtension('Cms\Twig\Extension')->displayBlock('scripts');
-        // line 757
+        // line 792
         echo "            <script type=\"text/javascript\">
                 function initAjaxSelectPicker(url,item,dependency = null){
                     var options = {
@@ -1602,7 +1698,7 @@ class __TwigTemplate_ec4c8615aa4f88c386affbc38bac22809438612aac9c65131d1bdfda2f5
                             data : function() {
                                 return {
                                     q: '";
-        // line 766
+        // line 801
         echo "{{{q}}}";
         echo "',
                                     dependency_id: \$(dependency+\" option:selected\").val()
@@ -1645,7 +1741,7 @@ class __TwigTemplate_ec4c8615aa4f88c386affbc38bac22809438612aac9c65131d1bdfda2f5
                             catch(e){return false;}
                         },
                         \"";
-        // line 806
+        // line 841
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Please enter a valid date"]);
         echo "\"
                     );
@@ -1674,7 +1770,7 @@ class __TwigTemplate_ec4c8615aa4f88c386affbc38bac22809438612aac9c65131d1bdfda2f5
                     });
                     \$('select').selectpicker({
                         noneSelectedText: '";
-        // line 832
+        // line 867
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Nothing selected"]);
         echo "',
                     });
@@ -1697,8 +1793,8 @@ class __TwigTemplate_ec4c8615aa4f88c386affbc38bac22809438612aac9c65131d1bdfda2f5
                     \$('input.decimal').blur(function(){
                         var num = parseFloat(\$(this).val());
                         var cleanNum = num.toFixed(";
-        // line 852
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["primary_currency"] ?? null), "initbiz_money_fraction_digits", [], "any", false, false, false, 852), "html", null, true);
+        // line 887
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["primary_currency"] ?? null), "initbiz_money_fraction_digits", [], "any", false, false, false, 887), "html", null, true);
         echo ");
                         \$(this).val(cleanNum);
                     });
@@ -1717,11 +1813,11 @@ class __TwigTemplate_ec4c8615aa4f88c386affbc38bac22809438612aac9c65131d1bdfda2f5
                     }
 
                     \$.fn.datepicker.dates['";
-        // line 869
+        // line 904
         echo twig_escape_filter($this->env, ($context["currentLang"] ?? null), "html", null, true);
         echo "'] = {
                         days: [\"";
-        // line 870
+        // line 905
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Sunday"]);
         echo "\", \"";
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Monday"]);
@@ -1737,7 +1833,7 @@ class __TwigTemplate_ec4c8615aa4f88c386affbc38bac22809438612aac9c65131d1bdfda2f5
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Saturday"]);
         echo "\"],
                         daysShort: [\"";
-        // line 871
+        // line 906
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Sun"]);
         echo "\", \"";
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Mon"]);
@@ -1753,7 +1849,7 @@ class __TwigTemplate_ec4c8615aa4f88c386affbc38bac22809438612aac9c65131d1bdfda2f5
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Sat"]);
         echo "\"],
                         daysMin: [\"";
-        // line 872
+        // line 907
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Su"]);
         echo "\", \"";
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Mo"]);
@@ -1769,7 +1865,7 @@ class __TwigTemplate_ec4c8615aa4f88c386affbc38bac22809438612aac9c65131d1bdfda2f5
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Sa"]);
         echo "\"],
                         months: [\"";
-        // line 873
+        // line 908
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["January"]);
         echo "\", \"";
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["February"]);
@@ -1795,7 +1891,7 @@ class __TwigTemplate_ec4c8615aa4f88c386affbc38bac22809438612aac9c65131d1bdfda2f5
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["December"]);
         echo "\"],
                         monthsShort: [\"";
-        // line 874
+        // line 909
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Jan"]);
         echo "\", \"";
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Feb"]);
@@ -1821,11 +1917,11 @@ class __TwigTemplate_ec4c8615aa4f88c386affbc38bac22809438612aac9c65131d1bdfda2f5
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Dec"]);
         echo "\"],
                         today: \"";
-        // line 875
+        // line 910
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Today"]);
         echo "\",
                         clear: \"";
-        // line 876
+        // line 911
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Clear"]);
         echo "\",
                         format: KTAppOptions.dateformat,
@@ -1835,7 +1931,7 @@ class __TwigTemplate_ec4c8615aa4f88c386affbc38bac22809438612aac9c65131d1bdfda2f5
                     \$('.date').datepicker({
                         rtl: KTUtil.isRTL(),
                         language: '";
-        // line 883
+        // line 918
         echo twig_escape_filter($this->env, ($context["currentLang"] ?? null), "html", null, true);
         echo "',
                         format: KTAppOptions.dateformat,
@@ -1847,32 +1943,32 @@ class __TwigTemplate_ec4c8615aa4f88c386affbc38bac22809438612aac9c65131d1bdfda2f5
                         var momentNow = moment();
 
                     console.log(";
-        // line 892
+        // line 927
         echo twig_escape_filter($this->env, ($context["timezone_offset"] ?? null), "html", null, true);
         echo ");
                     console.log(";
-        // line 893
+        // line 928
         echo twig_escape_filter($this->env, ($context["timezone_offset_hours"] ?? null), "html", null, true);
         echo ");
                     console.log(momentNow.utcOffset(4));
                     console.log(momentNow.utcOffset(";
-        // line 895
+        // line 930
         echo twig_escape_filter($this->env, ($context["timezone_offset_hours"] ?? null), "html", null, true);
         echo "));
                     var interval = setInterval(function() {
                         if('ar' == '";
-        // line 897
+        // line 932
         echo twig_escape_filter($this->env, ($context["currentLang"] ?? null), "html", null, true);
         echo "'){
                             moment.locale('ar-sa');
                         }
                         var momentNow = moment();
                         \$('#date-part').html(momentNow.utcOffset(";
-        // line 901
+        // line 936
         echo twig_escape_filter($this->env, ($context["timezone_offset_hours"] ?? null), "html", null, true);
         echo ").format(KTAppOptions.daterangeformat) + ' ');
                         \$('#time-part').html(momentNow.utcOffset(";
-        // line 902
+        // line 937
         echo twig_escape_filter($this->env, ($context["timezone_offset_hours"] ?? null), "html", null, true);
         echo ").format('hh:mm:ss A'));
                     }, 100);
@@ -1966,7 +2062,7 @@ class __TwigTemplate_ec4c8615aa4f88c386affbc38bac22809438612aac9c65131d1bdfda2f5
                                 hideProgress();
                                 KTUtil.addClass(target, resultClass);
                                 KTUtil.setHTML(resultWrapper, '<span class=\"kt-quick-search__message kt-font-danger\">";
-        // line 993
+        // line 1028
         echo call_user_func_array($this->env->getFilter('__')->getCallable(), ["Connection error. Pleae try again later"]);
         echo ".</div>');
                                 showDropdown();
@@ -2037,23 +2133,23 @@ class __TwigTemplate_ec4c8615aa4f88c386affbc38bac22809438612aac9c65131d1bdfda2f5
                 var KTQuickSearchInline = KTQuickSearch;
                 var KTQuickSearchOffcanvas = KTQuickSearch;
                 ";
-        // line 1061
-        if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "notifications", [], "any", false, false, false, 1061), "live", [], "any", false, false, false, 1061) == 1)) {
-            // line 1062
+        // line 1096
+        if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "notifications", [], "any", false, false, false, 1096), "live", [], "any", false, false, false, 1096) == 1)) {
+            // line 1097
             echo "                    var pusher = new Pusher('";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "notifications", [], "any", false, false, false, 1062), "pusher", [], "any", false, false, false, 1062), "key", [], "any", false, false, false, 1062), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "notifications", [], "any", false, false, false, 1097), "pusher", [], "any", false, false, false, 1097), "key", [], "any", false, false, false, 1097), "html", null, true);
             echo "', {cluster: '";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "notifications", [], "any", false, false, false, 1062), "pusher", [], "any", false, false, false, 1062), "cluster", [], "any", false, false, false, 1062), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["settings"] ?? null), "notifications", [], "any", false, false, false, 1097), "pusher", [], "any", false, false, false, 1097), "cluster", [], "any", false, false, false, 1097), "html", null, true);
             echo "',forceTLS: true});
                     var presenceChannel = pusher.subscribe('spotlayer');
                     presenceChannel.bind('notification', function(data) {
                         //if(data.id != ";
-            // line 1065
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "id", [], "any", false, false, false, 1065), "html", null, true);
+            // line 1100
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "id", [], "any", false, false, false, 1100), "html", null, true);
             echo "){
                         if(data.for_userid == ";
-            // line 1066
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "id", [], "any", false, false, false, 1066), "html", null, true);
+            // line 1101
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "id", [], "any", false, false, false, 1101), "html", null, true);
             echo "){
                             setTimeout( function() {
                                 // create the notification
@@ -2065,7 +2161,7 @@ class __TwigTemplate_ec4c8615aa4f88c386affbc38bac22809438612aac9c65131d1bdfda2f5
                                 }
                                 var notification = new NotificationFx({
                                     message : '<div class=\"ns-thumb '+data.thumb+'\">'+thumb_content+'</div><div class=\"ns-content notice\"><p><a href=\"";
-            // line 1076
+            // line 1111
             echo url("dashboard/notifications");
             echo "\">'+data.sender.name+'</a> '+data.subject+'.</p></div>',
                                     layout : 'other',
@@ -2084,8 +2180,8 @@ class __TwigTemplate_ec4c8615aa4f88c386affbc38bac22809438612aac9c65131d1bdfda2f5
                                 }
                                 \$.request('onRefreshTime', {
                                     data: {id: ";
-            // line 1092
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "id", [], "any", false, false, false, 1092), "html", null, true);
+            // line 1127
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "id", [], "any", false, false, false, 1127), "html", null, true);
             echo "},
                                     update: { notificationsmenu: '#notificationsmenu' },
                                     complete: function(e) {
@@ -2099,7 +2195,7 @@ class __TwigTemplate_ec4c8615aa4f88c386affbc38bac22809438612aac9c65131d1bdfda2f5
                     });
                 ";
         }
-        // line 1104
+        // line 1139
         echo "            </script>
      <script type=\"text/javascript\" src=\"//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js\"></script>
 
@@ -2158,7 +2254,7 @@ class __TwigTemplate_ec4c8615aa4f88c386affbc38bac22809438612aac9c65131d1bdfda2f5
 
     public function getDebugInfo()
     {
-        return array (  2103 => 1104,  2088 => 1092,  2069 => 1076,  2056 => 1066,  2052 => 1065,  2043 => 1062,  2041 => 1061,  1970 => 993,  1876 => 902,  1872 => 901,  1865 => 897,  1860 => 895,  1855 => 893,  1851 => 892,  1839 => 883,  1829 => 876,  1825 => 875,  1799 => 874,  1773 => 873,  1757 => 872,  1741 => 871,  1725 => 870,  1721 => 869,  1701 => 852,  1678 => 832,  1649 => 806,  1606 => 766,  1595 => 757,  1591 => 756,  1580 => 755,  1573 => 750,  1569 => 748,  1567 => 747,  1553 => 736,  1549 => 735,  1545 => 734,  1541 => 733,  1536 => 731,  1505 => 702,  1502 => 701,  1499 => 700,  1497 => 699,  1475 => 680,  1467 => 677,  1457 => 669,  1455 => 668,  1450 => 665,  1436 => 662,  1433 => 661,  1431 => 660,  1428 => 659,  1422 => 656,  1419 => 655,  1417 => 654,  1405 => 644,  1402 => 643,  1399 => 642,  1391 => 636,  1381 => 632,  1377 => 631,  1373 => 630,  1370 => 629,  1366 => 628,  1348 => 613,  1344 => 611,  1341 => 610,  1338 => 609,  1311 => 607,  1306 => 606,  1304 => 605,  1301 => 604,  1292 => 597,  1275 => 594,  1270 => 593,  1266 => 592,  1259 => 588,  1254 => 585,  1252 => 584,  1249 => 583,  1243 => 581,  1241 => 580,  1238 => 579,  1230 => 577,  1227 => 576,  1224 => 575,  1217 => 571,  1213 => 570,  1208 => 569,  1206 => 568,  1201 => 565,  1198 => 564,  1194 => 562,  1180 => 561,  1177 => 560,  1174 => 559,  1171 => 558,  1168 => 557,  1160 => 555,  1152 => 553,  1143 => 547,  1141 => 546,  1136 => 545,  1133 => 544,  1130 => 543,  1112 => 542,  1110 => 541,  1107 => 540,  1104 => 539,  1099 => 536,  1093 => 534,  1090 => 533,  1083 => 528,  1070 => 526,  1066 => 525,  1059 => 521,  1056 => 520,  1053 => 519,  1047 => 515,  1037 => 511,  1033 => 510,  1030 => 509,  1026 => 508,  1022 => 507,  1016 => 504,  1013 => 503,  1011 => 502,  1006 => 500,  1003 => 499,  994 => 492,  984 => 488,  980 => 487,  975 => 485,  971 => 484,  968 => 483,  964 => 482,  959 => 480,  952 => 476,  947 => 473,  945 => 472,  935 => 465,  930 => 463,  926 => 462,  917 => 460,  914 => 459,  912 => 458,  909 => 457,  903 => 455,  901 => 454,  895 => 452,  893 => 451,  874 => 435,  870 => 434,  860 => 429,  854 => 426,  841 => 416,  835 => 413,  822 => 403,  816 => 400,  807 => 394,  804 => 393,  798 => 389,  789 => 388,  783 => 385,  773 => 379,  771 => 378,  763 => 373,  757 => 370,  748 => 364,  730 => 357,  724 => 354,  720 => 352,  714 => 350,  708 => 348,  706 => 347,  698 => 341,  692 => 339,  686 => 337,  684 => 336,  680 => 335,  676 => 334,  669 => 329,  662 => 324,  652 => 320,  648 => 319,  638 => 317,  634 => 316,  628 => 312,  618 => 310,  613 => 309,  607 => 305,  605 => 304,  601 => 302,  597 => 301,  580 => 287,  574 => 284,  570 => 283,  566 => 282,  508 => 226,  504 => 224,  498 => 220,  494 => 218,  492 => 217,  486 => 214,  477 => 212,  468 => 211,  466 => 210,  461 => 207,  454 => 206,  450 => 204,  445 => 201,  438 => 200,  430 => 196,  426 => 194,  420 => 192,  418 => 191,  410 => 190,  405 => 189,  402 => 188,  397 => 187,  392 => 184,  390 => 183,  387 => 182,  383 => 180,  381 => 179,  377 => 178,  372 => 176,  357 => 174,  349 => 173,  345 => 171,  342 => 170,  337 => 169,  334 => 168,  332 => 167,  324 => 162,  313 => 154,  303 => 147,  297 => 144,  292 => 141,  286 => 138,  283 => 137,  277 => 134,  274 => 133,  272 => 132,  227 => 94,  223 => 93,  197 => 74,  193 => 73,  180 => 62,  177 => 61,  167 => 53,  154 => 42,  139 => 29,  137 => 28,  121 => 19,  113 => 18,  105 => 17,  97 => 16,  89 => 15,  79 => 12,  71 => 11,  60 => 9,  55 => 7,  51 => 6,  40 => 2,  37 => 1,);
+        return array (  2199 => 1139,  2184 => 1127,  2165 => 1111,  2152 => 1101,  2148 => 1100,  2139 => 1097,  2137 => 1096,  2066 => 1028,  1972 => 937,  1968 => 936,  1961 => 932,  1956 => 930,  1951 => 928,  1947 => 927,  1935 => 918,  1925 => 911,  1921 => 910,  1895 => 909,  1869 => 908,  1853 => 907,  1837 => 906,  1821 => 905,  1817 => 904,  1797 => 887,  1774 => 867,  1745 => 841,  1702 => 801,  1691 => 792,  1687 => 791,  1676 => 790,  1669 => 785,  1665 => 783,  1663 => 782,  1649 => 771,  1645 => 770,  1641 => 769,  1637 => 768,  1632 => 766,  1601 => 737,  1598 => 736,  1595 => 735,  1593 => 734,  1571 => 715,  1563 => 712,  1553 => 704,  1551 => 703,  1546 => 700,  1532 => 697,  1529 => 696,  1527 => 695,  1524 => 694,  1518 => 691,  1515 => 690,  1513 => 689,  1501 => 679,  1498 => 678,  1495 => 677,  1487 => 671,  1477 => 667,  1473 => 666,  1469 => 665,  1466 => 664,  1462 => 663,  1444 => 648,  1440 => 646,  1437 => 645,  1434 => 644,  1407 => 642,  1402 => 641,  1400 => 640,  1397 => 639,  1388 => 632,  1371 => 629,  1366 => 628,  1362 => 627,  1355 => 623,  1350 => 620,  1348 => 619,  1345 => 618,  1339 => 616,  1337 => 615,  1334 => 614,  1326 => 612,  1323 => 611,  1320 => 610,  1313 => 606,  1309 => 605,  1304 => 604,  1302 => 603,  1297 => 600,  1294 => 599,  1290 => 597,  1276 => 596,  1273 => 595,  1270 => 594,  1267 => 593,  1264 => 592,  1256 => 590,  1248 => 588,  1239 => 582,  1237 => 581,  1232 => 580,  1229 => 579,  1226 => 578,  1208 => 577,  1206 => 576,  1203 => 575,  1200 => 574,  1195 => 571,  1189 => 569,  1186 => 568,  1179 => 563,  1166 => 561,  1162 => 560,  1155 => 556,  1152 => 555,  1149 => 554,  1143 => 550,  1133 => 546,  1129 => 545,  1126 => 544,  1122 => 543,  1118 => 542,  1112 => 539,  1109 => 538,  1107 => 537,  1102 => 535,  1099 => 534,  1090 => 527,  1080 => 523,  1076 => 522,  1071 => 520,  1067 => 519,  1064 => 518,  1060 => 517,  1055 => 515,  1048 => 511,  1043 => 508,  1041 => 507,  1031 => 500,  1026 => 498,  1022 => 497,  1013 => 495,  1010 => 494,  1008 => 493,  1005 => 492,  999 => 490,  997 => 489,  991 => 487,  989 => 486,  970 => 470,  966 => 469,  956 => 464,  950 => 461,  937 => 451,  931 => 448,  918 => 438,  912 => 435,  903 => 429,  900 => 428,  894 => 424,  885 => 423,  879 => 420,  869 => 414,  867 => 413,  859 => 408,  853 => 405,  844 => 399,  826 => 392,  820 => 389,  816 => 387,  810 => 385,  804 => 383,  802 => 382,  794 => 376,  788 => 374,  782 => 372,  780 => 371,  776 => 370,  772 => 369,  765 => 364,  758 => 359,  748 => 355,  744 => 354,  734 => 352,  730 => 351,  724 => 347,  714 => 345,  709 => 344,  703 => 340,  701 => 339,  697 => 337,  693 => 336,  676 => 322,  670 => 319,  666 => 318,  662 => 317,  603 => 260,  596 => 255,  592 => 253,  590 => 252,  584 => 249,  575 => 247,  567 => 246,  564 => 245,  561 => 244,  558 => 243,  551 => 238,  547 => 236,  545 => 235,  539 => 232,  530 => 230,  522 => 229,  519 => 228,  516 => 227,  509 => 222,  505 => 220,  503 => 219,  497 => 216,  488 => 214,  480 => 213,  477 => 212,  475 => 211,  470 => 208,  467 => 207,  460 => 206,  456 => 204,  451 => 201,  444 => 200,  436 => 196,  432 => 194,  426 => 192,  424 => 191,  416 => 190,  411 => 189,  408 => 188,  403 => 187,  398 => 184,  396 => 183,  393 => 182,  389 => 180,  387 => 179,  383 => 178,  378 => 176,  363 => 174,  354 => 173,  351 => 172,  345 => 171,  343 => 170,  340 => 169,  338 => 168,  334 => 166,  327 => 162,  316 => 154,  313 => 153,  311 => 152,  303 => 147,  297 => 144,  292 => 141,  286 => 138,  283 => 137,  277 => 134,  274 => 133,  272 => 132,  227 => 94,  223 => 93,  197 => 74,  193 => 73,  180 => 62,  177 => 61,  167 => 53,  154 => 42,  139 => 29,  137 => 28,  121 => 19,  113 => 18,  105 => 17,  97 => 16,  89 => 15,  79 => 12,  71 => 11,  60 => 9,  55 => 7,  51 => 6,  40 => 2,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -2314,7 +2410,7 @@ class __TwigTemplate_ec4c8615aa4f88c386affbc38bac22809438612aac9c65131d1bdfda2f5
                                         </div>
                                     </div>
                                 </div>
-
+                                {% if user.role_id!=12 %}
                                 <div class=\"kt-widget__footer kt-margin-t-15\">
                                     <a href=\"{{'dashboard/order-create'|page}}\" class=\"btn btn-label-brand btn-lg btn-upper btn-block\">
                                         <svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" width=\"24px\" height=\"24px\" viewBox=\"0 0 24 24\" version=\"1.1\" class=\"kt-svg-icon kt-svg-icon--light\">
@@ -2327,14 +2423,14 @@ class __TwigTemplate_ec4c8615aa4f88c386affbc38bac22809438612aac9c65131d1bdfda2f5
                                          <span>{{'Add Shipment'|__}}</span>
                                      </a>
                                 </div>
+                                {% endif %}
                             </div>
 
                             {% if mainMenu.menuItems %}
                           <ul class=\"kt-menu__nav \">
-                                    {% for item in mainMenu.menuItems if not item.viewBag.isHidden %}
-                                        {% if user.hasUserPermission(item.code, 'r') or item.code is empty %}
-
-
+                              {% if user.role_id!=12 %}
+                              {% for item in mainMenu.menuItems if not item.viewBag.isHidden %}
+                              {% if user.hasUserPermission(item.code, 'r') or item.code is empty %}
                                    <li class=\"kt-menu__item  {{ item.isActive or item.isChildActive or this.page.menu_breadcrumb == item.code ? 'kt-menu__item--open kt-menu__item--here' : '' }} kt-menu__item--submenu kt-menu__item--rel\" {% if item.items %}data-ktmenu-submenu-toggle=\"hover\" aria-haspopup=\"true\"{% endif %}>
                                                 <a href=\"{% if item.url %}{{ item.url }}{% else %}#{% endif %}\" class=\"kt-menu__link {% if item.items %}kt-menu__toggle{% endif %}\" {{ item.viewBag.isExternal ? 'target=\"_blank\"' }}>
                                                     <span class=\"kt-menu__link-icon\">
@@ -2369,10 +2465,45 @@ class __TwigTemplate_ec4c8615aa4f88c386affbc38bac22809438612aac9c65131d1bdfda2f5
                                             </li>
                                         {% endif %}
                                     {% endfor %}
+                                    {% endif %}
+
 
                                 </ul>
+                         {% if user.role_id==12 %}
                          <ul class=\"kt-menu__nav \">
-                             {% if user.role_id==12 %}
+                             <li class=\"kt-menu__item  {{ item.isActive or item.isChildActive or this.page.menu_breadcrumb == item.code ? 'kt-menu__item--open kt-menu__item--here' : '' }} kt-menu__item--submenu kt-menu__item--rel\" {% if item.items %}data-ktmenu-submenu-toggle=\"hover\" aria-haspopup=\"true\"{% endif %}>
+                                 <a href=\"/en/dashboard\" class=\"kt-menu__link {% if item.items %}kt-menu__toggle{% endif %}\" {{ item.viewBag.isExternal ? 'target=\"_blank\"' }}>
+                                 <span class=\"kt-menu__link-icon\">
+                                                     {{ item.viewBag.icon|raw }}
+                                                    </span>
+                                 <span class=\"kt-menu__link-text\">Dashboard</span>
+                                 {% if item.items %}
+                                 <i class=\"kt-menu__ver-arrow la la-angle-right\"></i>
+                                 {% endif %}
+                                 </a>
+
+                             </li>
+                         </ul>
+                         {% endif %}
+                         {% if user.role_id==5 %}
+                         <ul class=\"kt-menu__nav \">
+                             <li class=\"kt-menu__item  {{ item.isActive or item.isChildActive or this.page.menu_breadcrumb == item.code ? 'kt-menu__item--open kt-menu__item--here' : '' }} kt-menu__item--submenu kt-menu__item--rel\" {% if item.items %}data-ktmenu-submenu-toggle=\"hover\" aria-haspopup=\"true\"{% endif %}>
+                                 <a href=\"/en/bid/list\" class=\"kt-menu__link {% if item.items %}kt-menu__toggle{% endif %}\" {{ item.viewBag.isExternal ? 'target=\"_blank\"' }}>
+                                 <span class=\"kt-menu__link-icon\">
+                                                     {{ item.viewBag.icon|raw }}
+                                                    </span>
+                                 <span class=\"kt-menu__link-text\">Bids</span>
+                                 {% if item.items %}
+                                 <i class=\"kt-menu__ver-arrow la la-angle-right\"></i>
+                                 {% endif %}
+                                 </a>
+
+                             </li>
+                         </ul>
+                         {% endif %}
+                         {% endif %}
+                         {% if user.role_id==12 %}
+                         <ul class=\"kt-menu__nav \">
                              <li class=\"kt-menu__item  {{ item.isActive or item.isChildActive or this.page.menu_breadcrumb == item.code ? 'kt-menu__item--open kt-menu__item--here' : '' }} kt-menu__item--submenu kt-menu__item--rel\" {% if item.items %}data-ktmenu-submenu-toggle=\"hover\" aria-haspopup=\"true\"{% endif %}>
                                  <a href=\"/en/my-bids/list\" class=\"kt-menu__link {% if item.items %}kt-menu__toggle{% endif %}\" {{ item.viewBag.isExternal ? 'target=\"_blank\"' }}>
                                  <span class=\"kt-menu__link-icon\">
@@ -2385,9 +2516,9 @@ class __TwigTemplate_ec4c8615aa4f88c386affbc38bac22809438612aac9c65131d1bdfda2f5
                                  </a>
 
                              </li>
-                             {% endif %}
                          </ul>
-                            {% endif %}
+                         {% endif %}
+
 
 
 

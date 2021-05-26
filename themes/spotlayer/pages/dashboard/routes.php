@@ -4012,6 +4012,7 @@ Route::group(['prefix' => 'api'], function() {
         $records    =   $records->skip($skip)->take($perpage)->orderBy($field, $sort)->get();
 
         $recordsArray   =   array();
+        $address='storage/app/';
         foreach($records as $record){
             \Carbon\Carbon::setLocale(Config::get('app.locale'));
             $recordArray = array(
@@ -4019,6 +4020,7 @@ Route::group(['prefix' => 'api'], function() {
                 'name'                =>  $record->name,
                 'capacity'            =>  $record->capacity,
                 'description'         =>  $record->description,
+                'thumbnail'         => '<img src="/storage/app/'.$address.$record->thumbnail.'" alt="">',
             );
             array_push($recordsArray,$recordArray);
         }

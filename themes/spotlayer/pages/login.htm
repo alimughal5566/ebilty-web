@@ -99,6 +99,17 @@ return \Spot\Shipment\Models\Vehicles::select('id','name')->where('categories_id
     body{
         background-image: linear-gradient(to right, #EE8335, #FDC90E);
     }
+    .divs , .vehicle_category {
+        position: relative;
+    }
+    .option_min_add {
+        position: absolute;
+        right: -50px;
+        top: -10px;
+    }
+    .option_min_add.sec_min {
+        right: -22px;
+    }
 </style>
 <!-- begin:: Page -->
  <div class="kt-grid kt-grid--ver kt-grid--root kt-page custom-grid">
@@ -132,12 +143,12 @@ return \Spot\Shipment\Models\Vehicles::select('id','name')->where('categories_id
                                  {% endflash %}
                                  <div class="form-group">
                                      <label for="userSigninLogin" class="sr-only"></label>
-                                     <input class="form-control" type="text" placeholder="{{ loginAttributeLabel|__ }}" name="login" id="userSigninLogin" autocomplete="off">
+                                     <input class="form-control" type="text" placeholder="{{ loginAttributeLabel|__ }}" name="login" id="userSigninLogin" autocomplete="off" required>
                                      <i class="fa fa-user field-icon"></i>
                                  </div>
                                  <div class="form-group">
                                      <label for="userSigninPassword" class="sr-only"></label>
-                                     <input class="form-control form-control-last" type="Password" placeholder="{{'Password'|__}}" id="userSigninPassword" name="password">
+                                     <input class="form-control form-control-last" type="Password" placeholder="{{'Password'|__}}" id="userSigninPassword" name="password" required>
                                      <i class="fa fa-user field-icon"></i>
                                  </div>
                                  <div class="row kt-login__extra">
@@ -256,25 +267,28 @@ return \Spot\Shipment\Models\Vehicles::select('id','name')->where('categories_id
                                     </select>
                                 </div>
 
-                                <div class="input-group vehicle_category"  style="display:none">
+                                <div class="input-group vehicle_category" style="display:none">
                                     <label for="vehicle_category" class="sr-only"></label>
-                                    <select name="vehicle_category" requierd class="form-control selectpicker" data-dropup-auto="false" id="vehicle_category" autocomplete="off" >
-
+                                    <select name="vehicle_category[]" required class="form-control selectpicker" data-dropup-auto="false" id="vehicle_category" autocomplete="off">
                                         {% for category in categories_car %}
                                         <option value="{{category.id}}">{{category.title}}</option>
                                         {% endfor %}
-                                        <option  value="" selected disabled>Vehicle category</option>
+                                        <option value="" selected disabled>Vehicle category</option>
                                     </select>
+
+                                    <div class="option_min_add sec_min">
+                                        <span class="fa fa-plus-circle plos text-dark pls pt-5 mt-2 pl-1" id="first"></span>
+                                    </div>
                                 </div>
-                                <div class="input-group vehicle_type" style="display:none">
+                                <div class="input-group vehicle_type veh" style="display:none">
                                     <label for="vehicle_category" class="sr-only"></label>
-                                    <select  name="truck_used"  class="form-control " data-dropup-auto="false" id="truck_used" autocomplete="off" >
-<!--                                        {% for category in cars %}-->
-<!--                                        <option value="{{category.id}}">{{category.name}}</option>-->
-<!--                                        {% endfor %}-->
-<!--                                        <option  value="" selected disabled>Vehicle used</option>-->
+                                    <select  name="truck_used[]"  class="form-control" data-dropup-auto="false" id="truck_used" autocomplete="off" required>
                                     </select>
                                 </div>
+
+                                <div class="divs">
+                                </div>
+
         						<div class="input-group">
                                     <label for="registerPassword" class="sr-only"></label>
         							<input class="form-control" type="password" placeholder="{{'Password'|__}}" id="registerPassword" name="password" required>
@@ -530,7 +544,38 @@ return \Spot\Shipment\Models\Vehicles::select('id','name')->where('categories_id
             }
         });
         $(document).on('change', '#vehicle_category', function(){
-                $('.vehicle_type').show('2000');
+                $('.veh').show('2000');
+        });
+        var counter=0;
+        $(document).on('click', '.plos', function(){
+               var txt=`<div class="input-group div_${counter}" >
+                                    <label for="vehicle_category_${counter}" class="sr-only"></label>
+                                    <select name="vehicle_category[]" required class="form-control sbt" data-dropup-auto="false" id="vehicle_category_${counter}" data-id="${counter}" autocomplete="off">
+                                        {% for category in categories_car %}
+                                        <option value="{{category.id}}">{{category.title}}</option>
+                                        {% endfor %}
+                                        <option value="" selected disabled>Vehicle category</option>
+                                    </select>
+                                    <div class="option_min_add">
+                                        <span class="fa fa-minus-circle minus text-dark pls pt-5 mt-2 pl-1 " data-id="${counter}" ></span>&nbsp
+                                        <span class="fa fa-plus-circle plos text-dark pls pt-5 mt-2 pl-1"></span>
+                                    </div>
+                                </div>
+                                <div class="input-group vehicle_type" style="display: none"  id="type_${counter}">
+                                    <label for="vehicle_category" class="sr-only"></label>
+                                    <select  name="truck_used[]" class="form-control" data-dropup-auto="false" id="truck_used_${counter}" autocomplete="off" required >
+                                    </select>
+                                </div>
+                                </div>`;
+                             counter++;
+            $('.divs').append(txt);
+            $('#first').hide('3000')
+        });
+
+        $(document).on('click', '.minus', function(){
+            var id=$(this).attr('data-id');
+               $('.div_'+id).hide('3000')
+               $('#type_'+id).hide('3000')
 
         });
 
@@ -543,14 +588,35 @@ return \Spot\Shipment\Models\Vehicles::select('id','name')->where('categories_id
                     var html='';
                     $.each(response,function (key,value) {
                         html += '<option value="'+value.id+'">'+value.name+'</option>';
-                        // $("#truck_used").append('<option value=1>My option</option>');
                         console.log(value);
                     });
                     html += "<option value='' selected disabled>Choose type</option>";
                     $('#truck_used').empty().append(html);
                 }
             });
+        });
 
+        $(document).on('change', '.sbt', function(){
+            var id=$(this).attr('data-id');
+            console.log(this)
+           var val1= $('#vehicle_category_'+id+' option:selected').val();
+            // alert(id);
+            // return;
+            $.request('onChangefees1', {
+                method:'post',
+                data: {id:val1},
+                success: function(response, status, xhr, $form) {
+                    var html='';
+                    $.each(response,function (key,value) {
+                        html += '<option value="'+value.id+'">'+value.name+'</option>';
+                        // $("#truck_used").append('<option value=1>My option</option>');
+                        console.log(value);
+                    });
+                    html += "<option value='' selected disabled>Choose type</option>";
+                    $('#truck_used_'+id).empty().append(html);
+                    $('#type_'+id).show('3000');
+                }
+            });
         });
 
         var handleSignInFormSubmit = function() {
@@ -583,7 +649,6 @@ return \Spot\Shipment\Models\Vehicles::select('id','name')->where('categories_id
                 }
 
                 btn.addClass('kt-spinner kt-spinner--right kt-spinner--sm kt-spinner--light').attr('disabled', true);
-
 
                 $.request('onSignin', {
                     data: {login: $('#userSigninLogin').val(), password: $('#userSigninPassword').val()},
@@ -641,15 +706,46 @@ return \Spot\Shipment\Models\Vehicles::select('id','name')->where('categories_id
                 }
 
                 btn.addClass('kt-spinner kt-spinner--right kt-spinner--sm kt-spinner--light').attr('disabled', true);
+                var arr=[];
+                if(counter>0) {
+                    for (var i = 0; i < counter; i++) {
+                        var val = $("#vehicle_category_" + i + " option:selected").val();
+                        var typ = $("#type_" + i + " option:selected").val();
+                        if (val != '' && typ!='') {
+                            var ar = {cat: val, type: typ};
+                            arr.push(ar);
+                        }
+                    }
+                }
+                    var ar = {cat: $('#vehicle_category option:selected' ).val(), type: $('#truck_used option:selected').val()};
+                    arr.push(ar);
+
+
+// console.log(arr);
+//  return ;
 
                 $.request('onRegister', {
                     {% if loginAttribute == "username" %}
 
-                        data: {name: $('#registerName').val(), email: $('#registerEmail').val(), username: $('#registerUsername').val(), password: $('#registerPassword').val(), password_confirmation: $('#rpassword').val(), phone: $('#mobile').val(), postal_code: $('#postal_code').val(), cnic: $('#cnic_image').val(), bussiness_type: $('#bussiness_type').val(),user_role_id:$('#user_role_id').val(),vehicle_category:$('#vehicle_category option:selected' ).val(),truck_used:$('#truck_used option:selected').val()},
+                        data: {
+                        name: $('#registerName').val(),
+                                email: $('#registerEmail').val(),
+                                username: $('#registerUsername').val(),
+                                password: $('#registerPassword').val(),
+                                password_confirmation: $('#rpassword').val(),
+                                phone: $('#mobile').val(),
+                                postal_code: $('#postal_code').val(),
+                                cnic: $('#cnic_image').val(),
+                                bussiness_type: $('#bussiness_type').val(),
+                                user_role_id:$('#user_role_id').val(),
+                                vehicle_category:$('#vehicle_category option:selected' ).val(),
+                                truck_used:$('#truck_used option:selected').val()
+                                ,vehicles:arr
+                        },
 
                     {% else %}
 
-                        data: {name: $('#registerName').val(), email: $('#registerEmail').val(), password: $('#registerPassword').val(), phone: $('#mobile').val(), postal_code: $('#postal_code').val(), cnic: $('#cnic_image').val(), bussiness_type: $('#bussiness_type').val(), user_role_id:$('#user_role_id').val(),vehicle_category:$('#vehicle_category option:selected' ).val(),truck_used:$('#truck_used option:selected').val()},
+                        data: {name: $('#registerName').val(), email: $('#registerEmail').val(), password: $('#registerPassword').val(), phone: $('#mobile').val(), postal_code: $('#postal_code').val(), cnic: $('#cnic_image').val(), bussiness_type: $('#bussiness_type').val(), user_role_id:$('#user_role_id').val(),vehicle_category:$('#vehicle_category option:selected' ).val(),truck_used:$('#truck_used option:selected').val(),vehicles:arr},
 
                     {% endif %}
 
@@ -769,23 +865,34 @@ return \Spot\Shipment\Models\Vehicles::select('id','name')->where('categories_id
 
 
 
+     // // Select the image
+     // $("#cnic").change(function() {
+     // const fileInput = document.querySelector("#cnic");
+     // fileInput.addEventListener("change", (e) => {
+     //     // get a reference to the file
+     //     const file = e.target.files[0];
+     //     const reader = new FileReader();
+     //     reader.onloadend = () => {
+     //         $('#cnic_image').val(reader.result);
+     //         console.log(reader.result);
+     //     };
+     //     reader.readAsDataURL(file);
+     //     // console.log(reader.readAsDataURL(file));
+     // });
+     // });
+
      // Select the image
      $("#cnic").change(function() {
-     const fileInput = document.querySelector("#cnic");
-     fileInput.addEventListener("change", (e) => {
-         // get a reference to the file
-         const file = e.target.files[0];
+         const file = document.querySelector('input[type=file]').files[0];
          const reader = new FileReader();
-         reader.onloadend = () => {
+         reader.addEventListener("load", function () {
+             // convert image file to base64 string
              $('#cnic_image').val(reader.result);
-             console.log(reader.result);
-         };
-         reader.readAsDataURL(file);
-         // console.log(reader.readAsDataURL(file));
+         }, false);
+         if (file) {
+             reader.readAsDataURL(file);
+         }
      });
-     });
-
-
 
 
 
