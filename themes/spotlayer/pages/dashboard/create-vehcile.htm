@@ -214,7 +214,7 @@ return Redirect::to('dashboard/settings/'.$this->page->child_of_page);
             KTUtil.scrollTop();
         },
 
-        submitHandler: function (form) {
+        submitHandler: function (form){
             form[0].submit(); // submit the form
         }
     });

@@ -6373,6 +6373,7 @@ Route::group(['prefix' => 'api'], function() {
 
     })->middleware('web');
     Route::any('shipments/{type}', function(Request $req,$type) {
+       
         $request = post();
         $page                       =   $request['pagination']['page'];
         $perpage                    =   $request['pagination']['perpage'];

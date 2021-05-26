@@ -4,15 +4,13 @@
 
 {% else %}
 <div class="container">
-	<form
-			data-request-validate
+	<form data-request-validate
 			data-request-flash
 			data-request="onLogin"
 			id="signupForm">
 		<div class="form-group">
 			<label for="register{{account.signUp}}">{{account.signUp|capitalize}}</label>
-			<input
-					name="{{account.signUp}}"
+			<input name="{{account.signUp}}"
 					type='{% if account.signUp == "email" %}email{% else %}text{% endif %}'
 					class="form-control"
 					id="register{{account.signUp}}"
@@ -23,9 +21,8 @@
 		<span data-validate-for="{{account.signUp}}"></span><br>
 
 		<div class="form-group">
-			<label for="userSigninPassword">{{ "clake.userextended::lang.components.account.password"|trans }}</label>
-			<input
-					name="password"
+			<label for="userSigninPassword">{{"clake.userextended::lang.components.account.password"|trans }}</label>
+			<input name="password"
 					type="password"
 					class="form-control"
 					id="userSigninPassword"

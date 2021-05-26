@@ -51,14 +51,17 @@ function onStart() {
 }
 function onSave()
 {
+
+
     if(!Auth::getUser()->hasUserPermission(["order"],'c')) {
         throw new ApplicationException($this['theme_lang']['not_allowed']);
     }
     $data = post();
+
     $categories     =   \Spot\Shipment\Models\Category::select('id','name')->get();
     $addShipmentForm  = Settings::get('addShipmentForm',true);
     $companyData            =   Settings::get('company', true);
-    if ( $addShipmentForm == "add_form_normal")
+    if ($addShipmentForm == "add_form_normal")
     {
         $number = '';
         for($x = 0; $x <= $this['settings']['tracking']['numbers_order']; $x++){
@@ -68,7 +71,7 @@ function onSave()
         //dd($number);
         //$number = substr($number, -$this['settings']['tracking']['numbers_order']);
 
-        //$data['number']                 =   $number;
+        //$data['number'] =   $number;
 
         $prev   =   \Spot\Shipment\Models\Order::where('number', $number)->first();
         if($prev){
@@ -80,7 +83,6 @@ function onSave()
                 $item->sender_id             = Auth::getUser()->id;
                 $address                     =\Spot\Shipment\Models\Address::where('user_id',Auth::getUser()->id)->first();
                 $item->sender_address_id     = (($address) ? $address->id : null);
-
             }else{
                 $item->sender_id                    = htmlspecialchars($data['sender_id']);
                 $address      =   \Spot\Shipment\Models\Address::find($data['sender_address_id']);
@@ -226,6 +228,9 @@ function onSave()
         $item->courier_fee           = htmlspecialchars($data['courier_fee']);
         $item->type                  =2;
         $item->status_id             =19;
+        $item->ship_time     = $data['ship_time'];
+        $item->is_insured     = $data['is_insured'];
+        $item->created_by     = Auth::getUser()->id;
         if(isset($data['assigned_id']) && $data['assigned_id'] != ''){
             $item->assigned_id  = htmlspecialchars($data['assigned_id']);}
         $item->save();
@@ -511,6 +516,9 @@ function onSave()
         }
 
         if(Auth::getUser()->role_id == 5){
+            $item->ship_time     = $data['ship_time'];
+            $item->is_insured     = $data['is_insured'];
+            $item->created_by     = Auth::getUser()->id;
             $item->status_id        = 19;
             $item->requested        = 1;
         }else{
@@ -1913,7 +1921,7 @@ function onChangefees(){
                             {% if settings.shipments.enable_type == 1 %}
                                 <div class="kt-section">
                                     <h3 class="kt-section__title kt-margin-b-20">
-                                    {{'Shipment Type'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span>
+                                    {{'Book As'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span>
                                     </h3>
                                     <div class="kt-section__content">
                                         <div class="form-group form-group-last">
@@ -1929,12 +1937,12 @@ function onChangefees(){
                                                         <span class="kt-option__label">
                                                             <span class="kt-option__head">
                                                                 <span class="kt-option__title">
-                                                                    {{'Pickup'|__}}
+                                                                    {{'Sender'|__}}
                                                                 </span>
                                                                 <span class="kt-option__focus"></span>
                                                             </span>
                                                             <span class="kt-option__body">
-                                                                {{'For door to door delivery'|__}}
+                                                                {{'For sending a parcel'|__}}
                                                             </span>
                                                         </span>
                                                     </label>
@@ -1950,12 +1958,12 @@ function onChangefees(){
                                                         <span class="kt-option__label">
                                                             <span class="kt-option__head">
                                                                 <span class="kt-option__title">
-                                                                    {{'Drop off'|__}}
+                                                                    {{'Receiver'|__}}
                                                                 </span>
                                                                 <span class="kt-option__focus"></span>
                                                             </span>
                                                             <span class="kt-option__body">
-                                                                {{'For delivery package from branch directly'|__}}
+                                                                {{'For receiving shipment'|__}}
                                                             </span>
                                                         </span>
                                                     </label>
@@ -2002,7 +2010,120 @@ function onChangefees(){
                                             </div>
                                         </div>
                                     </div>
+                                <div class="form-group {%if settings.shipments.enable_package_type == 1 and settings.shipments.enable_branch == 1%}col-lg-4{%else%}col-lg-6{%endif%}">
+                                        <label>{{'Shipping Time'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
+                                        <div class="input-group ">
+                                            <input type="time" class="form-control ship_time"  name="ship_time" required>
+<!--                                            <div class="input-group-append">-->
+<!--                                                <span class="input-group-text">-->
+<!--                                                    <i class="la la-clock-o"></i>-->
+<!--                                                </span>-->
+<!--                                            </div>-->
+                                        </div>
+                                    </div>
                                 {% endif %}
+
+                                <div class="col-lg-4 offset-2">
+                                    <h3 class="kt-section__title kt-margin-b-5 pt-1">
+                                        {{'Delivery Type'|__}}&nbsp;<span class="kt-badge  "></span>
+                                    </h3>
+                                    <label class="kt-option">
+                                        <span class="kt-option__control">
+                                            <span class="kt-radio kt-radio--state-brand">
+                                                <input type="radio" name="dilivery_typ" class="dilivery_typ" value="2"  required checked>
+                                                <span></span>
+                                            </span>
+                                        </span>
+                                        <span class="kt-option__label">
+                                            <span class="kt-option__head">
+                                                <span class="kt-option__title">
+                                                    {{'Vehicle'|__}}
+                                                </span>
+                                                <span class="kt-option__focus"></span>
+                                            </span>
+                                            <span class="kt-option__body">
+                                                {{''|__}}
+                                            </span>
+                                        </span>
+                                    </label>
+                                </div>
+                                <div class="col-lg-4">
+                                    <h3 class="kt-section__title kt-margin-b-5 pt-1">
+                                        &nbsp;<span class=""></span>
+                                    </h3>
+                                    <label class="kt-option">
+                                        <span class="kt-option__control">
+                                            <span class="kt-radio kt-radio--state-brand">
+                                                <input type="radio" name="dilivery_typ" class="dilivery_typ" value="1"  required>
+                                                <span></span>
+                                            </span>
+                                        </span>
+                                        <span class="kt-option__label">
+                                            <span class="kt-option__head">
+                                                <span class="kt-option__title">
+                                                    {{'Package'|__}}
+                                                </span>
+                                                <span class="kt-option__focus"></span>
+                                            </span>
+                                            <span class="kt-option__body">
+                                                {{''|__}}
+                                            </span>
+                                        </span>
+                                    </label>
+                                </div>
+
+
+                                <div class="col-lg-4 offset-2">
+                                    <h3 class="kt-section__title kt-margin-b-5 pt-1 ">
+                                        {{'Wants to avail Insurance?'|__}}&nbsp;<span class="kt-badge  "></span>
+                                    </h3>
+                                    <label class="kt-option">
+                                        <span class="kt-option__control">
+                                            <span class="kt-radio kt-radio--state-brand">
+                                                <input type="radio" name="is_insured" class="is_insured" value="1"  required >
+                                                <span></span>
+                                            </span>
+                                        </span>
+                                        <span class="kt-option__label">
+                                            <span class="kt-option__head">
+                                                <span class="kt-option__title">
+                                                    {{'Yes'|__}}
+                                                </span>
+                                                <span class="kt-option__focus"></span>
+                                            </span>
+                                            <span class="kt-option__body">
+                                                {{''|__}}
+                                            </span>
+                                        </span>
+                                    </label>
+                                </div>
+                                <div class="col-lg-4">
+                                    <h3 class="kt-section__title kt-margin-b-5 pt-1">
+                                        &nbsp;<span class=""></span>
+                                    </h3>
+                                    <label class="kt-option">
+                                        <span class="kt-option__control">
+                                            <span class="kt-radio kt-radio--state-brand">
+                                                <input type="radio" name="is_insured" class="is_insured" value="0"  required checked>
+                                                <span></span>
+                                            </span>
+                                        </span>
+                                        <span class="kt-option__label">
+                                            <span class="kt-option__head">
+                                                <span class="kt-option__title">
+                                                    {{'No'|__}}
+                                                </span>
+                                                <span class="kt-option__focus"></span>
+                                            </span>
+                                            <span class="kt-option__body">
+                                                {{''|__}}
+                                            </span>
+                                        </span>
+                                    </label>
+                                </div>
+
+
+
                             </div>
                         </div>
                     </div>
@@ -2089,18 +2210,19 @@ function onChangefees(){
 
                     {% endif %}
                     <div class="base_sender {%if user.role_id == 5 and settings.customers.anotherCustomer == 1%}kt-hidden{% endif %}">
-                        <div class="form-group row">
+                        <div class="form-group row col-md-12">
                             <label>{{'Sender'|__}}/{{'Client'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
-                            {% if user.role_id == 5 %}
+                             <span class="dev1 col-12">
                                 <input name="sender_id" id="sender_id"  value="{{user.id}}" type="hidden" />
-                                <input value="{{user.name}}" type="text" class="form-control" disabled />
-                            {% else %}
+                                <input value="{{user.name}}" type="text" class="form-control"  />
+                            </span>
+                            <div class="dev2 kt-hidden col-12">
                                 <select class="form-control clients" name="sender_id" id="sender_id" required>
                                     <option data-hidden="true"></option>
                                     <option value="new" data-icon="flaticon2-add">{{'Add New'|__}}</option>
                                 </select>
                                 <span class="text-muted">{{'Choose or add a new client that will send the package'|__}}</span>
-                            {% endif %}
+                            </div>
                         </div>
                         {% if user.role_id == 5 %}
                             {% if user.mobile is null %}
@@ -2455,7 +2577,7 @@ function onChangefees(){
                         <div class="kt-portlet__body">
                             <div class="form-group row">
                                 <label>{{'Receiver'|__}}/{{'Client'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
-                                <select class="form-control clients" name="receiver_id" id="receiver_id" equired>
+                                <select class="form-control clients" name="receiver_id" id="receiver_id" required>
                                     <option data-hidden="true"></option>
                                     <option value="new" data-icon="flaticon2-add">{{'Add New'|__}}</option>
                                 </select>
@@ -3156,7 +3278,7 @@ function onChangefees(){
 
 
 
-    <div class="col-lg-12">
+    <div class="col-lg-12 sec5">
         <div class="panel panel-default">
             <div class="kt-portlet kt-portlet--mobile">
                 <div class="panel panel-heading">
@@ -3176,7 +3298,7 @@ function onChangefees(){
                                 <label>{{'Budget'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text">{{'Budget'|__}}</span></div>
-                                    <input  type="number" class="form-control budget_client" name="budget_client" min="1" placeholder="Your budget">
+                                    <input  type="number" class="form-control budget_client" name="budget_client" min="1" placeholder="Your budget" >
                                 </div>
                             </div>
 
@@ -3455,18 +3577,29 @@ KTUtil.ready(function () {
 
 
 
+
+
+
   
 
     $('body').on('click', '.type', function(e){
+
         var selected = $(this).val();
+        alert(selected)
         if(selected == 2){
             $('.type_1').addClass('kt-hidden');
             $('.type_2').removeClass('kt-hidden');
+
         }else{
+
+
+            
+
             $('.type_1').removeClass('kt-hidden');
             $('.type_2').addClass('kt-hidden');
             var show_receiver_info = $('.show_receiver_info:checked').val();
             if(show_receiver_info == 2){
+
                 $('.receiver_information').addClass('kt-hidden');
             }else{
                 $('.receiver_information').removeClass('kt-hidden');
@@ -3569,6 +3702,7 @@ KTUtil.ready(function () {
          });
     });
     $('body').on('change', '#sender_id', function(e, clickedIndex, newValue, oldValue){
+
         var selected = $(e.currentTarget).val();
         if(selected == 'new'){
             $('select.sender_address_id').html('').val('').selectpicker('refresh');
@@ -3674,9 +3808,9 @@ KTUtil.ready(function () {
             });
             $.request('onNewclient', {
                  {% if addShipmentForm == "add_form_normal" %}
-                 data: {name: parent.find('.name').val(),email: parent.find('.email').val(), vat: parent.find('.vat').val(),budget: parent.find('.budget').val() ,street_addr: parent.find('.street').val(), num: parent.find('.num').val(), box: parent.find('.box').val(), city_id: parent.find('.city_id').find("option:selected").val(), postal_code: parent.find('.postal_code').val(),  country_id: parent.find('.country_id').find("option:selected").val(), lang: parent.find('.lang').find("option:selected").val(), clearance: parent.find('.clearance').val(), fiscal: parent.find('.fiscal').val(),payment_term: parent.find('.payment_term').val(),price_kg: parent.find('.price_kg').val(),storage_fee: parent.find('.feeRadio:checked').val(),cost_24: parent.find('.cost_24').val(),cost_48: parent.find('.cost_48').val(),budget_client: parent.find('.budget_client').val(),vehicle_category: parent.find('#vehicle_category').val(),vehicle_type: parent.find('.make_radio_slide').val()},
+                 data: {name: parent.find('.name').val(),email: parent.find('.email').val(), vat: parent.find('.vat').val(),budget: parent.find('.budget').val() ,street_addr: parent.find('.street').val(), num: parent.find('.num').val(), box: parent.find('.box').val(), city_id: parent.find('.city_id').find("option:selected").val(), postal_code: parent.find('.postal_code').val(),  country_id: parent.find('.country_id').find("option:selected").val(), lang: parent.find('.lang').find("option:selected").val(), clearance: parent.find('.clearance').val(), fiscal: parent.find('.fiscal').val(),payment_term: parent.find('.payment_term').val(),price_kg: parent.find('.price_kg').val(),storage_fee: parent.find('.feeRadio:checked').val(),cost_24: parent.find('.cost_24').val(),cost_48: parent.find('.cost_48').val(),budget_client: parent.find('.budget_client').val(),vehicle_category: parent.find('#vehicle_category').val(),vehicle_type: parent.find('.make_radio_slide').val(),ship_time: parent.find('.ship_time').val(),is_insured: parent.find('.is_insured').val()},
                  {% else %}
-                 data: { name: parent.find('.name').val(), mobile: parent.find('.mobile').val(), email: parent.find('.email').val(), gender: parent.find('.gender:checked').val(), street_addr: parent.find('.street_addr').val(), lat: parent.find('.lat').val(), lng: parent.find('.lng').val(), url: parent.find('.url').val(), area_id: parent.find('.area_id').find("option:selected").val(), city_id: parent.find('.city_id').find("option:selected").val(), postal_code: parent.find('.postal_code').val(), state_id: parent.find('.state_id').find("option:selected").val(), country_id: parent.find('.country_id').find("option:selected").val(), connect: parent.find('.connect:checked').val(), username: parent.find('.username').val(), password: parent.find('.password').val(),budget_client: parent.find('.budget_client').val(),vehicle_category: parent.find('#vehicle_category').val(),vehicle_type: parent.find('.make_radio_slide').val()},
+                 data: { name: parent.find('.name').val(), mobile: parent.find('.mobile').val(), email: parent.find('.email').val(), gender: parent.find('.gender:checked').val(), street_addr: parent.find('.street_addr').val(), lat: parent.find('.lat').val(), lng: parent.find('.lng').val(), url: parent.find('.url').val(), area_id: parent.find('.area_id').find("option:selected").val(), city_id: parent.find('.city_id').find("option:selected").val(), postal_code: parent.find('.postal_code').val(), state_id: parent.find('.state_id').find("option:selected").val(), country_id: parent.find('.country_id').find("option:selected").val(), connect: parent.find('.connect:checked').val(), username: parent.find('.username').val(), password: parent.find('.password').val(),budget_client: parent.find('.budget_client').val(),vehicle_category: parent.find('#vehicle_category').val(),vehicle_type: parent.find('.make_radio_slide').val(),ship_time: parent.find('.ship_time').val(),is_insured: parent.find('.is_insured').val()},
                  {% endif %}
 
                  error: function(response, status, xhr, $form) {
@@ -3846,6 +3980,14 @@ KTUtil.ready(function () {
         $('select.sender_address_id').val('').selectpicker('refresh');
         $('#addnewsenderaddress').addClass('kt-hidden');
     });
+    $('body').on('click', '.dilivery_typ', function(e){
+        if($('.dilivery_typ:checked').val()==1){
+            $('.sec5').addClass('kt-hidden');
+        }else{
+            $('.sec5').removeClass('kt-hidden');
+        }
+
+    });
 
 
 
@@ -3869,8 +4011,6 @@ KTUtil.ready(function () {
                      }else if(selected != ''){
                          $('#addnewreceiveraddress').addClass('kt-hidden');
                      }
-
-
 
                      var selected = response.default;
                      {% if settings.shipments.enable_type != 1 %}
@@ -3976,6 +4116,7 @@ KTUtil.ready(function () {
         $('#addnewreceiver').addClass('kt-hidden');
     });
 
+
     $('body').on('changed.bs.select', '.receiver_address_id', function(e, clickedIndex, newValue, oldValue){
         var selected = $(e.currentTarget).val();
         if(selected == 'new'){
@@ -3999,6 +4140,7 @@ KTUtil.ready(function () {
                 validation = 0;
             }
         });
+
 
         if(validation){
             KTApp.blockPage({
@@ -4203,7 +4345,6 @@ KTUtil.ready(function () {
                 })
                 $request.done(success)
                 $request.fail(failure)
-
                 return $request
             },
             dataType: 'json',
@@ -4243,8 +4384,7 @@ KTUtil.ready(function () {
                     return this.value;
                 }).get();
                 var total_weight =0;
-                for (var i=0;i<all.length;i++)
-                {
+                for(var i=0;i<all.length;i++){
                     total_weight =total_weight + parseInt(all[i]);
                 }
                 $('.total_weight').val(total_weight);
@@ -4288,6 +4428,9 @@ KTUtil.ready(function () {
         min: 0,
         max: 10000,
     });
+
+
+
 
     $('.address').each(function(){
         var address = $(this);
@@ -4340,21 +4483,18 @@ KTUtil.ready(function () {
             $('#ccost').addClass('kt-hidden');
     });
 
-    // $('body').on('change', '.sub_weight', function(){
-    //     alert($('.sub_weight').val());
-    //     var sub_weight = Number ( $(this).val() );
-    //     var total_weight =  Number ( $('.total_weight').val() );
-    //     total_weight += sub_weight ;
-    //     $('.total_weight').val(total_weight);
-    //     alert($('.total_weight').val());
-
-    // });
+    $('body').on('change', '.sub_weight', function(){
+        alert($('.sub_weight').val());
+        var sub_weight = Number ( $(this).val() );
+        var total_weight =  Number ( $('.total_weight').val() );
+        total_weight += sub_weight ;
+        $('.total_weight').val(total_weight);
+        alert($('.total_weight').val());
+    });
 
     $('body').on('click', '.return_defray', function(){
         if($(this).val() == 1){
             $('.package_fee').removeClass('kt-hidden');
-
-
              var sender_address_id = $('#sender_address_id').val();
              var receiver_address_id = $('#receiver_address_id').val();
              var packaging_id = $('#packaging_id').val();
@@ -4389,5 +4529,8 @@ KTUtil.ready(function () {
         $(this).val(('{% for i in '1'..settings.tracking.numbers_order %}0{% endfor %}' + $(this).val()).slice(-{{settings.tracking.numbers_order}}));
     });
 });
+
+
+
 </script>
 {% endput %}
