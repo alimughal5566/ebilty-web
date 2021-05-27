@@ -1,4 +1,4 @@
-1622034818a:1:{s:25:"dashboard/create-fees.htm";a:20:{s:8:"fileName";s:25:"dashboard/create-fees.htm";s:7:"content";s:29913:"title = "Create New Fees"
+1622037714a:1:{s:25:"dashboard/create-fees.htm";a:20:{s:8:"fileName";s:25:"dashboard/create-fees.htm";s:7:"content";s:29913:"title = "Create New Fees"
 url = "/dashboard/settings/fees/create"
 layout = "admin"
 is_hidden = 0
@@ -563,7 +563,7 @@ function onSave()
     });
 </script>
 {% endput %}
-";s:5:"mtime";i:1622031599;s:6:"markup";s:25578:"<div class="kt-grid kt-grid--desktop kt-grid--ver-desktop  kt-inbox" id="kt_inbox">
+";s:5:"mtime";i:1620289248;s:6:"markup";s:25578:"<div class="kt-grid kt-grid--desktop kt-grid--ver-desktop  kt-inbox" id="kt_inbox">
 
     <!-- begin:: Aside -->
     {% partial 'settingsmenu' %}

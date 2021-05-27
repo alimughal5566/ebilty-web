@@ -26,6 +26,8 @@ function onStart() {
     $this->page->stretch        = true;
 
     $this['primary_currency']=   \Responsiv\Currency\Models\Currency::where('is_primary', 1)->first();
+    $this['spot_shipment_address']=   \Spot\Shipment\Models\Address::where('user_id', Auth::getUser()->id)->first();
+
     $this['employees']      =   \RainLab\User\Models\User::whereNotIn('role_id',[1,5])->select('id','name')->get();
     $this['packaging']      =   \Spot\Shipment\Models\Packaging::select('id','name')->get();
     $this['modes']          =   \Spot\Shipment\Models\Mode::select('id','name')->get();
@@ -47,7 +49,7 @@ function onStart() {
     $this['languages']      =   \RainLab\Translate\Models\Locale::select('id', 'name','code')->get();
     $this['addShipmentForm']      =   Settings::get('addShipmentForm',true);
     $this['payment']      =   Settings::get('payment', true);
-   // dd($max);
+ //dd($max);
 }
 function onSave()
 {
@@ -1672,7 +1674,7 @@ function onChangefees(){
             <div class="kt-portlet__body">
                 <div class="row">
                     <div class="form-group col-lg-6">
-                        <input name="sender_id" id="sender_id" value="{{user.id}}" type="hidden" />
+                        <input name="sender_id" id="sender_id" value="{{user.id}}" type="hidden" class="snder_id"/>
                         <label>{{'Sender Name'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
                         <input type="text" class="form-control name" name="sender_name" required />
                     </div>
@@ -2210,9 +2212,9 @@ function onChangefees(){
 
                     {% endif %}
                     <div class="base_sender {%if user.role_id == 5 and settings.customers.anotherCustomer == 1%}kt-hidden{% endif %}">
-                        <div class="form-group row col-md-12">
+                        <div class="form-group row col-md-12 pl-0">
                             <label>{{'Sender'|__}}/{{'Client'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
-                             <span class="dev1 col-12">
+                             <span class="dev1 col-12 p-0">
                                 <input name="sender_id" id="sender_id"  value="{{user.id}}" type="hidden" />
                                 <input value="{{user.name}}" type="text" class="form-control"  />
                             </span>
@@ -2234,14 +2236,12 @@ function onChangefees(){
                         {% endif %}
                         <div class="form-group row">
                             <label>{{'Sender Address'|__}}/{{'Client Address'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
-                            <select class="form-control sender_address_id" name="sender_address_id" id="sender_address_id" data-live-search="true" title="{{'Please select sender first'|__}}" required>
-                                <option data-hidden="true"></option><label>{{'Sender'|__}}/{{'Client'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
-                                {% if user.role_id == 5 %}
-                                    {% for address in user.addresses %}
-                                        <option value="{{address.id}}" {% if address.default == 1 %}selected{% endif %}>{{address.name}}</option>
-                                    {% endfor %}
-                                    <option value="new" data-icon="flaticon2-add">{{'Add New'|__}}</option>
+                            <select class="form-control sender_address_id" name="sender_address_id" id="sender_address_id" data-live-search="true" title="{{'Sender City'|__}}" required>
+                                {% if spot_shipment_address %}
+                                      <option value="{{spot_shipment_address.id}}" class="usr" selected >{{spot_shipment_address.name}}</option>
                                 {% endif %}
+                                <option value='' class='rem' disabled>Please Choose sender</option>
+                                <option value="new" data-icon="flaticon2-add">{{'Add New'|__}}</option>
                             </select>
                         </div>
                     </div>
@@ -2577,16 +2577,28 @@ function onChangefees(){
                         <div class="kt-portlet__body">
                             <div class="form-group row">
                                 <label>{{'Receiver'|__}}/{{'Client'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
+                                <span class="dev21 col-12 kt-hidden ">
+                                <input name="receiver_id" id="receiver_id"  value="{{user.id}}" type="hidden" />
+                                <input value="{{user.name}}" type="text" class="form-control"  />
+                                 </span>
+
+                                <div class="dev31 col-12 p-0">
                                 <select class="form-control clients" name="receiver_id" id="receiver_id" required>
                                     <option data-hidden="true"></option>
                                     <option value="new" data-icon="flaticon2-add">{{'Add New'|__}}</option>
                                 </select>
                                 <span class="text-muted">{{'Choose or add a new client that will receive the package'|__}}</span>
+                                </div>
                             </div>
                             <div class="form-group row">
                                 <label>{{'Receiver Address'|__}}/{{'Client Address'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
-                                <select class="form-control receiver_address_id" name="receiver_address_id" id="receiver_address_id" data-live-search="true" title="{{'Please select receiver first'|__}}" required>
+                                <select class="form-control receiver_address_id" name="receiver_address_id" id="receiver_address_id" data-live-search="true" title="{{'Address'|__}}" required>
                                     <option data-hidden="true"></option>
+                                    {% if spot_shipment_address %}
+                                    <option class='usr1' value="{{spot_shipment_address.id}}" data-hidden="true" >{{spot_shipment_address.name}}</option>
+                                    {% endif %}
+                                    <option value="new" data-icon="flaticon2-add">{{'Add New'|__}}</option>
+                                    <option class='rem1' selected disabled >Choose address</option>
                                 </select>
                             </div>
                             <div class="row kt-hidden" id="addnewreceiver">
@@ -3297,8 +3309,8 @@ function onChangefees(){
                             <div class="form-group col-lg-8">
                                 <label>{{'Budget'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
                                 <div class="input-group">
-                                    <div class="input-group-prepend"><span class="input-group-text">{{'Budget'|__}}</span></div>
-                                    <input  type="number" class="form-control budget_client" name="budget_client" min="1" placeholder="Your budget" >
+                                    <div class="input-group-prepend"><span class="input-group-text">{{'package Value'|__}}</span></div>
+                                    <input  type="number" class="form-control budget_client" name="budget_client" min="1" placeholder="package Value" >
                                 </div>
                             </div>
 
@@ -3572,27 +3584,52 @@ KTUtil.ready(function () {
             $('.another_sender').addClass('kt-hidden');
         }
 
-
     });
-
-
-
-
 
 
   
 
     $('body').on('click', '.type', function(e){
-
         var selected = $(this).val();
-        alert(selected)
         if(selected == 2){
+
+            $('.dev2').removeClass('kt-hidden');
+            $('.dev1').addClass('kt-hidden');
+
+            $('.dev21').removeClass('kt-hidden');
+            $('.dev31').addClass('kt-hidden');
+
             $('.type_1').addClass('kt-hidden');
             $('.type_2').removeClass('kt-hidden');
 
+            $('.usr').addClass('kt-hidden');
+            $('.rem').prop('selected', true);
+            $('.sender_address_id').change()
+
+            $('.usr1').prop('selected', true);
+            $('.usr1').prop('dat-hidden', false);
+            $('.receiver_address_id').change();
+
+
         }else{
+            $(".rem").hide();
+            $('.usr').prop('selected', true);
+            $('.rem').prop('selected', false);
+            $('.sender_address_id').change();
 
 
+
+            $('.rem1').prop('selected', true);
+            $('.receiver_address_id').change();
+
+
+
+
+            $('.dev1').removeClass('kt-hidden');
+            $('.usr').removeClass('kt-hidden');
+            $('.dev2').addClass('kt-hidden');
+            $('.dev31').removeClass('kt-hidden');
+            $('.dev21').addClass('kt-hidden');
 
 
             $('.type_1').removeClass('kt-hidden');

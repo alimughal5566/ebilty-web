@@ -1,4 +1,4 @@
-1622034819a:1:{s:22:"dashboard/treasury.htm";a:20:{s:8:"fileName";s:22:"dashboard/treasury.htm";s:7:"content";s:26873:"title = "Treasury View"
+1622037714a:1:{s:22:"dashboard/treasury.htm";a:20:{s:8:"fileName";s:22:"dashboard/treasury.htm";s:7:"content";s:26873:"title = "Treasury View"
 url = "/dashboard/treasury/:id/view"
 layout = "admin"
 is_hidden = 0
@@ -627,7 +627,7 @@ KTUtil.ready(function () {
 });
 </script>
 {% endput %}
-";s:5:"mtime";i:1622031599;s:6:"markup";s:26403:"<!--Begin::App-->
+";s:5:"mtime";i:1620289248;s:6:"markup";s:26403:"<!--Begin::App-->
 <div class="kt-grid kt-grid--desktop kt-grid--ver kt-grid--ver-desktop kt-app">
 
     <!--Begin:: App Content-->

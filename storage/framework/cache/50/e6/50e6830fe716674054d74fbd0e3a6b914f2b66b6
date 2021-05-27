@@ -1,4 +1,4 @@
-1622034818a:1:{s:29:"dashboard/container-print.htm";a:19:{s:8:"fileName";s:29:"dashboard/container-print.htm";s:7:"content";s:50424:"title = "Container Print"
+1622037713a:1:{s:29:"dashboard/container-print.htm";a:19:{s:8:"fileName";s:29:"dashboard/container-print.htm";s:7:"content";s:50424:"title = "Container Print"
 url = "/dashboard/containers/:id/print/:type"
 layout = "blank"
 is_hidden = 0
@@ -1073,7 +1073,7 @@ KTUtil.ready(function () {
 });
 </script>
 {% endput %}
-";s:5:"mtime";i:1622031599;s:6:"markup";s:47052:"{% if this.param.type == 'container' %}
+";s:5:"mtime";i:1620289248;s:6:"markup";s:47052:"{% if this.param.type == 'container' %}
     <div id="page-wrap" style="page-break-after: always;">
         <table width="100%">
             <tr>

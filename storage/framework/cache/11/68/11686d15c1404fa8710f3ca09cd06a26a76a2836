@@ -1,4 +1,4 @@
-1622034819a:1:{s:25:"dashboard/update-fees.htm";a:20:{s:8:"fileName";s:25:"dashboard/update-fees.htm";s:7:"content";s:40913:"title = "Update Fees"
+1622037714a:1:{s:25:"dashboard/update-fees.htm";a:20:{s:8:"fileName";s:25:"dashboard/update-fees.htm";s:7:"content";s:40913:"title = "Update Fees"
 url = "/dashboard/settings/fees/:id/edit"
 layout = "admin"
 is_hidden = 0
@@ -713,7 +713,7 @@ $('.bootstrap-touchspin-vertical-btn').TouchSpin({
     });
 </script>
 {% endput %}
-";s:5:"mtime";i:1622031599;s:6:"markup";s:34508:"<div class="kt-grid kt-grid--desktop kt-grid--ver-desktop  kt-inbox" id="kt_inbox">
+";s:5:"mtime";i:1620289248;s:6:"markup";s:34508:"<div class="kt-grid kt-grid--desktop kt-grid--ver-desktop  kt-inbox" id="kt_inbox">
 
     <!-- begin:: Aside -->
     {% partial 'settingsmenu' %}

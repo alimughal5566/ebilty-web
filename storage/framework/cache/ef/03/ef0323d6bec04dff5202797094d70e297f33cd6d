@@ -1,4 +1,4 @@
-1622034819a:1:{s:23:"dashboard/shipments.htm";a:19:{s:8:"fileName";s:23:"dashboard/shipments.htm";s:7:"content";s:132704:"title = "Shipments"
+1622037714a:1:{s:23:"dashboard/shipments.htm";a:19:{s:8:"fileName";s:23:"dashboard/shipments.htm";s:7:"content";s:132721:"title = "Shipments"
 url = "/dashboard/shipments/:type?"
 layout = "admin"
 is_hidden = 0
@@ -17,6 +17,7 @@ localeTitle[ar] = "إدارة الطلبات"
 ==
 <?php
 function onStart(){
+var_dump('ss');
     if(!Auth::getUser()->hasUserPermission(["order"],'r')) {
         \Flash::error($this['theme_lang']['not_allowed']);
     }
@@ -2669,7 +2670,7 @@ KTUtil.ready(function () {
 });
 </script>
 {% endput %}
-";s:5:"mtime";i:1622032563;s:6:"markup";s:94780:"<!--begin::Portlet-->
+";s:5:"mtime";i:1622025671;s:6:"markup";s:94780:"<!--begin::Portlet-->
 <div class="kt-portlet kt-portlet--tabs">
     <div class="kt-portlet__head">
         <div class="kt-portlet__head-toolbar">
@@ -4427,7 +4428,8 @@ KTUtil.ready(function () {
     });
 });
 </script>
-{% endput %}";s:4:"code";s:37566:"function onStart(){
+{% endput %}";s:4:"code";s:37583:"function onStart(){
+var_dump('ss');
     if(!Auth::getUser()->hasUserPermission(["order"],'r')) {
         \Flash::error($this['theme_lang']['not_allowed']);
     }

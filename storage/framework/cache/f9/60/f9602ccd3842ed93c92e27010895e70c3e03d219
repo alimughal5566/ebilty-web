@@ -1,4 +1,4 @@
-1622034818a:1:{s:7:"bid.htm";a:22:{s:8:"fileName";s:7:"bid.htm";s:7:"content";s:4027:"title = "Bids List"
+1622037713a:1:{s:7:"bid.htm";a:22:{s:8:"fileName";s:7:"bid.htm";s:7:"content";s:4027:"title = "Bids List"
 subtitle = "Bids List"
 url = "/bid/list"
 layout = "admin"
@@ -103,7 +103,7 @@ join('spot_shipment_order' , 'spot_shipment_order.id','spot_shipment_bid.order_i
             }
         })
     }
-</script>";s:5:"mtime";i:1622032563;s:6:"markup";s:3091:"<div class="row">
+</script>";s:5:"mtime";i:1621595206;s:6:"markup";s:3091:"<div class="row">
     <div class="col-lg-12">
         <div class="kt-portlet kt-portlet--mobile">
             <div class="kt-portlet__head">

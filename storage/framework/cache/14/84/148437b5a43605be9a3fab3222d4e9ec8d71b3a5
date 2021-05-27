@@ -1,4 +1,4 @@
-1622034819a:1:{s:29:"dashboard/update-manifest.htm";a:19:{s:8:"fileName";s:29:"dashboard/update-manifest.htm";s:7:"content";s:33846:"title = "Edit Manifest"
+1622037714a:1:{s:29:"dashboard/update-manifest.htm";a:19:{s:8:"fileName";s:29:"dashboard/update-manifest.htm";s:7:"content";s:33846:"title = "Edit Manifest"
 url = "/dashboard/shipments/manifest/:id/edit"
 layout = "admin"
 is_hidden = 0
@@ -838,7 +838,7 @@ KTUtil.ready(function () {
 });
 </script>
 {% endput %}
-";s:5:"mtime";i:1622031599;s:6:"markup";s:29264:"<div class="kt-portlet ">
+";s:5:"mtime";i:1620289248;s:6:"markup";s:29264:"<div class="kt-portlet ">
     {{ form_ajax('onSave', { success: 'created successfully!', flash: true, class: 'kt_form' }) }}
         <div class="kt-portlet__body">
             <div class="form-group form-group-last kt-hide">

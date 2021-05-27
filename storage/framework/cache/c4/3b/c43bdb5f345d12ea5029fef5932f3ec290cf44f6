@@ -1,4 +1,4 @@
-1622034819a:1:{s:22:"dashboard/manifest.htm";a:19:{s:8:"fileName";s:22:"dashboard/manifest.htm";s:7:"content";s:32513:"title = "Manifest View"
+1622037714a:1:{s:22:"dashboard/manifest.htm";a:19:{s:8:"fileName";s:22:"dashboard/manifest.htm";s:7:"content";s:32513:"title = "Manifest View"
 url = "/dashboard/shipments/manifest/:id/view"
 layout = "admin"
 is_hidden = 0
@@ -765,7 +765,7 @@ KTUtil.ready(function () {
 });
 </script>
 {% endput %}
-";s:5:"mtime";i:1622031599;s:6:"markup";s:31226:"<div class="kt-portlet ">
+";s:5:"mtime";i:1620289248;s:6:"markup";s:31226:"<div class="kt-portlet ">
     <div class="kt-portlet__body">
         <div class="kt-widget kt-widget--user-profile-3">
             <div class="kt-widget__top">

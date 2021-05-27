@@ -1,4 +1,4 @@
-1622034819a:1:{s:27:"dashboard/update-branch.htm";a:20:{s:8:"fileName";s:27:"dashboard/update-branch.htm";s:7:"content";s:18148:"title = "Update Branch"
+1622037714a:1:{s:27:"dashboard/update-branch.htm";a:20:{s:8:"fileName";s:27:"dashboard/update-branch.htm";s:7:"content";s:18148:"title = "Update Branch"
 url = "/dashboard/settings/branches/:id/edit"
 layout = "admin"
 is_hidden = 0
@@ -367,7 +367,7 @@ function onListareas(){
         initAjaxSelectPicker('{{url("api/selectareas")}}','.area_id','.area_id');
     });
 </script>
-{% endput %}";s:5:"mtime";i:1622031599;s:6:"markup";s:13449:"<div class="kt-grid kt-grid--desktop kt-grid--ver-desktop  kt-inbox" id="kt_inbox">
+{% endput %}";s:5:"mtime";i:1620289248;s:6:"markup";s:13449:"<div class="kt-grid kt-grid--desktop kt-grid--ver-desktop  kt-inbox" id="kt_inbox">
 
     <!-- begin:: Aside -->
     {% partial 'settingsmenu' %}

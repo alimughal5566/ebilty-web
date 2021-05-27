@@ -1,4 +1,4 @@
-1622034818a:1:{s:33:"dashboard/create-deliverytime.htm";a:20:{s:8:"fileName";s:33:"dashboard/create-deliverytime.htm";s:7:"content";s:6869:"title = "Create Delivery Time"
+1622037714a:1:{s:33:"dashboard/create-deliverytime.htm";a:20:{s:8:"fileName";s:33:"dashboard/create-deliverytime.htm";s:7:"content";s:6869:"title = "Create Delivery Time"
 url = "/dashboard/settings/deliverytimes/create"
 layout = "admin"
 is_hidden = 0
@@ -161,7 +161,7 @@ function onSave()
     });
 </script>
 {% endput %}
-";s:5:"mtime";i:1622031599;s:6:"markup";s:5115:"<div class="kt-grid kt-grid--desktop kt-grid--ver-desktop  kt-inbox" id="kt_inbox">
+";s:5:"mtime";i:1620289248;s:6:"markup";s:5115:"<div class="kt-grid kt-grid--desktop kt-grid--ver-desktop  kt-inbox" id="kt_inbox">
 
     <!-- begin:: Aside -->
     {% partial 'settingsmenu' %}
