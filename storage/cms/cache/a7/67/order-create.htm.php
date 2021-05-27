@@ -1,5 +1,5 @@
 <?php 
-use \Spot\Shipment\Models\Settings;class Cms60ae550a345df726682939_cf53c4903a4e93a8ff05abd76564bb28Class extends Cms\Classes\PageCode
+use \Spot\Shipment\Models\Settings;class Cms60af9115aa77e948946956_7730ba712b17374953983596f40dc77eClass extends Cms\Classes\PageCode
 {
 
 public function onStart() {
@@ -12,6 +12,8 @@ public function onStart() {
     $this->page->stretch        = true;
 
     $this['primary_currency']=   \Responsiv\Currency\Models\Currency::where('is_primary', 1)->first();
+    $this['spot_shipment_address']=   \Spot\Shipment\Models\Address::where('user_id', Auth::getUser()->id)->first();
+
     $this['employees']      =   \RainLab\User\Models\User::whereNotIn('role_id',[1,5])->select('id','name')->get();
     $this['packaging']      =   \Spot\Shipment\Models\Packaging::select('id','name')->get();
     $this['modes']          =   \Spot\Shipment\Models\Mode::select('id','name')->get();
@@ -33,7 +35,7 @@ public function onStart() {
     $this['languages']      =   \RainLab\Translate\Models\Locale::select('id', 'name','code')->get();
     $this['addShipmentForm']      =   Settings::get('addShipmentForm',true);
     $this['payment']      =   Settings::get('payment', true);
-   // dd($max);
+ //dd($max);
 }
 public function onSave()
 {
