@@ -47,7 +47,7 @@ class __TwigTemplate_1c377934830bbbd2f3c5b48fceb32c498afa0cdd156d27eca75cc18c995
     .option_min_add {
         position: absolute;
         right: -27px;
-        top: -10px;
+        top: 30px;
     }
     .option_min_add.sec_min {
         right: -22px;
@@ -335,7 +335,7 @@ class __TwigTemplate_1c377934830bbbd2f3c5b48fceb32c498afa0cdd156d27eca75cc18c995
                                     </select>
 
                                     <div class=\"option_min_add sec_min\">
-                                        <span class=\"fa fa-plus-circle plos text-dark pls pt-5 mt-2 pl-1\" id=\"first\"></span>
+                                        <span class=\"fa fa-plus-circle plos text-dark \" id=\"first\" data-placement=\"top\" data-toggle=\"kt-tooltip\" data-skin=\"dark\" data-original-title=\"Add More Vehincle\"></span>
                                     </div>
                                 </div>
                                 <div class=\"input-group vehicle_type veh\" style=\"display:none\">
@@ -722,7 +722,7 @@ class __TwigTemplate_1c377934830bbbd2f3c5b48fceb32c498afa0cdd156d27eca75cc18c995
         echo "                                        <option value=\"\" selected disabled>Vehicle category</option>
                                     </select>
                                     <div class=\"option_min_add\">
-                                        <span class=\"fa fa-minus-circle minus text-dark pls pt-5 mt-2 pl-1 \" data-id=\"\${counter}\" ></span>&nbsp
+                                        <span class=\"fa fa-minus-circle minus text-dark \"  data-placement=\"top\" data-toggle=\"kt-tooltip\" data-skin=\"dark\" data-original-title=\"Add More Vehincle\" data-id=\"\${counter}\"  ></span>&nbsp
                                        
                                     </div>
                                 </div>
@@ -1144,7 +1144,7 @@ class __TwigTemplate_1c377934830bbbd2f3c5b48fceb32c498afa0cdd156d27eca75cc18c995
     .option_min_add {
         position: absolute;
         right: -27px;
-        top: -10px;
+        top: 30px;
     }
     .option_min_add.sec_min {
         right: -22px;
@@ -1319,7 +1319,7 @@ class __TwigTemplate_1c377934830bbbd2f3c5b48fceb32c498afa0cdd156d27eca75cc18c995
                                     </select>
 
                                     <div class=\"option_min_add sec_min\">
-                                        <span class=\"fa fa-plus-circle plos text-dark pls pt-5 mt-2 pl-1\" id=\"first\"></span>
+                                        <span class=\"fa fa-plus-circle plos text-dark \" id=\"first\" data-placement=\"top\" data-toggle=\"kt-tooltip\" data-skin=\"dark\" data-original-title=\"Add More Vehincle\"></span>
                                     </div>
                                 </div>
                                 <div class=\"input-group vehicle_type veh\" style=\"display:none\">
@@ -1599,7 +1599,7 @@ class __TwigTemplate_1c377934830bbbd2f3c5b48fceb32c498afa0cdd156d27eca75cc18c995
                                         <option value=\"\" selected disabled>Vehicle category</option>
                                     </select>
                                     <div class=\"option_min_add\">
-                                        <span class=\"fa fa-minus-circle minus text-dark pls pt-5 mt-2 pl-1 \" data-id=\"\${counter}\" ></span>&nbsp
+                                        <span class=\"fa fa-minus-circle minus text-dark \"  data-placement=\"top\" data-toggle=\"kt-tooltip\" data-skin=\"dark\" data-original-title=\"Add More Vehincle\" data-id=\"\${counter}\"  ></span>&nbsp
                                        
                                     </div>
                                 </div>
