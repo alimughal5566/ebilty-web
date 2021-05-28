@@ -121,9 +121,9 @@ class __TwigTemplate_9e222151a18aa73175cd2969021fa1c6892befa017ea8b137fdacf4fd2f
             echo "','";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["bid"], "revise_comment", [], "any", false, false, false, 40), "html", null, true);
             echo "')\" class=\"btn btn-font-danger ";
-            echo (((twig_get_attribute($this->env, $this->source, $context["bid"], "revise_status", [], "any", false, false, false, 40) == 1)) ? ("btn-success") : ((((twig_get_attribute($this->env, $this->source, $context["bid"], "revise_status", [], "any", false, false, false, 40) == 2)) ? ("btn-danger") : ((((twig_get_attribute($this->env, $this->source, $context["bid"], "revise_status", [], "any", false, false, false, 40) == 3)) ? ("btn-warning") : (""))))));
+            echo (((twig_get_attribute($this->env, $this->source, $context["bid"], "revise_status", [], "any", false, false, false, 40) == 1)) ? ("btn-success") : ((((twig_get_attribute($this->env, $this->source, $context["bid"], "revise_status", [], "any", false, false, false, 40) == 2)) ? ("btn-danger") : ((((twig_get_attribute($this->env, $this->source, $context["bid"], "revise_amount_shipper", [], "any", false, false, false, 40) == "")) ? ("btn-warning") : ("btn-info"))))));
             echo " px-2 w-auto delete_record kt-font-light btn-icon\" data-skin=\"dark\" data-toggle=\"kt-tooltip\" data-placement=\"top\" title=\"";
-            echo (((twig_get_attribute($this->env, $this->source, $context["bid"], "revise_status", [], "any", false, false, false, 40) == 1)) ? ("Price revision accepted") : ((((twig_get_attribute($this->env, $this->source, $context["bid"], "revise_status", [], "any", false, false, false, 40) == 2)) ? ("Price revision rejected") : ((((twig_get_attribute($this->env, $this->source, $context["bid"], "revise_status", [], "any", false, false, false, 40) == 3)) ? ("Send price revision request") : (""))))));
+            echo (((twig_get_attribute($this->env, $this->source, $context["bid"], "revise_status", [], "any", false, false, false, 40) == 1)) ? ("Price revision accepted") : ((((twig_get_attribute($this->env, $this->source, $context["bid"], "revise_status", [], "any", false, false, false, 40) == 2)) ? ("Price revision rejected") : ((((twig_get_attribute($this->env, $this->source, $context["bid"], "revise_amount_shipper", [], "any", false, false, false, 40) == "")) ? ("Send price revision request") : ("Waiting For revision approvel"))))));
             echo "\">revision</a></td>
 
                                 </tr>
@@ -205,15 +205,12 @@ class __TwigTemplate_9e222151a18aa73175cd2969021fa1c6892befa017ea8b137fdacf4fd2f
 
     function setStatus2(id,amount,revised_amount,revise_status,revise_comment){
 
-        if(revise_status==2 || revise_status==1){
+        if(revise_status==2 || revise_status==1 || revised_amount!=''){
             \$('.beds').removeClass('d-none');
             \$('#prev').val(amount);
             \$('#amt').val(revised_amount);
             \$('.sbmet').addClass('d-none');
-
-
         }else {
-
             \$('.sbmet').removeClass('d-none');
             \$('.beds').addClass('d-none');
             \$('#prev').val(amount);
@@ -221,7 +218,6 @@ class __TwigTemplate_9e222151a18aa73175cd2969021fa1c6892befa017ea8b137fdacf4fd2f
         }
       // alert( revise_comment)
         if(revise_status==2 || revise_status==1){
-
             \$('#cmt').val(revise_comment);
             \$('.comnt').removeClass('d-none');
         }else{
@@ -328,7 +324,7 @@ class __TwigTemplate_9e222151a18aa73175cd2969021fa1c6892befa017ea8b137fdacf4fd2f
                                     <td>
                                     <a style=\"border-radius: 17px !important;\" href=\"javascript:void(0);\" onclick=\"setStatus('{{bid.bidid}}','{{bid.status_approved}}')\" class=\"btn btn-warning btn-sm delete_record kt-font-light btn-icon\" rel=\"'+data.id+'\" data-skin=\"dark\" data-toggle=\"kt-tooltip\" data-placement=\"top\" title=\"{{(bid.status_approved==1)?'Cancel Bid':((bid.status_approved==2)?'Cancel Bid':'Accept Bid')}}\"><i class=\"{{(bid.status_approved==1)?'fa fa-check-double':((bid.status_approved==2)?'fa fa-times':'fa fa-pause')}}\"></i></a>
 
-                                    <a style=\"border-radius: 2px !important;\" href=\"javascript:void(0);\" onclick=\"setStatus2('{{bid.bidid}}','{{bid.bid_amount}}','{{bid.revise_amount_shipper}}','{{bid.revise_status}}','{{bid.revise_comment}}')\" class=\"btn btn-font-danger {{(bid.revise_status==1)?'btn-success':((bid.revise_status==2)?'btn-danger':(bid.revise_status==3)?'btn-warning':'')}} px-2 w-auto delete_record kt-font-light btn-icon\" data-skin=\"dark\" data-toggle=\"kt-tooltip\" data-placement=\"top\" title=\"{{(bid.revise_status==1)?'Price revision accepted':((bid.revise_status==2)?'Price revision rejected':(bid.revise_status==3)?'Send price revision request':'')}}\">revision</a></td>
+                                    <a style=\"border-radius: 2px !important;\" href=\"javascript:void(0);\" onclick=\"setStatus2('{{bid.bidid}}','{{bid.bid_amount}}','{{bid.revise_amount_shipper}}','{{bid.revise_status}}','{{bid.revise_comment}}')\" class=\"btn btn-font-danger {{(bid.revise_status==1)?'btn-success':((bid.revise_status==2)?'btn-danger':((bid.revise_amount_shipper=='')?'btn-warning':'btn-info'))}} px-2 w-auto delete_record kt-font-light btn-icon\" data-skin=\"dark\" data-toggle=\"kt-tooltip\" data-placement=\"top\" title=\"{{(bid.revise_status==1)?'Price revision accepted':((bid.revise_status==2)?'Price revision rejected':(bid.revise_amount_shipper=='')?'Send price revision request':'Waiting For revision approvel')}}\">revision</a></td>
 
                                 </tr>
                                 {% endfor %}
@@ -401,15 +397,12 @@ class __TwigTemplate_9e222151a18aa73175cd2969021fa1c6892befa017ea8b137fdacf4fd2f
 
     function setStatus2(id,amount,revised_amount,revise_status,revise_comment){
 
-        if(revise_status==2 || revise_status==1){
+        if(revise_status==2 || revise_status==1 || revised_amount!=''){
             \$('.beds').removeClass('d-none');
             \$('#prev').val(amount);
             \$('#amt').val(revised_amount);
             \$('.sbmet').addClass('d-none');
-
-
         }else {
-
             \$('.sbmet').removeClass('d-none');
             \$('.beds').addClass('d-none');
             \$('#prev').val(amount);
@@ -417,7 +410,6 @@ class __TwigTemplate_9e222151a18aa73175cd2969021fa1c6892befa017ea8b137fdacf4fd2f
         }
       // alert( revise_comment)
         if(revise_status==2 || revise_status==1){
-
             \$('#cmt').val(revise_comment);
             \$('.comnt').removeClass('d-none');
         }else{

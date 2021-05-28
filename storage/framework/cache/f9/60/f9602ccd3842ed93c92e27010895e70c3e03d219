@@ -1,4 +1,4 @@
-1622208127a:1:{s:7:"bid.htm";a:22:{s:8:"fileName";s:7:"bid.htm";s:7:"content";s:8858:"title = "Bids List"
+1622209620a:1:{s:7:"bid.htm";a:22:{s:8:"fileName";s:7:"bid.htm";s:7:"content";s:8929:"title = "Bids List"
 subtitle = "Bids List"
 url = "/bid/list"
 layout = "admin"
@@ -77,7 +77,7 @@ join('spot_shipment_order' , 'spot_shipment_order.id','spot_shipment_bid.order_i
                                     <td>
                                     <a style="border-radius: 17px !important;" href="javascript:void(0);" onclick="setStatus('{{bid.bidid}}','{{bid.status_approved}}')" class="btn btn-warning btn-sm delete_record kt-font-light btn-icon" rel="'+data.id+'" data-skin="dark" data-toggle="kt-tooltip" data-placement="top" title="{{(bid.status_approved==1)?'Cancel Bid':((bid.status_approved==2)?'Cancel Bid':'Accept Bid')}}"><i class="{{(bid.status_approved==1)?'fa fa-check-double':((bid.status_approved==2)?'fa fa-times':'fa fa-pause')}}"></i></a>
 
-                                    <a style="border-radius: 2px !important;" href="javascript:void(0);" onclick="setStatus2('{{bid.bidid}}','{{bid.bid_amount}}','{{bid.revise_amount_shipper}}','{{bid.revise_status}}','{{bid.revise_comment}}')" class="btn btn-font-danger {{(bid.revise_status==1)?'btn-success':((bid.revise_status==2)?'btn-danger':(bid.revise_status==3)?'btn-warning':'')}} px-2 w-auto delete_record kt-font-light btn-icon" data-skin="dark" data-toggle="kt-tooltip" data-placement="top" title="{{(bid.revise_status==1)?'Price revision accepted':((bid.revise_status==2)?'Price revision rejected':(bid.revise_status==3)?'Send price revision request':'')}}">revision</a></td>
+                                    <a style="border-radius: 2px !important;" href="javascript:void(0);" onclick="setStatus2('{{bid.bidid}}','{{bid.bid_amount}}','{{bid.revise_amount_shipper}}','{{bid.revise_status}}','{{bid.revise_comment}}')" class="btn btn-font-danger {{(bid.revise_status==1)?'btn-success':((bid.revise_status==2)?'btn-danger':((bid.revise_amount_shipper=='')?'btn-warning':'btn-info'))}} px-2 w-auto delete_record kt-font-light btn-icon" data-skin="dark" data-toggle="kt-tooltip" data-placement="top" title="{{(bid.revise_status==1)?'Price revision accepted':((bid.revise_status==2)?'Price revision rejected':(bid.revise_amount_shipper=='')?'Send price revision request':'Waiting For revision approvel')}}">revision</a></td>
 
                                 </tr>
                                 {% endfor %}
@@ -150,15 +150,12 @@ join('spot_shipment_order' , 'spot_shipment_order.id','spot_shipment_bid.order_i
 
     function setStatus2(id,amount,revised_amount,revise_status,revise_comment){
 
-        if(revise_status==2 || revise_status==1){
+        if(revise_status==2 || revise_status==1 || revised_amount!=''){
             $('.beds').removeClass('d-none');
             $('#prev').val(amount);
             $('#amt').val(revised_amount);
             $('.sbmet').addClass('d-none');
-
-
         }else {
-
             $('.sbmet').removeClass('d-none');
             $('.beds').addClass('d-none');
             $('#prev').val(amount);
@@ -166,7 +163,6 @@ join('spot_shipment_order' , 'spot_shipment_order.id','spot_shipment_bid.order_i
         }
       // alert( revise_comment)
         if(revise_status==2 || revise_status==1){
-
             $('#cmt').val(revise_comment);
             $('.comnt').removeClass('d-none');
         }else{
@@ -214,7 +210,7 @@ join('spot_shipment_order' , 'spot_shipment_order.id','spot_shipment_bid.order_i
 
 
 
-</script>";s:5:"mtime";i:1622207525;s:6:"markup";s:7750:"<div class="row">
+</script>";s:5:"mtime";i:1622209019;s:6:"markup";s:7821:"<div class="row">
     <div class="col-lg-12">
         <div class="kt-portlet kt-portlet--mobile">
             <div class="kt-portlet__head">
@@ -253,7 +249,7 @@ join('spot_shipment_order' , 'spot_shipment_order.id','spot_shipment_bid.order_i
                                     <td>
                                     <a style="border-radius: 17px !important;" href="javascript:void(0);" onclick="setStatus('{{bid.bidid}}','{{bid.status_approved}}')" class="btn btn-warning btn-sm delete_record kt-font-light btn-icon" rel="'+data.id+'" data-skin="dark" data-toggle="kt-tooltip" data-placement="top" title="{{(bid.status_approved==1)?'Cancel Bid':((bid.status_approved==2)?'Cancel Bid':'Accept Bid')}}"><i class="{{(bid.status_approved==1)?'fa fa-check-double':((bid.status_approved==2)?'fa fa-times':'fa fa-pause')}}"></i></a>
 
-                                    <a style="border-radius: 2px !important;" href="javascript:void(0);" onclick="setStatus2('{{bid.bidid}}','{{bid.bid_amount}}','{{bid.revise_amount_shipper}}','{{bid.revise_status}}','{{bid.revise_comment}}')" class="btn btn-font-danger {{(bid.revise_status==1)?'btn-success':((bid.revise_status==2)?'btn-danger':(bid.revise_status==3)?'btn-warning':'')}} px-2 w-auto delete_record kt-font-light btn-icon" data-skin="dark" data-toggle="kt-tooltip" data-placement="top" title="{{(bid.revise_status==1)?'Price revision accepted':((bid.revise_status==2)?'Price revision rejected':(bid.revise_status==3)?'Send price revision request':'')}}">revision</a></td>
+                                    <a style="border-radius: 2px !important;" href="javascript:void(0);" onclick="setStatus2('{{bid.bidid}}','{{bid.bid_amount}}','{{bid.revise_amount_shipper}}','{{bid.revise_status}}','{{bid.revise_comment}}')" class="btn btn-font-danger {{(bid.revise_status==1)?'btn-success':((bid.revise_status==2)?'btn-danger':((bid.revise_amount_shipper=='')?'btn-warning':'btn-info'))}} px-2 w-auto delete_record kt-font-light btn-icon" data-skin="dark" data-toggle="kt-tooltip" data-placement="top" title="{{(bid.revise_status==1)?'Price revision accepted':((bid.revise_status==2)?'Price revision rejected':(bid.revise_amount_shipper=='')?'Send price revision request':'Waiting For revision approvel')}}">revision</a></td>
 
                                 </tr>
                                 {% endfor %}
@@ -326,15 +322,12 @@ join('spot_shipment_order' , 'spot_shipment_order.id','spot_shipment_bid.order_i
 
     function setStatus2(id,amount,revised_amount,revise_status,revise_comment){
 
-        if(revise_status==2 || revise_status==1){
+        if(revise_status==2 || revise_status==1 || revised_amount!=''){
             $('.beds').removeClass('d-none');
             $('#prev').val(amount);
             $('#amt').val(revised_amount);
             $('.sbmet').addClass('d-none');
-
-
         }else {
-
             $('.sbmet').removeClass('d-none');
             $('.beds').addClass('d-none');
             $('#prev').val(amount);
@@ -342,7 +335,6 @@ join('spot_shipment_order' , 'spot_shipment_order.id','spot_shipment_bid.order_i
         }
       // alert( revise_comment)
         if(revise_status==2 || revise_status==1){
-
             $('#cmt').val(revise_comment);
             $('.comnt').removeClass('d-none');
         }else{
