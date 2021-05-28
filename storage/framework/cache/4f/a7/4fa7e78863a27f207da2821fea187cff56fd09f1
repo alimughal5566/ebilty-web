@@ -1,4 +1,4 @@
-1622198207a:1:{s:9:"login.htm";a:21:{s:8:"fileName";s:9:"login.htm";s:7:"content";s:48873:"title = "Login"
+1622199178a:1:{s:9:"login.htm";a:21:{s:8:"fileName";s:9:"login.htm";s:7:"content";s:49043:"title = "Login"
 url = "/login/:code?"
 layout = "blank"
 is_hidden = 0
@@ -105,7 +105,7 @@ return \Spot\Shipment\Models\Vehicles::select('id','name')->where('categories_id
     .option_min_add {
         position: absolute;
         right: -27px;
-        top: -10px;
+        top: 30px;
     }
     .option_min_add.sec_min {
         right: -22px;
@@ -280,7 +280,7 @@ return \Spot\Shipment\Models\Vehicles::select('id','name')->where('categories_id
                                     </select>
 
                                     <div class="option_min_add sec_min">
-                                        <span class="fa fa-plus-circle plos text-dark pls pt-5 mt-2 pl-1" id="first"></span>
+                                        <span class="fa fa-plus-circle plos text-dark " id="first" data-placement="top" data-toggle="kt-tooltip" data-skin="dark" data-original-title="Add More Vehincle"></span>
                                     </div>
                                 </div>
                                 <div class="input-group vehicle_type veh" style="display:none">
@@ -560,7 +560,7 @@ return \Spot\Shipment\Models\Vehicles::select('id','name')->where('categories_id
                                         <option value="" selected disabled>Vehicle category</option>
                                     </select>
                                     <div class="option_min_add">
-                                        <span class="fa fa-minus-circle minus text-dark pls pt-5 mt-2 pl-1 " data-id="${counter}" ></span>&nbsp
+                                        <span class="fa fa-minus-circle minus text-dark "  data-placement="top" data-toggle="kt-tooltip" data-skin="dark" data-original-title="Add More Vehincle" data-id="${counter}"  ></span>&nbsp
                                        
                                     </div>
                                 </div>
@@ -907,7 +907,7 @@ return \Spot\Shipment\Models\Vehicles::select('id','name')->where('categories_id
 
  </script>
  {% endput %}
-";s:5:"mtime";i:1622186659;s:6:"markup";s:46407:"<style>
+";s:5:"mtime";i:1622198575;s:6:"markup";s:46577:"<style>
     /*$this['departments']=\Spot\Shipment\Models\UsersGroups::where('id','!=',1)->get();*/
     /*<!--dd($this['departments']);-->*/
 
@@ -920,7 +920,7 @@ return \Spot\Shipment\Models\Vehicles::select('id','name')->where('categories_id
     .option_min_add {
         position: absolute;
         right: -27px;
-        top: -10px;
+        top: 30px;
     }
     .option_min_add.sec_min {
         right: -22px;
@@ -1095,7 +1095,7 @@ return \Spot\Shipment\Models\Vehicles::select('id','name')->where('categories_id
                                     </select>
 
                                     <div class="option_min_add sec_min">
-                                        <span class="fa fa-plus-circle plos text-dark pls pt-5 mt-2 pl-1" id="first"></span>
+                                        <span class="fa fa-plus-circle plos text-dark " id="first" data-placement="top" data-toggle="kt-tooltip" data-skin="dark" data-original-title="Add More Vehincle"></span>
                                     </div>
                                 </div>
                                 <div class="input-group vehicle_type veh" style="display:none">
@@ -1375,7 +1375,7 @@ return \Spot\Shipment\Models\Vehicles::select('id','name')->where('categories_id
                                         <option value="" selected disabled>Vehicle category</option>
                                     </select>
                                     <div class="option_min_add">
-                                        <span class="fa fa-minus-circle minus text-dark pls pt-5 mt-2 pl-1 " data-id="${counter}" ></span>&nbsp
+                                        <span class="fa fa-minus-circle minus text-dark "  data-placement="top" data-toggle="kt-tooltip" data-skin="dark" data-original-title="Add More Vehincle" data-id="${counter}"  ></span>&nbsp
                                        
                                     </div>
                                 </div>

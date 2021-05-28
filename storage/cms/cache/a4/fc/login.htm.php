@@ -1,5 +1,5 @@
 <?php 
-class Cms60b0a04b90ef4786711289_a017ed9a06d29d58be9b9399f2a34784Class extends Cms\Classes\PageCode
+class Cms60b0c93230694866124027_5715d4ab9a8b1a63c93c9433ec292880Class extends Cms\Classes\PageCode
 {
 public function onStart(){
     if(Auth::getUser()){
