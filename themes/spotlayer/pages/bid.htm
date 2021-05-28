@@ -68,9 +68,12 @@ join('spot_shipment_order' , 'spot_shipment_order.id','spot_shipment_bid.order_i
                                     <td>{{bid.id}}</td>
                                     <td>{{bid.name}}</td>
                                     <td>{{bid.route}}</td>
-                                    <td>{{bid.bid_amount}}
+                                    <td>
                                         {% if  bid.revise_status ==1 %}
-                                        <small class="text-success">({{bid.revise_amount_shipper}})</small>
+                                        {{bid.revise_amount_shipper}}  <small class="text-danger">({{bid.bid_amount}})</small>
+                                        {% endif %}
+                                        {% if  bid.revise_status !=1 %}
+                                        {{bid.bid_amount}}
                                         {% endif %}
                                     </td>
                                     <td>{{(bid.status_approved==1)?'Approved':((bid.status_approved==2)?'Declined':'Pending')}}</td>

@@ -84,14 +84,17 @@ return 1;
                                 <tr>
                                     <td>
 <!--                                    <a href="/en/dashboard/shipments/{{bid.order_id}}/view" > {{bid.order_id}}</a></td>-->
-                                    <a > {{bid.order_id}}</a></td>
+                                    <a> {{bid.order_id}}</a></td>
 <!--                                    <td>{{this['settings']['tracking']['prefix_order'].bid.order_id}}</td>-->
                                     <td>{{bid.name}}</td>
                                     <td>{{bid.delivery_date}}</td>
                                     <td>{{bid.route}}</td>
-                                    <td>{{bid.bid_amount}}
+                                    <td>
                                         {% if  bid.revise_status ==1 %}
-                                        <small class="text-success">({{bid.revise_amount_shipper}})</small>
+                                        {{bid.revise_amount_shipper}}  <small class="text-danger">({{bid.bid_amount}})</small>
+                                        {% endif %}
+                                        {% if  bid.revise_status !=1 %}
+                                        {{bid.bid_amount}}
                                         {% endif %}
                                     </td>
                                     <td>{{bid.city}}</td>

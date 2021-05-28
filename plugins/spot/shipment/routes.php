@@ -6869,7 +6869,9 @@ Route::group(['prefix' => 'api'], function() {
             ->join('spot_vehicle_crud' , 'spot_vehicle_crud.id' , 'spot_shipment_order.truck_used')
             ->join('spot_shipment_address' , 'spot_shipment_address.id' , 'spot_shipment_order.receiver_address_id')
             ->select('spot_vehicle_crud.name as ve_name','spot_vehicle_crud.model as ve_model','spot_categories_crud.title as title' , 'spot_shipment_address.name as receiver_addr', 'spot_shipment_address.street as street' , 'spot_shipment_order.price_kg' , 'spot_shipment_order.truck_used as truck_id','spot_shipment_order.budget_client as budget_client')->first();
-        die(json_encode($order));
+
+        $items = \Spot\Shipment\Models\Item::where('order_id' , $request['id'])->get();
+        die(json_encode(['order'=>$order,'items'=>$items]));
 
     });
     Route::any('set/bid/status' , function (Request $req){
@@ -6961,7 +6963,9 @@ Route::group(['prefix' => 'api'], function() {
         $field                      =   ((isset($request['sort']['field']))? $request['sort']['field'] : 'id');
         $skip                       =   intval(($page-1)*$perpage);
 
-        $records    =   \Spot\Shipment\Models\Order::orderBy($field, $sort)->whereHas('vehicle_id');
+        $records    =   \Spot\Shipment\Models\Order::orderBy($field, $sort)->with('items')->whereHas('vehicle_id');
+//        var_dump($records);
+//        die();
         switch (Auth::getUser()->role_id) {
             case 1:
                 $records    =   $records->where('requested','!=',100);
@@ -7217,8 +7221,6 @@ Route::group(['prefix' => 'api'], function() {
             $payStatus =$record->all_payments()->where('description','courier_fee')->where('item_id',$record->id)->first();
 
 
-
-
             $recordArray = array(
                 'id'                    =>  $record->id,
                 'user_id'               => Auth::getUser()->id,
@@ -7248,6 +7250,7 @@ Route::group(['prefix' => 'api'], function() {
                 'shipping_area'         =>  (($record->type == 1) ? $shipping_from_area_id : $shipping_to_area_id),
                 'time_diff'             =>  $time_diff,
                 'paymentStatus'         =>  (($payStatus)? $payStatus->payment_status : '-'),
+                'items'         =>  $record->items,
             );
             array_push($recordsArray,$recordArray);
         }

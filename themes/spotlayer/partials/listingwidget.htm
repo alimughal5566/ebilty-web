@@ -137,9 +137,13 @@ return Redirect::back();
                         if(data.receiver && data.receiver.name && data.receiver.name != '-'){
                             output      += '\
                                     <a href="{% if user.hasUserPermission('client', 'r') %}{{url('dashboard/clients')}}/'+data.receiver.id+'/view{% else %}javascript:;{% endif %}" class="kt-margin-t-5 kt-user-card-v2__name"><b>{{"Receiver"|__}}:</b> ' + data.receiver.name + '</a>';
+                            if(data.shipping_from_area && + data.shipping_from_area != '-'){
+                                output      += '\
+                                    <span class="kt-user-card-v2__email"><b class="kt-font-boldest">{{"From"|__}}:</b> ' + data.shipping_from_area + '  </span>';
+                            }
                             if(data.shipping_to_area && + data.shipping_to_area != '-'){
                                 output      += '\
-                                    <span class="kt-user-card-v2__email"><b class="kt-font-boldest">{{"To"|__}}:</b> ' + data.shipping_to_area + '</span>';
+                                    <span class="kt-user-card-v2__email"><b class="kt-font-boldest">{{"To"|__}}:</b> ' + data.shipping_to_area + '  </span>';
                             }
                         }else if(data.receiver_name && data.receiver_name != '-'){
                             output  += '\
@@ -199,6 +203,25 @@ return Redirect::back();
 
                         return output;
                     }
+                },                {
+                    field: "items",
+                    title: "{{'Items'|__}}",
+                    sortable: false,
+                    width: 'auto',
+                    template: function(row) {
+                        var output='';
+                        if(row.items.length>0){
+                            $( row.items ).each(function( index, value ) {
+                                output += '<span class="">Description: '+value.description+'</span><br>';
+                                output += '<span class="btn-label-primary">Qty: '+value.quantity+'</span> '
+                                output += '<span class=" btn-label-primary">Weight: '+value.weight+'</span><br>';
+                            })
+                        }else{
+                            output += '<span class="">No item found</span><br>';
+                        }
+
+                        return output;
+                    }
                 },
                 {
                     field: "Actions",
@@ -211,10 +234,6 @@ return Redirect::back();
                         var output = '' +
                             '<div id="shipmentbtns" class="btn-group btn-group" role="group" aria-label="...">'+
                             '<a href="{{url("dashboard/shipments")}}/'+data.id+'/view" class="btn btn-brand btn-sm btn-icon" data-skin="dark" data-toggle="kt-tooltip" data-placement="top" title="{{"View Shipment"|__}}"><i class="la la-eye"></i></a>';
-
-
-
-
 
                         {% if user.role_id != 5 %}
                         if(data.requested   ==  0 ){
@@ -285,7 +304,6 @@ return Redirect::back();
                         {% if user.role_id == 5 %}
                         if((data.requested   ==  0 || data.requested == 100) && (data.sender_id != {{user.id}})){
                             output += '<a href="javascript:void(0);" class="btn btn-danger btn-sm delete_record kt-font-light btn-icon" rel="'+data.id+'" data-skin="dark" data-toggle="kt-tooltip" data-placement="top" title="{{"Delete Shipment"|__}}"><i class="la la-remove"></i></a>';
-
                         }
                         {% endif %}
 
@@ -314,18 +332,36 @@ return Redirect::back();
                 type: "POST",
                 data: {id: order_id_value},
                 success: function (result){
-                    // console.log(result)
-                    result = JSON.parse(result)
-                    $('#category').val(result.title)
-                    $('#ve_name').val(result.ve_name)
+                    console.log(result)
+                    result1 = JSON.parse( result);
+
+                    var items =  result1.items;
+                    console.log(items);
+                    var rest='';
+                    $('#jqueryTable tbody').html('');
+                    $( items ).each(function( index, value ) {
+                        console.log(value.description+'a');
+                        $('#jqueryTable tbody').append(`<tr><td>${value.description}</td><td>${value.quantity}</td><td>${value.weight}</td></tr>`)
+                    })
+                    if(items.length==0){
+                        $('#jqueryTable tbody').append(`<tr ><td colspan="3">No item found</td></tr>`)
+                    }
+
+
+
+
+                    result1 =  result1.order;
+                    // console.log(result1);
+                    $('#category').val(result1.title)
+                    $('#ve_name').val(result1.ve_name)
                     // $('#ve_model').val(result.ve_model)
-                    $('#truck_type').val(result.truck_id)
-                    $('#route').html(result.receiver_addr+'('+ result.street+')')
+                    $('#truck_type').val(result1.truck_id)
+                    $('#route').html(result1.receiver_addr+'('+ result1.street+')')
 
                     // $('#customer_budget').val(result.price_kg)
                     $('#order_id_placed').val(order_id_value)
                     $('#save_bid_user_id').val(user_id)
-                    $('#customer_budget').val(result.budget_client)
+                    // $('#customer_budget').val(result1.budget_client)
                     $('#showBidModal').modal('show')
                 }
             })
@@ -446,9 +482,18 @@ return Redirect::back();
                     </lable>
                 </div>
                 <div>
-                    <lable for="customer_budget">Customer's Total Budget
-                        <input type="text" id="customer_budget" name="customer_budget" class="form-control" readonly="true">
-                    </lable>
+                    <div >
+                        <table class=" col-md-10  offset-1 table-fluid mb-5  mt-4 table-bordered px-3 text-center" id="jqueryTable">
+                            <thead>
+                            <th class="p-3">Description</th>
+                            <th  class="p-3">Weight</th>
+                            <th  class="p-3">Qty</th>
+                            </thead>
+                            <tbody></tbody>
+
+                        </table>
+
+                    </div>
                 </div>
                 <input type="hidden" id="order_id_placed" >
                 <input type="hidden" id="truck_type" name="truck_type" >
