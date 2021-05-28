@@ -1,4 +1,4 @@
-1622037713a:1:{s:20:"dashboard/client.htm";a:19:{s:8:"fileName";s:20:"dashboard/client.htm";s:7:"content";s:68701:"title = "Client View"
+1622198205a:1:{s:20:"dashboard/client.htm";a:19:{s:8:"fileName";s:20:"dashboard/client.htm";s:7:"content";s:68701:"title = "Client View"
 url = "/dashboard/clients/:id/:page"
 layout = "admin"
 is_hidden = 0
@@ -1294,7 +1294,7 @@ KTUtil.ready(function() {
 });
 </script>
 {% endput %}
-";s:5:"mtime";i:1620289248;s:6:"markup";s:66201:"<!--Begin::App-->
+";s:5:"mtime";i:1622186441;s:6:"markup";s:66201:"<!--Begin::App-->
 <div class="kt-grid kt-grid--desktop kt-grid--ver kt-grid--ver-desktop kt-app">
     <!--Begin:: App Aside Mobile Toggle-->
     <button class="kt-app__aside-close" id="kt_user_profile_aside_close">

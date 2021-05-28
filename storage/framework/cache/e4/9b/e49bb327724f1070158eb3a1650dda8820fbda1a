@@ -1,4 +1,4 @@
-1622037714a:1:{s:25:"dashboard/update-size.htm";a:20:{s:8:"fileName";s:25:"dashboard/update-size.htm";s:7:"content";s:7228:"title = "Update Car"
+1622198207a:1:{s:25:"dashboard/update-size.htm";a:20:{s:8:"fileName";s:25:"dashboard/update-size.htm";s:7:"content";s:7228:"title = "Update Car"
 url = "/dashboard/settings/size/:id/edit"
 layout = "admin"
 is_hidden = 0
@@ -165,7 +165,7 @@ function onSave()
     });
 </script>
 {% endput %}
-";s:5:"mtime";i:1620289248;s:6:"markup";s:5157:"<div class="kt-grid kt-grid--desktop kt-grid--ver-desktop  kt-inbox" id="kt_inbox">
+";s:5:"mtime";i:1622186441;s:6:"markup";s:5157:"<div class="kt-grid kt-grid--desktop kt-grid--ver-desktop  kt-inbox" id="kt_inbox">
 
     <!-- begin:: Aside -->
     {% partial 'settingsmenu' %}

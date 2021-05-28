@@ -1,4 +1,4 @@
-1622037714a:1:{s:32:"dashboard/create-transaction.htm";a:19:{s:8:"fileName";s:32:"dashboard/create-transaction.htm";s:7:"content";s:12992:"title = "Create New Transaction"
+1622198206a:1:{s:32:"dashboard/create-transaction.htm";a:19:{s:8:"fileName";s:32:"dashboard/create-transaction.htm";s:7:"content";s:12992:"title = "Create New Transaction"
 url = "/dashboard/transactions/create"
 layout = "admin"
 is_hidden = 0
@@ -257,7 +257,7 @@ KTUtil.ready(function () {
 });
 </script>
 {% endput %}
-";s:5:"mtime";i:1620289248;s:6:"markup";s:10056:"{{ form_ajax('onSave', { success: 'created successfully!', flash: true, class: 'kt_form' }) }}
+";s:5:"mtime";i:1622186441;s:6:"markup";s:10056:"{{ form_ajax('onSave', { success: 'created successfully!', flash: true, class: 'kt_form' }) }}
 <div class="row">
     <div class="col-lg-12">
         <div class="kt-portlet kt-portlet--mobile">

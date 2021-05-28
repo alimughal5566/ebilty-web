@@ -1,4 +1,4 @@
-1622037714a:1:{s:27:"dashboard/update-client.htm";a:19:{s:8:"fileName";s:27:"dashboard/update-client.htm";s:7:"content";s:58715:"title = "Update Client"
+1622198207a:1:{s:27:"dashboard/update-client.htm";a:19:{s:8:"fileName";s:27:"dashboard/update-client.htm";s:7:"content";s:58715:"title = "Update Client"
 url = "/dashboard/clients/:id/edit"
 layout = "admin"
 is_hidden = 0
@@ -909,7 +909,7 @@ function onSave()
     $('.first-child').remove();
 </script>
 {% endput %}
-";s:5:"mtime";i:1620289248;s:6:"markup";s:47157:"<div class="kt-grid kt-grid--desktop kt-grid--ver-desktop  kt-inbox" id="kt_inbox">
+";s:5:"mtime";i:1622186441;s:6:"markup";s:47157:"<div class="kt-grid kt-grid--desktop kt-grid--ver-desktop  kt-inbox" id="kt_inbox">
     <!--Begin:: Inbox List-->
     <div class="kt-grid__item kt-grid__item--fluid    kt-portlet    kt-inbox__list kt-inbox__list--shown" id="kt_inbox_list">
         <div class="kt-portlet__head">

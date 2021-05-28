@@ -1,4 +1,4 @@
-1622037714a:1:{s:10:"mybids.htm";a:22:{s:8:"fileName";s:10:"mybids.htm";s:7:"content";s:6198:"title = "My Bids"
+1622198207a:1:{s:10:"mybids.htm";a:22:{s:8:"fileName";s:10:"mybids.htm";s:7:"content";s:6198:"title = "My Bids"
 subtitle = "Bids"
 url = "/my-bids/list"
 layout = "admin"
@@ -153,7 +153,7 @@ return 1;
 
 
 
-</script>";s:5:"mtime";i:1621848598;s:6:"markup";s:4635:"<div class="row">
+</script>";s:5:"mtime";i:1622186659;s:6:"markup";s:4635:"<div class="row">
     <div class="col-lg-12">
         <div class="kt-portlet kt-portlet--mobile">
             <div class="kt-portlet__head">

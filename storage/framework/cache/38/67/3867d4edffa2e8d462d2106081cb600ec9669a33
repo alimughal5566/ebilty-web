@@ -1,4 +1,4 @@
-1622037714a:1:{s:28:"dashboard/update-vehicle.htm";a:20:{s:8:"fileName";s:28:"dashboard/update-vehicle.htm";s:7:"content";s:7566:"title = "Update Vehicle"
+1622198207a:1:{s:28:"dashboard/update-vehicle.htm";a:20:{s:8:"fileName";s:28:"dashboard/update-vehicle.htm";s:7:"content";s:7566:"title = "Update Vehicle"
 url = "/dashboard/settings/vehicle/:id/edit"
 layout = "admin"
 is_hidden = 0
@@ -177,7 +177,7 @@ return Redirect::to('dashboard/settings/'.$this->page->child_of_page);
     });
 </script>
 {% endput %}
-";s:5:"mtime";i:1620289483;s:6:"markup";s:5299:"<div class="kt-grid kt-grid--desktop kt-grid--ver-desktop  kt-inbox" id="kt_inbox">
+";s:5:"mtime";i:1622186659;s:6:"markup";s:5299:"<div class="kt-grid kt-grid--desktop kt-grid--ver-desktop  kt-inbox" id="kt_inbox">
 
     <!-- begin:: Aside -->
     {% partial 'settingsmenu' %}

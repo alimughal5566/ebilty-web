@@ -1,4 +1,4 @@
-1622037714a:1:{s:25:"dashboard/order-print.htm";a:19:{s:8:"fileName";s:25:"dashboard/order-print.htm";s:7:"content";s:58985:"title = "Shipment Print"
+1622198206a:1:{s:25:"dashboard/order-print.htm";a:19:{s:8:"fileName";s:25:"dashboard/order-print.htm";s:7:"content";s:60375:"title = "Shipment Print"
 url = "/dashboard/shipments/:id/print/:type"
 layout = "blank"
 is_hidden = 0
@@ -596,8 +596,10 @@ function onStart(){
             <div id="page-wrap">
               <div class="print-block">
                 <div class="row">
-                  <div class="col-md-12">
-                    <p>{{order.receiver.name}} </p>
+                    <!-- {{order}} -->
+                  <div class="col-md-12 capitalize_text d-flex justify-content-between">
+                    <p> {{'FROM'|__}} : {{order.sender.name}} </p>
+                    <p> {{'TO'|__}} : {{order.receiver.name}}  </p>
                   </div>
                 </div>
 
@@ -605,11 +607,11 @@ function onStart(){
 
                 <div class="print-loction">
 
-                        <table width="100%">
+                        <!-- <table width="100%">
                             <tr>
-                                <td width="10%">
-                                    <h2 style="margin-top: -70px;padding-left: 20px;font-size:80px">
-                                        {% if settings.tracking.default_tracking_id == 1 %}
+                                <td width="25%">
+                                    <h2 style="font-size:20px">
+                                        <!-- {% if settings.tracking.default_tracking_id == 1 %}
                                             {{order.sender_address.thecountry.id}}
                                         {% elseif settings.tracking.default_tracking_id == 2 %}
                                             {{order.sender_address.thestate.id}}
@@ -617,18 +619,18 @@ function onStart(){
                                             {{order.sender_address.thecity.id}}
                                         {% elseif settings.tracking.default_tracking_id == 4 %}
                                             {{order.sender_address.area.id}}
-                                        {% endif %}
-                                        <br />
-                                        <span style="font-size:14px;display:block">{{'FROM'|__}}</span>
+                                        {% endif %} -->
+                                        <!-- <br /> -->
+                                        <!-- <span style="font-size:14px;display:block">{{'FROM'|__}} : {{order.sender.name}} </span>
                                     </h2>
-                                </td>
-                                <td width="80%" style="text-align:center;" class="barcode">
+                                </td> -->
+                                <!-- <td width="80%" style="text-align:center;" class="barcode">
                                     {{ barcodeHTML({data: order.barcode, type: 'CODABAR', width: '4', height: '50'}) }}
                                     <p>{{order.barcode}}</p>
-                                </td>
-                                <td width="10%">
-                                    <h2 style="margin-top: -70px;padding-left: 20px;font-size:80px;text-align:right">
-                                        {% if order.receiver_address %}
+                                </td> -->
+                                <!-- <td width="10%">
+                                    <h2 style="padding-left: 20px;font-size:20px;text-align:right"> -->
+                                        <!-- {% if order.receiver_address %}
                                         {% if settings.tracking.default_tracking_id == 1 %}
                                             {{order.receiver_address.thecountry.id}}
                                         {% elseif settings.tracking.default_tracking_id == 2 %}
@@ -640,31 +642,51 @@ function onStart(){
                                         {% endif %}
                                         {% else %}
                                             -
-                                        {% endif %}
-                                        <br />
-                                        <span style="font-size:14px;display:block">{{'TO'|__}}</span>
+                                        {% endif %} -->
+                                        <!-- <br /> -->
+                                        <!-- <span style="font-size:14px;display:block">{{'TO'|__}} : {{order.receiver.name}} </span>
                                     </h2>
                                 </td>
                             </tr>
-                        </table>
+                        </table>  -->
 
                 </div>
                 <div>
                         <table>
                             {% if order.receiver_address %}
                             <tr>
-                                <td width="25%">{{'Address'|__}}:&nbsp;</td>
+                                <td width="35%">Total Weight:&nbsp;</td>
+                                <td>{{order.total_weight}}</td>
+                            </tr>
+                            <tr>
+                                <td width="35%">Payment Method:&nbsp;</td>
+                                <td>{{order.payment_method}}</td>
+                            </tr>
+                            <tr>
+                                <td width="35%">Sender Address:&nbsp;</td>
+                                <td>{{order.sender_address.area.name}}</td>
+                            </tr>
+                            <tr>
+                                <td width="35%">Ship Date:&nbsp;</td>
+                                <td>{{order.ship_date}}</td>
+                            </tr>
+                            <tr>
+                                <td width="35%">Create At:&nbsp;</td>
+                                <td>{{order.created_at}}</td>
+                            </tr>
+                            <tr>
+                                <td width="35%">Receiver Address:&nbsp;</td>
                                 <td>{{order.receiver_address.area.name}}{% if order.receiver_address.zipcode %}, {{'ZIP'|__}}:{{order.receiver_address.zipcode}}{% endif %}{% if order.receiver_address.thecity %}, {{order.receiver_address.thecity.name}}{% endif %}{% if order.receiver_address.thestate %}, {{order.receiver_address.thestate.name}}{% endif %}{% if order.receiver_address.thecountry %}, {{order.receiver_address.thecountry.name}}{% endif %}</td>
                             </tr>
                             <tr>
-                                <td width="25%">{{'Phone'|__}}:&nbsp;</td>
+                                <td width="35%">{{'Phone'|__}}:&nbsp;</td>
                                 <td>{{order.receiver.mobile}}</td>
                             </tr>
                             {% endif %}
-                            <tr>
-                                <td width="25%">{{'Sender'|__}}:&nbsp;</td>
+                            <!-- <tr>
+                                <td width="35%">{{'Sender'|__}}:&nbsp;</td>
                                 <td>{{order.sender.name}}</td>
-                            </tr>
+                            </tr> -->
                         </table>
                 </div>
               </div>
@@ -786,6 +808,9 @@ function onStart(){
     {% endif %}
 {% put styles %}
     <style>
+        .capitalize_text p {
+            text-transform: uppercase;
+        }
     body { background: #fff;color: black}
 
 
@@ -979,8 +1004,8 @@ function onStart(){
             }
         {% else %}
             #page-wrap {
-              width: 6in;
-              min-height: 4in;
+              width: 100%;
+              /* min-height: 4in; */
             }
             .table th, .table td {
                 border-top: 0 !important;
@@ -1251,7 +1276,7 @@ KTUtil.ready(function () {
 });
 </script>
 {% endput %}
-";s:5:"mtime";i:1620289248;s:6:"markup";s:55783:"{% if this.param.type == 'shipment' %}
+";s:5:"mtime";i:1622197604;s:6:"markup";s:57173:"{% if this.param.type == 'shipment' %}
     <div class="page-wrap" style="page-break-after: always;">
         <table width="100%">
             <tr>
@@ -1748,8 +1773,10 @@ KTUtil.ready(function () {
             <div id="page-wrap">
               <div class="print-block">
                 <div class="row">
-                  <div class="col-md-12">
-                    <p>{{order.receiver.name}} </p>
+                    <!-- {{order}} -->
+                  <div class="col-md-12 capitalize_text d-flex justify-content-between">
+                    <p> {{'FROM'|__}} : {{order.sender.name}} </p>
+                    <p> {{'TO'|__}} : {{order.receiver.name}}  </p>
                   </div>
                 </div>
 
@@ -1757,11 +1784,11 @@ KTUtil.ready(function () {
 
                 <div class="print-loction">
 
-                        <table width="100%">
+                        <!-- <table width="100%">
                             <tr>
-                                <td width="10%">
-                                    <h2 style="margin-top: -70px;padding-left: 20px;font-size:80px">
-                                        {% if settings.tracking.default_tracking_id == 1 %}
+                                <td width="25%">
+                                    <h2 style="font-size:20px">
+                                        <!-- {% if settings.tracking.default_tracking_id == 1 %}
                                             {{order.sender_address.thecountry.id}}
                                         {% elseif settings.tracking.default_tracking_id == 2 %}
                                             {{order.sender_address.thestate.id}}
@@ -1769,18 +1796,18 @@ KTUtil.ready(function () {
                                             {{order.sender_address.thecity.id}}
                                         {% elseif settings.tracking.default_tracking_id == 4 %}
                                             {{order.sender_address.area.id}}
-                                        {% endif %}
-                                        <br />
-                                        <span style="font-size:14px;display:block">{{'FROM'|__}}</span>
+                                        {% endif %} -->
+                                        <!-- <br /> -->
+                                        <!-- <span style="font-size:14px;display:block">{{'FROM'|__}} : {{order.sender.name}} </span>
                                     </h2>
-                                </td>
-                                <td width="80%" style="text-align:center;" class="barcode">
+                                </td> -->
+                                <!-- <td width="80%" style="text-align:center;" class="barcode">
                                     {{ barcodeHTML({data: order.barcode, type: 'CODABAR', width: '4', height: '50'}) }}
                                     <p>{{order.barcode}}</p>
-                                </td>
-                                <td width="10%">
-                                    <h2 style="margin-top: -70px;padding-left: 20px;font-size:80px;text-align:right">
-                                        {% if order.receiver_address %}
+                                </td> -->
+                                <!-- <td width="10%">
+                                    <h2 style="padding-left: 20px;font-size:20px;text-align:right"> -->
+                                        <!-- {% if order.receiver_address %}
                                         {% if settings.tracking.default_tracking_id == 1 %}
                                             {{order.receiver_address.thecountry.id}}
                                         {% elseif settings.tracking.default_tracking_id == 2 %}
@@ -1792,31 +1819,51 @@ KTUtil.ready(function () {
                                         {% endif %}
                                         {% else %}
                                             -
-                                        {% endif %}
-                                        <br />
-                                        <span style="font-size:14px;display:block">{{'TO'|__}}</span>
+                                        {% endif %} -->
+                                        <!-- <br /> -->
+                                        <!-- <span style="font-size:14px;display:block">{{'TO'|__}} : {{order.receiver.name}} </span>
                                     </h2>
                                 </td>
                             </tr>
-                        </table>
+                        </table>  -->
 
                 </div>
                 <div>
                         <table>
                             {% if order.receiver_address %}
                             <tr>
-                                <td width="25%">{{'Address'|__}}:&nbsp;</td>
+                                <td width="35%">Total Weight:&nbsp;</td>
+                                <td>{{order.total_weight}}</td>
+                            </tr>
+                            <tr>
+                                <td width="35%">Payment Method:&nbsp;</td>
+                                <td>{{order.payment_method}}</td>
+                            </tr>
+                            <tr>
+                                <td width="35%">Sender Address:&nbsp;</td>
+                                <td>{{order.sender_address.area.name}}</td>
+                            </tr>
+                            <tr>
+                                <td width="35%">Ship Date:&nbsp;</td>
+                                <td>{{order.ship_date}}</td>
+                            </tr>
+                            <tr>
+                                <td width="35%">Create At:&nbsp;</td>
+                                <td>{{order.created_at}}</td>
+                            </tr>
+                            <tr>
+                                <td width="35%">Receiver Address:&nbsp;</td>
                                 <td>{{order.receiver_address.area.name}}{% if order.receiver_address.zipcode %}, {{'ZIP'|__}}:{{order.receiver_address.zipcode}}{% endif %}{% if order.receiver_address.thecity %}, {{order.receiver_address.thecity.name}}{% endif %}{% if order.receiver_address.thestate %}, {{order.receiver_address.thestate.name}}{% endif %}{% if order.receiver_address.thecountry %}, {{order.receiver_address.thecountry.name}}{% endif %}</td>
                             </tr>
                             <tr>
-                                <td width="25%">{{'Phone'|__}}:&nbsp;</td>
+                                <td width="35%">{{'Phone'|__}}:&nbsp;</td>
                                 <td>{{order.receiver.mobile}}</td>
                             </tr>
                             {% endif %}
-                            <tr>
-                                <td width="25%">{{'Sender'|__}}:&nbsp;</td>
+                            <!-- <tr>
+                                <td width="35%">{{'Sender'|__}}:&nbsp;</td>
                                 <td>{{order.sender.name}}</td>
-                            </tr>
+                            </tr> -->
                         </table>
                 </div>
               </div>
@@ -1938,6 +1985,9 @@ KTUtil.ready(function () {
     {% endif %}
 {% put styles %}
     <style>
+        .capitalize_text p {
+            text-transform: uppercase;
+        }
     body { background: #fff;color: black}
 
 
@@ -2131,8 +2181,8 @@ KTUtil.ready(function () {
             }
         {% else %}
             #page-wrap {
-              width: 6in;
-              min-height: 4in;
+              width: 100%;
+              /* min-height: 4in; */
             }
             .table th, .table td {
                 border-top: 0 !important;

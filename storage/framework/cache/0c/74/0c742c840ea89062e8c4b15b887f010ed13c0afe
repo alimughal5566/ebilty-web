@@ -1,4 +1,4 @@
-1622037714a:1:{s:27:"dashboard/reports-excel.htm";a:19:{s:8:"fileName";s:27:"dashboard/reports-excel.htm";s:7:"content";s:12190:"title = "Report Print"
+1622198206a:1:{s:27:"dashboard/reports-excel.htm";a:19:{s:8:"fileName";s:27:"dashboard/reports-excel.htm";s:7:"content";s:12190:"title = "Report Print"
 url = "/dashboard/reports/:category/:type/excel"
 layout = "blank"
 is_hidden = 0
@@ -245,7 +245,7 @@ function onStart(){
 }
 ?>
 ==
-";s:5:"mtime";i:1620289248;s:6:"markup";s:0:"";s:4:"code";s:11865:"function onStart(){
+";s:5:"mtime";i:1622186441;s:6:"markup";s:0:"";s:4:"code";s:11865:"function onStart(){
     if(!Auth::getUser()->hasUserPermission(["report"],'r')) {
         \Flash::error($this['theme_lang']['not_allowed']);
     }
