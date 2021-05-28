@@ -6924,10 +6924,34 @@ Route::group(['prefix' => 'api'], function() {
           } else {
               return response()->json(['error' => 'already defined'], 405);
           }
-
-
         die(json_encode($bid));
+    });
 
+
+    Route::any('/revise/bid' , function (Request $req){
+        $request = post();
+          $bid = \Spot\Shipment\Models\Bid::where('id', $request['bid_id'])
+              ->first();
+          if ($bid) {
+              $bid->revise_amount_shipper = $request['amt'];
+              $bid->save();
+          } else {
+              return response()->json(['error' => 'no record found'], 405);
+          }
+        die(json_encode($bid));
+    });
+    Route::any('/update/revise/bid' , function (Request $req){
+        $request = post();
+          $bid = \Spot\Shipment\Models\Bid::where('id', $request['bid_id'])
+              ->first();
+          if ($bid) {
+              $bid->revise_status = $request['status'];
+              $bid->revise_comment = $request['comment'];
+              $bid->save();
+          } else {
+              return response()->json(['error' => 'no record found'], 405);
+          }
+        die(json_encode($bid));
     });
     Route::any('dashboardshipments', function(Request $req) {
         $request = post();

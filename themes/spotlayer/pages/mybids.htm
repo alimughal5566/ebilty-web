@@ -36,11 +36,10 @@ join('spot_shipment_order' , 'spot_shipment_order.id','spot_shipment_bid.order_i
 ->join('spot_shipment_office' , 'spot_shipment_order.office_id','spot_shipment_office.id')
 ->join('users' , 'users.id' , 'spot_shipment_order.sender_id')
 ->leftjoin('spot_shipment_status' , 'spot_shipment_status.id' , 'spot_shipment_order.status_id')
-->select('users.id' , 'users.name' , 'spot_shipment_bid.bid_amount' , 'spot_shipment_bid.route' , 'spot_shipment_bid.id as bidid', 'spot_shipment_bid.order_id as order_id','spot_shipment_order.delivery_date as delivery_date','spot_shipment_status.name as stat','spot_shipment_status.id as stats','spot_shipment_office.name as city','spot_shipment_office.street as street','spot_shipment_bid.status_approved as bid_status')
+->select('users.id' ,'spot_shipment_bid.revise_amount_shipper as revise_amount_shipper','spot_shipment_bid.revise_status as revise_status','users.name' , 'spot_shipment_bid.bid_amount' , 'spot_shipment_bid.route' , 'spot_shipment_bid.id as bidid', 'spot_shipment_bid.order_id as order_id','spot_shipment_order.delivery_date as delivery_date','spot_shipment_status.name as stat','spot_shipment_status.id as stats','spot_shipment_office.name as city','spot_shipment_office.street as street','spot_shipment_bid.status_approved as bid_status','spot_shipment_bid.revise_comment as revise_comment')
 ->where('spot_shipment_bid.user_id' , Auth::getUser()->id)
-
+->orderBy('last_updated','desc')
 ->get();
-
 }
 function onChangefees1(){
 $order=\Spot\Shipment\Models\Order::where('id',$_POST['id'])->first();
@@ -90,24 +89,31 @@ return 1;
                                     <td>{{bid.name}}</td>
                                     <td>{{bid.delivery_date}}</td>
                                     <td>{{bid.route}}</td>
-                                    <td>{{bid.bid_amount}}</td>
+                                    <td>{{bid.bid_amount}}
+                                        {% if  bid.revise_status ==1 %}
+                                        <small class="text-success">({{bid.revise_amount_shipper}})</small>
+                                        {% endif %}
+                                    </td>
                                     <td>{{bid.city}}</td>
                                     <td>{{bid.street}}</td>
                                     <td>{{(bid.bid_status==1)?"Approved":((bid.bid_status==0)?"Pending":"Declined")}}</td>
                                     <td>{{bid.stat}}</td>
                                     <td>
+                                        {% if  bid.revise_amount_shipper !='' %}
+                                             <a style="border-radius: 2px !important;" href="javascript:void(0);" onclick="setStatus2('{{bid.bidid}}','{{bid.bid_amount}}','{{bid.revise_amount_shipper}}','{{bid.revise_status}}','{{bid.revise_comment}}')" class="btn btn-font-danger {{(bid.revise_status==1)?'btn-success':((bid.revise_status==2)?'btn-danger':'btn-warning')}} px-2 w-auto delete_record kt-font-light btn-icon" data-skin="dark" data-toggle="kt-tooltip" data-placement="top" title="{{(bid.revise_status==1)?'Price revision accepted':((bid.revise_status==2)?'Price revision rejected':'Revision request received')}}">revision</a></td>
+                                         {% endif %}
+
                                         {% if  bid.bid_status == 1 %}
-                                        <div class="form-group col-lg-12 car_container">
-                                            <select class="form-control " id="car_id_{{bid.order_id}}" name="car_id" data-live-search="true"  onchange="setStatus('{{bid.order_id}}')">
-                                                <option ></option>
-                                                {% for car in cars %}
-                                                <option value="{{car.id}}"  {{(car.id==bid.stats)?"selected":""}}>{{car.name}}</option>
-                                                {% endfor %}
-                                            </select>
-                                        </div>
+                                            <div class="form-group col-lg-12 car_container">
+                                                <select class="form-control " id="car_id_{{bid.order_id}}" name="car_id" data-live-search="true"  onchange="setStatus('{{bid.order_id}}')">
+                                                    <option ></option>
+                                                    {% for car in cars %}
+                                                    <option value="{{car.id}}" {{(car.id==bid.stats)?"selected":""}}>{{car.name}}</option>
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
                                         {% endif %}
                                     </td>
-
 <!--                                            {% if bid.stats == 3 %}-->
 <!--                                    <td><button type="button" onclick="setStatus('{{bid.order_id}}')" class="btn btn-primary btn-xs"><i class="fa fa-check"></i></button> </td>-->
 <!--                                        {% endif %}-->
@@ -123,13 +129,91 @@ return 1;
     </div>
 </div>
 
-<script>
-    function setStatus(id) {
+<div class="modal fade" id="showModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Revision request</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
 
-        // alert(id)
+            <div class="modal-body">
+                <div class="d-none beds">
+                    <lable for="bid_price">My Bidded Amount
+                        <input type="number" id="prev" name="prev" class="form-control" min="1" placeholder="My Entered Amount" readonly >
+                    </lable>
+                </div>
+                <div>
+                    <lable for="bid_price">Amount to be revised
+                        <input type="number" id="amt" name="bid_amt" class="form-control" min="1" placeholder="Revision amount" readonly>
+                        <input type="hidden" id="bedid" name="bedid" >
+                    </lable>
+                </div>
+
+                <div>
+                    <lable for="bid_price">Comment
+                        <textarea name="cmt" id="cmt" cols="10" rows="5" class="form-control" required></textarea>
+                    </lable>
+                </div>
+
+                <h4 class="pt-2 mb-0">Revision</h4>
+                <div class="d-flex ">
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <lable for="111">Accept
+                        <input type="radio" name="stat" id="111" class="form-control btn-sm state" value="1" style="font-size: 0.1rem" >
+                    </lable> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <lable for="11">Reject
+                        <input type="radio" checked name="stat" id="11" class="form-control btn-sm state" value="2" style="font-size: 0.1rem">
+                    </lable>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary sbmet" onclick="sav()">Submit request</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+    function setStatus2(id,amount,revised_amount,revise_status,revise_comment){
+        // alert(revise_comment);
+        if(revised_amount!=''){
+            $('.beds').removeClass('d-none');
+            $('#prev').val(amount);
+            $('#amt').val(revised_amount);
+
+        }else {
+            $('.sbmet').removeClass('d-none');
+            $('.beds').addClass('d-none');
+            $('#prev').val(amount);
+            $('#amt').val('');
+        }
+        $('#bedid').val(id);
+        if(revise_status=='2'|| revise_status=='1'){
+            if(revise_status==1){
+                $("#111").prop("checked","true")
+                $("#11").removeAttr("checked")
+            }else if(revise_status==2){
+                $("#111").prop("checked","true")
+                $("#11").prop("checked","false")
+            }
+            if(revise_comment!=''){
+               $('#cmt').val(revise_comment)
+            }
+
+            $('.sbmet').addClass('d-none');
+        }else{
+            $('.sbmet').removeClass('d-none');
+        }
+        $('#showModal').modal('show')
+    }
+
+    function setStatus(id) {
         var result =confirm("Are you sure you want to update the status of shipment?" );
         if (result) {
-// alert($('#car_id').val());
             $.request('onChangefees1', {
                 method: 'post',
                 data: {id: id,status:$('#car_id_'+id).val()},
@@ -147,7 +231,39 @@ return 1;
             });
         }
 
-    };
+    }
+
+    function sav() {
+        if($('#cmt').val()==''){
+            $('#cmt').addClass('border-danger');
+            return ;
+        }
+        var status = $('.state:checked').val();
+        var cmt = $('#cmt').val();
+
+        $('#cmt').removeClass('border-danger');
+        $.ajax({
+            url: "/api/update/revise/bid",
+            type: "POST",
+            data: {'bid_id': $('#bedid').val() , 'status': status, 'comment': cmt},
+            success: function (result){
+                swal.fire(
+                    'Action Successfull',
+                    'Revision updated successfully.',
+                    'success'
+                )
+                $('#showModal').modal('hide')
+            },
+            error: function (request, status, error) {
+                // swal.fire(
+                //     'Already bidds',
+                //     'Please waits for approval.',
+                //     'warning');
+                //
+                // $('#showModal').modal('hide')
+            }
+        })
+    }
 
 
 
