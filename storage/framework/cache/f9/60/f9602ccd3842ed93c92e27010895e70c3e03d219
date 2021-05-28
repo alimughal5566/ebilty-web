@@ -1,4 +1,4 @@
-1622184564a:1:{s:7:"bid.htm";a:22:{s:8:"fileName";s:7:"bid.htm";s:7:"content";s:4027:"title = "Bids List"
+1622208127a:1:{s:7:"bid.htm";a:22:{s:8:"fileName";s:7:"bid.htm";s:7:"content";s:8858:"title = "Bids List"
 subtitle = "Bids List"
 url = "/bid/list"
 layout = "admin"
@@ -31,7 +31,7 @@ function onStart(){
 $this['bids'] = \Spot\Shipment\Models\Bid::
 join('spot_shipment_order' , 'spot_shipment_order.id','spot_shipment_bid.order_id')
 ->join('users' , 'users.id' , 'spot_shipment_bid.user_id')
-->select('users.id' , 'users.name' ,'spot_shipment_order.id as id', 'spot_shipment_bid.bid_amount' , 'spot_shipment_bid.route' , 'spot_shipment_bid.id as bidid', 'spot_shipment_bid.status_approved as status_approved')
+->select('users.id' , 'users.name' ,'spot_shipment_order.id as id', 'spot_shipment_bid.bid_amount' , 'spot_shipment_bid.route' , 'spot_shipment_bid.id as bidid', 'spot_shipment_bid.revise_amount_shipper as revise_amount_shipper', 'spot_shipment_bid.status_approved as status_approved','spot_shipment_bid.revise_status as revise_status','spot_shipment_bid.revise_comment as revise_comment')
 ->where('spot_shipment_order.sender_id' , Auth::getUser()->id)
 ->get();
 
@@ -68,11 +68,18 @@ join('spot_shipment_order' , 'spot_shipment_order.id','spot_shipment_bid.order_i
                                     <td>{{bid.id}}</td>
                                     <td>{{bid.name}}</td>
                                     <td>{{bid.route}}</td>
-                                    <td>{{bid.bid_amount}}</td>
+                                    <td>{{bid.bid_amount}}
+                                        {% if  bid.revise_status ==1 %}
+                                        <small class="text-success">({{bid.revise_amount_shipper}})</small>
+                                        {% endif %}
+                                    </td>
                                     <td>{{(bid.status_approved==1)?'Approved':((bid.status_approved==2)?'Declined':'Pending')}}</td>
                                     <td>
-                                    <a style="border-radius: 17px !important;" href="javascript:void(0);" onclick="setStatus('{{bid.bidid}}','{{bid.status_approved}}')" class="btn btn-warning btn-sm delete_record kt-font-light btn-icon" rel="'+data.id+'" data-skin="dark" data-toggle="kt-tooltip" data-placement="top" title="{{(bid.status_approved==1)?'Cancel Bid':((bid.status_approved==2)?'Cancel Bid':'Accept Bid')}}"><i class="{{(bid.status_approved==1)?'fa fa-check-double':((bid.status_approved==2)?'fa fa-times':'fa fa-pause')}}"></i></a></td>
-                              </tr>
+                                    <a style="border-radius: 17px !important;" href="javascript:void(0);" onclick="setStatus('{{bid.bidid}}','{{bid.status_approved}}')" class="btn btn-warning btn-sm delete_record kt-font-light btn-icon" rel="'+data.id+'" data-skin="dark" data-toggle="kt-tooltip" data-placement="top" title="{{(bid.status_approved==1)?'Cancel Bid':((bid.status_approved==2)?'Cancel Bid':'Accept Bid')}}"><i class="{{(bid.status_approved==1)?'fa fa-check-double':((bid.status_approved==2)?'fa fa-times':'fa fa-pause')}}"></i></a>
+
+                                    <a style="border-radius: 2px !important;" href="javascript:void(0);" onclick="setStatus2('{{bid.bidid}}','{{bid.bid_amount}}','{{bid.revise_amount_shipper}}','{{bid.revise_status}}','{{bid.revise_comment}}')" class="btn btn-font-danger {{(bid.revise_status==1)?'btn-success':((bid.revise_status==2)?'btn-danger':(bid.revise_status==3)?'btn-warning':'')}} px-2 w-auto delete_record kt-font-light btn-icon" data-skin="dark" data-toggle="kt-tooltip" data-placement="top" title="{{(bid.revise_status==1)?'Price revision accepted':((bid.revise_status==2)?'Price revision rejected':(bid.revise_status==3)?'Send price revision request':'')}}">revision</a></td>
+
+                                </tr>
                                 {% endfor %}
                                 </tbody>
                             </table>
@@ -80,10 +87,47 @@ join('spot_shipment_order' , 'spot_shipment_order.id','spot_shipment_bid.order_i
                     </div>
                 </div>
             </div>
-        </div>
+            </div>
     </div>
 </div>
 
+<div class="modal fade" id="showModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Revision request</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <div>
+                    <lable for="bid_price">Amount to be revised
+                        <input type="number" id="amt" name="bid_amt" class="form-control" min="1" placeholder="Revision amount" required>
+                        <input type="hidden" id="bedid" name="bedid" >
+                    </lable>
+                </div>
+                <div class="d-none beds">
+                    <lable for="bid_price">Service Provider Amount
+                        <input type="number" id="prev" name="prev" class="form-control" min="1" placeholder="Service Provider Amount" readonly>
+                    </lable>
+                </div>
+
+                <div class="comnt d-none">
+                    <lable for="cmt">Provider Comment
+                        <textarea name="cmt" id="cmt" cols="10" rows="5" class="form-control" required></textarea>
+                    </lable>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary sbmet" onclick="sav()">Submit request</button>
+            </div>
+        </div>
+    </div>
+</div>
 <script>
     function setStatus(id,status) {
         $.ajax({
@@ -99,11 +143,78 @@ join('spot_shipment_order' , 'spot_shipment_order.id','spot_shipment_bid.order_i
             },
             error: function (request, status, error) {
                 alert(request.responseText);
-                $('#showBidModal').modal('hide')
+                // $('#showBidModal').modal('hide')
             }
         })
     }
-</script>";s:5:"mtime";i:1621595206;s:6:"markup";s:3091:"<div class="row">
+
+    function setStatus2(id,amount,revised_amount,revise_status,revise_comment){
+
+        if(revise_status==2 || revise_status==1){
+            $('.beds').removeClass('d-none');
+            $('#prev').val(amount);
+            $('#amt').val(revised_amount);
+            $('.sbmet').addClass('d-none');
+
+
+        }else {
+
+            $('.sbmet').removeClass('d-none');
+            $('.beds').addClass('d-none');
+            $('#prev').val(amount);
+            $('#amt').val('');
+        }
+      // alert( revise_comment)
+        if(revise_status==2 || revise_status==1){
+
+            $('#cmt').val(revise_comment);
+            $('.comnt').removeClass('d-none');
+        }else{
+            $('#cmt').val('');
+            $('.comnt').addClass('d-none');
+        }
+
+        $('#bedid').val(id);
+        $('#showModal').modal('show')
+
+    }
+
+
+
+    function sav() {
+        if($('#amt').val()=='' || $('#amt').val()<1){
+            $('#amt').addClass('border-danger');
+            return ;
+        }
+        $('#amt').removeClass('border-danger');
+        $.ajax({
+            url: "/api/revise/bid",
+            type: "POST",
+            data: {'bid_id': $('#bedid').val() , 'amt': $('#amt').val()},
+            success: function (result){
+                swal.fire(
+                    'Action Successfull',
+                    'Revision sends successfully.',
+                    'success'
+                )
+                $('#showModal').modal('hide')
+            },
+            error: function (request, status, error) {
+                // swal.fire(
+                //     'Already bidds',
+                //     'Please waits for approval.',
+                //     'warning');
+                //
+                // $('#showModal').modal('hide')
+            }
+        })
+    }
+
+
+
+
+
+</script>";s:5:"mtime";i:1622207525;s:6:"markup";s:7750:"<div class="row">
     <div class="col-lg-12">
         <div class="kt-portlet kt-portlet--mobile">
             <div class="kt-portlet__head">
@@ -133,11 +244,18 @@ join('spot_shipment_order' , 'spot_shipment_order.id','spot_shipment_bid.order_i
                                     <td>{{bid.id}}</td>
                                     <td>{{bid.name}}</td>
                                     <td>{{bid.route}}</td>
-                                    <td>{{bid.bid_amount}}</td>
+                                    <td>{{bid.bid_amount}}
+                                        {% if  bid.revise_status ==1 %}
+                                        <small class="text-success">({{bid.revise_amount_shipper}})</small>
+                                        {% endif %}
+                                    </td>
                                     <td>{{(bid.status_approved==1)?'Approved':((bid.status_approved==2)?'Declined':'Pending')}}</td>
                                     <td>
-                                    <a style="border-radius: 17px !important;" href="javascript:void(0);" onclick="setStatus('{{bid.bidid}}','{{bid.status_approved}}')" class="btn btn-warning btn-sm delete_record kt-font-light btn-icon" rel="'+data.id+'" data-skin="dark" data-toggle="kt-tooltip" data-placement="top" title="{{(bid.status_approved==1)?'Cancel Bid':((bid.status_approved==2)?'Cancel Bid':'Accept Bid')}}"><i class="{{(bid.status_approved==1)?'fa fa-check-double':((bid.status_approved==2)?'fa fa-times':'fa fa-pause')}}"></i></a></td>
-                              </tr>
+                                    <a style="border-radius: 17px !important;" href="javascript:void(0);" onclick="setStatus('{{bid.bidid}}','{{bid.status_approved}}')" class="btn btn-warning btn-sm delete_record kt-font-light btn-icon" rel="'+data.id+'" data-skin="dark" data-toggle="kt-tooltip" data-placement="top" title="{{(bid.status_approved==1)?'Cancel Bid':((bid.status_approved==2)?'Cancel Bid':'Accept Bid')}}"><i class="{{(bid.status_approved==1)?'fa fa-check-double':((bid.status_approved==2)?'fa fa-times':'fa fa-pause')}}"></i></a>
+
+                                    <a style="border-radius: 2px !important;" href="javascript:void(0);" onclick="setStatus2('{{bid.bidid}}','{{bid.bid_amount}}','{{bid.revise_amount_shipper}}','{{bid.revise_status}}','{{bid.revise_comment}}')" class="btn btn-font-danger {{(bid.revise_status==1)?'btn-success':((bid.revise_status==2)?'btn-danger':(bid.revise_status==3)?'btn-warning':'')}} px-2 w-auto delete_record kt-font-light btn-icon" data-skin="dark" data-toggle="kt-tooltip" data-placement="top" title="{{(bid.revise_status==1)?'Price revision accepted':((bid.revise_status==2)?'Price revision rejected':(bid.revise_status==3)?'Send price revision request':'')}}">revision</a></td>
+
+                                </tr>
                                 {% endfor %}
                                 </tbody>
                             </table>
@@ -145,10 +263,47 @@ join('spot_shipment_order' , 'spot_shipment_order.id','spot_shipment_bid.order_i
                     </div>
                 </div>
             </div>
-        </div>
+            </div>
     </div>
 </div>
 
+<div class="modal fade" id="showModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Revision request</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <div>
+                    <lable for="bid_price">Amount to be revised
+                        <input type="number" id="amt" name="bid_amt" class="form-control" min="1" placeholder="Revision amount" required>
+                        <input type="hidden" id="bedid" name="bedid" >
+                    </lable>
+                </div>
+                <div class="d-none beds">
+                    <lable for="bid_price">Service Provider Amount
+                        <input type="number" id="prev" name="prev" class="form-control" min="1" placeholder="Service Provider Amount" readonly>
+                    </lable>
+                </div>
+
+                <div class="comnt d-none">
+                    <lable for="cmt">Provider Comment
+                        <textarea name="cmt" id="cmt" cols="10" rows="5" class="form-control" required></textarea>
+                    </lable>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary sbmet" onclick="sav()">Submit request</button>
+            </div>
+        </div>
+    </div>
+</div>
 <script>
     function setStatus(id,status) {
         $.ajax({
@@ -164,15 +319,82 @@ join('spot_shipment_order' , 'spot_shipment_order.id','spot_shipment_bid.order_i
             },
             error: function (request, status, error) {
                 alert(request.responseText);
-                $('#showBidModal').modal('hide')
+                // $('#showBidModal').modal('hide')
             }
         })
     }
-</script>";s:4:"code";s:507:"function onStart(){
+
+    function setStatus2(id,amount,revised_amount,revise_status,revise_comment){
+
+        if(revise_status==2 || revise_status==1){
+            $('.beds').removeClass('d-none');
+            $('#prev').val(amount);
+            $('#amt').val(revised_amount);
+            $('.sbmet').addClass('d-none');
+
+
+        }else {
+
+            $('.sbmet').removeClass('d-none');
+            $('.beds').addClass('d-none');
+            $('#prev').val(amount);
+            $('#amt').val('');
+        }
+      // alert( revise_comment)
+        if(revise_status==2 || revise_status==1){
+
+            $('#cmt').val(revise_comment);
+            $('.comnt').removeClass('d-none');
+        }else{
+            $('#cmt').val('');
+            $('.comnt').addClass('d-none');
+        }
+
+        $('#bedid').val(id);
+        $('#showModal').modal('show')
+
+    }
+
+
+
+    function sav() {
+        if($('#amt').val()=='' || $('#amt').val()<1){
+            $('#amt').addClass('border-danger');
+            return ;
+        }
+        $('#amt').removeClass('border-danger');
+        $.ajax({
+            url: "/api/revise/bid",
+            type: "POST",
+            data: {'bid_id': $('#bedid').val() , 'amt': $('#amt').val()},
+            success: function (result){
+                swal.fire(
+                    'Action Successfull',
+                    'Revision sends successfully.',
+                    'success'
+                )
+                $('#showModal').modal('hide')
+            },
+            error: function (request, status, error) {
+                // swal.fire(
+                //     'Already bidds',
+                //     'Please waits for approval.',
+                //     'warning');
+                //
+                // $('#showModal').modal('hide')
+            }
+        })
+    }
+
+
+
+
+
+</script>";s:4:"code";s:679:"function onStart(){
 $this['bids'] = \Spot\Shipment\Models\Bid::
 join('spot_shipment_order' , 'spot_shipment_order.id','spot_shipment_bid.order_id')
 ->join('users' , 'users.id' , 'spot_shipment_bid.user_id')
-->select('users.id' , 'users.name' ,'spot_shipment_order.id as id', 'spot_shipment_bid.bid_amount' , 'spot_shipment_bid.route' , 'spot_shipment_bid.id as bidid', 'spot_shipment_bid.status_approved as status_approved')
+->select('users.id' , 'users.name' ,'spot_shipment_order.id as id', 'spot_shipment_bid.bid_amount' , 'spot_shipment_bid.route' , 'spot_shipment_bid.id as bidid', 'spot_shipment_bid.revise_amount_shipper as revise_amount_shipper', 'spot_shipment_bid.status_approved as status_approved','spot_shipment_bid.revise_status as revise_status','spot_shipment_bid.revise_comment as revise_comment')
 ->where('spot_shipment_order.sender_id' , Auth::getUser()->id)
 ->get();
 

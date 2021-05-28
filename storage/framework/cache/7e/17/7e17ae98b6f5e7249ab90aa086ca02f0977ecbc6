@@ -1,4 +1,4 @@
-1622184564a:1:{s:26:"dashboard/order-create.htm";a:19:{s:8:"fileName";s:26:"dashboard/order-create.htm";s:7:"content";s:279505:"title = "Create New Shipment"
+1622208103a:1:{s:26:"dashboard/order-create.htm";a:19:{s:8:"fileName";s:26:"dashboard/order-create.htm";s:7:"content";s:280145:"title = "Create New Shipment"
 url = "/dashboard/shipments/create"
 layout = "admin"
 is_hidden = 0
@@ -3306,13 +3306,24 @@ function onChangefees(){
                     <div class="kt-portlet__body">
                         <div class="row">
 
-                            <div class="form-group col-lg-8">
-                                <label>{{'Budget'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
+                            <div class="form-group col-lg-6">
+                                <label>{{'package Value'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text">{{'package Value'|__}}</span></div>
                                     <input  type="number" class="form-control budget_client" name="budget_client" min="1" placeholder="package Value" >
                                 </div>
                             </div>
+
+
+
+                            <div class="form-group col-lg-6">
+                                <label>{{'invioce Upload'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text">{{'Invioce Image'|__}}</span></div>
+                                    <input  type="file" class="form-control budget_client" name="budget_client" min="1" placeholder="package Value" >
+                                </div>
+                            </div>
+
 
                             <div class="form-group col-lg-12">
                                 <label for="vehicle_category">{{'Choose your vehicle category'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
@@ -4571,7 +4582,7 @@ KTUtil.ready(function () {
 
 </script>
 {% endput %}
-";s:5:"mtime";i:1622102474;s:6:"markup";s:190551:"{{ form_ajax('onSave', { success: 'created successfully!', flash: true, class: 'kt_form' }) }}
+";s:5:"mtime";i:1622186418;s:6:"markup";s:191191:"{{ form_ajax('onSave', { success: 'created successfully!', flash: true, class: 'kt_form' }) }}
  {% if addShipmentForm == "add_form_simple" %}
  {% if user.role_id != 5 %}
  <div class="row">
@@ -6219,13 +6230,24 @@ KTUtil.ready(function () {
                     <div class="kt-portlet__body">
                         <div class="row">
 
-                            <div class="form-group col-lg-8">
-                                <label>{{'Budget'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
+                            <div class="form-group col-lg-6">
+                                <label>{{'package Value'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
                                 <div class="input-group">
                                     <div class="input-group-prepend"><span class="input-group-text">{{'package Value'|__}}</span></div>
                                     <input  type="number" class="form-control budget_client" name="budget_client" min="1" placeholder="package Value" >
                                 </div>
                             </div>
+
+
+
+                            <div class="form-group col-lg-6">
+                                <label>{{'invioce Upload'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend"><span class="input-group-text">{{'Invioce Image'|__}}</span></div>
+                                    <input  type="file" class="form-control budget_client" name="budget_client" min="1" placeholder="package Value" >
+                                </div>
+                            </div>
+
 
                             <div class="form-group col-lg-12">
                                 <label for="vehicle_category">{{'Choose your vehicle category'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
