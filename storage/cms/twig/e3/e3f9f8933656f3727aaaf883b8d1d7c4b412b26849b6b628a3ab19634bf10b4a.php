@@ -313,7 +313,7 @@ class __TwigTemplate_1c377934830bbbd2f3c5b48fceb32c498afa0cdd156d27eca75cc18c995
 
                                 <div class=\"input-group vehicle_category\" style=\"display:none\">
                                     <label for=\"vehicle_category\" class=\"sr-only\"></label>
-                                    <select name=\"vehicle_category[]\" required class=\"form-control selectpicker\" data-dropup-auto=\"false\" id=\"vehicle_category\" autocomplete=\"off\">
+                                    <select name=\"vehicle_category[]\"  class=\"form-control selectpicker\" data-dropup-auto=\"false\" id=\"vehicle_category\" autocomplete=\"off\">
                                         ";
             // line 182
             $context['_parent'] = $context;
@@ -340,7 +340,7 @@ class __TwigTemplate_1c377934830bbbd2f3c5b48fceb32c498afa0cdd156d27eca75cc18c995
                                 </div>
                                 <div class=\"input-group vehicle_type veh\" style=\"display:none\">
                                     <label for=\"vehicle_category\" class=\"sr-only\"></label>
-                                    <select  name=\"truck_used[]\"  class=\"form-control\" data-dropup-auto=\"false\" id=\"truck_used\" autocomplete=\"off\" required>
+                                    <select  name=\"truck_used[]\"  class=\"form-control\" data-dropup-auto=\"false\" id=\"truck_used\" autocomplete=\"off\" >
                                     </select>
                                 </div>
 
@@ -1311,7 +1311,7 @@ class __TwigTemplate_1c377934830bbbd2f3c5b48fceb32c498afa0cdd156d27eca75cc18c995
 
                                 <div class=\"input-group vehicle_category\" style=\"display:none\">
                                     <label for=\"vehicle_category\" class=\"sr-only\"></label>
-                                    <select name=\"vehicle_category[]\" required class=\"form-control selectpicker\" data-dropup-auto=\"false\" id=\"vehicle_category\" autocomplete=\"off\">
+                                    <select name=\"vehicle_category[]\"  class=\"form-control selectpicker\" data-dropup-auto=\"false\" id=\"vehicle_category\" autocomplete=\"off\">
                                         {% for category in categories_car %}
                                         <option value=\"{{category.id}}\">{{category.title}}</option>
                                         {% endfor %}
@@ -1324,7 +1324,7 @@ class __TwigTemplate_1c377934830bbbd2f3c5b48fceb32c498afa0cdd156d27eca75cc18c995
                                 </div>
                                 <div class=\"input-group vehicle_type veh\" style=\"display:none\">
                                     <label for=\"vehicle_category\" class=\"sr-only\"></label>
-                                    <select  name=\"truck_used[]\"  class=\"form-control\" data-dropup-auto=\"false\" id=\"truck_used\" autocomplete=\"off\" required>
+                                    <select  name=\"truck_used[]\"  class=\"form-control\" data-dropup-auto=\"false\" id=\"truck_used\" autocomplete=\"off\" >
                                     </select>
                                 </div>
 

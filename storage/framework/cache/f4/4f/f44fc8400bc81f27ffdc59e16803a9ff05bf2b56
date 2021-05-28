@@ -1,4 +1,4 @@
-1622033178a:1:{s:9:"front.htm";a:12:{s:8:"fileName";s:9:"front.htm";s:7:"content";s:70119:"description = "Front layout"
+1622183967a:1:{s:9:"front.htm";a:12:{s:8:"fileName";s:9:"front.htm";s:7:"content";s:70119:"description = "Front layout"
 
 [localePicker]
 forceUrl = 1
@@ -1066,7 +1066,7 @@ function onMyRegister()
         <!--end::Page Scripts -->
     </body>
 </html>
-";s:5:"mtime";i:1622032563;s:6:"markup";s:69503:"<!doctype html>
+";s:5:"mtime";i:1621532074;s:6:"markup";s:69503:"<!doctype html>
 <html lang="{{currentLang}}" {% if currentLang == 'ar'%}direction="rtl" dir="rtl" style="direction: rtl"{% else %}dir="ltr"{% endif %} class="no-js">
     <head>
         <base href="{{ 'assets/admin'|theme }}"><!--end::Base Path -->
