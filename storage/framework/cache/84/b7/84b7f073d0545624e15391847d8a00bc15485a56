@@ -1,0 +1,277 @@
+1622119277a:1:{s:10:"mybids.htm";a:22:{s:8:"fileName";s:10:"mybids.htm";s:7:"content";s:6198:"title = "My Bids"
+subtitle = "Bids"
+url = "/my-bids/list"
+layout = "admin"
+is_hidden = 0
+role = 0
+permission = 0
+anonymous_only = 1
+logged_only = 0
+child_of = "mey_no_parent"
+child_of = "home"
+hide_crumb = 0
+remove_crumb_trail = 0
+crumb_disabled = 0
+
+[viewBag]
+
+[account]
+paramCode = "code"
+forceSecure = 0
+
+[resetPassword]Accoun
+
+paramCode = "code"
+
+[session]
+security = "all"
+
+==
+<?php
+function onStart(){
+
+$this['cars']       = \Spot\Shipment\Models\Status::get();
+$this['bids'] = \Spot\Shipment\Models\Bid::
+join('spot_shipment_order' , 'spot_shipment_order.id','spot_shipment_bid.order_id')
+->join('spot_shipment_office' , 'spot_shipment_order.office_id','spot_shipment_office.id')
+->join('users' , 'users.id' , 'spot_shipment_order.sender_id')
+->leftjoin('spot_shipment_status' , 'spot_shipment_status.id' , 'spot_shipment_order.status_id')
+->select('users.id' , 'users.name' , 'spot_shipment_bid.bid_amount' , 'spot_shipment_bid.route' , 'spot_shipment_bid.id as bidid', 'spot_shipment_bid.order_id as order_id','spot_shipment_order.delivery_date as delivery_date','spot_shipment_status.name as stat','spot_shipment_status.id as stats','spot_shipment_office.name as city','spot_shipment_office.street as street','spot_shipment_bid.status_approved as bid_status')
+->where('spot_shipment_bid.user_id' , Auth::getUser()->id)
+
+->get();
+
+}
+function onChangefees1(){
+$order=\Spot\Shipment\Models\Order::where('id',$_POST['id'])->first();
+$order->status_id=$_POST['status'];
+$order->save();
+return 1;
+}
+
+?>
+==
+<div class="row">
+    <div class="col-lg-12">
+        <div class="kt-portlet kt-portlet--mobile">
+            <div class="kt-portlet__head">
+                <div class="kt-portlet__head-label">
+                    <h3 class="kt-portlet__head-title">
+                    </h3>
+                </div>
+            </div>
+            <div class="kt-portlet__body">
+                <div class="row">
+                    <div class="form-group col-lg-12">
+                        <div>
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>Shipment id</th>
+                                    <th>User</th>
+                                    <th>Delivery Date</th>
+                                    <th>Bid Route</th>
+                                    <th>Bid Amount</th>
+                                    <th>City</th>
+                                    <th>Address</th>
+                                    <th>Bid Status</th>
+                                    <th>Shipping Status</th>
+
+                                    <th>Action</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for bid in bids %}
+                                <tr>
+                                    <td>
+<!--                                    <a href="/en/dashboard/shipments/{{bid.order_id}}/view" > {{bid.order_id}}</a></td>-->
+                                    <a > {{bid.order_id}}</a></td>
+<!--                                    <td>{{this['settings']['tracking']['prefix_order'].bid.order_id}}</td>-->
+                                    <td>{{bid.name}}</td>
+                                    <td>{{bid.delivery_date}}</td>
+                                    <td>{{bid.route}}</td>
+                                    <td>{{bid.bid_amount}}</td>
+                                    <td>{{bid.city}}</td>
+                                    <td>{{bid.street}}</td>
+                                    <td>{{(bid.bid_status==1)?"Approved":((bid.bid_status==0)?"Pending":"Declined")}}</td>
+                                    <td>{{bid.stat}}</td>
+                                    <td>
+                                        {% if  bid.bid_status == 1 %}
+                                        <div class="form-group col-lg-12 car_container">
+                                            <select class="form-control " id="car_id_{{bid.order_id}}" name="car_id" data-live-search="true"  onchange="setStatus('{{bid.order_id}}')">
+                                                <option ></option>
+                                                {% for car in cars %}
+                                                <option value="{{car.id}}"  {{(car.id==bid.stats)?"selected":""}}>{{car.name}}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                        {% endif %}
+                                    </td>
+
+<!--                                            {% if bid.stats == 3 %}-->
+<!--                                    <td><button type="button" onclick="setStatus('{{bid.order_id}}')" class="btn btn-primary btn-xs"><i class="fa fa-check"></i></button> </td>-->
+<!--                                        {% endif %}-->
+                                </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function setStatus(id) {
+
+        // alert(id)
+        var result =confirm("Are you sure you want to update the status of shipment?" );
+        if (result) {
+// alert($('#car_id').val());
+            $.request('onChangefees1', {
+                method: 'post',
+                data: {id: id,status:$('#car_id_'+id).val()},
+                success: function (response, status, xhr, $form) {
+
+                    console.log(response);
+
+                    swal.fire({
+                        title: 'Status updated successfully',
+                        type: 'success',
+                    });
+                    setTimeout(function(){ location.reload() },1000);
+
+                }
+            });
+        }
+
+    };
+
+
+
+
+
+</script>";s:5:"mtime";i:1621945449;s:6:"markup";s:4635:"<div class="row">
+    <div class="col-lg-12">
+        <div class="kt-portlet kt-portlet--mobile">
+            <div class="kt-portlet__head">
+                <div class="kt-portlet__head-label">
+                    <h3 class="kt-portlet__head-title">
+                    </h3>
+                </div>
+            </div>
+            <div class="kt-portlet__body">
+                <div class="row">
+                    <div class="form-group col-lg-12">
+                        <div>
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>Shipment id</th>
+                                    <th>User</th>
+                                    <th>Delivery Date</th>
+                                    <th>Bid Route</th>
+                                    <th>Bid Amount</th>
+                                    <th>City</th>
+                                    <th>Address</th>
+                                    <th>Bid Status</th>
+                                    <th>Shipping Status</th>
+
+                                    <th>Action</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for bid in bids %}
+                                <tr>
+                                    <td>
+<!--                                    <a href="/en/dashboard/shipments/{{bid.order_id}}/view" > {{bid.order_id}}</a></td>-->
+                                    <a > {{bid.order_id}}</a></td>
+<!--                                    <td>{{this['settings']['tracking']['prefix_order'].bid.order_id}}</td>-->
+                                    <td>{{bid.name}}</td>
+                                    <td>{{bid.delivery_date}}</td>
+                                    <td>{{bid.route}}</td>
+                                    <td>{{bid.bid_amount}}</td>
+                                    <td>{{bid.city}}</td>
+                                    <td>{{bid.street}}</td>
+                                    <td>{{(bid.bid_status==1)?"Approved":((bid.bid_status==0)?"Pending":"Declined")}}</td>
+                                    <td>{{bid.stat}}</td>
+                                    <td>
+                                        {% if  bid.bid_status == 1 %}
+                                        <div class="form-group col-lg-12 car_container">
+                                            <select class="form-control " id="car_id_{{bid.order_id}}" name="car_id" data-live-search="true"  onchange="setStatus('{{bid.order_id}}')">
+                                                <option ></option>
+                                                {% for car in cars %}
+                                                <option value="{{car.id}}"  {{(car.id==bid.stats)?"selected":""}}>{{car.name}}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                        {% endif %}
+                                    </td>
+
+<!--                                            {% if bid.stats == 3 %}-->
+<!--                                    <td><button type="button" onclick="setStatus('{{bid.order_id}}')" class="btn btn-primary btn-xs"><i class="fa fa-check"></i></button> </td>-->
+<!--                                        {% endif %}-->
+                                </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function setStatus(id) {
+
+        // alert(id)
+        var result =confirm("Are you sure you want to update the status of shipment?" );
+        if (result) {
+// alert($('#car_id').val());
+            $.request('onChangefees1', {
+                method: 'post',
+                data: {id: id,status:$('#car_id_'+id).val()},
+                success: function (response, status, xhr, $form) {
+
+                    console.log(response);
+
+                    swal.fire({
+                        title: 'Status updated successfully',
+                        type: 'success',
+                    });
+                    setTimeout(function(){ location.reload() },1000);
+
+                }
+            });
+        }
+
+    };
+
+
+
+
+
+</script>";s:4:"code";s:1133:"function onStart(){
+
+$this['cars']       = \Spot\Shipment\Models\Status::get();
+$this['bids'] = \Spot\Shipment\Models\Bid::
+join('spot_shipment_order' , 'spot_shipment_order.id','spot_shipment_bid.order_id')
+->join('spot_shipment_office' , 'spot_shipment_order.office_id','spot_shipment_office.id')
+->join('users' , 'users.id' , 'spot_shipment_order.sender_id')
+->leftjoin('spot_shipment_status' , 'spot_shipment_status.id' , 'spot_shipment_order.status_id')
+->select('users.id' , 'users.name' , 'spot_shipment_bid.bid_amount' , 'spot_shipment_bid.route' , 'spot_shipment_bid.id as bidid', 'spot_shipment_bid.order_id as order_id','spot_shipment_order.delivery_date as delivery_date','spot_shipment_status.name as stat','spot_shipment_status.id as stats','spot_shipment_office.name as city','spot_shipment_office.street as street','spot_shipment_bid.status_approved as bid_status')
+->where('spot_shipment_bid.user_id' , Auth::getUser()->id)
+
+->get();
+
+}
+function onChangefees1(){
+$order=\Spot\Shipment\Models\Order::where('id',$_POST['id'])->first();
+$order->status_id=$_POST['status'];
+$order->save();
+return 1;
+}";s:5:"title";s:7:"My Bids";s:8:"subtitle";s:4:"Bids";s:3:"url";s:13:"/my-bids/list";s:6:"layout";s:5:"admin";s:9:"is_hidden";s:1:"0";s:4:"role";s:1:"0";s:10:"permission";s:1:"0";s:14:"anonymous_only";s:1:"1";s:11:"logged_only";s:1:"0";s:8:"child_of";s:4:"home";s:10:"hide_crumb";s:1:"0";s:18:"remove_crumb_trail";s:1:"0";s:14:"crumb_disabled";s:1:"0";s:7:"viewBag";a:0:{}s:7:"account";a:2:{s:9:"paramCode";s:4:"code";s:11:"forceSecure";s:1:"0";}s:13:"resetPassword";a:1:{s:9:"paramCode";s:4:"code";}s:7:"session";a:1:{s:8:"security";s:3:"all";}}}

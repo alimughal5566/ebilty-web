@@ -41,6 +41,7 @@ return false;
     }
 
 $data = post();
+dd($data['thumbnail']);
 $item                       = new \Spot\Shipment\Models\Vehicles;
 $item->name                 = $data['name'];
 $item->description          = $data['description'];
@@ -123,6 +124,7 @@ return Redirect::to('dashboard/settings/'.$this->page->child_of_page);
                                     <textarea class="form-control" name="description"></textarea>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -144,6 +146,12 @@ return Redirect::to('dashboard/settings/'.$this->page->child_of_page);
                     <label class="col-xl-3 col-lg-3 col-form-label">{{'Capacity'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
                     <div class="col-lg-9 col-xl-6 input-group">
                         <input type="text" class="form-control " name="capacity"  required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-xl-3 col-lg-3 col-form-label">{{'Thumbnail'|__}}&nbsp;<span class="kt-badge kt-badge--danger kt-badge--dot"></span></label>
+                    <div class="col-lg-9 col-xl-6 input-group ">
+                        <input type="file" class="form-control btn btn-warning" id="thumbnail" name="thumbnail"  required>
                     </div>
                 </div>
                 <div class="form-group row">
