@@ -5,13 +5,13 @@
         $data = post();
         $this['user']   =   Auth::getUser();
         $user_id = $this['user']->id;
-        $start              = '';
-        $end                = '';
-        if(isset($data['start']) && isset($data['end'])){
-            $start          =   \Carbon\Carbon::parse(\Carbon\Carbon::createFromFormat($this['settings']['dateformat'], $data['start']));
-            $end            =   \Carbon\Carbon::parse(\Carbon\Carbon::createFromFormat($this['settings']['dateformat'], $data['end']));
+$start              = '';
+$end                = '';
+if(isset($data['start']) && isset($data['end'])){
+$start          =   \Carbon\Carbon::parse(\Carbon\Carbon::createFromFormat($this['settings']['dateformat'], $data['start']));
+$end            =   \Carbon\Carbon::parse(\Carbon\Carbon::createFromFormat($this['settings']['dateformat'], $data['end']));
 
-            $start          = $start->copy()->startOfDay();
+$start          = $start->copy()->startOfDay();
 $end            = $end->copy()->endOfDay();
 }
 
@@ -330,7 +330,7 @@ return Redirect::back();
             $.ajax({
                 url: "/api/get/bid",
                 type: "POST",
-                data: {id: order_id_value},
+                data: {id: order_id_value,user_id: user_id},
                 success: function (result){
                     console.log(result)
                     result1 = JSON.parse( result);
@@ -347,6 +347,12 @@ return Redirect::back();
                         $('#jqueryTable tbody').append(`<tr ><td colspan="3">No item found</td></tr>`)
                     }
 
+                    $('.bidsave').removeClass('d-none');
+                    if(result1.bid){
+                        $('#bid_price').val(result1.bid.bid_amount);
+                        $('.bidsave').addClass('d-none');
+                    }
+
 
 
 
@@ -356,13 +362,17 @@ return Redirect::back();
                     $('#ve_name').val(result1.ve_name)
                     // $('#ve_model').val(result.ve_model)
                     $('#truck_type').val(result1.truck_id)
-                    $('#route').html(result1.receiver_addr+'('+ result1.street+')')
+                    if( result1.weight>0) {
+                        $('#jqueryTable tbody').append(`<tr><td></td><td>Total Weight</td><td>${result1.weight}</td></tr>`)
+                    }
 
+                    $('#route').html(result1.receiver_addr+'('+ result1.street+')')
                     // $('#customer_budget').val(result.price_kg)
                     $('#order_id_placed').val(order_id_value)
                     $('#save_bid_user_id').val(user_id)
                     // $('#customer_budget').val(result1.budget_client)
                     $('#showBidModal').modal('show')
+
                 }
             })
         })
@@ -459,7 +469,7 @@ return Redirect::back();
                 </button>
             </div>
             <div class="modal-body">
-<!--                <p>bid your truct</p>-->
+                <!--                <p>bid your truct</p>-->
                 <div class="row col-md-12">
                     <lable for="truck_type">Vehicle Category</lable>
                     <input type="text" id="category" name="category" class="form-control" readonly>
@@ -468,14 +478,14 @@ return Redirect::back();
                     <lable for="ve_name">Vehicle Name</lable>
                     <input type="text" id="ve_name" name="ve_name" class="form-control" readonly>
                 </div>
-<!--                <div class="row col-md-12">-->
-<!--                    <lable for="ve_model">Vehicle Model</lable>-->
-<!--                    <input type="text" id="ve_model" name="ve_model" class="form-control" readonly>-->
-<!--                </div>-->
-<!--                <div class="row col-md-12">-->
-<!--                    <lable for="truck_type">Truck Type</lable>-->
-<!--                    <input type="text" id="truck_type" name="truck_type" class="form-control">-->
-<!--                </div>-->
+                <!--                <div class="row col-md-12">-->
+                <!--                    <lable for="ve_model">Vehicle Model</lable>-->
+                <!--                    <input type="text" id="ve_model" name="ve_model" class="form-control" readonly>-->
+                <!--                </div>-->
+                <!--                <div class="row col-md-12">-->
+                <!--                    <lable for="truck_type">Truck Type</lable>-->
+                <!--                    <input type="text" id="truck_type" name="truck_type" class="form-control">-->
+                <!--                </div>-->
                 <div>
                     <lable for="route">Route
                         <textarea  id="route" name="route" class="form-control" readonly ></textarea>
@@ -499,9 +509,9 @@ return Redirect::back();
                 <input type="hidden" id="truck_type" name="truck_type" >
                 <input type="hidden" id="save_bid_user_id" >
                 <div>
-                       <lable for="bid_price">What Is Your Total Amount You'd Like To Bid For This Job?
-                          <input type="number" id="bid_price" name="bid_price" class="form-control" min="1" placeholder="Bidding amount" required>
-                       </lable>
+                    <lable for="bid_price">What Is Your Total Amount You'd Like To Bid For This Job?
+                        <input type="number" id="bid_price" name="bid_price" class="form-control" min="1" placeholder="Bidding amount" required>
+                    </lable>
                 </div>
             </div>
             <div class="modal-footer">

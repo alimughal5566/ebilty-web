@@ -6868,10 +6868,12 @@ Route::group(['prefix' => 'api'], function() {
             ->join('spot_categories_crud' , 'spot_categories_crud.id' , 'spot_shipment_order.vehicle_category')
             ->join('spot_vehicle_crud' , 'spot_vehicle_crud.id' , 'spot_shipment_order.truck_used')
             ->join('spot_shipment_address' , 'spot_shipment_address.id' , 'spot_shipment_order.receiver_address_id')
-            ->select('spot_vehicle_crud.name as ve_name','spot_vehicle_crud.model as ve_model','spot_categories_crud.title as title' , 'spot_shipment_address.name as receiver_addr', 'spot_shipment_address.street as street' , 'spot_shipment_order.price_kg' , 'spot_shipment_order.truck_used as truck_id','spot_shipment_order.budget_client as budget_client')->first();
+            ->select('spot_shipment_order.total_weight as weight','spot_vehicle_crud.name as ve_name','spot_vehicle_crud.model as ve_model','spot_categories_crud.title as title' , 'spot_shipment_address.name as receiver_addr', 'spot_shipment_address.street as street' , 'spot_shipment_order.price_kg' , 'spot_shipment_order.truck_used as truck_id','spot_shipment_order.budget_client as budget_client','spot_shipment_order.total_weight as total_weight')->first();
+//die(Auth::getUser()->role_id);
 
+        $bid= \Spot\Shipment\Models\Bid::where('order_id' , $request['id'])->where('user_id',$request['user_id'])->first();
         $items = \Spot\Shipment\Models\Item::where('order_id' , $request['id'])->get();
-        die(json_encode(['order'=>$order,'items'=>$items]));
+        die(json_encode(['order'=>$order,'items'=>$items,'bid'=>$bid]));
 
     });
     Route::any('set/bid/status' , function (Request $req){
