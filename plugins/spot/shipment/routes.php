@@ -6887,11 +6887,11 @@ Route::group(['prefix' => 'api'], function() {
             $stat2=0;
             \DB::table('spot_shipment_order' )
                 ->where('id' , $bid->order_id)
-                ->update(['assigned_id' =>null]);
+                ->update(['assigned_id' =>null,'status_id'=>'19']);
         }else{
             \DB::table('spot_shipment_order' )
                 ->where('id' , $bid->order_id)
-                ->update(['assigned_id' => $bid->user_id]);
+                ->update(['assigned_id' => $bid->user_id,'status_id'=>'19']);
             $stat2=2;
             $stat=1;
         }

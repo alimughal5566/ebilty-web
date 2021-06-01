@@ -60,6 +60,7 @@ join('spot_shipment_order' , 'spot_shipment_order.id','spot_shipment_bid.order_i
                                     <th>Bid Amount</th>
                                     <th>Status</th>
                                     <th></th>
+                                    <th></th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -76,7 +77,49 @@ join('spot_shipment_order' , 'spot_shipment_order.id','spot_shipment_bid.order_i
                                         {{bid.bid_amount}}
                                         {% endif %}
                                     </td>
+
                                     <td>{{(bid.status_approved==1)?'Approved':((bid.status_approved==2)?'Declined':'Pending')}}</td>
+
+                                    <td>
+                                        {% set percentage = 0 %}
+                                        {% if bid.stats==''%}
+                                        {% set percentage = percentage + 0 %}
+                                        {% endif %}
+                                        {% if bid.stats=='1'%}
+                                        {% set percentage = percentage + 10 %}
+                                        {% endif %}
+                                        {% if bid.stats=='3'%}
+                                        {% set percentage = percentage + 20 %}
+                                        {% endif %}
+                                        {% if bid.stats=='4'%}
+                                        {% set percentage = percentage + 30 %}
+                                        {% endif %}
+                                        {% if bid.stats=='6'%}
+                                        {% set percentage = percentage + 50 %}
+                                        {% endif %}
+                                        {% if bid.stats=='7'%}
+                                        {% set percentage = percentage + 70 %}
+                                        {% endif %}
+                                        {% if bid.stats=='8'%}
+                                        {% set percentage = percentage + 100 %}
+                                        {% endif %}
+
+                                        <!--                                        {{( (bid.stats=='')?percentage:'')}}-->
+                                        <div class="progress mx-auto" data-value='{{percentage}}'>
+                                          <span class="progress-left">
+                                              <span class="progress-bar {{(percentage<21)?'border-warning':((percentage<51)?'border-info':((percentage<81)?'border-danger':'border-success'))}}"></span>
+                                          </span>
+                                            <span class="progress-right">
+                                                 <span class="progress-bar {{(percentage<21)?'border-warning':((percentage<51)?'border-info':((percentage<81)?'border-danger':'border-success'))}}"></span>
+                                          </span>
+                                            <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
+                                                <div class="h2 font-weight-bold">{{percentage}}<sup class="small">%</sup></div>
+                                            </div>
+                                        </div>
+
+                                    </td>
+
+
                                     <td>
                                     <a style="border-radius: 17px !important;" href="javascript:void(0);" onclick="setStatus('{{bid.bidid}}','{{bid.status_approved}}')" class="btn btn-warning btn-sm delete_record kt-font-light btn-icon" rel="'+data.id+'" data-skin="dark" data-toggle="kt-tooltip" data-placement="top" title="{{(bid.status_approved==1)?'Cancel Bid':((bid.status_approved==2)?'Cancel Bid':'Accept Bid')}}"><i class="{{(bid.status_approved==1)?'fa fa-check-double':((bid.status_approved==2)?'fa fa-times':'fa fa-pause')}}"></i></a>
 
@@ -131,7 +174,122 @@ join('spot_shipment_order' , 'spot_shipment_order.id','spot_shipment_bid.order_i
         </div>
     </div>
 </div>
+
+<style>
+    .progress {
+        width: 150px;
+        height: 150px;
+        background: none;
+        position: relative;
+    }
+
+    .progress::after {
+        content: "";
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        border: 6px solid #eee;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .progress>span {
+        width: 50%;
+        height: 100%;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        z-index: 1;
+    }
+
+    .progress .progress-left {
+        left: 0;
+    }
+
+    .progress .progress-bar {
+        width: 100%;
+        height: 100%;
+        background: none;
+        border-width: 6px;
+        border-style: solid;
+        position: absolute;
+        top: 0;
+    }
+
+    .progress .progress-left .progress-bar {
+        left: 100%;
+        border-top-right-radius: 80px;
+        border-bottom-right-radius: 80px;
+        border-left: 0;
+        -webkit-transform-origin: center left;
+        transform-origin: center left;
+    }
+
+    .progress .progress-right {
+        right: 0;
+    }
+
+    .progress .progress-right .progress-bar {
+        left: -100%;
+        border-top-left-radius: 80px;
+        border-bottom-left-radius: 80px;
+        border-right: 0;
+        -webkit-transform-origin: center right;
+        transform-origin: center right;
+    }
+
+    .progress .progress-value {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    /*
+    *
+    * ==========================================
+    * FOR DEMO PURPOSE
+    * ==========================================
+    *
+    */
+
+
+
+    .rounded-lg {
+        border-radius: 1rem;
+    }
+
+    .text-gray {
+        color: #aaa;
+    }
+
+    div.h4 {
+        line-height: 1rem;
+    }
+
+</style>
+
+
+
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <script>
+    $(function() {
+        $(".progress").each(function() {
+            var value = $(this).attr('data-value');
+            var left = $(this).find('.progress-left .progress-bar');
+            var right = $(this).find('.progress-right .progress-bar');
+
+            if (value > 0) {
+                if (value <= 50) {
+                    right.css('transform', 'rotate(' + percentageToDegrees(value) + 'deg)')
+                } else {
+                    right.css('transform', 'rotate(180deg)')
+                    left.css('transform', 'rotate(' + percentageToDegrees(value - 50) + 'deg)')
+                }
+            }
+
+        })
+        })
     function setStatus(id,status) {
         $.ajax({
             url: "{{url('api/set/bid/status')}}",
